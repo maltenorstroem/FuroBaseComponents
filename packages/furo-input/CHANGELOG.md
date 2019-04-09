@@ -3,6 +3,150 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.20.1...@furo/input@0.21.0) (2019-04-08)
+
+
+### Features
+
+* --collection-dropdown-select-mixin; ([57fc313](https://github.com/veith/FuroBaseComponents/commit/57fc313))
+
+
+
+
+
+## [0.20.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.20.0...@furo/input@0.20.1) (2019-04-07)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+# [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.19.1...@furo/input@0.20.0) (2019-04-07)
+
+
+### Features
+
+* [@apply](https://github.com/apply) --input-base-label-float-mixin; ([45acd0f](https://github.com/veith/FuroBaseComponents/commit/45acd0f))
+* furo-button  --furo-button-danger-focus-mixin and --furo-button-danger-mixin ([aac8233](https://github.com/veith/FuroBaseComponents/commit/aac8233))
+
+
+
+
+
+## [0.19.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.19.0...@furo/input@0.19.1) (2019-04-06)
+
+
+### Bug Fixes
+
+* button ([f14453c](https://github.com/veith/FuroBaseComponents/commit/f14453c))
+
+
+
+
+
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.18.0...@furo/input@0.19.0) (2019-04-06)
+
+
+### Bug Fixes
+
+* floating labels on time and date ([50f8891](https://github.com/veith/FuroBaseComponents/commit/50f8891))
+
+
+### Features
+
+* Autofocus and disabled ([517eef0](https://github.com/veith/FuroBaseComponents/commit/517eef0))
+* furo-collection-dropdown inital value ([5abfe5e](https://github.com/veith/FuroBaseComponents/commit/5abfe5e))
+
+
+
+
+
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.17.1...@furo/input@0.18.0) (2019-04-06)
+
+
+### Features
+
+* furo-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
+
+
+
+
+
+## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.17.0...@furo/input@0.17.1) (2019-04-05)
+
+
+### Bug Fixes
+
+* button is focusable ([fbc5bf9](https://github.com/veith/FuroBaseComponents/commit/fbc5bf9))
+* checkbox-input style ([973a2d0](https://github.com/veith/FuroBaseComponents/commit/973a2d0))
+
+
+
+
+
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.16.3...@furo/input@0.17.0) (2019-04-04)
+
+
+### Bug Fixes
+
+* input-mixin ([24e8351](https://github.com/veith/FuroBaseComponents/commit/24e8351))
+
+
+### Features
+
+* checkbox-input init ([1684d39](https://github.com/veith/FuroBaseComponents/commit/1684d39))
+
+
+
+
+
+## [0.16.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.16.2...@furo/input@0.16.3) (2019-04-04)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.16.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.16.1...@furo/input@0.16.2) (2019-04-04)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.16.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.16.0...@furo/input@0.16.1) (2019-04-04)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+# [0.16.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.15.0...@furo/input@0.16.0) (2019-04-02)
+
+
+### Features
+
+* furo-input initial values from attribute ([df9519f](https://github.com/veith/FuroBaseComponents/commit/df9519f))
+
+
+
+
+
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.14.8...@furo/input@0.15.0) (2019-04-01)
+
+
+### Features
+
+* collection-filter ([71d855b](https://github.com/veith/FuroBaseComponents/commit/71d855b))
+
+
+
+
+
 ## [0.14.8](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.14.7...@furo/input@0.14.8) (2019-03-30)
 
 **Note:** Version bump only for package @furo/input

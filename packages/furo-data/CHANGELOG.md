@@ -3,6 +3,220 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.4...@furo/data@0.27.5) (2019-04-08)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.3...@furo/data@0.27.4) (2019-04-07)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.2...@furo/data@0.27.3) (2019-04-07)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.1...@furo/data@0.27.2) (2019-04-06)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.0...@furo/data@0.27.1) (2019-04-06)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.26.1...@furo/data@0.27.0) (2019-04-06)
+
+
+### Features
+
+* collection-agent list-on-hts-in ([9c9eb50](https://github.com/veith/FuroBaseComponents/commit/9c9eb50))
+* furo-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
+
+
+
+
+
+## [0.26.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.26.0...@furo/data@0.26.1) (2019-04-06)
+
+
+### Bug Fixes
+
+* entity-agent delete follows rel delete ([45b9349](https://github.com/veith/FuroBaseComponents/commit/45b9349))
+
+
+
+
+
+# [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.5...@furo/data@0.26.0) (2019-04-05)
+
+
+### Features
+
+* EntityNode accepts only documented fields ([4639aa2](https://github.com/veith/FuroBaseComponents/commit/4639aa2))
+
+
+
+
+
+## [0.25.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.4...@furo/data@0.25.5) (2019-04-05)
+
+
+### Bug Fixes
+
+* timing for --pageActivated changed ([a522661](https://github.com/veith/FuroBaseComponents/commit/a522661))
+
+
+
+
+
+## [0.25.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.3...@furo/data@0.25.4) (2019-04-04)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.25.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.2...@furo/data@0.25.3) (2019-04-04)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.25.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.1...@furo/data@0.25.2) (2019-04-04)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.25.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.0...@furo/data@0.25.1) (2019-04-04)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.24.1...@furo/data@0.25.0) (2019-04-04)
+
+
+### Features
+
+* [@event](https://github.com/event) response-hts-updated ([820a540](https://github.com/veith/FuroBaseComponents/commit/820a540))
+
+
+
+
+
+## [0.24.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.24.0...@furo/data@0.24.1) (2019-04-04)
+
+
+### Bug Fixes
+
+* mixin for label ([ffc316d](https://github.com/veith/FuroBaseComponents/commit/ffc316d))
+
+
+
+
+
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.23.0...@furo/data@0.24.0) (2019-04-03)
+
+
+### Bug Fixes
+
+* entity-object notify data changes ([c064df5](https://github.com/veith/FuroBaseComponents/commit/c064df5))
+
+
+### Features
+
+* entity-field ([71bc178](https://github.com/veith/FuroBaseComponents/commit/71bc178))
+* entity-object notify data changes ([8ab2422](https://github.com/veith/FuroBaseComponents/commit/8ab2422))
+
+
+
+
+
+# [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.22.0...@furo/data@0.23.0) (2019-04-03)
+
+
+### Features
+
+* furo-filter ([2fc6889](https://github.com/veith/FuroBaseComponents/commit/2fc6889))
+
+
+
+
+
+# [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.21.0...@furo/data@0.22.0) (2019-04-02)
+
+
+### Features
+
+* furo-input initial values from attribute ([df9519f](https://github.com/veith/FuroBaseComponents/commit/df9519f))
+
+
+
+
+
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.20.0...@furo/data@0.21.0) (2019-04-02)
+
+
+### Features
+
+* call collection-agent before hts waits for hts ([edce82f](https://github.com/veith/FuroBaseComponents/commit/edce82f))
+* collection-agent ƒ-clear-filter ([4f504f5](https://github.com/veith/FuroBaseComponents/commit/4f504f5))
+
+
+
+
+
+# [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.3...@furo/data@0.20.0) (2019-04-01)
+
+
+### Features
+
+* collection-agent accepts fields, order-by and filter ([76010f2](https://github.com/veith/FuroBaseComponents/commit/76010f2))
+* collection-filter ([71d855b](https://github.com/veith/FuroBaseComponents/commit/71d855b))
+
+
+
+
+
+## [0.19.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.2...@furo/data@0.19.3) (2019-04-01)
+
+
+### Bug Fixes
+
+* data collection ([f47f2c9](https://github.com/veith/FuroBaseComponents/commit/f47f2c9))
+* dataAsArray removed. Wrong place. ([7366454](https://github.com/veith/FuroBaseComponents/commit/7366454))
+
+
+
+
+
 ## [0.19.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.1...@furo/data@0.19.2) (2019-04-01)
 
 

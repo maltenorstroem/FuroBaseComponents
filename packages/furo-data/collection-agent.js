@@ -25,6 +25,8 @@ import {CollectionControls} from "./lib/CollectionControls.js"
  *                      ƒ-last-page=""
  *                      ƒ-first-page=""
  *                      ƒ-list="--triggerGetCollection"
+ *                      ƒ-hts-in="--hts"
+ *                      list-on-hts-in
  *                      @-hts-out="--x"
  *                    >
  * </data-collection>
@@ -43,19 +45,20 @@ class collectionAgent extends FBP(LitElement) {
     this._ApiEnvironment = window.Env.api;
 
     // HTS aus response anwenden
-    this._FBPAddWireHook("--responseParsed", (r)=>{
-      if(Array.isArray(r.links)){
-        this.htsIn(r.links);
+    this._FBPAddWireHook("--responseParsed", (r) => {
+      if(this._updateInternalHTS(r.links)){
         /**
          * @event response-hts-updated
-         * Fired when hateoas is updated from response
-         * detail payload: {Array|HATEOAS}
+         * Fired when
+         * detail payload: hts
          */
-        let customEvent = new Event('response-hts-updated', {composed:true, bubbles: false});
+        let customEvent = new Event('response-hts-updated', {composed:true, bubbles: true});
         customEvent.detail = r.links;
         this.dispatchEvent(customEvent);
       }
     });
+
+    this._singleElementQueue = []; //queue for calls, before hts is set
   }
 
   static get properties() {
@@ -66,7 +69,10 @@ class collectionAgent extends FBP(LitElement) {
       service: {type: String, attribute: true},
       pageSize: {type: Number, attribute: "page-size"},
       fields: {type: String, attribute: true},
+      orderBy: {type: String, attribute: "order-by"},
+      filter: {type: Array, attribute: true},
       view: {type: String, attribute: true},
+      listOnHtsIn: {type: Boolean, attribute: "list-on-hts-in"},
     };
   }
 
@@ -84,6 +90,78 @@ class collectionAgent extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
     }, 0);
   }
+
+
+  /**
+   * https://cloud.google.com/apis/design/design_patterns
+   */
+
+  /**
+   * Partielle Repräsentation
+   * https://cloud.google.com/apis/design/design_patterns#partial_response
+   *
+   * etwas seltsam, aber google sieht hier $fields vor. Wird aber nicht so verwendet
+   *
+   */
+  setFields(fields) {
+    this.fields = fields;
+  }
+
+  /**
+   * Sortierreihenfolge
+   * https://cloud.google.com/apis/design/design_patterns#sorting_order
+   *
+   * To avoid sql injection errors we do not send sql like syntax!
+   *
+   * order-by="foo,-bar"  means foo asc and bar desc
+   */
+  setOrderBy(order) {
+    this.orderBy = order;
+  }
+
+  /**
+   * clear filter
+   */
+  clearFilter() {
+    this._filter = undefined;
+  }
+
+  // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
+  setFilter(filterstring) {
+    if (Array.isArray(filterstring)) {
+      this.filter = filterstring
+    }
+
+  }
+
+  set filter(f) {
+    this._filter = f;
+    /**
+     * @event filter-updated
+     * Fired when filter was updated with ƒ-set-filter
+     * detail payload:
+     */
+    let customEvent = new Event('filter-changed', {composed: true, bubbles: true});
+    customEvent.detail = this;
+    this.dispatchEvent(customEvent)
+  }
+
+  // Gewünschte Seite. Tipp: Folge dem HATEOAS
+
+  // Seitengrösse  page_size
+
+  // Meta für die Anzahl der Elemente der Resource
+
+
+  /**
+   * contextbezogene Darstellung
+   *
+   * https://cloud.google.com/apis/design/design_patterns#resource_view
+   *
+   * view=smallcards
+   *
+   */
+
 
   /**
    * Setze den Service
@@ -117,8 +195,42 @@ class collectionAgent extends FBP(LitElement) {
     headers.append('Content-Type', 'application/' + link.type + '+json');
     headers.append('Content-Type', 'application/json');
 
-    //todo: order,filter,... queryparams
-    return new Request(link.href, {
+    let params = {};
+    let r = link.href.split("?")
+    let req = r[0];
+    // add existing params
+    if (r[1]) {
+      r[1].split("&").forEach((p) => {
+        let s = p.split("=");
+        params[s[0]] = s[1];
+      });
+    }
+
+    // Fields
+    if (this.fields) {
+      params.fields = this.fields.split(' ').join('');
+    }
+
+    // Sort
+    if (this.orderBy) {
+      params.order_by = this.orderBy.split(' ').join('');
+    }
+
+    // Filter
+    if (this._filter) {
+      params.filter = JSON.stringify(this._filter);
+    }
+
+    // rebuild req
+    let qp = [];
+    for (let key in params) {
+      qp.push(key + "=" + params[key]);
+    }
+    if (qp.length > 0) {
+      req = req + "?" + qp.join("&");
+    }
+
+    return new Request(req, {
       method: link.method,
       headers: headers,
       body: data
@@ -133,6 +245,11 @@ class collectionAgent extends FBP(LitElement) {
       return true;
     }
 
+    //queue if no hts is set, queue it
+    if (!this._hts) {
+      this._singleElementQueue = [[rel, serviceName]];
+      return true;
+    }
     // check Hateoas
     if (!this._hts[rel]) {
       console.warn("No HATEOAS for rel self", this._hts, this);
@@ -187,7 +304,7 @@ class collectionAgent extends FBP(LitElement) {
   }
 
 
-  htsIn(hts) {
+  _updateInternalHTS(hts) {
     if (hts && hts[0] && hts[0].rel) {
       this._hts = {};
       hts.forEach((link) => {
@@ -195,12 +312,37 @@ class collectionAgent extends FBP(LitElement) {
       });
       /**
        * @event hts-updated
-       * Fired when hateoas is updated
-       * detail payload: Hateoas links
+       * Fired when hateoas is updated from response
+       * detail payload: {Array|HATEOAS}
        */
       let customEvent = new Event('hts-updated', {composed: true, bubbles: false});
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
+      return true;
+    }
+    return false;
+  }
+
+  htsIn(hts) {
+    if (this._updateInternalHTS(hts)) {
+      /**
+       * @event hts-updated
+       * Fired when hateoas is updated
+       * detail payload: Hateoas links
+       */
+      let customEvent = new Event('hts-injected', {composed: true, bubbles: false});
+      customEvent.detail = hts;
+      this.dispatchEvent(customEvent);
+
+      if(this.listOnHtsIn){
+        this.list();
+      }
+      // there was a list,last,next call before the hts was set
+      if (this._singleElementQueue.length > 0) {
+        let q = this._singleElementQueue.pop();
+        this._followRelService(q[0], q[1]);
+      }
+
     }
   }
 

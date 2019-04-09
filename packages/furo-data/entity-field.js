@@ -19,9 +19,13 @@ class EntityField extends LitElement {
   }
 
 
+  setValue(v) {
+    this.value = v;
+  };
+
   set value(v) {
-    this._float = !!v;
     this._value = v;
+    this.field.set(v)
   };
 
   get value() {
@@ -30,7 +34,7 @@ class EntityField extends LitElement {
 
   bindData(d) {
     if (d === undefined) {
-      console.warn("Invalid binding ")
+      console.warn("Invalid binding ");
       console.log(this);
       return
     }

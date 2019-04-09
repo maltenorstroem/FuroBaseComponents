@@ -3,7 +3,6 @@ export const FuroInputBase = (superClass) => {
   return class extends superClass {
     constructor(props) {
       super(props);
-
       this._sharedStyle = `
         :host {
           display: inline-block;
@@ -35,6 +34,7 @@ export const FuroInputBase = (superClass) => {
           text-align: left;
           color: inherit;
           outline: none;
+          @apply --input-base-input-mixin; 
         }
  
         .border{
@@ -59,7 +59,7 @@ export const FuroInputBase = (superClass) => {
         }
         
         :host(:focus-within) .border{
-          border-color: var(--app-primary-color,#3f51b5);
+          border-color: var(--primary-color,#3f51b5);
           border-width: 1px;
         }
         
@@ -78,10 +78,11 @@ export const FuroInputBase = (superClass) => {
         }
 
         label[float="true"] {
-          color: #3f51b5;
+          color: var(--primary-color,#3f51b5);
           font-size: 10px;
           top: -4px;
           visibility: visible;
+          @apply --input-base-label-float-mixin;
         }
 
         * {
@@ -130,6 +131,12 @@ export const FuroInputBase = (superClass) => {
           type: Boolean
         },
         /**
+         * Setze disabled
+         */
+        disabled: {
+          type: Boolean
+        },
+        /**
          * helper für das label
          */
         _float: {
@@ -146,22 +153,34 @@ export const FuroInputBase = (superClass) => {
     }
 
     _init() {
-      this._float = false;
+      this._float = !!this._value;
       this.noTypecheck = false;
       this._label = this.label;
-
       this._FBPAddWireHook("--inputInput", (e) => {
         if (this.field) {
           this.field.set(e.value);
         }
-
         this.value = e.value;
       });
+      if(this.value != undefined){
+        this._FBPTriggerWire('--value', this._value);
+      }
     }
 
     set value(v) {
+
       this._float = !!v;
       this._value = v;
+
+
+      /**
+       * @event value-changed
+       * Fired when field value changed
+       * detail payload: value
+       */
+      let customEvent = new Event('value-changed', {composed:true, bubbles: true});
+      customEvent.detail = v;
+      this.dispatchEvent(customEvent);
     };
 
     get value() {
@@ -177,7 +196,7 @@ export const FuroInputBase = (superClass) => {
 
     bindData(d) {
       if (d === undefined) {
-        console.warn("Invalid binding ")
+        console.warn("Invalid binding ");
         console.log(this);
         return
       }
@@ -249,11 +268,7 @@ export const FuroInputBase = (superClass) => {
       this._FBPTriggerWire('--focusReceived')
     }
 
-    set autofocus(v) {
 
-      this.focus()
-
-    }
 
   }
 };

@@ -18,8 +18,12 @@ class CollectionObject extends (LitElement) {
   }
 
   injectRaw(jsonObj) {
-
     this.collection.injectRaw(jsonObj);
+  }
+
+  // make the collection Object empty
+  clear(){
+    this.collection.injectRaw({data:[]});
   }
 
   set type(type) {
@@ -47,6 +51,16 @@ class CollectionObject extends (LitElement) {
     }
 
     this.collection = new CollectionNode(null, type, this._specs);
+    this.collection.addEventListener("data-changed",(e)=>{
+      /**
+      * @event data-changed
+      * Fired when data in collection has changed
+      * detail payload: {Object|CollectionNode}
+      */
+      let customEvent = new Event('data-changed', {composed:true, bubbles: true});
+      customEvent.detail = this.collection;
+      this.dispatchEvent(customEvent)
+    });
     /**
      * @event collection-ready
      * Fired when

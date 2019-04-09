@@ -38,6 +38,7 @@ class FuroCollapsibleBox extends FBP(PolymerElement) {
           font-weight: 700;
           line-height: 24px;
           padding-left: 8px;
+          @apply --furo-collapsible-label-mixin
         }
 
         .content{
@@ -83,7 +84,7 @@ class FuroCollapsibleBox extends FBP(PolymerElement) {
         type: Boolean,
         notify: true,
         reflectToAttribute: true,
-        value: true,
+        value: false,
       },
       /**
        * //todo remember componente einbauen

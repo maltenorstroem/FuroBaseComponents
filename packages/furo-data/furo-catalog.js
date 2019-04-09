@@ -15,4 +15,6 @@ import "./entity-agent"
 import "./entity-validator"
 import "./entity-field"
 import "./append-object"
+import "./furo-filter-container"
+import "./furo-filter-field"
 

@@ -1,5 +1,4 @@
-import { LitElement, html } from 'lit-element';
-import {FBP} from "@furo/fbp";
+import {LitElement, html, css} from 'lit-element';
 
 /**
  * `furo-horizontal-flex`
@@ -22,11 +21,49 @@ import {FBP} from "@furo/fbp";
  * @demo demo/furo-horizontal-flex.html
  * @appliesMixin FBP
  */
-class FuroHorizontalFlex extends FBP(LitElement) {
+class FuroHorizontalFlex extends (LitElement) {
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return css`
+            :host {
+                width: 100%;
+                
+                --layout: {
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                };
 
-  constructor() {
-    super();
+                --layout-horizontal: {
+                    @apply --layout;
+                    -ms-flex-direction: row;
+                    -webkit-flex-direction: row;
+                    flex-direction: row;
+                };
+
+                --layout-flex: {
+                    -ms-flex: 1 1 0.000000001px;
+                    -webkit-flex: 1;
+                    flex: 1;
+                    -webkit-flex-basis: 0.000000001px;
+                    flex-basis: 0.000000001px;
+                };
+
+                --layout-horizontal-reverse: {
+                    @apply --layout;
+                    -ms-flex-direction: row-reverse;
+                    -webkit-flex-direction: row-reverse;
+                    flex-direction: row-reverse;
+                };
+
+            }`
   }
+
 
   /**
    * @private
@@ -35,56 +72,22 @@ class FuroHorizontalFlex extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <style>
-        :host {
-          display: block;
+            <style>
+                :host {
+                    @apply --layout-horizontal;
+                }
 
-          --layout: {
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-          };
-          
-          --layout-horizontal: {
-            @apply --layout;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-          };
+                :host([reverse]) {
+                    @apply --layout-horizontal-reverse;
+                }
 
-          --layout-flex: {
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-          };
-          
-          --layout-horizontal-reverse: {
-            @apply --layout;
-
-            -ms-flex-direction: row-reverse;
-            -webkit-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-          };
-
-          @apply --layout-horizontal;
-        }
-
-
-        :host([reverse]) {
-          @apply --layout-horizontal-reverse;
-        }
-
-        ::slotted(*[flex]) {
-          @apply --layout-flex;
-        }
-      </style>
-
-      <slot></slot>
-    `;
+                ::slotted(*[flex]) {
+                    @apply --layout-flex;
+                }
+            </style>
+            <slot></slot>
+        `;
   }
-
 }
 
 window.customElements.define('furo-horizontal-flex', FuroHorizontalFlex);

@@ -2,17 +2,19 @@
   "name": "@furo/input",
   "description": "Input components",
   "main": "furo-catalog.js",
-  "version": "0.14.8",
+  "version": "0.21.0",
   "dependencies": {
     "@furo/fbp": "^4.9.0",
-    "@furo/layout": "^0.17.1",
+    "@furo/layout": "^0.19.0",
     "@polymer/iron-icons": "^3.0.1",
     "@polymer/paper-ripple": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "lit-element": "^2.0.1"
   },
   "devDependencies": {
-    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@polymer/iron-component-page": "^4.0.1",
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/polymer": "^3.0.0",
     "@polymer/test-fixture": "^4.0.2",
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "chai": "^4.2.0",
