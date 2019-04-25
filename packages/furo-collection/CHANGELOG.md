@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.51](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.50...@furo/collection@0.14.51) (2019-04-25)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.14.50](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.49...@furo/collection@0.14.50) (2019-04-22)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.14.49](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.48...@furo/collection@0.14.49) (2019-04-22)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.14.48](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.47...@furo/collection@0.14.48) (2019-04-19)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.14.47](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.46...@furo/collection@0.14.47) (2019-04-19)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.14.46](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.45...@furo/collection@0.14.46) (2019-04-11)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.14.45](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.44...@furo/collection@0.14.45) (2019-04-11)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.14.44](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.43...@furo/collection@0.14.44) (2019-04-11)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [0.14.43](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.14.42...@furo/collection@0.14.43) (2019-04-08)
 
 **Note:** Version bump only for package @furo/collection

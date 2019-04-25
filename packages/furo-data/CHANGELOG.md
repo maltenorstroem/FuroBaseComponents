@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.1...@furo/data@0.28.2) (2019-04-25)
+
+
+### Bug Fixes
+
+* response error ([6269a3e](https://github.com/veith/FuroBaseComponents/commit/6269a3e))
+
+
+
+
+
+## [0.28.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.0...@furo/data@0.28.1) (2019-04-22)
+
+
+### Bug Fixes
+
+* entity-agent response-error ([36dd396](https://github.com/veith/FuroBaseComponents/commit/36dd396))
+
+
+
+
+
+# [0.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.10...@furo/data@0.28.0) (2019-04-22)
+
+
+### Features
+
+* entity-agent dispatches detailed events for load, save, create and delete ([0f42969](https://github.com/veith/FuroBaseComponents/commit/0f42969))
+
+
+
+
+
+## [0.27.10](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.9...@furo/data@0.27.10) (2019-04-19)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.9](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.8...@furo/data@0.27.9) (2019-04-19)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.8](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.7...@furo/data@0.27.8) (2019-04-11)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.7](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.6...@furo/data@0.27.7) (2019-04-11)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.27.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.5...@furo/data@0.27.6) (2019-04-11)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [0.27.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.4...@furo/data@0.27.5) (2019-04-08)
 
 **Note:** Version bump only for package @furo/data

@@ -70,6 +70,14 @@ export class EntityNode extends EventTreeNode {
     }
   }
 
+  /**
+   * Inits the EntityNode without breaking the reference
+   */
+  init(){
+    this._initFieldsFromSpec(this.fields, this._spec.fields);
+    this._pristine = true;
+    this._isValid = true;
+  }
 
   get rawEntity() {
     return this._rawEntity;
@@ -180,7 +188,7 @@ export class EntityNode extends EventTreeNode {
       if (fields[path[0]]) {
         fields[path[0]]._setInvalid(error);
       }else{
-        console.warn("Unknown field", path[0])
+        console.warn("Unknown field", path)
       }
     });
   }
