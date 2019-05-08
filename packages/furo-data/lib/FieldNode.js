@@ -16,11 +16,7 @@ export class FieldNode extends EventTreeNode {
     this._pristine = true;
     this._isValid = true;
 
-    // set default value from meta
-    if (this._meta && this._meta.default) {
-      this._value = this._meta.default;
-      this._pristine = false;
-    }
+
 
     // custom type fields aufbauen
     if (this._spec.type.startsWith("vnd.")) {
@@ -37,6 +33,12 @@ export class FieldNode extends EventTreeNode {
       }
     }
 
+    // set default value from meta
+    if (this._meta && this._meta.default) {
+
+      this.defaultvalue = this._meta.default;
+      this._pristine = false;
+    }
 
     /**
      * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
@@ -71,6 +73,20 @@ export class FieldNode extends EventTreeNode {
       }
     }
   }
+  set defaultvalue(val) {
+
+    if (this.__childNodes.length > 0) {
+      for (let index in this.__childNodes) {
+        let field = this.__childNodes[index];
+        field.defaultvalue = val[field._name];
+      }
+    } else {
+      this.oldvalue = this.value;
+      this._value = val;
+      this._pristine = true;
+
+    }
+  }
 
   get value() {
     if (this.__childNodes.length > 0) {
@@ -102,14 +118,19 @@ export class FieldNode extends EventTreeNode {
     // set field empty, if not defined
     error.field = error.field || "";
 
-    this._isValid = false;
     let path = error.field.split(".");
-    if (path.length > 1) {
+    if (path.length > 0 && path[0]!=="") {
       // rest wieder in error reinwerfen
       error.field = path.slice(1).join(".");
-      this[path[0]]._setInvalid(error);
-    } else {
+      if (this[path[0]]) {
+        this[path[0]]._setInvalid(error);
+      } else {
+        console.warn("Unknown field", path, this._name)
+      }
+    }
 
+
+   else {
       this._isValid = false;
       this._validity = error;
       this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));

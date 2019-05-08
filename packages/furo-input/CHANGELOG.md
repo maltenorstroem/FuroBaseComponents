@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.1...@furo/input@0.26.2) (2019-05-04)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.26.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.0...@furo/input@0.26.1) (2019-05-03)
+
+
+### Bug Fixes
+
+* hover and blur behaviour ([9f8aa32](https://github.com/veith/FuroBaseComponents/commit/9f8aa32))
+* hover behaviour ([689d886](https://github.com/veith/FuroBaseComponents/commit/689d886))
+
+
+
+
+
+# [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.25.0...@furo/input@0.26.0) (2019-05-03)
+
+
+### Features
+
+* keyboard controls ([7b22fc1](https://github.com/veith/FuroBaseComponents/commit/7b22fc1))
+
+
+
+
+
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.24.1...@furo/input@0.25.0) (2019-05-03)
+
+
+### Features
+
+* furo-reference-search (mouse only) initial release ([06b7398](https://github.com/veith/FuroBaseComponents/commit/06b7398))
+
+
+
+
+
+## [0.24.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.24.0...@furo/input@0.24.1) (2019-05-02)
+
+
+### Bug Fixes
+
+* attribute watcher ([5c23ecc](https://github.com/veith/FuroBaseComponents/commit/5c23ecc))
+
+
+
+
+
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.23.4...@furo/input@0.24.0) (2019-04-26)
+
+
+### Features
+
+* display error border in time-input ([f266ea3](https://github.com/veith/FuroBaseComponents/commit/f266ea3))
+
+
+
+
+
+## [0.23.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.23.3...@furo/input@0.23.4) (2019-04-25)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
 ## [0.23.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.23.2...@furo/input@0.23.3) (2019-04-25)
 
 **Note:** Version bump only for package @furo/input

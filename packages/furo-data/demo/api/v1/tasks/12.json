@@ -47,27 +47,7 @@
       "type": "vnd.com.acme.task"
     }
   ],
-  "error": {
-    "code": 401,
-    "message": "Request had invalid credentials.",
-    "status": "UNAUTHENTICATED",
-    "fields": [{
-      "code" : 5432,
-      "field" : "title.dd",
-      "message" : "First name cannot have fancy characters",
-      "developerMessage" : "Check this field, before sending. Give a hint to theuser."
-    },{
-      "code" : 5432,
-      "field" : "repdate.0.repstring.1",
-      "message" : "Bitte kein B",
-      "developerMessage" : "Check this field, before sending. Give a hint to theuser."
-    }],
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo"
-      }
-    ]
-  },
+
   "meta": {
     "fields": {
       "title": {

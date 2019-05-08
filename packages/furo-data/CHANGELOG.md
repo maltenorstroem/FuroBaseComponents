@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.2...@furo/data@0.30.3) (2019-05-04)
+
+
+### Bug Fixes
+
+* entity-agent microtiming issues fixed ([947881d](https://github.com/veith/FuroBaseComponents/commit/947881d))
+
+
+
+
+
+## [0.30.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.1...@furo/data@0.30.2) (2019-05-03)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.30.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.0...@furo/data@0.30.1) (2019-05-03)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.3...@furo/data@0.30.0) (2019-05-03)
+
+
+### Features
+
+* collection-agent accepts link object on ƒ-hts-in ([e83a0ca](https://github.com/veith/FuroBaseComponents/commit/e83a0ca))
+
+
+
+
+
+## [0.29.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.2...@furo/data@0.29.3) (2019-05-02)
+
+
+### Bug Fixes
+
+* default value deep props ([c0b4e73](https://github.com/veith/FuroBaseComponents/commit/c0b4e73))
+* field_violations array on errors can have any type ([22d2d26](https://github.com/veith/FuroBaseComponents/commit/22d2d26))
+
+
+
+
+
+## [0.29.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.1...@furo/data@0.29.2) (2019-04-26)
+
+
+### Bug Fixes
+
+* dispatch error detail body with event response-failed ([3cce53b](https://github.com/veith/FuroBaseComponents/commit/3cce53b))
+
+
+
+
+
+## [0.29.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.0...@furo/data@0.29.1) (2019-04-26)
+
+
+### Bug Fixes
+
+* set error message only if description is given ([0166d57](https://github.com/veith/FuroBaseComponents/commit/0166d57))
+
+
+
+
+
+# [0.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.3...@furo/data@0.29.0) (2019-04-26)
+
+
+### Features
+
+* error handling ([a7f50e0](https://github.com/veith/FuroBaseComponents/commit/a7f50e0))
+
+
+
+
+
+## [0.28.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.2...@furo/data@0.28.3) (2019-04-25)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [0.28.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.1...@furo/data@0.28.2) (2019-04-25)
 
 

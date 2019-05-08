@@ -1,0 +1,17 @@
+{
+    "suites": ["test/*_test.html"],
+    "verbose": true,
+    "plugins": {
+        "istanbub": {
+            "dir": "./coverage",
+            "reporters": ["text-summary", "lcov"],
+            "include": [
+                "*.js"
+            ],
+            "exclude": []
+        },
+        "local": {
+            "browsers": ["chrome"]
+        }
+    }
+}
