@@ -3,6 +3,213 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.9](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.8...@furo/input@0.29.9) (2019-06-06)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.29.8](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.7...@furo/input@0.29.8) (2019-06-05)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.29.7](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.6...@furo/input@0.29.7) (2019-06-05)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.29.6](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.5...@furo/input@0.29.6) (2019-06-04)
+
+
+### Bug Fixes
+
+* imports linted ([0d62b33](https://github.com/veith/FuroBaseComponents/commit/0d62b33))
+
+
+
+
+
+## [0.29.5](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.4...@furo/input@0.29.5) (2019-06-04)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.29.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.3...@furo/input@0.29.4) (2019-05-29)
+
+
+### Bug Fixes
+
+* furo-date label ([541c91d](https://github.com/veith/FuroBaseComponents/commit/541c91d))
+
+
+
+
+
+## [0.29.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.2...@furo/input@0.29.3) (2019-05-28)
+
+
+### Bug Fixes
+
+* idField exposed as property and used for mapping. Default value is still id ([7dfc94d](https://github.com/veith/FuroBaseComponents/commit/7dfc94d))
+
+
+
+
+
+## [0.29.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.1...@furo/input@0.29.2) (2019-05-27)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.29.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.0...@furo/input@0.29.1) (2019-05-27)
+
+
+### Bug Fixes
+
+* css border ([7e04ae5](https://github.com/veith/FuroBaseComponents/commit/7e04ae5))
+
+
+
+
+
+# [0.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.28.0...@furo/input@0.29.0) (2019-05-26)
+
+
+### Features
+
+* Dokumentation ([c10c969](https://github.com/veith/FuroBaseComponents/commit/c10c969))
+
+
+
+
+
+# [0.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.27.0...@furo/input@0.28.0) (2019-05-25)
+
+
+### Features
+
+* furo-button as lit element, with disabled, autofocus and danger ([a6a70d3](https://github.com/veith/FuroBaseComponents/commit/a6a70d3))
+
+
+
+
+
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.11...@furo/input@0.27.0) (2019-05-24)
+
+
+### Features
+
+* furo-***-input shared styles removed ([0e8587e](https://github.com/veith/FuroBaseComponents/commit/0e8587e))
+* furo-***-input themeable ([c243512](https://github.com/veith/FuroBaseComponents/commit/c243512))
+* furo-checkbox-input themeable ([82247be](https://github.com/veith/FuroBaseComponents/commit/82247be))
+* furo-text-input themeable ([476ce37](https://github.com/veith/FuroBaseComponents/commit/476ce37))
+
+
+
+
+
+## [0.26.11](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.10...@furo/input@0.26.11) (2019-05-24)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.26.10](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.9...@furo/input@0.26.10) (2019-05-23)
+
+
+### Bug Fixes
+
+* publish error ([0e10b0b](https://github.com/veith/FuroBaseComponents/commit/0e10b0b))
+
+
+
+
+
+## [0.26.9](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.8...@furo/input@0.26.9) (2019-05-23)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.26.8](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.7...@furo/input@0.26.8) (2019-05-23)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.26.7](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.6...@furo/input@0.26.7) (2019-05-21)
+
+
+### Bug Fixes
+
+* checkbox displays data correct ([7da3d8b](https://github.com/veith/FuroBaseComponents/commit/7da3d8b))
+
+
+
+
+
+## [0.26.6](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.5...@furo/input@0.26.6) (2019-05-21)
+
+
+### Bug Fixes
+
+* date-border ([4f89ec9](https://github.com/veith/FuroBaseComponents/commit/4f89ec9))
+
+
+
+
+
+## [0.26.5](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.4...@furo/input@0.26.5) (2019-05-21)
+
+
+### Bug Fixes
+
+* checkbox input delivers true/false ([306219b](https://github.com/veith/FuroBaseComponents/commit/306219b))
+
+
+
+
+
+## [0.26.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.3...@furo/input@0.26.4) (2019-05-19)
+
+
+### Bug Fixes
+
+* reference-search focused check in shadow dom ([59dd376](https://github.com/veith/FuroBaseComponents/commit/59dd376))
+
+
+
+
+
+## [0.26.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.2...@furo/input@0.26.3) (2019-05-19)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
 ## [0.26.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.1...@furo/input@0.26.2) (2019-05-04)
 
 **Note:** Version bump only for package @furo/input

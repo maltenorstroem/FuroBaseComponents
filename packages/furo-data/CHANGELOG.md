@@ -3,6 +3,144 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.4...@furo/data@0.34.5) (2019-06-06)
+
+
+### Bug Fixes
+
+* active filter should be cleared, if the filter array is empty ([365341e](https://github.com/veith/FuroBaseComponents/commit/365341e))
+
+
+
+
+
+## [0.34.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.3...@furo/data@0.34.4) (2019-06-06)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.34.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.2...@furo/data@0.34.3) (2019-06-05)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.34.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.1...@furo/data@0.34.2) (2019-06-05)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.34.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.0...@furo/data@0.34.1) (2019-06-04)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.34.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.33.2...@furo/data@0.34.0) (2019-05-26)
+
+
+### Features
+
+* Dokumentation ([c10c969](https://github.com/veith/FuroBaseComponents/commit/c10c969))
+
+
+
+
+
+## [0.33.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.33.1...@furo/data@0.33.2) (2019-05-24)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.33.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.33.0...@furo/data@0.33.1) (2019-05-23)
+
+
+### Bug Fixes
+
+* publish error ([0e10b0b](https://github.com/veith/FuroBaseComponents/commit/0e10b0b))
+
+
+
+
+
+# [0.33.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.32.3...@furo/data@0.33.0) (2019-05-23)
+
+
+### Features
+
+* framework init ([8c638b1](https://github.com/veith/FuroBaseComponents/commit/8c638b1))
+
+
+
+
+
+## [0.32.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.32.2...@furo/data@0.32.3) (2019-05-23)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.32.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.32.1...@furo/data@0.32.2) (2019-05-21)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.32.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.32.0...@furo/data@0.32.1) (2019-05-21)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.32.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.31.1...@furo/data@0.32.0) (2019-05-21)
+
+
+### Features
+
+* notifiy data-injected completed via event ([b023f72](https://github.com/veith/FuroBaseComponents/commit/b023f72))
+
+
+
+
+
+## [0.31.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.31.0...@furo/data@0.31.1) (2019-05-19)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.3...@furo/data@0.31.0) (2019-05-19)
+
+
+### Features
+
+* set and update query params on collection agent ([26376c5](https://github.com/veith/FuroBaseComponents/commit/26376c5))
+
+
+
+
+
 ## [0.30.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.2...@furo/data@0.30.3) (2019-05-04)
 
 

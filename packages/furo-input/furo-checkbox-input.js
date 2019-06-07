@@ -1,66 +1,110 @@
-import {LitElement, html} from 'lit-element';
+import {LitElement, html,css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {FuroInputBase} from "./FuroInputBase.js";
 
 /**
  * `furo-input-checkbox`
- * Simple checkbox input element which uses a native `<input type="checkbox">` tag
+ * Checkbox input element which uses a native `<input type="checkbox">` tag. Works best with furo-data components.
  *
  * Tags: input
  * @summary checkbox input element
+ * @demo demo/checkbox.html
  * @customElement
- * @polymer
  * @mixes FBP
  * @mixes FuroInputBase
  */
 class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
 
-  render() {
-    return html`
-    <style>
-    ${this._sharedStyle}
-    
-        input {
-          border: none;  
-          background: 0 0;
-          font-size: 12px;
-          margin: 0;
-          padding: 0;
-          width: unset;
-          text-align: left;
-          color: inherit;
-          outline: none;
-          @apply --input-base-input-mixin; 
-        }
-  
-        label.text {
-          position: unset;        
-          top: unset;        
-          color: unset;                 
-          pointer-events: unset;        
-          display: unset;        
-          width: unset;        
-          overflow: unset;        
-          
-          @apply --input-base-label-mixin;
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent(this.name) || css`
+        :host {
+            display: inline-block;
+            position: relative;
+            font-size: 12px;
+            box-sizing: border-box;
+            margin: 0 0 14px 0;
+            padding: 8px 0 2px 0;
+            height: 28px;
+            font-family: "Roboto", "Noto", sans-serif;
+            line-height: 1.5;
         }
 
-        label.text[float="true"] {
-          color: unset;        
-          font-size: unset;        
-          top: unset;        
-          visibility: unset;        
+        :host([error]) .border {
+            border-color: red;
+            border-width: 1px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        input {
+            border: none;
+            background: 0 0;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            width: unset;
+            text-align: left;
+            color: inherit;
+            outline: none;
         }
         
+        .border{
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top:28px;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, .12);
+        }
+
+        :host(:focus-within) .border{
+            border-color: var(--primary-color,#3f51b5);
+            border-width: 1px;
+        }
         
-        
-        
-</style>
-     
+        label {
+            position: unset;
+            top: unset;
+            color: unset;
+            pointer-events: unset;
+            display: unset;
+            width: unset;
+            overflow: unset;
+            padding-left: 12px;
+        }
+        * {
+            transition: all 150ms ease-out;
+        }
+
+        .hint{
+            position: absolute;
+            top: 30px;
+            font-size: 10px;
+            color:transparent;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        :host(:focus-within) .hint{
+            color: var(--app-hint-color);
+            transition: all 550ms ease-in;
+        }
+    `
+  }
+
+  render() {
+    return html` 
+      <input id="input"  aria-label="${this._label}" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.checked="--value" @-input="--inputCheckbox(*.path.0)"   ƒ-focus="--focusReceived">     
+      <label for="input" class="text">${this._label}</label>
       
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">     
-      <label for="input" class="text">${this.text}</label>
-      <label float="true">${this._label}</label>  
       <div class="border"></div>  
       <div class="hint">${this.hint}</div>
  

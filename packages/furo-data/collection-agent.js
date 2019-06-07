@@ -2,6 +2,7 @@ import {LitElement, html} from 'lit-element';
 import {FBP} from '@furo/fbp';
 import './api-fetch.js';
 import {CollectionControls} from "./lib/CollectionControls.js"
+import {Env} from "@furo/framework"
 
 /**
  * `data-collection`
@@ -41,8 +42,8 @@ class collectionAgent extends FBP(LitElement) {
 
   constructor() {
     super();
-    this._servicedefinitions = window.Env.services;
-    this._ApiEnvironment = window.Env.api;
+    this._servicedefinitions = Env.api.services;
+    this._ApiEnvironment = Env.api;
 
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r) => {
@@ -185,6 +186,36 @@ class collectionAgent extends FBP(LitElement) {
     this._entityTree = entityTree;
   }
 
+  /**
+   * Update query params
+   * a qp like {"active":true} will just update the qp *active*
+   *
+   * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
+   * @param {Object} key value pairs
+   */
+  updateQp(qp){
+    let qpChanged = false;
+    for(let key in qp){
+      if (qp.hasOwnProperty(key)) {
+        if(this._queryParams[key] != qp[key]){
+          qpChanged = true;
+        }
+        this._queryParams[key] = qp[key];
+      }
+    }
+
+    if(qpChanged){
+      /**
+      * @event qp-changed
+      * Fired when query params changed
+      * detail payload: qp
+      */
+      let customEvent = new Event('qp-changed', {composed:true, bubbles: true});
+      customEvent.detail = this._queryParams;
+      this.dispatchEvent(customEvent)
+    }
+
+  }
 
   _makeRequest(link, body) {
     let data;

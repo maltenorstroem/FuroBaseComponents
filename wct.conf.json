@@ -1,0 +1,27 @@
+{
+    "suites": [
+        "node_modules/@furo/fbp/test/index.html",
+        "node_modules/@furo/route/test/index.html",
+        "node_modules/@furo/data/test/index.html"
+    ],
+    "root": "./",
+    "npm": true,
+    "moduleResolution": "node",
+    "verbose": true,
+    "plugins": {
+        "istanbub": {
+
+            "reporters": ["text-summary", "lcov"],
+            "include": [
+                "node_modules/@furo/data/*.js",
+                "node_modules/@furo/fbp/*.js",
+                "node_modules/@furo/route/*.js"
+            ],
+            "exclude": ["**/furo-catalog.js"]
+        },
+        "local": {
+            "browsers": ["chrome"]
+        }
+    }
+
+}

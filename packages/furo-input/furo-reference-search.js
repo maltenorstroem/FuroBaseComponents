@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat";
 import "./furo-search-input"
@@ -7,7 +8,30 @@ import "./reference-search-item";
 
 /**
  * `furo-reference-search`
- * Describe your element
+ *  Sucht eine Referenz
+ *
+ *
+ *```
+ * <!--  entity-object will eine Referenz auflösen -->
+ * <entity-object type="vnd.com.acme.task" @-object-ready="--entityReady"></entity-object>
+ *
+ *<furo-horizontal-flex>
+ *    <!--  furo-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
+ *    Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den collection-agent.
+ *    Wenn collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->
+ *    <furo-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+ *
+ *    <furo-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+ *
+ *</furo-horizontal-flex>
+ *
+ *<!-- Der collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
+ *Die Resultate werden an furo-reference-search zurück gegeben. -->
+ *<collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
+ *
+ * ```
+ *
+ *![alt text](demo/assets/ref-search.png "Logo Title Text 1")
  *
  * @summary shortdescription
  * @customElement
@@ -28,10 +52,12 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
       case "min-term-length":
         this.minTermLength = Number(newval);
         break;
+      case "id-field":
+        this.idField = newval;
+        break;
     }
 
   }
-
 
   _init() {
     super._init();
@@ -52,7 +78,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id.set(item.id);
+      this.field.id.set(item[this.idField]);
       this.field.display_name.set(item.display_name);
       this._closeList();
     });
@@ -111,6 +137,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
     // close list on blur
     this._FBPAddWireHook("--blured", (item) => {
+      this._focused = false;
       if (!this._lockBlur) {
         this._closeList();
       }
@@ -118,6 +145,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
     // opens the list on focus
     this._FBPAddWireHook("--focused", (item) => {
+      this._focused = true;
       if (this._hasCollection) {
         this._showList();
       }
@@ -148,7 +176,8 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
       /**
        * min-term-length before fire the search event
        */
-      minTermLength: {type: Number, attribute: 'min-term-length'}
+      minTermLength: {type: Number, attribute: 'min-term-length'},
+      idField: {type: String, attribute: 'id-field'}
 
     };
   }
@@ -157,7 +186,8 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
     this._FBPTriggerWire("--listItemsIjnected", collection.data);
     this._hasCollection = true;
-    if (this.contains(document.activeElement)) {
+
+    if (this._focused) {
       this._showList();
     }
 
@@ -181,7 +211,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
             top: 32px;
             left: 0;
             right: 0;
-            overflow: scroll;
+            overflow: auto;
             max-height: 300px;
             background-color: white;
             z-index: 1;

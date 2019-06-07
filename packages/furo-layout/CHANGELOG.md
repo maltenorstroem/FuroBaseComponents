@@ -3,6 +3,135 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.6](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.5...@furo/layout@0.22.6) (2019-06-06)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.22.5](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.4...@furo/layout@0.22.5) (2019-06-05)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.22.4](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.3...@furo/layout@0.22.4) (2019-06-05)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.22.3](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.2...@furo/layout@0.22.3) (2019-06-04)
+
+
+### Bug Fixes
+
+* imports linted ([0d62b33](https://github.com/veith/FuroBaseComponents/commit/0d62b33))
+
+
+
+
+
+## [0.22.2](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.1...@furo/layout@0.22.2) (2019-06-04)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.22.1](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.0...@furo/layout@0.22.1) (2019-05-27)
+
+
+### Bug Fixes
+
+* furo-card import ([9510e23](https://github.com/veith/FuroBaseComponents/commit/9510e23))
+
+
+
+
+
+# [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.21.0...@furo/layout@0.22.0) (2019-05-27)
+
+
+### Features
+
+* furo-card ([088a081](https://github.com/veith/FuroBaseComponents/commit/088a081))
+
+
+
+
+
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.20.0...@furo/layout@0.21.0) (2019-05-26)
+
+
+### Bug Fixes
+
+* minor Layout problems ([747bd4e](https://github.com/veith/FuroBaseComponents/commit/747bd4e))
+
+
+### Features
+
+* Documentation works in Chrome, Firefox and Safari ([5235217](https://github.com/veith/FuroBaseComponents/commit/5235217))
+* Dokumentation ([c10c969](https://github.com/veith/FuroBaseComponents/commit/c10c969))
+* vertical-flex with user agent style only ([92607ca](https://github.com/veith/FuroBaseComponents/commit/92607ca))
+
+
+
+
+
+# [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.19.7...@furo/layout@0.20.0) (2019-05-24)
+
+
+### Features
+
+* theming layout components ([78f0312](https://github.com/veith/FuroBaseComponents/commit/78f0312))
+
+
+
+
+
+## [0.19.7](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.19.6...@furo/layout@0.19.7) (2019-05-24)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.19.6](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.19.5...@furo/layout@0.19.6) (2019-05-23)
+
+
+### Bug Fixes
+
+* publish error ([0e10b0b](https://github.com/veith/FuroBaseComponents/commit/0e10b0b))
+
+
+
+
+
+## [0.19.5](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.19.4...@furo/layout@0.19.5) (2019-05-23)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.19.4](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.19.3...@furo/layout@0.19.4) (2019-05-23)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
 ## [0.19.3](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.19.2...@furo/layout@0.19.3) (2019-05-03)
 
 **Note:** Version bump only for package @furo/layout

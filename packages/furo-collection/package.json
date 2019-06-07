@@ -1,26 +1,27 @@
 {
   "name": "@furo/collection",
-  "version": "0.14.60",
+  "version": "0.16.14",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
-    "@furo/config": "^0.15.3",
-    "@furo/data": "^0.30.3",
-    "@furo/fbp": "^4.13.0",
-    "@furo/form": "^0.15.23",
-    "@furo/input": "^0.26.2",
-    "@furo/layout": "^0.19.3",
-    "@furo/mixins": "^0.14.4",
-    "@furo/navigation": "^0.15.3",
-    "@furo/route": "^0.4.5"
+    "@furo/config": "^0.16.4",
+    "@furo/data": "^0.34.5",
+    "@furo/fbp": "^4.16.1",
+    "@furo/form": "^0.16.9",
+    "@furo/framework": "^0.4.2",
+    "@furo/input": "^0.29.9",
+    "@furo/layout": "^0.22.6",
+    "@furo/mixins": "^0.15.4",
+    "@furo/navigation": "^0.16.3",
+    "@furo/route": "^0.7.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "veith",
   "license": "MIT",
-  "devDependencies": {
-    "lerna": "^3.10.7"
-  },
-  "gitHead": "2f60c3091cb4c94bf79dc92c09e9314e39947e4a"
+  "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
+  "publishConfig": {
+    "access": "public"
+  }
 }

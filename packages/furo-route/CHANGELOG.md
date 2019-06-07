@@ -3,6 +3,136 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.4](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.3...@furo/route@0.7.4) (2019-06-06)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.3](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.2...@furo/route@0.7.3) (2019-06-05)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.1...@furo/route@0.7.2) (2019-06-05)
+
+
+### Bug Fixes
+
+* furo-location cuts of urlSpaceRegex part of url ([600b739](https://github.com/veith/FuroBaseComponents/commit/600b739))
+* furo-pages works with location object from furo-location ([e69b6e2](https://github.com/veith/FuroBaseComponents/commit/e69b6e2))
+
+
+
+
+
+## [0.7.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.0...@furo/route@0.7.1) (2019-06-04)
+
+
+### Bug Fixes
+
+* imports linted ([0d62b33](https://github.com/veith/FuroBaseComponents/commit/0d62b33))
+* use default on empty name ([7b0fc4f](https://github.com/veith/FuroBaseComponents/commit/7b0fc4f))
+
+
+
+
+
+# [0.7.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.6.0...@furo/route@0.7.0) (2019-06-04)
+
+
+### Features
+
+* furo-location, furo-pages interaction with furo-head-tail ([d14e706](https://github.com/veith/FuroBaseComponents/commit/d14e706))
+
+
+
+
+
+# [0.6.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.5.0...@furo/route@0.6.0) (2019-05-29)
+
+
+### Features
+
+* furo-pages activatePage(name) by name ([c8bda9a](https://github.com/veith/FuroBaseComponents/commit/c8bda9a))
+
+
+
+
+
+# [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.11...@furo/route@0.5.0) (2019-05-26)
+
+
+### Features
+
+* Dokumentation ([c10c969](https://github.com/veith/FuroBaseComponents/commit/c10c969))
+
+
+
+
+
+## [0.4.11](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.10...@furo/route@0.4.11) (2019-05-24)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.4.10](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.9...@furo/route@0.4.10) (2019-05-24)
+
+
+### Bug Fixes
+
+* _findAtagInPath ([703d2c1](https://github.com/veith/FuroBaseComponents/commit/703d2c1))
+
+
+
+
+
+## [0.4.9](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.8...@furo/route@0.4.9) (2019-05-24)
+
+
+### Bug Fixes
+
+* furo-location check for clicks in nested elements ([86a2f54](https://github.com/veith/FuroBaseComponents/commit/86a2f54))
+
+
+
+
+
+## [0.4.8](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.7...@furo/route@0.4.8) (2019-05-23)
+
+
+### Bug Fixes
+
+* publish error ([0e10b0b](https://github.com/veith/FuroBaseComponents/commit/0e10b0b))
+
+
+
+
+
+## [0.4.7](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.6...@furo/route@0.4.7) (2019-05-23)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.4.6](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.5...@furo/route@0.4.6) (2019-05-23)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
 ## [0.4.5](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.4...@furo/route@0.4.5) (2019-05-03)
 
 **Note:** Version bump only for package @furo/route

@@ -1,4 +1,5 @@
 import {LitElement, html} from 'lit-element';
+import {Env} from "@furo/framework"
 
 /**
  * Converts hateoas to queryParams
@@ -20,7 +21,7 @@ class ReverseDeepLink extends (LitElement) {
   constructor() {
     super();
     this.service = "";
-    this._services = window.Env.services;
+    this._services = Env.api.services;
   }
 
   /**
@@ -49,7 +50,7 @@ class ReverseDeepLink extends (LitElement) {
         // is collection
         // default rel if not set
         if (!this.rel) {
-          this.rel = "List"
+          this.rel = "list"
         }
       } else {
         // is entity
@@ -59,7 +60,7 @@ class ReverseDeepLink extends (LitElement) {
       }
 
       linkObject = data.links.filter((e) => {
-        return e.rel === this.rel;
+        return e.rel.toLowerCase() === this.rel.toLowerCase();
       })[0]
     }
 

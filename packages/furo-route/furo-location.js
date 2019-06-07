@@ -61,9 +61,9 @@ class FuroLocation extends HTMLElement {
     this._lastChangedAt = window.performance.now() - (this.dwellTime - 200);
 
     // initial notyfier
-        setTimeout(() => {
-    this._locationChangeNotyfier({"detail": this._lastChangedAt});
-        }, 0)
+    setTimeout(() => {
+      this._locationChangeNotyfier({"detail": this._lastChangedAt});
+    }, 0)
 
 
   }
@@ -106,7 +106,8 @@ class FuroLocation extends HTMLElement {
       }
 
       // path-changed
-      let newPath = window.decodeURIComponent(window.location.pathname);
+      // cut of urlSpaceRegex
+      let newPath = window.decodeURIComponent(window.location.pathname).replace(new RegExp(this.urlSpaceRegex),"");;
       if (this._location.path !== newPath) {
         this._location.path = newPath;
 
@@ -117,6 +118,7 @@ class FuroLocation extends HTMLElement {
         while ((m = rgx.exec(newPath)) !== null) {
           this._location.pathSegments.push(m[1]);
         }
+
 
 
         /**
@@ -180,6 +182,7 @@ class FuroLocation extends HTMLElement {
       let customEvent = new Event('location-changed', {composed: true, bubbles: false});
       customEvent.detail = this._location;
       this.dispatchEvent(customEvent);
+
     };
 
     /**
@@ -189,7 +192,7 @@ class FuroLocation extends HTMLElement {
      */
     this._clickHandler = (e) => {
 
-      let target = e.path[0];
+      let target = this._findAtagInPath(e.path) || e.path[0];
 
       // only handle clicks on <a href="..
       if (target.tagName !== "A") {
@@ -231,6 +234,24 @@ class FuroLocation extends HTMLElement {
     }
   }
 
+  /**
+   * look for A tags in a path array from click events
+   * @private
+   * @param path
+   * @return {boolean|*}
+   */
+  _findAtagInPath(path) {
+
+    // if we reach body, we are to deep
+    if (path[0].tagName === "BODY") {
+      return false;
+    }
+    if (path[0].tagName === "A") {
+      return path[0];
+    }
+    const [head, ...tail] = path;
+    return this._findAtagInPath(tail);
+  }
 
   /**
    * Internal notyfication

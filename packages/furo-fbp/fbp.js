@@ -100,6 +100,65 @@ const FBPMixin = (superClass) => {
 
         }
 
+        /**
+         * Log all triggered wires for this component. This function may help you at debugging.
+         * Select your element in the dev console and call `$0._FBPTraceWires()`
+         * @private
+         */
+        _FBPTraceWires() {
+            let self = this;
+            for (let wire in this.__wirebundle) {
+                this._FBPAddWireHook(wire, (e) => {
+                    console.group("Trace for", this.nodeName + ": " + wire);
+                    console.table([{"host": self, "wire": wire, "data": e}]);
+
+                    console.groupCollapsed("Data");
+                    console.log(e);
+                    console.groupEnd();
+
+                    console.groupCollapsed("Call Stack");
+                    console.log(new Error().stack);
+                    console.groupEnd();
+                    console.groupEnd();
+                }, true)
+            }
+
+        }
+
+        /**
+         * Get information for the triggered wire. This function may help you at debugging.
+         * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
+         *
+         * @param wire
+         * @param openDebugger opens the debugger console, so you can inspect your component.
+         * @private
+         */
+        _FBPDebug(wire, openDebugger) {
+            let self = this;
+            this._FBPAddWireHook(wire, (e) => {
+                if (openDebugger) {
+                    debugger
+                } else {
+                    console.group("Debug", this.nodeName + ": " + wire);
+                    console.group("Target Elements");
+                    console.table(self.__wirebundle[wire]);
+                    console.groupEnd();
+
+                    console.groupCollapsed("Data");
+                    console.log(e);
+                    console.groupEnd();
+
+
+                    console.groupCollapsed("Call Stack");
+                    console.log(new Error().stack);
+                    console.groupEnd();
+
+                    console.groupEnd();
+
+                }
+            }, true)
+        }
+
         __toCamelCase(str) {
             return str.replace(/-([a-z])/g, function (g) {
                 return g[1].toUpperCase();
@@ -139,8 +198,8 @@ const FBPMixin = (superClass) => {
                         // Persist contents
                         let tpl = document.createElement("template");
                         tpl._templateInfo = original._templateInfo;
-                        if(tpl._templateInfo === undefined){
-                            tpl._templateInfo = {content : original.content};
+                        if (tpl._templateInfo === undefined) {
+                            tpl._templateInfo = {content: original.content};
                         }
 
                         replacement.appendChild(tpl);
@@ -155,7 +214,7 @@ const FBPMixin = (superClass) => {
 
                     // collect data receiver
                     if (element.attributes[i].name.startsWith('ƒ-.') || element.attributes[i].name.startsWith('ƒ-$')) {
-                        if(element.attributes[i].name[2] === "$"){
+                        if (element.attributes[i].name[2] === "$") {
                             console.warn("ƒ-$ is deprecated, use ƒ-. to set properties instead", this);
                         }
                         // split multiple wires
@@ -384,7 +443,8 @@ const FBPMixin = (superClass) => {
 
             // queueing for _FBPTriggerWire
             if (!this.__fbp_ready) {
-                this.__fbp_ready = true;
+                this.__fbpReady();
+
                 let l = this.__wireQueue.length;
                 for (let i = 0; i < l; i++) {
                     let t = this.__wireQueue.shift();
@@ -394,6 +454,14 @@ const FBPMixin = (superClass) => {
 
         }
 
+        /**
+         * Livecycle method
+         * This method is called, when the wires are ready
+         * @private
+         */
+        __fbpReady(){
+            this.__fbp_ready = true;
+        }
         __enqueueTrigger(wire, detailData) {
             this.__wireQueue.push({"w": wire, "d": detailData});
         }
@@ -409,7 +477,7 @@ const FBPMixin = (superClass) => {
         }
 
         disconnectedCallback() {
-            if(super.disconnectedCallback){
+            if (super.disconnectedCallback) {
                 super.disconnectedCallback();
             }
 
