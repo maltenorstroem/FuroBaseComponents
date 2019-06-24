@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.12](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.11...@furo/route@0.7.12) (2019-06-21)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.11](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.10...@furo/route@0.7.11) (2019-06-21)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.10](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.9...@furo/route@0.7.10) (2019-06-13)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.9](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.8...@furo/route@0.7.9) (2019-06-12)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.8](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.7...@furo/route@0.7.8) (2019-06-11)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.7](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.6...@furo/route@0.7.7) (2019-06-10)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.7.6](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.5...@furo/route@0.7.6) (2019-06-07)
+
+
+### Bug Fixes
+
+* trigger initial page-activated only if no page was activated before ([65029ef](https://github.com/veith/FuroBaseComponents/commit/65029ef))
+* trigger page-activated on init with 1ms timeout ([3a2bc83](https://github.com/veith/FuroBaseComponents/commit/3a2bc83))
+
+
+
+
+
+## [0.7.5](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.4...@furo/route@0.7.5) (2019-06-07)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
 ## [0.7.4](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.3...@furo/route@0.7.4) (2019-06-06)
 
 **Note:** Version bump only for package @furo/route

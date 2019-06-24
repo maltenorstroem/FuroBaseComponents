@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.11](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.10...@furo/config@0.16.11) (2019-06-21)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.16.10](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.9...@furo/config@0.16.10) (2019-06-21)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.16.9](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.8...@furo/config@0.16.9) (2019-06-13)
+
+
+### Bug Fixes
+
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/veith/FuroBaseComponents/commit/56b9f27))
+
+
+
+
+
+## [0.16.8](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.7...@furo/config@0.16.8) (2019-06-12)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.16.7](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.6...@furo/config@0.16.7) (2019-06-11)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.16.6](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.5...@furo/config@0.16.6) (2019-06-10)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.16.5](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.4...@furo/config@0.16.5) (2019-06-07)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
 ## [0.16.4](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.3...@furo/config@0.16.4) (2019-06-06)
 
 **Note:** Version bump only for package @furo/config

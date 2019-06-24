@@ -54,6 +54,7 @@ export class EntityNode extends EventTreeNode {
     if (rawEntity.meta) {
       meta = rawEntity.meta.fields;
     }
+
     this._updateFieldValuesAndMetaFromRawEntity(this.fields, rawEntity.data, meta);
     this._pristine = true;
     this._isValid = true;
@@ -114,6 +115,7 @@ export class EntityNode extends EventTreeNode {
 
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
+
       if (!fieldNode) {
         console.warn("unspecified field", fieldName)
       } else {
@@ -137,7 +139,8 @@ export class EntityNode extends EventTreeNode {
 
           });
           fieldNode._pristine = true;
-          fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode.repeats, false))
+
+          fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode.repeats, true))
 
         } else {
           if (fieldNode) {

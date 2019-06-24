@@ -49,16 +49,16 @@ export class RepeaterNode extends EventTreeNode {
   removeAllChildren() {
     this.__childNodes = [];
     this.repeats = [];
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, false))
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed", this.repeats, false))
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, false));
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed", this.repeats, false));
   }
 
 
   set value(val) {
+
     val.forEach((repdata, i) => {
       if (!this.repeats[i]) {
         this._addSilent();
-
       }
       // Werte aktualisieren
       this.repeats[i].value = repdata;
@@ -76,18 +76,23 @@ export class RepeaterNode extends EventTreeNode {
 
   deleteChild(index){
     this.repeats.splice(index,1);
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, false))
-    this.dispatchNodeEvent(new NodeEvent("repeated-field-removed", this.repeats, false))
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
+    this.dispatchNodeEvent(new NodeEvent("repeated-field-removed", this.repeats, false));
   }
 
   _addSilent() {
     let fieldNode = new FieldNode(this, this._spec, this._name);
     let index = this.repeats.push(fieldNode) - 1;
 
+    fieldNode.__index = index;
+
     // add function to remove field from list
     fieldNode.deleteFromList = () => {
       this.deleteChild(this.repeats.indexOf(fieldNode));
     };
+
+
+
 
     return index;
   };
@@ -104,11 +109,19 @@ export class RepeaterNode extends EventTreeNode {
   }
 
 
-  add() {
+  add(data) {
     let index = this._addSilent();
     this._pristine = false;
-    this.dispatchNodeEvent(new NodeEvent("repeated-field-added", this.repeats[index], false))
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, false))
+    // set data if given
+    if(data){
+      let child = this.repeats[index];
+      child.value = data;
+    }
+    this.dispatchNodeEvent(new NodeEvent("repeated-field-added", this.repeats[index], false));
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
+
+    // return field for chainabilty
+    return this.repeats[index];
   };
 
 

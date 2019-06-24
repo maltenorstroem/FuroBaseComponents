@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.33.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.33.1...@furo/input@0.33.2) (2019-06-23)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.33.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.33.0...@furo/input@0.33.1) (2019-06-21)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+# [0.33.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.32.0...@furo/input@0.33.0) (2019-06-21)
+
+
+### Features
+
+* furo-tree ([56445af](https://github.com/veith/FuroBaseComponents/commit/56445af))
+
+
+
+
+
+# [0.32.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.31.0...@furo/input@0.32.0) (2019-06-13)
+
+
+### Bug Fixes
+
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/veith/FuroBaseComponents/commit/56b9f27))
+
+
+### Features
+
+* furo-collapsible-box open-on-focus, close-on-blur ([3993016](https://github.com/veith/FuroBaseComponents/commit/3993016))
+
+
+
+
+
+# [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.30.0...@furo/input@0.31.0) (2019-06-12)
+
+
+### Features
+
+* furo-reference-search themeable ([2e0f7ae](https://github.com/veith/FuroBaseComponents/commit/2e0f7ae))
+
+
+
+
+
+# [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.12...@furo/input@0.30.0) (2019-06-12)
+
+
+### Features
+
+* furo-toggle-icon with keyboard nav ([e93f01d](https://github.com/veith/FuroBaseComponents/commit/e93f01d))
+
+
+
+
+
+## [0.29.12](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.11...@furo/input@0.29.12) (2019-06-11)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.29.11](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.10...@furo/input@0.29.11) (2019-06-10)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.29.10](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.9...@furo/input@0.29.10) (2019-06-07)
+
+
+### Bug Fixes
+
+* correct label position for dates ([5b2c43e](https://github.com/veith/FuroBaseComponents/commit/5b2c43e))
+
+
+
+
+
 ## [0.29.9](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.8...@furo/input@0.29.9) (2019-06-06)
 
 **Note:** Version bump only for package @furo/input

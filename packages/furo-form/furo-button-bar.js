@@ -1,4 +1,5 @@
-import {PolymerElement, html} from '@polymer/polymer';
+import {LitElement, html, css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 import "@furo/layout/furo-horizontal-flex"
 
 /**
@@ -7,34 +8,44 @@ import "@furo/layout/furo-horizontal-flex"
  *
  * @summary
  * @customElement
+ * @demo demo/furo-button-bar.html
  * @polymer
  */
-class FuroButtonBar extends (PolymerElement) {
-  static get template() {
-    // language=HTML
-    return html`
-      <style>
+class FuroButtonBar extends (LitElement) {
+
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent(this.name) || css`
         :host {
-          display: block;
-          @apply --furo-button-bar-mixin;
+            display: block;
         }
 
         ::slotted(*) {
-          margin: 0 8px;
-          @apply --furo-button-bar-slot-mixin;
+            margin: 0 8px;
         }
 
         ::slotted(*:first-child) {
-          margin-left: 0;
+            margin-left: 0;
         }
 
         ::slotted(*:last-child) {
-          margin-right: 0;
+            margin-right: 0;
         }
-      </style>
-      <furo-horizontal-flex>
-        <slot></slot>
-      </furo-horizontal-flex>
+
+    `
+  }
+
+  render() {
+    // language=HTML
+    return html`        
+        <furo-horizontal-flex>
+          <slot></slot>
+        </furo-horizontal-flex>
     `;
   }
 

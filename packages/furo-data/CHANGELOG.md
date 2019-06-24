@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.37.0...@furo/data@0.38.0) (2019-06-21)
+
+
+### Features
+
+* FuroBaseIcons ([1df13b1](https://github.com/veith/FuroBaseComponents/commit/1df13b1))
+
+
+
+
+
+# [0.37.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.36.2...@furo/data@0.37.0) (2019-06-21)
+
+
+### Bug Fixes
+
+*  expand behaviour ([1a45f27](https://github.com/veith/FuroBaseComponents/commit/1a45f27))
+*  select root node ([2c203a6](https://github.com/veith/FuroBaseComponents/commit/2c203a6))
+
+
+### Features
+
+* add repeated node with optional data, check for existing keys ([20a6de0](https://github.com/veith/FuroBaseComponents/commit/20a6de0))
+* furo-tree ([56445af](https://github.com/veith/FuroBaseComponents/commit/56445af))
+
+
+
+
+
+## [0.36.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.36.1...@furo/data@0.36.2) (2019-06-13)
+
+
+### Bug Fixes
+
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/veith/FuroBaseComponents/commit/56b9f27))
+
+
+
+
+
+## [0.36.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.36.0...@furo/data@0.36.1) (2019-06-12)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.36.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.35.0...@furo/data@0.36.0) (2019-06-11)
+
+
+### Features
+
+* deep-link without qp (for root elements,...) ([d92d599](https://github.com/veith/FuroBaseComponents/commit/d92d599))
+
+
+
+
+
+# [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.6...@furo/data@0.35.0) (2019-06-10)
+
+
+### Bug Fixes
+
+* correct event name in doc ([ed0a466](https://github.com/veith/FuroBaseComponents/commit/ed0a466))
+
+
+### Features
+
+* deep-link usable without attributes and full test coverage ([37388c0](https://github.com/veith/FuroBaseComponents/commit/37388c0))
+
+
+
+
+
+## [0.34.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.5...@furo/data@0.34.6) (2019-06-07)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [0.34.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.4...@furo/data@0.34.5) (2019-06-06)
 
 

@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.11](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.10...@furo/mixins@0.15.11) (2019-06-21)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
+## [0.15.10](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.9...@furo/mixins@0.15.10) (2019-06-21)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
+## [0.15.9](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.8...@furo/mixins@0.15.9) (2019-06-13)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
+## [0.15.8](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.7...@furo/mixins@0.15.8) (2019-06-12)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
+## [0.15.7](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.6...@furo/mixins@0.15.7) (2019-06-11)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
+## [0.15.6](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.5...@furo/mixins@0.15.6) (2019-06-10)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
+## [0.15.5](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.4...@furo/mixins@0.15.5) (2019-06-07)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
 ## [0.15.4](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.3...@furo/mixins@0.15.4) (2019-06-06)
 
 **Note:** Version bump only for package @furo/mixins

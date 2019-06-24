@@ -27,6 +27,13 @@ class EntityObject extends (LitElement) {
     };
   }
 
+  injectPlainData(data){
+    this.injectRaw({data:data});
+  }
+  /**
+   * inject a raw entity json {data:..,links:...,meta,..-}
+   * @param jsonObj
+   */
   injectRaw(jsonObj) {
     // queue inject bis entity bereit ist
     if(!this.entity){
@@ -57,7 +64,7 @@ class EntityObject extends (LitElement) {
     this.entity = new EntityNode(null, type, this._specs);
 
     /**
-     * @event entity-ready
+     * @event object-ready
      * Fired when
      * detail payload:
      */

@@ -50,9 +50,10 @@ const FBPMixin = (superClass) => {
                                     response = receiver.element[receiver.method](data);
                                 }
                                 // @-ƒ-function auslösen
-                                let customEvent = new Event('ƒ-' + receiver.method, {composed: true, bubbles: false});
+                                let customEvent = new Event('ƒ-' + receiver.attrName, {composed: false, bubbles: false});
                                 customEvent.detail = response;
                                 receiver.element.dispatchEvent(customEvent);
+
 
                             } else if (receiver.property) {
                                 let data = detailData;
@@ -61,7 +62,7 @@ const FBPMixin = (superClass) => {
                                 }
                                 receiver.element[receiver.property] = data
                             } else {
-                                console.warn(receiver.method + ' is neither a listener nor a function of ' + receiver.element.nodeName)
+                                console.warn(receiver.method + ' is neither a listener nor a function of ' + receiver.element.nodeName, receiver.element)
                             }
                         }
 
@@ -103,6 +104,8 @@ const FBPMixin = (superClass) => {
         /**
          * Log all triggered wires for this component. This function may help you at debugging.
          * Select your element in the dev console and call `$0._FBPTraceWires()`
+         *
+         *
          * @private
          */
         _FBPTraceWires() {
@@ -114,6 +117,10 @@ const FBPMixin = (superClass) => {
 
                     console.groupCollapsed("Data");
                     console.log(e);
+                    console.groupEnd();
+
+                    console.groupCollapsed("Target Elements");
+                    console.table(self.__wirebundle[wire]);
                     console.groupEnd();
 
                     console.groupCollapsed("Call Stack");
@@ -179,37 +186,6 @@ const FBPMixin = (superClass) => {
             for (var x = l; x >= 0; --x) {
                 let element = nl[x];
 
-                // template is=flow-repeat..
-                if (element.tagName === "TEMPLATE") {
-                    if (element.getAttribute("is") === "flow-repeat") {
-                        let original = element;
-                        // Create a replacement tag of the desired type
-                        let replacement = document.createElement("flow-repeat");
-
-                        // Grab all of the original's attributes, and pass them to the replacement
-                        let l = original.attributes.length;
-                        for (let i = 0; i < l; ++i) {
-                            var nodeName = original.attributes.item(i).nodeName;
-                            var nodeValue = original.attributes.item(i).nodeValue;
-
-                            replacement.setAttribute(nodeName, nodeValue);
-                        }
-
-                        // Persist contents
-                        let tpl = document.createElement("template");
-                        tpl._templateInfo = original._templateInfo;
-                        if (tpl._templateInfo === undefined) {
-                            tpl._templateInfo = {content: original.content};
-                        }
-
-                        replacement.appendChild(tpl);
-
-                        // Switch!
-                        original.parentNode.replaceChild(replacement, original);
-                        element = replacement;
-
-                    }
-                }
                 for (let i = 0; i < element.attributes.length; i++) {
 
                     // collect data receiver
@@ -247,6 +223,7 @@ const FBPMixin = (superClass) => {
                             wirebundle[r.receivingWire].push({
                                 "element": element,
                                 "method": this.__toCamelCase(element.attributes[i].name.substr(2)),
+                                "attrName":element.attributes[i].name.substr(2),
                                 "path": r.path
                             });
 
@@ -313,7 +290,6 @@ const FBPMixin = (superClass) => {
                 for (let i = 0; i < element.attributes.length; i++) {
                     element.__atf[element.attributes[i].name] = true;
                 }
-
 
                 let handler = {
                     // prevent default and stop propagation
@@ -477,14 +453,19 @@ const FBPMixin = (superClass) => {
         }
 
         disconnectedCallback() {
+            // clear wires first
+            this.__wirebundle = {};
+            this.__wireQueue = [];
+            /* remove event listeners*/
+            this.__FBPEventlistener.forEach(function (e) {
+                e.element.removeEventListener(e.event, e.handler);
+            });
+
             if (super.disconnectedCallback) {
                 super.disconnectedCallback();
             }
 
-            /* remove event listeners*/
-            this.__FBPEventlistener.forEach(function (e) {
-                e.element.removeEventListener(e.event, e.handler);
-            })
+
         }
 
         /**
@@ -572,43 +553,30 @@ const FBPMixin = (superClass) => {
 };
 
 /**
- * flowbased-polymer
+ * furo-fbp base class
  *
- * The flowbased-polymer mixin offers you the possibility to **write your components or apps fully declaratively**. No more manual/imperative adding of eventlisteners in the source code and no more assignment of IDs to access the component you want.
+ * ## Tracing all wires in a component
  *
- * You can use it to simply save adding eventlisteners in your source or to write entire components and applications according to the FBP programming paradigm without using a single line of JS. It's up to you how far you want to go.
+ * Log all triggered wires for this component. This function may help you at debugging.
+ * **Attention** This works only with wires with at least 1 receiver.
  *
- * FBP code is also easy testable. It takes about 2 minutes to understand the main concept.
+ * Select your element in the dev console and call `$0._FBPTraceWires()`
  *
- * It is a hybrid form of flow-based programming and ordinary polymer and works with every component which is useable by polymer.
+ * To trace your element immediately after fbp is ready, use this snippet
  *
- * ## Simple Introduction
- * In short, FBP combines events from one component `@-event` with methods from another component `ƒ-method` to trigger them. We call the connection a **wire**.
- *
- *  ```
- * <paper-button raised @-click="--btnPropsClicked">Show Props</paper-button>
- * <left-drawer ƒ-hide="--btnPropsClicked">Menu...</left-drawer>
- * <right-drawer ƒ-show="--btnPropsClicked">Props...</right-drawer>
  * ```
+ * __fbpReady(){
+ *   super.__fbpReady();
+ *   this._FBPTraceWires()
+ *}
+ * ```
+ * ## Debuging a wire
  *
- * ![simple intro](https://veith.github.io/flowbased-polymer/images/short-intro.png)
+ * Get information for the triggered wire. This function may help you at debugging.
  *
- *
- * ### What happens in the example above
- * When the user clicks on the `paper-button`, the `left-drawer` is hidden and the `right-drawer` is displayed.
- * The button does not need to know that there is a left-drawer or right-drawer. It only informs about the wire `--btnPropsClicked` that it was clicked.
- *
- * ## Further documentation
- * Please read the [documentation page](https://veith.github.io/flowbased-polymer/wireing/overview/) for more information.
- *
- *
- * ## Detailed documentation
- * Read more about FBPolymer on the  [documentation pages](https://veith.github.io/flowbased-polymer/).
+ * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
  *
  *
- * ## License
- *
- * MIT
  *
  *
  * @polymer

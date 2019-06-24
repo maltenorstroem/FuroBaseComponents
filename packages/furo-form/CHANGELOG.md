@@ -3,6 +3,100 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.3](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.2...@furo/form@0.18.3) (2019-06-23)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.18.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.1...@furo/form@0.18.2) (2019-06-21)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.18.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.0...@furo/form@0.18.1) (2019-06-21)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.17.2...@furo/form@0.18.0) (2019-06-13)
+
+
+### Bug Fixes
+
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/veith/FuroBaseComponents/commit/56b9f27))
+
+
+### Features
+
+* furo-collapsible-box open-on-focus, close-on-blur ([3993016](https://github.com/veith/FuroBaseComponents/commit/3993016))
+
+
+
+
+
+## [0.17.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.17.1...@furo/form@0.17.2) (2019-06-12)
+
+
+### Bug Fixes
+
+* keyboard events on furo-collapsible-box only for the icon ([edaec9d](https://github.com/veith/FuroBaseComponents/commit/edaec9d))
+
+
+
+
+
+## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.17.0...@furo/form@0.17.1) (2019-06-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.16.12...@furo/form@0.17.0) (2019-06-12)
+
+
+### Features
+
+* furo-toggle-icon with keyboard nav ([e93f01d](https://github.com/veith/FuroBaseComponents/commit/e93f01d))
+
+
+
+
+
+## [0.16.12](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.16.11...@furo/form@0.16.12) (2019-06-11)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.16.11](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.16.10...@furo/form@0.16.11) (2019-06-10)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.16.10](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.16.9...@furo/form@0.16.10) (2019-06-07)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [0.16.9](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.16.8...@furo/form@0.16.9) (2019-06-06)
 
 **Note:** Version bump only for package @furo/form

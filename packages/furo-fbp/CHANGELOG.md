@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.20.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.19.0...@furo/fbp@4.20.0) (2019-06-21)
+
+
+### Features
+
+* FuroBaseIcons ([1df13b1](https://github.com/veith/flowbased-polymer/commit/1df13b1))
+
+
+
+
+
+# [4.19.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.18.1...@furo/fbp@4.19.0) (2019-06-21)
+
+
+### Features
+
+* furo-tree ([5a44726](https://github.com/veith/flowbased-polymer/commit/5a44726))
+* furo-tree ([604e65b](https://github.com/veith/flowbased-polymer/commit/604e65b))
+
+
+
+
+
+## [4.18.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.18.0...@furo/fbp@4.18.1) (2019-06-13)
+
+
+### Bug Fixes
+
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/veith/flowbased-polymer/commit/56b9f27))
+
+
+
+
+
+# [4.18.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.17.1...@furo/fbp@4.18.0) (2019-06-12)
+
+
+### Features
+
+* furo-toggle-icon with keyboard nav ([e93f01d](https://github.com/veith/flowbased-polymer/commit/e93f01d))
+
+
+
+
+
+## [4.17.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.17.0...@furo/fbp@4.17.1) (2019-06-11)
+
+
+### Bug Fixes
+
+* flow-repeat logs *info* instead *warn* on lists without Arrays ([51ca84c](https://github.com/veith/flowbased-polymer/commit/51ca84c))
+
+
+
+
+
+# [4.17.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.2...@furo/fbp@4.17.0) (2019-06-10)
+
+
+### Features
+
+* target elements list on traceWires ([a92dc75](https://github.com/veith/flowbased-polymer/commit/a92dc75))
+
+
+
+
+
+## [4.16.2](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.1...@furo/fbp@4.16.2) (2019-06-07)
+
+
+### Bug Fixes
+
+* correct host for tracing ([51f4ca3](https://github.com/veith/flowbased-polymer/commit/51f4ca3))
+* debug and trace with call stack with more readable output ([7ff9335](https://github.com/veith/flowbased-polymer/commit/7ff9335))
+
+
+
+
+
 ## [4.16.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.0...@furo/fbp@4.16.1) (2019-06-06)
 
 **Note:** Version bump only for package @furo/fbp

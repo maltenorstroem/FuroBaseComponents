@@ -14,13 +14,11 @@ import "./empty-fbp-node"
  * @demo demo/flow-bind.html
  * @mixes FBP
  */
-class FlowRepeat extends FBP(HTMLElement) {
-
+class FlowRepeat extends HTMLTemplateElement {
     constructor() {
         super();
         this.template;
         this._insertedItems = [];
-
     }
 
     /**
@@ -88,7 +86,7 @@ class FlowRepeat extends FBP(HTMLElement) {
         if (parent && parent.host) {
             return parent.host;
         }
-        if(parent === null){
+        if (parent === null) {
             return null
         }
         return this._findFirstHost(parent.parentNode);
@@ -96,22 +94,18 @@ class FlowRepeat extends FBP(HTMLElement) {
 
     injectItems(items) {
         if (!Array.isArray(items)) {
-            console.warn("Items is not an array ", items, this);
+            console.info("Items is not an array ", items, this);
             // make the list empty
             items = [];
         }
 
-        this._firstHost = this._findFirstHost(this.parentNode) ;
+        this._firstHost = this._findFirstHost(this.parentNode);
         items.forEach((e, i, a) => {
             // build hidden elem
             let elem = document.createElement('empty-fbp-node');
             elem.attachShadow({mode: 'open'});
             elem.shadowRoot.appendChild(this.template.cloneNode(true));
             elem._appendFBP(elem.shadowRoot);
-
-
-            elem.item = e;
-            elem.index = i;
 
             let handle = {virtualElement: elem, children: [].slice.call(elem.shadowRoot.children)};
 
@@ -121,9 +115,15 @@ class FlowRepeat extends FBP(HTMLElement) {
                     attachedElem.remove()
                 })
             }
+
             this._insertedItems[i] = handle;
 
             this.parentNode.insertBefore(elem.shadowRoot, this);
+
+            // set item and index value on created element
+            elem.item = e;
+            elem.index = i;
+
 
             // trigger wires
             elem._FBPTriggerWire(this._internalWire, {item: e, index: i});
@@ -135,12 +135,10 @@ class FlowRepeat extends FBP(HTMLElement) {
                 elem._FBPTriggerWire("--lastItem", e);
             }
 
-            // set item to host
-            elem.item = e;
-            elem.index = i;
             elem._FBPTriggerWire("--item", e);
             elem._FBPTriggerWire("--host", this._firstHost);
             elem._FBPTriggerWire("--index", i);
+
         });
 
         // remove entries in old array if items is smaller
@@ -148,18 +146,31 @@ class FlowRepeat extends FBP(HTMLElement) {
             handle.children.map((attachedElem) => {
                 attachedElem.remove()
             })
-        })
+        });
+
+        if (items.length > 0) {
+            /**
+             * @event items-in-dom
+             * Fired when items are attached to the dom
+             * detail payload: {Number} Number of items
+             */
+            setTimeout(()=>{
+                let customEvent = new Event('items-in-dom', {composed: true, bubbles: false});
+                customEvent.detail = items.length;
+                this.dispatchEvent(customEvent);
+            },0);
+
+        }
     }
 
     connectedCallback() {
         this.style.display = "none";
         // Create a shadow root to the element.
-        this.attachShadow({mode: 'open'});
-        let t = this.querySelector('template');
-        if (t.content.children.length > 0) {
-            this.template = t.content;
+
+        if (this.content.children.length > 0) {
+            this.template = this.content;
         } else {
-            this.template = t._templateInfo.content;
+            this.template = this._templateInfo.content;
         }
 
 
@@ -189,4 +200,5 @@ class FlowRepeat extends FBP(HTMLElement) {
 
 }
 
-window.customElements.define('flow-repeat', FlowRepeat);
+
+window.customElements.define('flow-repeat', FlowRepeat, {extends: "template"});
