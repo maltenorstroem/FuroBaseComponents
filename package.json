@@ -14,21 +14,27 @@
     "lerna": "^3.13.1",
     "lit-element": "^2.1.0",
     "mocha": "^5.2.0",
-    "polymer-cli": "^1.9.5",
+    "polymer-cli": "^1.9.10",
     "pwa-helpers": "^0.9.1",
     "web-component-tester": "6.9.2",
     "wct-browser-legacy": "^1.0.2",
     "wct-istanbub": "^0.2.9",
     "wct-mocha": "^1.0.0",
-    "wct-test-reporter": "0.0.1"
+    "wct-test-reporter": "0.0.1",
+    "web-component-tester-istanbul": "0.10.0"
   },
   "scripts": {
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "doc": "./scripts/generate-analysis.sh",
     "serve": "polymer serve -p 7777",
-    "test": "echo run polymer test please"
+    "test": "polymer test"
   },
   "author": "veith",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "npm": "^6.9.0",
+    "run": "^1.4.0"
+  }
 }

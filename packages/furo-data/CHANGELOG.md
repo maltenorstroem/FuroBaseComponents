@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.38.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.2...@furo/data@0.38.3) (2019-07-01)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.38.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.1...@furo/data@0.38.2) (2019-06-27)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.38.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.0...@furo/data@0.38.1) (2019-06-27)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 # [0.38.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.37.0...@furo/data@0.38.0) (2019-06-21)
 
 
