@@ -90,7 +90,11 @@ class FuroTree extends FBP(LitElement) {
 
 
         case"Escape":
-          this._resetSearch();
+          if(this._searchIsActive){
+            event.stopPropagation();
+            this._resetSearch();
+          }
+
           break;
         case"Backspace":
           this._removeLastSymbofFromSearch();
@@ -104,12 +108,15 @@ class FuroTree extends FBP(LitElement) {
     this.addEventListener("keypress", (event) => {
       let key = event.key || event.keyCode;
 
+            if(key ==="Enter"){
+                return
+            }
       if (!event.ctrlKey) {
         event.preventDefault();
         this._addSymbolToSearch(key);
-      }else{
+      } else {
         switch (key) {
-          // expand recursive with ctrl-e
+            // expand recursive with ctrl-e
           case "e":
             event.preventDefault();
             this._hoveredField.expandRecursive();
@@ -157,9 +164,9 @@ class FuroTree extends FBP(LitElement) {
     this._updateSearchmatchAttributesOnItems();
   }
 
-  _updateSearchmatchAttributesOnItems(){
-    this._tree.children.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
-    this._foundSearchItems.map((node)=>{
+  _updateSearchmatchAttributesOnItems() {
+    this._tree.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
+    this._foundSearchItems.map((node) => {
       node.dispatchNodeEvent(new NodeEvent('search-matched', this._tree, false));
     })
   }
@@ -265,8 +272,11 @@ class FuroTree extends FBP(LitElement) {
    */
   _hoverNext() {
     let next;
+
     if (this._searchIsActive) {
+
       for (let i = this._foundSearchItems.length - 1; i >= 0; i--) {
+
         if (this._foundSearchItems[i].__flatTreeIndex <= this._hoveredField.__flatTreeIndex) {
           next = this._foundSearchItems[i + 1];
           break;
@@ -331,9 +341,14 @@ class FuroTree extends FBP(LitElement) {
         :host {
             display: block;
             box-sizing: border-box;
-            overflow: auto;
+
             outline: none;
             position: relative;
+        }
+
+        .tablewrapper {
+            overflow: auto;
+            height: 100%;
         }
 
         :host([hidden]) {
@@ -364,7 +379,8 @@ class FuroTree extends FBP(LitElement) {
         }
 
         td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--selected-color, #999999);
+            background-color: var(--primary-variant-color, #429cff);
+            color: var(--on-primary, #FFFFFF);
         }
 
 
@@ -376,12 +392,26 @@ class FuroTree extends FBP(LitElement) {
         .srch {
             display: none;
             position: absolute;
-            left: 0;
-            bottom: 0;
+            left: var(--spacing-xs, 8px);
+            bottom: var(--spacing-xs, 8px);
             width: inherit;
-            border: 1px solid #DEDEDE;
+            border: 1px solid var(--primary-color, #57a9ff);
             padding: 2px;
             font-size: 11px;
+            z-index: 2;
+            animation: border-pulsate 2s;
+        }
+
+        @keyframes border-pulsate {
+            0% {
+                border-color: var(--primary-color, #57a9ff);
+            }
+            50% {
+                border-color: var(--surface, #999999);
+            }
+            100% {
+                border-color: var(--primary-color, #57a9ff);
+            }
         }
 
         :host([searching]:focus-within) .srch {
@@ -398,7 +428,8 @@ class FuroTree extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<div class="srch">${this._searchTerm}</div>
+    <div class="srch">🔍 ${this._searchTerm}</div>
+      <div class="tablewrapper">
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested">
           <tr>
@@ -408,6 +439,7 @@ class FuroTree extends FBP(LitElement) {
           </tr>
         </template>
       </table>
+      </div>
     `;
   }
 
@@ -438,7 +470,11 @@ class FuroTree extends FBP(LitElement) {
     // set visible on root node
     this._tree.children.broadcastEvent(new NodeEvent('ancestor-visible', this._tree));
 
-    this._initHoverAndSelectEvents();
+    if (!this.__listenersInitialized) {
+      this._initHoverAndSelectEvents();
+    }
+    this.__listenersInitialized = true;
+
 
     // initial hover on first element
     this._hoveredField = this._flatTree[0];
@@ -449,7 +485,7 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _initHoverAndSelectEvents() {
-    // Internal Event, when a node gets selected
+    // Internal Event, when a node gets hovered
     this._tree.addEventListener("tree-node-hovered", (e) => {
 
 
@@ -457,34 +493,36 @@ class FuroTree extends FBP(LitElement) {
       this._tree.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
       this._hoveredField = e.target;
 
-      /**
-       * @event node-hovered
-       * Fired when
-       * detail payload:
-       */
-      let customEvent = new Event('node-hovered', {composed: true, bubbles: true});
-      customEvent.detail = this._hoveredField;
-      this.dispatchEvent(customEvent);
-      if (this._hoveredField.isBranch()) {
+      // only dispatch when the element contains a name
+      if (this._hoveredField.display_name.value != null){
         /**
-         * @event branch-hovered
+         * @event node-hovered
          * Fired when
          * detail payload:
          */
-        let customEvent = new Event('branch-hovered', {composed: true, bubbles: true});
+        let customEvent = new Event('node-hovered', {composed: true, bubbles: true});
         customEvent.detail = this._hoveredField;
         this.dispatchEvent(customEvent);
-      } else {
-        /**
-         * @event leaf-hovered
-         * Fired when
-         * detail payload:
-         */
-        let customEvent = new Event('leaf-hovered', {composed: true, bubbles: true});
-        customEvent.detail = this._hoveredField;
-        this.dispatchEvent(customEvent);
+        if (this._hoveredField.isBranch()) {
+          /**
+           * @event branch-hovered
+           * Fired when
+           * detail payload:
+           */
+          let customEvent = new Event('branch-hovered', {composed: true, bubbles: true});
+          customEvent.detail = this._hoveredField;
+          this.dispatchEvent(customEvent);
+        } else {
+          /**
+           * @event leaf-hovered
+           * Fired when
+           * detail payload:
+           */
+          let customEvent = new Event('leaf-hovered', {composed: true, bubbles: true});
+          customEvent.detail = this._hoveredField;
+          this.dispatchEvent(customEvent);
+        }
       }
-
     });
 
     // Internal Event, when a node gets selected
@@ -527,6 +565,7 @@ class FuroTree extends FBP(LitElement) {
   _buildFlatTree(tree) {
 
     this._flatTree = [tree];
+    tree.__flatTreeIndex = 0;
     this._parseTreeRecursive(tree, 0, this.depth);
 
 
@@ -584,12 +623,12 @@ class FuroTree extends FBP(LitElement) {
 
       // selects the current item
       node.selectItem = () => {
-        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
-        node.dispatchNodeEvent(new NodeEvent('this-node-selected', this, false));
+        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', node, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-selected', node, false));
 
         // used to open the paths upwards from the selected node
         node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
-        node.triggerHover()
+        //node.triggerHover()
       };
 
       // if a descendant was selected, we ensure to open the path

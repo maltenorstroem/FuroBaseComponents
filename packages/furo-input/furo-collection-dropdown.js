@@ -114,7 +114,7 @@ class FuroCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
     render() {
       // language=HTML
       return html`
-      <select ?autofocus=${this.autofocus} ?disabled=${this.disabled} @-change="--inputInput(*.path.0)" ƒ-.value="--value">
+      <select ?autofocus=${this.autofocus} ?disabled=${this.disabled} @-change="--inputInput(*)" ƒ-.value="--value">
             <template is="flow-repeat" ƒ-inject-items="--selection">
                 <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
             </template>
@@ -145,13 +145,11 @@ class FuroCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
         });
 
         if (!this.value) {
-            this.field.set(arr[0].id);
+            this.field.value = arr[0].id;
         }
 
         this._FBPTriggerWire("--selection", arr);
     }
-
-
 }
 
 customElements.define('furo-collection-dropdown', FuroCollectionDropdown);

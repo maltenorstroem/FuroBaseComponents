@@ -14,7 +14,7 @@ import "./empty-fbp-node"
  * @demo demo/flow-bind.html
  * @mixes FBP
  */
-class FlowRepeat extends HTMLTemplateElement {
+class FlowRepeat extends FBP(HTMLElement) {
     constructor() {
         super();
         this.template;
@@ -173,25 +173,28 @@ class FlowRepeat extends HTMLTemplateElement {
         this.style.display = "none";
         // Create a shadow root to the element.
 
-        if (this.content.children.length > 0) {
-            this.template = this.content;
-        } else {
-            this.template = this._templateInfo.content;
+        let t = this.querySelector('template');
+        if (t && t.content) {
+            this.template = t.content;
         }
-
 
         this._internalWire = this.getAttribute("internal-wire") || "--itemInjected";
     }
 
 
     triggerFirst(e) {
+        if(this._insertedItems[0]){
         this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger", e);
         this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst", e);
     }
 
+    }
+
     triggerLast(e) {
+        if(this._insertedItems[this._insertedItems.length - 1]){
         this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--trigger", e);
         this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--triggerLast", e);
+    }
     }
 
     triggerIndex(i, data) {
@@ -207,4 +210,4 @@ class FlowRepeat extends HTMLTemplateElement {
 }
 
 
-window.customElements.define('flow-repeat', FlowRepeat, {extends: "template"});
+window.customElements.define('flow-repeat', FlowRepeat);

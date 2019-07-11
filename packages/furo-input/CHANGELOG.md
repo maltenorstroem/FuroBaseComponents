@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.12](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.11...@furo/input@0.34.12) (2019-07-11)
+
+
+### Bug Fixes
+
+* remove set method in furo-reference-search ([cfb335d](https://github.com/veith/FuroBaseComponents/commit/cfb335d))
+* remove set method in furo-reference-search ([a377832](https://github.com/veith/FuroBaseComponents/commit/a377832))
+
+
+
+
+
+## [0.34.11](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.10...@furo/input@0.34.11) (2019-07-11)
+
+
+### Bug Fixes
+
+* fix e.path ([f5d8f66](https://github.com/veith/FuroBaseComponents/commit/f5d8f66))
+
+
+
+
+
+## [0.34.10](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.9...@furo/input@0.34.10) (2019-07-11)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.34.9](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.8...@furo/input@0.34.9) (2019-07-09)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.34.8](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.7...@furo/input@0.34.8) (2019-07-09)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.34.7](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.6...@furo/input@0.34.7) (2019-07-09)
+
+
+### Bug Fixes
+
+* last tab ([dc2fdc7](https://github.com/veith/FuroBaseComponents/commit/dc2fdc7))
+* last tab ([93ce40e](https://github.com/veith/FuroBaseComponents/commit/93ce40e))
+* ripple moved to layout ([3ef53cf](https://github.com/veith/FuroBaseComponents/commit/3ef53cf))
+
+
+
+
+
+## [0.34.6](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.5...@furo/input@0.34.6) (2019-07-03)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.34.5](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.4...@furo/input@0.34.5) (2019-07-02)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.34.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.3...@furo/input@0.34.4) (2019-07-01)
+
+
+### Bug Fixes
+
+* .set() replaced with .value= ([bce252d](https://github.com/veith/FuroBaseComponents/commit/bce252d))
+
+
+
+
+
+## [0.34.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.2...@furo/input@0.34.3) (2019-07-01)
+
+
+### Bug Fixes
+
+* browser compatibility ([51eab40](https://github.com/veith/FuroBaseComponents/commit/51eab40))
+
+
+
+
+
+## [0.34.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.1...@furo/input@0.34.2) (2019-07-01)
+
+
+### Bug Fixes
+
+* initial readonly from spec ([2541014](https://github.com/veith/FuroBaseComponents/commit/2541014))
+
+
+
+
+
+## [0.34.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.0...@furo/input@0.34.1) (2019-07-01)
+
+
+### Bug Fixes
+
+* baseInput setter ([e64f07d](https://github.com/veith/FuroBaseComponents/commit/e64f07d))
+
+
+
+
+
 # [0.34.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.33.4...@furo/input@0.34.0) (2019-07-01)
 
 

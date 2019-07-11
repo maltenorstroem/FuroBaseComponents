@@ -3,6 +3,138 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.3](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.2...@furo/route@0.11.3) (2019-07-11)
+
+
+### Bug Fixes
+
+* fix e.path ([f5d8f66](https://github.com/veith/FuroBaseComponents/commit/f5d8f66))
+
+
+
+
+
+## [0.11.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.1...@furo/route@0.11.2) (2019-07-11)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.11.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.0...@furo/route@0.11.1) (2019-07-09)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.11.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.10.1...@furo/route@0.11.0) (2019-07-09)
+
+
+### Features
+
+* panel-coordinator close all panels ([a2daf9c](https://github.com/veith/FuroBaseComponents/commit/a2daf9c))
+
+
+
+
+
+## [0.10.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.10.0...@furo/route@0.10.1) (2019-07-09)
+
+
+### Bug Fixes
+
+* last tab ([dc2fdc7](https://github.com/veith/FuroBaseComponents/commit/dc2fdc7))
+* last tab ([93ce40e](https://github.com/veith/FuroBaseComponents/commit/93ce40e))
+
+
+
+
+
+# [0.10.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.9.2...@furo/route@0.10.0) (2019-07-08)
+
+
+### Features
+
+* panelInit wire ([e6d89c9](https://github.com/veith/FuroBaseComponents/commit/e6d89c9))
+
+
+
+
+
+## [0.9.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.9.1...@furo/route@0.9.2) (2019-07-07)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.9.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.9.0...@furo/route@0.9.1) (2019-07-06)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.9.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.8.2...@furo/route@0.9.0) (2019-07-04)
+
+
+### Features
+
+* tree marker ([9076c1b](https://github.com/veith/FuroBaseComponents/commit/9076c1b))
+
+
+
+
+
+## [0.8.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.8.1...@furo/route@0.8.2) (2019-07-04)
+
+
+### Bug Fixes
+
+* ignore nonexistent panels ([fe81cdd](https://github.com/veith/FuroBaseComponents/commit/fe81cdd))
+
+
+
+
+
+## [0.8.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.8.0...@furo/route@0.8.1) (2019-07-03)
+
+
+### Bug Fixes
+
+* init empty tree ([1783f15](https://github.com/veith/FuroBaseComponents/commit/1783f15))
+
+
+
+
+
+# [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.16...@furo/route@0.8.0) (2019-07-02)
+
+
+### Features
+
+* furo-panel-coordinator ([61c219a](https://github.com/veith/FuroBaseComponents/commit/61c219a))
+
+
+
+
+
+## [0.7.16](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.15...@furo/route@0.7.16) (2019-07-01)
+
+
+### Bug Fixes
+
+* browser compatibility ([1179e85](https://github.com/veith/FuroBaseComponents/commit/1179e85))
+
+
+
+
+
 ## [0.7.15](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.14...@furo/route@0.7.15) (2019-07-01)
 
 **Note:** Version bump only for package @furo/route

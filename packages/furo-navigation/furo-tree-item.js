@@ -21,14 +21,35 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.hidden = true;
   }
 
-  search(event){
 
-    if(!this.hidden){
+  search(event) {
 
-      // append fieldnode to result set (used in furo-tree.js)
-      if(this.fieldNode.display_name.value.search(event.term) != -1 || this.fieldNode.description.value.search(event.term) != -1){
+    if (!this.hidden) {
+
+      let term = event.term.toLowerCase();
+      // do not search empty searchTerm
+      if (term.length === 0) {
+        return;
+      }
+
+
+      let searchTokens = term.split(" ");
+
+
+      let hasResults = true;
+      searchTokens.forEach((t) => {
+        if (t.length > 0) {
+          if (t.length === 1) {
+            // single letter search first letter of word
+            t = t + ".*$";
+          }
+          hasResults = hasResults && this._searchTokens.has(t);
+        }
+      });
+
+      if (hasResults) {
+        // append fieldnode to result set (used in furo-tree.js)
         event.results.push(this.fieldNode);
-
       }
 
     }
@@ -46,9 +67,49 @@ export class FuroTreeItem extends FBP(LitElement) {
       hidden: {type: Boolean, reflect: true},
       hovered: {type: Boolean, reflect: true},
       searchmatch: {type: Boolean, reflect: true},
-      selected: {type: Boolean, reflect: true}
+      inedit: {type: Boolean, reflect: true},
+      haserror: {type: Boolean, reflect: true},
+      selected: {type: Boolean, reflect: true},
+      noicon: {type: Boolean}
+
     };
   }
+
+  // re render, build search tokens
+  _updateItem() {
+    this.requestUpdate();
+
+    // build index later (50ms), a human user can not react earlyer
+    setTimeout(() => {
+      let tmpArr = []
+      this.fieldNode.__childNodes.filter((field) => {
+        // maybe change to fields-to-index list
+        if (typeof field._value === "string") {
+          return true
+        }
+      }).map((field) => {
+        tmpArr = tmpArr.concat(field._value.toLowerCase().split(/\W+/));
+      });
+      let s = new Set(tmpArr);
+      // tokenize
+      tmpArr = [];
+      s.forEach((word) => {
+        //first letter
+        tmpArr.push(word.substr(0, 1) + ".*$");
+        let l;
+        for (let tokenLength = 2; tokenLength < word.length; tokenLength++) {
+          l = word.length - tokenLength + 1;
+          for (let i = 0; i < l; i++) {
+            tmpArr.push(word.substr(i, tokenLength));
+          }
+        }
+      });
+      this._searchTokens = new Set((Array.from(s).concat(tmpArr)));
+
+
+    }, 50);
+  }
+
 
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
@@ -69,10 +130,22 @@ export class FuroTreeItem extends FBP(LitElement) {
       }
     });
 
-    this.fieldNode.addEventListener("field-value-changed", (e) => {
-      this.requestUpdate();
+    // for elements that are already ready
+    this._updateItem();
+
+    this.fieldNode.addEventListener("branch-value-changed", (e) => {
+      // for elements that are updated later
+      if (e.detail.__parentNode === this.fieldNode) {
+        this._updateItem();
+      }
     });
 
+    this.fieldNode.addEventListener("modified", (n) => {
+      this.inedit = true;
+    });
+    this.fieldNode.addEventListener("has-error", (n) => {
+      this.haserror = true;
+    });
 
     // listen to open close state
     this.fieldNode.open.addEventListener("field-value-changed", (e) => {
@@ -144,45 +217,103 @@ export class FuroTreeItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            line-height: 24px;
-            cursor: pointer;
-            user-select: none;
-        }
+            :host {
+                display: block;
+                line-height: 40px;
+                cursor: pointer;
+                user-select: none;
+                padding-left: var(--spacing-xs, 16px);
+                border-radius: 2px;
+                position: relative;
+            }
 
-        :host([hidden]) {
-            display: none;
-        }
+            :host([hidden]) {
+                display: none;
+            }
+
+            :host([inedit]) {
+                font-style: italic;
+            }
+
+            :host([haserror]) ,
+            :host([selected][haserror]) {
+                color: var(--error, red);
+            }
+
+            :host([haserror]) furo-icon {
+                animation: error-pulse 3s infinite;
+            }
+
+            .label {
+                white-space: nowrap;
+                font-size: 0.875rem;
+                letter-spacing: 0.2px;
+                margin-left: 8px;
+            }
+
+            .desc {
+                font-size: smaller;
+                white-space: nowrap;
+            }
+
+            .oc {
+                color: var(--separator-color, #b5b5b5);
+                width: 12px;
+                box-sizing: border-box;
+                padding-left: 4px;
+                font-size: 8px;
+            }
+
+            :host([selected]) .oc {
+                color: var(--on-primary, white);
+            }
+
+            :host([searchmatch])::before {
+                position: absolute;
+                top: 8px;
+                content: "🔍";
+                right: 2px;
+                font-size: 12px;
+            }
+
+            furo-icon[error] {
+                animation: error-pulse 2s infinite;
+            }
+
+            :host([selected]) furo-icon {
+                fill: var(--on-primary, white);;
+            }
 
 
-        .label {
-            white-space: nowrap;
-        }
+            furo-icon {
 
-        .desc {
-            font-size: smaller;
-            white-space: nowrap;
-        }
+                transition: all 0.4s;
+                width: 20px;
+                height: 20px;
+                margin-right: 4px;
 
-        .oc {
-            color: var(--separator-color, #b5b5b5);
-            width: 16px;
-            font-size: 8px;
-            box-sizing: border-box;
-            padding-left: 4px;
-        }
-        
-        :host([searchmatch])  {
-            border-left: 1px solid orange;
-        }
-        
-        :host([selected]) .oc {
-            color: var(--on-primary, white);
-        }
-        
-       
-    `
+            }
+
+            @keyframes error-pulse {
+                0% {
+                    fill: var(--on-primary, #46150f);
+                }
+                12% {
+                    fill: var(--error-color, #fc4d34);
+                }
+                24% {
+                    fill: var(--on-primary, #46150f);
+                }
+                36% {
+                    fill: var(--error-color, #fc4d34);
+                }
+                48% {
+                    fill: var(--on-primary, #46150f);
+                }
+
+            }
+
+        `
   }
 
 
@@ -196,7 +327,8 @@ export class FuroTreeItem extends FBP(LitElement) {
 <furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
       <div style="width: ${this.fieldNode.depth * 8}px"></div>
       <div class="oc"><furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon></div>      
-      <div flex class="label" @-click="--labelClicked" >${this.fieldNode.display_name} <span class="desc">${this.fieldNode.description}</span></div>
+            
+      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.description}</span></div>
 </furo-horizontal-flex>
 
     `;

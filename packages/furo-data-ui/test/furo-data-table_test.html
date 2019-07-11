@@ -97,6 +97,14 @@
             done()
         });
 
+        it('should show a table header', (done) => {
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').childElementCount, 10);
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'REFsrch');
+            assert.notEqual(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
+
+            done();
+        });
+
         it('empty or invalid type should fire spec-error', (done) => {
 
             dataTable.addEventListener('spec-error', (e) => {
@@ -128,6 +136,10 @@
                     dataTable.focus();
                     let body = dataTable.shadowRoot.querySelector('tbody');
                     keydown(body, 'ArrowDown');
+                    assert.equal(dataTable._selectedIndex, 1);
+                    keydown(body, 'ArrowDown');
+                    assert.equal(dataTable._selectedIndex, 2);
+                    keydown(body, 'ArrowUp');
                     assert.equal(dataTable._selectedIndex, 1);
 
                     done();
@@ -173,8 +185,8 @@
             dataTable.addEventListener('data-loaded', () => {
                 dataTable._collection.addEventListener('data-changed', () => {
                     dataTable.focus();
-                    let cb = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelectorAll(".fx")[1].querySelector('input');
-                    cb.click();
+                    let cb1 = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelectorAll(".fx")[1].querySelector('input');
+                    cb1.click();
                 });
 
             });

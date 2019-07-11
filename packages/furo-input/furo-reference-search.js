@@ -64,7 +64,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
 
     this.addEventListener("searchInput", (e) => {
-      this._searchTerm = e.path[0].value;
+      this._searchTerm = e.composedPath()[0].value;
       if (this._searchTerm.length > this.minTermLength) {
         /**
          * @event search
@@ -78,8 +78,8 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id.set(item[this.idField]);
-      this.field.display_name.set(item.display_name);
+      this.field.id.value = item[this.idField];
+      this.field.display_name.value = item.display_name;
       this._closeList();
     });
 

@@ -3,6 +3,128 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.2](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.1...@furo/navigation@0.26.2) (2019-07-11)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.26.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.0...@furo/navigation@0.26.1) (2019-07-09)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+# [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.25.0...@furo/navigation@0.26.0) (2019-07-09)
+
+
+### Features
+
+* icon color ([ccd1834](https://github.com/veith/FuroBaseComponents/commit/ccd1834))
+
+
+
+
+
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.24.0...@furo/navigation@0.25.0) (2019-07-07)
+
+
+### Bug Fixes
+
+* animation duration ([cb4430e](https://github.com/veith/FuroBaseComponents/commit/cb4430e))
+
+
+### Features
+
+* search first letter on single letter ([17a5de2](https://github.com/veith/FuroBaseComponents/commit/17a5de2))
+
+
+
+
+
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.23.1...@furo/navigation@0.24.0) (2019-07-06)
+
+
+### Features
+
+* error inidicator ([370d475](https://github.com/veith/FuroBaseComponents/commit/370d475))
+
+
+
+
+
+## [0.23.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.23.0...@furo/navigation@0.23.1) (2019-07-06)
+
+
+### Bug Fixes
+
+* furo-tree ignores Enter keypress ([08ffd5c](https://github.com/veith/FuroBaseComponents/commit/08ffd5c))
+
+
+
+
+
+# [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.22.0...@furo/navigation@0.23.0) (2019-07-05)
+
+
+### Bug Fixes
+
+* keyboard Navigation ([fdf1a8c](https://github.com/veith/FuroBaseComponents/commit/fdf1a8c))
+
+
+### Features
+
+* searchmarker ([ff54aca](https://github.com/veith/FuroBaseComponents/commit/ff54aca))
+
+
+
+
+
+# [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.21.3...@furo/navigation@0.22.0) (2019-07-05)
+
+
+### Bug Fixes
+
+* console.log removed ([bddf375](https://github.com/veith/FuroBaseComponents/commit/bddf375))
+
+
+### Features
+
+* mini search engine in tree ([62d9d52](https://github.com/veith/FuroBaseComponents/commit/62d9d52))
+* search marker ([5628ae7](https://github.com/veith/FuroBaseComponents/commit/5628ae7))
+
+
+
+
+
+## [0.21.3](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.21.2...@furo/navigation@0.21.3) (2019-07-04)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.21.2](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.21.1...@furo/navigation@0.21.2) (2019-07-03)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.21.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.21.0...@furo/navigation@0.21.1) (2019-07-02)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 # [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.20.0...@furo/navigation@0.21.0) (2019-07-01)
 
 

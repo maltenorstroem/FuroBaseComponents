@@ -38,7 +38,7 @@ export const FuroInputBase = (superClass) => {
          * Setze disabled
          */
         disabled: {
-          type: Boolean
+          type: Boolean, reflect: true
         },
         /**
          * helper für das label
@@ -53,7 +53,7 @@ export const FuroInputBase = (superClass) => {
         hint: {
           type: String,
         },
-        _displayOnly:{type:Boolean, attribute: 'display-only'}
+        _displayOnly: {type: Boolean, attribute: 'display-only'}
       };
     }
 
@@ -64,16 +64,16 @@ export const FuroInputBase = (superClass) => {
           this._label = newval;
           break;
 
-          case "autofocus":
-            this.autofocus = newval !== null;
+        case "autofocus":
+          this.autofocus = newval !== null;
 
           break;
 
-          case "disabled":
+        case "disabled":
           this.disabled = newval !== null;
           break;
 
-          case "display-only":
+        case "display-only":
           this._displayOnly = newval !== null;
           break;
 
@@ -92,18 +92,20 @@ export const FuroInputBase = (superClass) => {
       this.noTypecheck = false;
 
       this._FBPAddWireHook("--inputInput", (e) => {
+        let input = e.composedPath()[0];
         if (this.field && !this._displayOnly) {
-          this.field.set(e.value);
+          this.field.value = input.value;
         }
-        this.value = e.value;
+        this.value = input.value;
       });
 
       // input changes for checkboxes
       this._FBPAddWireHook("--inputCheckbox", (e) => {
+        let checkbox = e.composedPath()[0];
         if (this.field && !this._displayOnly) {
-          this.field.set(e.checked);
+          this.field.value = checkbox.checked;
         }
-        this.value = e.checked;
+        this.value = checkbox.checked;
       });
       if (this.value != undefined) {
         this._FBPTriggerWire('--value', this._value);
@@ -111,7 +113,6 @@ export const FuroInputBase = (superClass) => {
     }
 
     set value(v) {
-
       this._float = !!v;
       this._value = v;
 
@@ -152,7 +153,7 @@ export const FuroInputBase = (superClass) => {
         this._label = this.label;
       }
 
-
+      this.disabled = this.field._meta.readonly;
       this.hint = this.field._meta.hint;
       this.value = this.field.value;
 
@@ -177,6 +178,7 @@ export const FuroInputBase = (superClass) => {
         }
 
 
+        this.disabled = this.field._meta.readonly;
         this.hint = this.field._meta.hint;
         this.value = this.field.value;
 

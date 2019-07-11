@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.1...@furo/data@0.40.2) (2019-07-11)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.40.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.0...@furo/data@0.40.1) (2019-07-09)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.40.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.39.0...@furo/data@0.40.0) (2019-07-05)
+
+
+### Features
+
+* mini search engine in tree ([62d9d52](https://github.com/veith/FuroBaseComponents/commit/62d9d52))
+
+
+
+
+
+# [0.39.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.6...@furo/data@0.39.0) (2019-07-03)
+
+
+### Features
+
+* entity-agents accepts plain link object in hts-in ([beec62e](https://github.com/veith/FuroBaseComponents/commit/beec62e))
+
+
+
+
+
+## [0.38.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.5...@furo/data@0.38.6) (2019-07-02)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.38.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.4...@furo/data@0.38.5) (2019-07-01)
+
+
+### Bug Fixes
+
+* initial readonly from spec ([2541014](https://github.com/veith/FuroBaseComponents/commit/2541014))
+
+
+
+
+
+## [0.38.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.3...@furo/data@0.38.4) (2019-07-01)
+
+
+### Bug Fixes
+
+* baseInput setter ([e64f07d](https://github.com/veith/FuroBaseComponents/commit/e64f07d))
+
+
+
+
+
 ## [0.38.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.2...@furo/data@0.38.3) (2019-07-01)
 
 **Note:** Version bump only for package @furo/data

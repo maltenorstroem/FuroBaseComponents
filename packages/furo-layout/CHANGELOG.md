@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.2](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.26.1...@furo/layout@0.26.2) (2019-07-11)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.26.1](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.26.0...@furo/layout@0.26.1) (2019-07-09)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+# [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.25.6...@furo/layout@0.26.0) (2019-07-09)
+
+
+### Features
+
+* icon color ([ccd1834](https://github.com/veith/FuroBaseComponents/commit/ccd1834))
+
+
+
+
+
+## [0.25.6](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.25.5...@furo/layout@0.25.6) (2019-07-09)
+
+
+### Bug Fixes
+
+* ripple moved to layout ([3ef53cf](https://github.com/veith/FuroBaseComponents/commit/3ef53cf))
+
+
+
+
+
+## [0.25.5](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.25.4...@furo/layout@0.25.5) (2019-07-03)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [0.25.4](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.25.3...@furo/layout@0.25.4) (2019-07-02)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
 ## [0.25.3](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.25.2...@furo/layout@0.25.3) (2019-07-01)
 
 **Note:** Version bump only for package @furo/layout
