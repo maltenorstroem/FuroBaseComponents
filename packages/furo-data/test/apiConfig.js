@@ -340,9 +340,34 @@ export const Types = {
           ],
           "fmt": "%1"
         }
+      },
+      "anytype":{
+        "description":"kann alles sein, kommt als JSON",
+        "type":"any",
+        "meta":{
+          "default":{
+
+
+                "@type": "vnd.com.acme.reference",
+                "display_name": "Any default ref",
+                "id":3223
+
+          }
+        }
+      },
+      "keyvaluetype":{
+        "description":"key value map",
+        "type":"map<string, string>",
+        "meta":{
+          "default":{
+            "error": "invalid username",
+            "message": "invalid username"
+          }
+        }
       }
     }
-  },"vnd.com.acme.reference": {
+  },
+  "vnd.com.acme.reference": {
     "name": "Reference",
     "type": "vnd.com.acme.reference",
     "description": "reference",
@@ -454,7 +479,29 @@ export const Types = {
         "meta": {
           "label": "Beschreibung",
           "default": "",
-          "hint": ""
+          "hint": "short text"
+        },
+        "constraints": {
+          "min": {"value": 3, "message": "max 129"},
+          "max": {"value": 129},
+          "mandatory": {"value": false},
+          "readonly": {"value": false}
+        },
+        "options": {},
+        "toString": {
+          "fields": [
+            "taskNummer"
+          ],
+          "fmt": "%1"
+        }
+      },
+      "descrWithDefault": {
+        "description": "To test default values",
+        "type": "string",
+        "meta": {
+          "label": "Beschreibung",
+          "default": "YES",
+          "hint": "short text"
         },
         "constraints": {
           "min": {"value": 3, "message": "max 129"},

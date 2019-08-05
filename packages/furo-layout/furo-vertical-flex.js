@@ -9,7 +9,7 @@ import {Theme} from "@furo/framework/theme"
  *  Setze auf dem flexiblen Element das Attribut **flex**
  *
  *
- * ```
+ * ```html
  * <furo-vertical-flex>
  *   <div>small</div>
  *   <div flex>full width</div>
@@ -19,7 +19,7 @@ import {Theme} from "@furo/framework/theme"
  *  Tags: layout
  *
  * @customElement
- * @demo demo/furo-vertical-flex.html
+ * @demo demo-furo-vertical-flex
  * @appliesMixin FBP
  */
 class FuroVerticalFlex extends LitElement {

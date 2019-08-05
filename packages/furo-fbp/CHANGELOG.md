@@ -3,6 +3,99 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.25.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.25.0...@furo/fbp@4.25.1) (2019-08-03)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+# [4.25.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.24.1...@furo/fbp@4.25.0) (2019-08-01)
+
+
+### Bug Fixes
+
+* auto append fbp only once ([6f99c32](https://github.com/veith/flowbased-polymer/commit/6f99c32))
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/flowbased-polymer/commit/fabf35c))
+
+
+
+
+
+## [4.24.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.24.0...@furo/fbp@4.24.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/flowbased-polymer/commit/042155c))
+
+
+
+
+
+# [4.24.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.23.1...@furo/fbp@4.24.0) (2019-07-30)
+
+
+### Features
+
+* furo-component-page ([37c9078](https://github.com/veith/flowbased-polymer/commit/37c9078))
+
+
+
+
+
+## [4.23.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.23.0...@furo/fbp@4.23.1) (2019-07-30)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+# [4.23.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.22.1...@furo/fbp@4.23.0) (2019-07-16)
+
+
+### Bug Fixes
+
+* fix test assertion ([b4cd5d8](https://github.com/veith/flowbased-polymer/commit/b4cd5d8))
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/flowbased-polymer/commit/15b5774))
+
+
+
+
+
+## [4.22.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.22.0...@furo/fbp@4.22.1) (2019-07-12)
+
+
+### Bug Fixes
+
+* remove items from repeat ([c1762f4](https://github.com/veith/flowbased-polymer/commit/c1762f4))
+
+
+
+
+
+# [4.22.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.4...@furo/fbp@4.22.0) (2019-07-12)
+
+
+### Features
+
+* repeats with identity do not need a redraw ([9f44402](https://github.com/veith/flowbased-polymer/commit/9f44402))
+* repeats with identity do not need a redraw ([4841cb3](https://github.com/veith/flowbased-polymer/commit/4841cb3))
+
+
+
+
+
 ## [4.21.4](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.3...@furo/fbp@4.21.4) (2019-07-11)
 
 

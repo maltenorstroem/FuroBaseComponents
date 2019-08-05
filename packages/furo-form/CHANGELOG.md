@@ -3,6 +3,177 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.4](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.21.3...@furo/form@0.21.4) (2019-08-04)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.21.3](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.21.2...@furo/form@0.21.3) (2019-08-04)
+
+
+### Bug Fixes
+
+* stylevar --primary-color is --primary ([3d791c4](https://github.com/veith/FuroBaseComponents/commit/3d791c4))
+
+
+
+
+
+## [0.21.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.21.1...@furo/form@0.21.2) (2019-08-03)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.21.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.21.0...@furo/form@0.21.1) (2019-08-02)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.20.2...@furo/form@0.21.0) (2019-08-01)
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
+## [0.20.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.20.1...@furo/form@0.20.2) (2019-08-01)
+
+
+### Bug Fixes
+
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/FuroBaseComponents/commit/042155c))
+
+
+
+
+
+## [0.20.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.20.0...@furo/form@0.20.1) (2019-07-31)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.8...@furo/form@0.20.0) (2019-07-30)
+
+
+### Features
+
+* furo-component-page ([37c9078](https://github.com/veith/FuroBaseComponents/commit/37c9078))
+
+
+
+
+
+## [0.19.8](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.7...@furo/form@0.19.8) (2019-07-30)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.19.7](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.6...@furo/form@0.19.7) (2019-07-28)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.19.6](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.5...@furo/form@0.19.6) (2019-07-28)
+
+
+### Bug Fixes
+
+* imports ([890bf1e](https://github.com/veith/FuroBaseComponents/commit/890bf1e))
+* imports ([a51ec93](https://github.com/veith/FuroBaseComponents/commit/a51ec93))
+
+
+
+
+
+## [0.19.5](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.4...@furo/form@0.19.5) (2019-07-28)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.19.4](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.3...@furo/form@0.19.4) (2019-07-25)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.19.3](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.2...@furo/form@0.19.3) (2019-07-22)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.19.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.1...@furo/form@0.19.2) (2019-07-19)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.19.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.0...@furo/form@0.19.1) (2019-07-18)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.20...@furo/form@0.19.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+
+
+
+
+
+## [0.18.20](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.19...@furo/form@0.18.20) (2019-07-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.18.19](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.18...@furo/form@0.18.19) (2019-07-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [0.18.18](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.17...@furo/form@0.18.18) (2019-07-11)
 
 **Note:** Version bump only for package @furo/form

@@ -8,12 +8,19 @@ import "./furo-vertical-scroller"
 /**
  * `furo-split-view`
  *
+ * ```html
+ * <furo-split-view>
+ *   <div slot="master" style="height: 100%; background-image: linear-gradient(blue, violet);">Master</div>
+ *   <big-component scroll> </big-component scroll>
+ * </furo-split-view>
+ * ```
+ *
  *
  * Left right layout for master detail views
  *
  * @summary splitted layout
  * @customElement
- * @demo demo/furo-split-view.html
+ * @demo demo-furo-split-view
  * @appliesMixin FBP
  */
 class FuroSplitView extends FBP(LitElement) {
@@ -61,6 +68,10 @@ class FuroSplitView extends FBP(LitElement) {
 
         furo-horizontal-flex {
             height: 100%;
+        }
+        ::slotted([scroll]){
+            height: 100%;
+            overflow-y: auto;
         }
     `
   }

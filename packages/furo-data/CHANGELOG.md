@@ -3,6 +3,195 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.48.0...@furo/data@0.48.1) (2019-08-03)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.48.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.47.0...@furo/data@0.48.0) (2019-08-02)
+
+
+### Features
+
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/veith/FuroBaseComponents/commit/230e7cd))
+
+
+
+
+
+# [0.47.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.46.1...@furo/data@0.47.0) (2019-08-01)
+
+
+### Features
+
+* furo-data-text-input with furo-data-input ([f1000fc](https://github.com/veith/FuroBaseComponents/commit/f1000fc))
+* furo-data-text-input with furo-data-input ([d122143](https://github.com/veith/FuroBaseComponents/commit/d122143))
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
+## [0.46.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.46.0...@furo/data@0.46.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* entity object fires details on data-injected ([1533220](https://github.com/veith/FuroBaseComponents/commit/1533220))
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/FuroBaseComponents/commit/042155c))
+
+
+
+
+
+# [0.46.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.45.5...@furo/data@0.46.0) (2019-07-30)
+
+
+### Features
+
+* furo-component-page ([37c9078](https://github.com/veith/FuroBaseComponents/commit/37c9078))
+
+
+
+
+
+## [0.45.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.45.4...@furo/data@0.45.5) (2019-07-30)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.45.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.45.3...@furo/data@0.45.4) (2019-07-28)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.45.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.45.2...@furo/data@0.45.3) (2019-07-28)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.45.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.45.1...@furo/data@0.45.2) (2019-07-25)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.45.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.45.0...@furo/data@0.45.1) (2019-07-22)
+
+
+### Bug Fixes
+
+* this.field.set ([352ec23](https://github.com/veith/FuroBaseComponents/commit/352ec23))
+
+
+
+
+
+# [0.45.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.44.1...@furo/data@0.45.0) (2019-07-19)
+
+
+### Features
+
+* Spec type spec init ([0a9b4ce](https://github.com/veith/FuroBaseComponents/commit/0a9b4ce))
+* Spec type spec init ([147aba0](https://github.com/veith/FuroBaseComponents/commit/147aba0))
+
+
+
+
+
+## [0.44.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.44.0...@furo/data@0.44.1) (2019-07-18)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.44.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.43.0...@furo/data@0.44.0) (2019-07-18)
+
+
+### Features
+
+* furo demo viewer class viewer ([ce6755f](https://github.com/veith/FuroBaseComponents/commit/ce6755f))
+* furo demo viewer class viewer init ([9760015](https://github.com/veith/FuroBaseComponents/commit/9760015))
+
+
+
+
+
+# [0.43.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.42.1...@furo/data@0.43.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* events on nested entities (trees) ([e30d98c](https://github.com/veith/FuroBaseComponents/commit/e30d98c))
+* tests ([77d8141](https://github.com/veith/FuroBaseComponents/commit/77d8141))
+
+
+### Features
+
+* type any with type creation ([740e4b8](https://github.com/veith/FuroBaseComponents/commit/740e4b8))
+
+
+
+
+
+## [0.42.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.42.0...@furo/data@0.42.1) (2019-07-16)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.41.1...@furo/data@0.42.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+* Nodes removable ([6d3fc01](https://github.com/veith/FuroBaseComponents/commit/6d3fc01))
+* remove polymer deps ([5b7272e](https://github.com/veith/FuroBaseComponents/commit/5b7272e))
+* type any and map ([a017e51](https://github.com/veith/FuroBaseComponents/commit/a017e51))
+
+
+
+
+
+## [0.41.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.41.0...@furo/data@0.41.1) (2019-07-12)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.41.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.2...@furo/data@0.41.0) (2019-07-12)
+
+
+### Features
+
+* repeats with identity do not need a redraw ([9f44402](https://github.com/veith/FuroBaseComponents/commit/9f44402))
+* repeats with identity do not need a redraw ([4841cb3](https://github.com/veith/FuroBaseComponents/commit/4841cb3))
+
+
+
+
+
 ## [0.40.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.1...@furo/data@0.40.2) (2019-07-11)
 
 **Note:** Version bump only for package @furo/data
@@ -526,7 +715,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * collection-agent list-on-hts-in ([9c9eb50](https://github.com/veith/FuroBaseComponents/commit/9c9eb50))
-* furo-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
+* furo-data-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
 
 
 

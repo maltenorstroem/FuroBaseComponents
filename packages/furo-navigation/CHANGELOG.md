@@ -3,6 +3,157 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.4](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.29.3...@furo/navigation@0.29.4) (2019-08-04)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.29.3](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.29.2...@furo/navigation@0.29.3) (2019-08-04)
+
+
+### Bug Fixes
+
+* stylevar --primary-color is --primary ([3d791c4](https://github.com/veith/FuroBaseComponents/commit/3d791c4))
+
+
+
+
+
+## [0.29.2](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.29.1...@furo/navigation@0.29.2) (2019-08-03)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.29.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.29.0...@furo/navigation@0.29.1) (2019-08-02)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+# [0.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.28.2...@furo/navigation@0.29.0) (2019-08-01)
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
+## [0.28.2](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.28.1...@furo/navigation@0.28.2) (2019-08-01)
+
+
+### Bug Fixes
+
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/FuroBaseComponents/commit/042155c))
+
+
+
+
+
+## [0.28.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.28.0...@furo/navigation@0.28.1) (2019-07-31)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+# [0.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.5...@furo/navigation@0.28.0) (2019-07-30)
+
+
+### Features
+
+* furo-component-page ([37c9078](https://github.com/veith/FuroBaseComponents/commit/37c9078))
+
+
+
+
+
+## [0.27.5](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.4...@furo/navigation@0.27.5) (2019-07-30)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.27.4](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.3...@furo/navigation@0.27.4) (2019-07-28)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.27.3](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.2...@furo/navigation@0.27.3) (2019-07-28)
+
+
+### Bug Fixes
+
+* imports ([a51ec93](https://github.com/veith/FuroBaseComponents/commit/a51ec93))
+
+
+
+
+
+## [0.27.2](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.1...@furo/navigation@0.27.2) (2019-07-18)
+
+
+### Bug Fixes
+
+* events on nested entities (trees) ([e30d98c](https://github.com/veith/FuroBaseComponents/commit/e30d98c))
+* tests ([77d8141](https://github.com/veith/FuroBaseComponents/commit/77d8141))
+
+
+
+
+
+## [0.27.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.0...@furo/navigation@0.27.1) (2019-07-16)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.4...@furo/navigation@0.27.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+* new spec for tree ([c0aef5a](https://github.com/veith/FuroBaseComponents/commit/c0aef5a))
+
+
+
+
+
+## [0.26.4](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.3...@furo/navigation@0.26.4) (2019-07-12)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.26.3](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.2...@furo/navigation@0.26.3) (2019-07-12)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 ## [0.26.2](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.1...@furo/navigation@0.26.2) (2019-07-11)
 
 **Note:** Version bump only for package @furo/navigation

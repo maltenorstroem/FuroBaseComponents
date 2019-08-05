@@ -3,6 +3,176 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.15.0...@furo/route@0.15.1) (2019-08-03)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.14.0...@furo/route@0.15.0) (2019-08-02)
+
+
+### Features
+
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/veith/FuroBaseComponents/commit/230e7cd))
+
+
+
+
+
+# [0.14.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.13.1...@furo/route@0.14.0) (2019-08-01)
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
+## [0.13.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.13.0...@furo/route@0.13.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/FuroBaseComponents/commit/042155c))
+
+
+
+
+
+# [0.13.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.10...@furo/route@0.13.0) (2019-07-30)
+
+
+### Features
+
+* furo-component-page ([37c9078](https://github.com/veith/FuroBaseComponents/commit/37c9078))
+
+
+
+
+
+## [0.12.10](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.9...@furo/route@0.12.10) (2019-07-30)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.12.9](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.8...@furo/route@0.12.9) (2019-07-28)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.12.8](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.7...@furo/route@0.12.8) (2019-07-28)
+
+
+### Bug Fixes
+
+* imports ([a51ec93](https://github.com/veith/FuroBaseComponents/commit/a51ec93))
+
+
+
+
+
+## [0.12.7](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.6...@furo/route@0.12.7) (2019-07-28)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.12.6](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.5...@furo/route@0.12.6) (2019-07-25)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.12.5](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.4...@furo/route@0.12.5) (2019-07-22)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.12.4](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.3...@furo/route@0.12.4) (2019-07-18)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.12.3](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.2...@furo/route@0.12.3) (2019-07-18)
+
+
+### Bug Fixes
+
+* panel-coordinator update ([b8559f8](https://github.com/veith/FuroBaseComponents/commit/b8559f8))
+
+
+
+
+
+## [0.12.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.1...@furo/route@0.12.2) (2019-07-18)
+
+
+### Bug Fixes
+
+* tests ([77d8141](https://github.com/veith/FuroBaseComponents/commit/77d8141))
+
+
+
+
+
+## [0.12.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.0...@furo/route@0.12.1) (2019-07-16)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.12.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.5...@furo/route@0.12.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+* new spec for tree ([c0aef5a](https://github.com/veith/FuroBaseComponents/commit/c0aef5a))
+* new spec panel coordinator ([1b67bc4](https://github.com/veith/FuroBaseComponents/commit/1b67bc4))
+
+
+
+
+
+## [0.11.5](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.4...@furo/route@0.11.5) (2019-07-12)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.11.4](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.3...@furo/route@0.11.4) (2019-07-12)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
 ## [0.11.3](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.2...@furo/route@0.11.3) (2019-07-11)
 
 

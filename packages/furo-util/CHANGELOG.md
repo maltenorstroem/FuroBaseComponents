@@ -3,6 +3,200 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.11.0...@furo/util@0.11.1) (2019-08-03)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [0.11.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.10.0...@furo/util@0.11.0) (2019-08-02)
+
+
+### Features
+
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/veith/FuroBaseComponents/commit/230e7cd))
+
+
+
+
+
+# [0.10.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.9.1...@furo/util@0.10.0) (2019-08-01)
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
+## [0.9.1](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.9.0...@furo/util@0.9.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/FuroBaseComponents/commit/042155c))
+
+
+
+
+
+# [0.9.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.8.1...@furo/util@0.9.0) (2019-07-30)
+
+
+### Features
+
+* furo-component-page ([37c9078](https://github.com/veith/FuroBaseComponents/commit/37c9078))
+
+
+
+
+
+## [0.8.1](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.8.0...@furo/util@0.8.1) (2019-07-30)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.7.4...@furo/util@0.8.0) (2019-07-28)
+
+
+### Features
+
+* switch from commonmark to markdown-it ([bf80c48](https://github.com/veith/FuroBaseComponents/commit/bf80c48))
+
+
+
+
+
+## [0.7.4](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.7.3...@furo/util@0.7.4) (2019-07-28)
+
+
+### Bug Fixes
+
+* imports ([a51ec93](https://github.com/veith/FuroBaseComponents/commit/a51ec93))
+
+
+
+
+
+## [0.7.3](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.7.2...@furo/util@0.7.3) (2019-07-28)
+
+
+### Bug Fixes
+
+* graph calculation is faster then the svg, timeout given for label length calc ([c68993d](https://github.com/veith/FuroBaseComponents/commit/c68993d))
+
+
+
+
+
+## [0.7.2](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.7.1...@furo/util@0.7.2) (2019-07-25)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+## [0.7.1](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.7.0...@furo/util@0.7.1) (2019-07-22)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+# [0.7.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.6.0...@furo/util@0.7.0) (2019-07-18)
+
+
+### Features
+
+* ordered docs ([c48cac4](https://github.com/veith/FuroBaseComponents/commit/c48cac4))
+
+
+
+
+
+# [0.6.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.5.0...@furo/util@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* panel-coordinator update ([b8559f8](https://github.com/veith/FuroBaseComponents/commit/b8559f8))
+
+
+### Features
+
+* furo demo viewer class viewer ([ce6755f](https://github.com/veith/FuroBaseComponents/commit/ce6755f))
+* furo demo viewer class viewer init ([9760015](https://github.com/veith/FuroBaseComponents/commit/9760015))
+
+
+
+
+
+# [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.4.0...@furo/util@0.5.0) (2019-07-18)
+
+
+### Features
+
+* furo demo viewer ([fb543ee](https://github.com/veith/FuroBaseComponents/commit/fb543ee))
+* furo demo viewer ([7c5ca88](https://github.com/veith/FuroBaseComponents/commit/7c5ca88))
+* furo demo viewer flow part ([61d1dbc](https://github.com/veith/FuroBaseComponents/commit/61d1dbc))
+* furo demo viewer styling ([21e6e26](https://github.com/veith/FuroBaseComponents/commit/21e6e26))
+
+
+
+
+
+# [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.3.0...@furo/util@0.4.0) (2019-07-16)
+
+
+### Features
+
+* doc viewer ([1396650](https://github.com/veith/FuroBaseComponents/commit/1396650))
+* doc viewer ([fc1efda](https://github.com/veith/FuroBaseComponents/commit/fc1efda))
+* doc viewer dash-cased names ([4ce9bdb](https://github.com/veith/FuroBaseComponents/commit/4ce9bdb))
+* simple doc menu ([8d1b3ec](https://github.com/veith/FuroBaseComponents/commit/8d1b3ec))
+* simple doc menu classes ([ff9dd6d](https://github.com/veith/FuroBaseComponents/commit/ff9dd6d))
+
+
+
+
+
+# [0.3.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.2.5...@furo/util@0.3.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([a5df515](https://github.com/veith/FuroBaseComponents/commit/a5df515))
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+
+
+
+
+
+## [0.2.5](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.2.4...@furo/util@0.2.5) (2019-07-12)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+## [0.2.4](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.2.3...@furo/util@0.2.4) (2019-07-12)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
 ## [0.2.3](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.2.2...@furo/util@0.2.3) (2019-07-11)
 
 **Note:** Version bump only for package @furo/util

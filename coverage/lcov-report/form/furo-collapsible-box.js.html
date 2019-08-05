@@ -25,9 +25,9 @@
         <span class='fraction'>46/46</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">76.19% </span>
+        <span class="strong">80.95% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>16/21</span>
+        <span class='fraction'>17/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -344,11 +344,7 @@
 <a name='L296'></a><a href='#L296'>296</a>
 <a name='L297'></a><a href='#L297'>297</a>
 <a name='L298'></a><a href='#L298'>298</a>
-<a name='L299'></a><a href='#L299'>299</a>
-<a name='L300'></a><a href='#L300'>300</a>
-<a name='L301'></a><a href='#L301'>301</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L299'></a><a href='#L299'>299</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -415,8 +411,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -436,9 +432,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -634,7 +630,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -649,8 +645,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import "@furo/layout/furo-horizontal-flex"
-import "@polymer/iron-icon/iron-icon"
-import "@polymer/iron-icons/iron-icons"
 import {FBP} from "@furo/fbp";
 &nbsp;
 /**
@@ -665,7 +659,7 @@ import {FBP} from "@furo/fbp";
  *
  * @summary collapsible box with head
  * @customElement
- * @demo demo/furo-collapsible-box.html
+ * @demo demo-furo-collapsible-box
  * @appliesMixin FBP
  */
 class FuroCollapsibleBox extends FBP(LitElement) {
@@ -715,7 +709,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
       }
     });
     this._FBPAddWireHook("--blured", () =&gt; {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.closeOnBlur) {
+      if (this.closeOnBlur) {
         this.close();
       }
     });
@@ -913,15 +907,15 @@ class FuroCollapsibleBox extends FBP(LitElement) {
 &nbsp;
         }
 &nbsp;
-        iron-icon {
+        furo-icon {
             width: 24px;
             height: 24px;
             cursor: pointer;
             outline: none;
         }
 &nbsp;
-        iron-icon:focus {
-            color: var(--primary-color, #CDCDCD)
+        furo-icon:focus {
+            color: var(--primary, #CDCDCD)
         }
 &nbsp;
     `
@@ -936,7 +930,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     // language=HTML
     return html`
 &lt;furo-horizontal-flex class="head"&gt;
-  &lt;iron-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"&gt;&lt;/iron-icon&gt;     
+  &lt;furo-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"&gt;&lt;/furo-icon&gt;     
   &lt;label flex  @-click="--toggleClicked"&gt;${this.label}&lt;/label&gt;
   &lt;slot name="context"&gt;&lt;/slot&gt;
 &lt;/furo-horizontal-flex&gt;
@@ -952,7 +946,7 @@ window.customElements.define('furo-collapsible-box', FuroCollapsibleBox);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jul 11 2019 12:15:30 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Aug 04 2019 14:47:55 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../prettify.js"></script>

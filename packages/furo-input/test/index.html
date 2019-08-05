@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-  <title>Tests</title>
+  <title>Tests @furo/input</title>
 
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -12,11 +12,21 @@
   <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+
 </head>
 <body>
 <script>
-  // Load and run all tests (.html, .js):
   WCT.loadSuites([
+    'furo-textarea-input_test.html',
+    'furo-date-input_test.html',
+    'furo-time-input_test.html',
+    'furo-range-input_test.html',
+    'furo-search-input_test.html',
+    'furo-password-input_test.html',
+    'furo-text-input_test.html',
+    'furo-number-input_test.html',
+    'furo-button_test.html'
   ]);
 </script>
 </body>

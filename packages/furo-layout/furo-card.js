@@ -8,7 +8,7 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-card.html
+ * @demo demo-furo-card
  * @appliesMixin FBP
  */
 class FuroCard extends FBP(LitElement) {
@@ -47,6 +47,7 @@ class FuroCard extends FBP(LitElement) {
             bottom: 0;
             left: 0;
             right:0;
+            border-top: 1px solid var(--separator);
         }
 
     `

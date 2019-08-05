@@ -13,7 +13,7 @@
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '@furo/fbp/flow-bind.js';
-    import '@furo/input/furo-catalog.js';
+    import '@furo/data-input/furo-catalog.js';
     import '../furo-catalog';
     import './produce-qp';
     import './repeated-data';
@@ -66,26 +66,26 @@
 
 
           <furo-number-input ƒ-bind-data="--data(*.fields.id)"></furo-number-input>
-          <furo-range-input ƒ-bind-data="--data(*.fields.id)"></furo-range-input>
+          <furo-data-range-input ƒ-bind-data="--data(*.fields.id)"></furo-data-range-input>
 
           <furo-text-input autofocus ƒ-bind-data="--data(*.fields.display_name)"></furo-text-input>
           <furo-text-input label="Wichtiger" ƒ-focus="--focus"
                            ƒ-bind-data="--data(*.fields.description)"></furo-text-input>
           <furo-text-input ƒ-bind-data="--data(*.fields.description)"></furo-text-input>
           <furo-text-input ƒ-bind-data="--data(*.fields.display_name)"></furo-text-input>
-          <furo-password-input ƒ-bind-data="--data(*.fields.display_name)"></furo-password-input>
+          <furo-data-password-input ƒ-bind-data="--data(*.fields.display_name)"></furo-data-password-input>
 
 
-          <furo-date-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-date-input>
+          <furo-data-date-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-data-date-input>
           <furo-text-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-text-input>
-          <furo-time-input ƒ-bind-data="--data(*.fields.zeitunddatum.time)"></furo-time-input>
+          <furo-data-time-input ƒ-bind-data="--data(*.fields.zeitunddatum.time)"></furo-data-time-input>
           <furo-text-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-text-input>
-          <furo-search-input ƒ-bind-data="--data(*.fields.display_name)"></furo-search-input>
+          <furo-data-search-input ƒ-bind-data="--data(*.fields.display_name)"></furo-data-search-input>
 
-          <furo-textarea-input ƒ-bind-data="--data(*.fields.display_name)"></furo-textarea-input>
+          <furo-data-textarea-input ƒ-bind-data="--data(*.fields.display_name)"></furo-data-textarea-input>
           <hr>
-          <furo-textarea-input style="width: 100%" label="Wichtiger" rows="5"
-                               ƒ-bind-data="--data(*.fields.display_name)"></furo-textarea-input>
+          <furo-data-textarea-input style="width: 100%" label="Wichtiger" rows="5"
+                               ƒ-bind-data="--data(*.fields.display_name)"></furo-data-textarea-input>
 
 
           <hr>

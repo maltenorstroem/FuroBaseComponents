@@ -69,8 +69,8 @@ class FuroDataTable extends FBP(LitElement) {
         this._collection = [];
 
         this._FBPAddWireHook("--rowCheckChanged", (r) => {
-            if (r.path[0].nodeName === 'INPUT') {
-                if (r.path[0].checked) {
+            if (r.composedPath()[0].nodeName === 'INPUT') {
+                if (r.composedPath()[0].checked) {
                     this._checkedRows.push(this._collection.data[this._selectedIndex]);
                 } else {
                     this._checkedRows.pop(this._collection.data[this._selectedIndex]);
@@ -138,15 +138,14 @@ class FuroDataTable extends FBP(LitElement) {
 
             th {
                 background-color: var(--on-primary, transparent);
-                color: var(--primary-color, #035CA1);
+                color: var(--primary, #035CA1);
                 white-space: nowrap;
                 font-weight: bold;
             }
 
             tr {
                 outline: none;
-                padding-bottom: 10px;
-                padding-top: 10px;
+                line-height: 40px;
                 -webkit-box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
                 box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
                 display: -webkit-box;
@@ -162,7 +161,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             td, th {
                 padding-left: 0;
-                padding-right: var(--gap-size, 8px);
+                margin-right: var(--gap-size, 8px);
                 -webkit-font-smoothing: antialiased;
                 font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
                 font-size: .875rem;
@@ -210,7 +209,7 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr[selected=true] .ri:before {
-                background-color: var(--primary-color, #4d90f0);
+                background-color: var(--primary, #4d90f0);
                 content: '';
                 display: block;
                 height: 100%;
@@ -433,7 +432,7 @@ class FuroDataTable extends FBP(LitElement) {
                     detail: this._collection.data[this._selectedIndex], bubbles: true, composed: true
                 }));
             }
-        } else if (e.target.parentNode.parentElement.parentElement.rowIndex >= 0 && e.target.nodeName === 'INPUT') {
+        } else if (e.target.nodeName === 'INPUT' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0 ) {
             this._selectedIndex = e.target.parentNode.parentElement.parentElement.rowIndex - 1;
         }
 
