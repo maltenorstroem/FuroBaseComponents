@@ -18,6 +18,7 @@ class PanelMdLoader extends FBP(LitElement) {
         super();
         this._FBPAddWireHook("--pathChanged",(e)=>{
           let md = e.pathSegments[0];
+          // this will import from xxx/guide/
           this._FBPTriggerWire("--fetchMD","/_page/markdown/"+ md + ".md");
           this.scrollTop = 0;
       })
@@ -45,14 +46,20 @@ class PanelMdLoader extends FBP(LitElement) {
             display: block;
             height: 100%;
             overflow-y: auto;
-            padding: 0 var(--spacing);
-            max-width: 100%;
             box-sizing: border-box;
         }
 
         :host([hidden]) {
             display: none;
         }
+        
+        furo-markdown{
+            padding: var(--spacing);
+          background-color: var(--background);
+            max-width: 960px;
+            min-width: 500px;
+        }
+        
     `
   }
 

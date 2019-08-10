@@ -25,9 +25,7 @@ import "./furo-vertical-scroller"
  */
 class FuroSplitView extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   static get properties() {
     return {
@@ -73,6 +71,7 @@ class FuroSplitView extends FBP(LitElement) {
             height: 100%;
             overflow-y: auto;
         }
+       
     `
   }
 

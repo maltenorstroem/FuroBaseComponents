@@ -60,10 +60,11 @@ class DemoFuroInputTogether extends FBP(LitElement) {
             <br>
             <br>
             <furo-time-input ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
-                             label="Time input field" @-value-changed="--time"></furo-time-input>
+                             label="Time  field" @-value-changed="--time"></furo-time-input>
             <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
                               @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
            
+            <furo-color-input label="Color" value="#FEA234"></furo-color-input>
             <furo-search-input label="Search"></furo-search-input>
             <furo-date-input ƒ-set-value="--date" max="2020-12-31" min="2020-01-01" value="2020-02-02"
                              hint="Min max in 2020 only" label="Date input field"
@@ -80,8 +81,8 @@ class DemoFuroInputTogether extends FBP(LitElement) {
                              label="Text input field" @-value-changed="--text"></furo-text-input>
             <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
                                label="Number input field" @-value-changed="--number"></furo-number-input>
-            <furo-text-input ƒ-set-value="--time" label="Input field" @-value-changed="--time"></furo-text-input>
-
+            <furo-text-input style="width: 100%" ƒ-set-value="--time" label="Input field" @-value-changed="--time"></furo-text-input>
+            
             <hr>
             <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v" @-value-changed="--fromTextarea"></furo-textarea-input>
             

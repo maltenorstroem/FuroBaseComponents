@@ -66,7 +66,7 @@ class FuroMarkdown extends (LitElement) {
    * @return {Promise<string | never>}
    */
   fetchMd(src) {
-    fetch(src).then(res => res.text()).then(markdown => {
+    return fetch(src).then(res => res.text()).then(markdown => {
       this.markdown = markdown;
     });
   }
@@ -113,6 +113,8 @@ class FuroMarkdown extends (LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            background-color: var(--surface, white);
+            color: var(--on-surface, black);
         }
 
         :host([hidden]) {

@@ -14,14 +14,16 @@ export const nav = [
       {"label": "Routing", "icon": "arrow-forward", "href": "route/doc/"},
       {"label": "Timing", "icon": "alarm", "href": "timing/doc/"},
       {"label": "Math", "icon": "timeline", "href": "math/doc/"},
+      {"label": "Logic", "icon": "av:web", "href": "logic/doc/"},
       {"label": "Util", "icon": "star-border", "href": "util/doc/"},
+      {"label": "💀 Experiments", "icon": "image:colorize", "href": "experiments/doc/"},
     ]
   },
   {
     "group": "The Framework", "items": [
       {"label": "Overview", "icon": "create", "href": "doc/framework/"},
-      {"label": "Styling", "icon": "create", "href": "md/api-design/"},
-      {"label": "Theming", "icon": "create", "href": "doc/furo-config/"},
+      {"label": "Styling", "icon": "image:color-lens", "href": "md/api-design/"},
+      {"label": "Theming", "icon": "image:brush", "href": "doc/furo-config/"},
       {"label": "Internationalisation", "icon": "create", "href": "md/api-design/"},
       {"label": "Configuration", "icon": "create", "href": "md/api-design/"}
     ]

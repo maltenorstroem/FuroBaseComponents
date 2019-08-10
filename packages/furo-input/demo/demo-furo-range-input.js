@@ -48,12 +48,18 @@ class DemoFuroRangeInput extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
+            <furo-range-input trailing-icon="dashboard" label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
                               @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
-            <furo-number-input label="Number" hint="type in a number" ƒ-set-value="--rval"
+            <furo-number-input  label="Number" hint="type in a number" ƒ-set-value="--rval"
                                @-value-changed="--nval"></furo-number-input>
             <furo-text-input label="Text" hint="type something like a number" ƒ-set-value="--rval"
                              @-value-changed="--rval,--nval"></furo-text-input>
+            <hr>
+
+            <furo-range-input  leading-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
+            <furo-range-input condensed leading-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
+            <furo-range-input filled leading-icon="dashboard" trailing-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
+            <furo-range-input filled condensed leading-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

@@ -61,7 +61,7 @@ class SideNavigationItem extends FBP(LitElement) {
             min-height: 40px;
             line-height: 40px;
             margin-bottom: 4px;
-            color: var(--on-background);
+            color: var(--on-surface);
             letter-spacing: .01785714em;
             font-size: .875rem;
             font-weight: 500;
@@ -110,7 +110,7 @@ class SideNavigationItem extends FBP(LitElement) {
         }
 
         furo-icon {
-            margin-right: var(--gap-size);
+            margin-right: var(--spacing);
         }
     `
   }
@@ -124,8 +124,8 @@ class SideNavigationItem extends FBP(LitElement) {
     // language=HTML
     return html`        
       
-        <a tabindex="-1" href="${this.basePath}${this.item.href}" ƒ-click=":STOP,--click"></a>     
-<furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}
+        <a tabindex="-1" href="${this.basePath}${this.item.href}" ƒ-click=":STOP,--click"></a><span>     
+<furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}</span>
     `;
   }
 }

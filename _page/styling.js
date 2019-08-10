@@ -5,36 +5,40 @@ export class Styling {
 
         // language=CSS
         return css`
+
             :host {
+
                 /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
+                /* https://material.io/design/material-theming/implementing-your-theme.html#color */
                 --primary: #ececec;
-                --accent: #3f83e3;
                 --primary-variant: #f4f4f4;
-                --secondary: #ffeb3b;
-                --secondary-variant: #edeeed;
-                --background: #ffffff;
-                --surface: #eeeeee;
-                --blockquote: #ffc247;
+                --on-primary: #212121;
+
+                --secondary: #fbe73a;
+                --secondary-variant: #9e7f2b;
+                --on-secondary: #000000;
+
+                --accent: #3f83e3;
+                --on-accent: #e5e5e5;
+
+                --background: #fff;
+                --on-background: #313131;
+
+                --surface: #fff;
+                --on-surface: #44484a;
                 --separator: #c3c4c3;
+
+                /* Input, Forms, Toast*/
                 --error: #C51162;
-                --success: #129991;
-                --llm-color: #ffffff;
-                --llm-variant-color: #f0f1f4;
-                --disabled-color: #B4B5B4;
-                --header-color: #212121;
+                --on-error: #ffffff;
+
                 --danger: #FA0202;
                 --on-danger: #FAFAFA;
-                --on-primary: #212121;
-                --on-primary-variant: #585858;
-                --on-secondary: #000000;
-                --on-background: #212121;
-                --on-surface: #212121;
-                --on-header: #ffffff;
 
-                --on-error: #ffffff;
+                --success: #129991;
                 --on-success: #202124;
-                --on-llm: #2c2c2c;
-                --gap-size: 24px;
+
+                --disabled-color: #B4B5B4;
 
                 /* Spacing */
                 --spacing-xxs: 4px;
@@ -46,14 +50,43 @@ export class Styling {
                 --spacing-xl: 48px;
                 --spacing-xxl: 96px;
 
-                /* Apply your theme here */
-                --demo-color-one: #6200ee;
-                --demo-color-two: #212121;
-                --demo-color-three: #eaddfd;
-                --on-demo: #fff;
-                --on-demo-three: #212121;
 
-                --border-radius: 4px;
+                /* project specific */
+                --blockquote: #ffc247;
+
+            }
+
+            /** the background of the bar itself. **/
+            ::-webkit-scrollbar {
+                width: 8px;
+                background-color: var(--surface, white);
+            }
+
+            /** the directional buttons on the scrollbar. **/
+            ::-webkit-scrollbar-button {
+                background-color: var(--on-surface, black);
+            }
+
+            /** the empty space “below” the progress bar. **/
+            ::-webkit-scrollbar-track {
+            }
+
+            /** the top-most layer of the the progress bar not covered by the thumb. **/
+            ::-webkit-scrollbar-track-piece {
+            }
+
+            /** the draggable scrolling element resizes depending on the size of the scrollable element. **/
+            ::-webkit-scrollbar-thumb {
+                background-color: var(--on-surface, black);
+                border-radius: 10px;
+            }
+
+            /** the bottom corner of the scrollable element, where two scrollbar meet. **/
+            ::-webkit-scrollbar-corner {
+            }
+
+            /** the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements. **/
+            ::-webkit-resizer {
             }
 
         `;

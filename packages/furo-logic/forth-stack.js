@@ -2,15 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
-/**
- * `forth-stack`
- * todo Describe your element
- *
- * @summary todo shortdescription
- * @customElement
- * @demo demo/forth-stack.html
- * @appliesMixin FBP
- */
+
 /**
  * `forth-stack` is a declarative stack, inspired by the forth stack.
  *
@@ -18,20 +10,38 @@ import {FBP} from "@furo/fbp";
  * http://wiki.laptop.org/go/Forth_stack_operators
  * http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks
  *
+ * @summary doing stack operations
  * @customElement
- * @polymer
  */
 class ForthStack extends (LitElement) {
 
   constructor() {
     super();
     this._stack = [];
+    /**
+     * Current size of the stack
+     * @type {number}
+     */
     this.size = 0;
   }
 
+  set size(val){
+    this._size = val;
+    /**
+    * @event stack-size-changed
+    * Fired when the stack size changes
+    * detail payload: {Number} Integer with the current size of the stack
+    */
+    let customEvent = new Event('stack-size-changed', {composed:true, bubbles: true});
+    customEvent.detail = val;
+    this.dispatchEvent(customEvent)
+  }
+  /**
+   * Empties the stack and set the stack-size to 0
+   */
   clearStack() {
     this._stack = [];
-    this.set('size', 0);
+    this.size =  0;
   }
 
   /**
@@ -41,13 +51,13 @@ class ForthStack extends (LitElement) {
    */
   put(e) {
     this._stack.push(e);
-    this.set('size', this._stack.length);
+    this.size = this._stack.length;
     return this._stack.length;
   }
 
   /**
    *
-   * swap ( n1 n2 -- n2 n1 )
+   * swap **( n1 n2 -- n2 n1 )**
    *
    * swap, as you may have guessed, swaps the top two elements of the stack. For example:
    *
@@ -68,7 +78,7 @@ class ForthStack extends (LitElement) {
   }
 
   /**
-   * drop ( n -- )
+   * drop **( n -- )**
    *
    *  drop simply drops the top element of the stack. Running:
    *
@@ -80,7 +90,7 @@ class ForthStack extends (LitElement) {
   drop() {
     if (this._stack.length > 0) {
       let e = this._stack.pop();
-      this.set('size', this._stack.length);
+      this.size = this._stack.length;
       if (this._stack.length === 0) {
         /**
          * Fired when stack is empty
@@ -95,7 +105,7 @@ class ForthStack extends (LitElement) {
   }
 
   /**
-   * dup ( n -- n n )
+   * dup **( n -- n n )**
    *
    *     dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:
    *
@@ -107,13 +117,13 @@ class ForthStack extends (LitElement) {
    */
   dup() {
     this._stack.push(this._stack[this._stack.length - 1]);
-    this.set('size', this._stack.length);
+    this.size = this._stack.length;
     return this._stack.length;
   }
 
   /**
    *
-   * over ( n1 n2 -- n1 n2 n1 )
+   * over **( n1 n2 -- n1 n2 n1 )**
    *
    *    over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:
    *
@@ -124,12 +134,12 @@ class ForthStack extends (LitElement) {
    */
   over() {
     this._stack.push(this._stack[this._stack.length - 2]);
-    this.set('size', this._stack.length);
+    this.size = this._stack.length;
     return this._stack.length;
   }
 
   /**
-   * rot ( n1 n2 n3 -- n2 n3 n1 )
+   * rot **( n1 n2 n3 -- n2 n3 n1 )**
    *
    *    Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.
    *
