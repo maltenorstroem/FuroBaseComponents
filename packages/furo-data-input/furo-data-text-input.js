@@ -1,7 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import {FuroInputBase} from "./FuroInputBase.js";
 import "@furo/input/furo-text-input";
 
 /**
@@ -15,7 +14,6 @@ import "@furo/input/furo-text-input";
  * @customElement
  * @demo demo-furo-data-text-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
 class FuroDataTextInput extends FBP(LitElement) {
 
@@ -35,6 +33,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.errortext = "";
     this.hint = "";
 
+
     this._FBPAddWireHook("--valueChanged", (val) => {
       if (this.field) {
         this.field.value = val;
@@ -46,29 +45,111 @@ class FuroDataTextInput extends FBP(LitElement) {
     return {
 
       /**
-       * Overrides the label text from the **specs**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       label: {
         type: String,
         attribute: true
       },
       /**
-       * Overrides the hint text from the **specs**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       hint: {
         type: String,
       },
       /**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      min: {
+        type: Number,
+      },
+      /**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      max: {
+        type: Number,
+      },
+      /**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      readonly: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean, reflect: true
+      },
+
+      /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
+        type: Boolean
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
+      },
+      /**
+       * html input validity
+       */
+      valid: {
+        type: Boolean,
+        reflect: true
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean
+      },
+      /**
+       * passes always float the label
+       */
+      float: {
         type: Boolean
       }
     }
   }
 
   /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
+   * Sets the field to readonly
+   */
+  disable() {
+    this._readonly = true;
+  }
+
+  /**
+   * Makes the field writable.
+   */
+  enable() {
+    this._readonly = false;
+  }
+
+  /**
+   * Bind a entity field to the number-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
@@ -89,17 +170,29 @@ class FuroDataTextInput extends FBP(LitElement) {
       // updates wieder einspielen
       this.error = true;
       this.errortext = this.field._validity.message;
+      this.requestUpdate();
     });
 
     this.field.addEventListener('field-became-valid', (e) => {
       // updates wieder einspielen
       this.error = false;
+      this.requestUpdate();
     });
   }
 
+  // label setter and getter are needed for rendering on the first time
+  set label(l) {
+    this._l = l;
+    this._label = l;
+  }
+
+  get label() {
+    return this._l;
+  }
 
   _updateField() {
     // label auf attr ist höher gewichtet
+
     if (!this.label) {
       this._label = this.field._meta.label;
     } else {
@@ -113,6 +206,26 @@ class FuroDataTextInput extends FBP(LitElement) {
       this._hint = this.hint;
     }
     this.disabled = this.field._meta.readonly ? true : false;
+
+    // min auf attr ist höher gewichtet
+    if (!this.min) {
+      this._min = this.field._meta.min;
+    } else {
+      this._min = this.min;
+    }
+    // max auf attr ist höher gewichtet
+    if (!this.max) {
+      this._max = this.field._meta.max;
+    } else {
+      this._max = this.max;
+    }
+    // readonly auf attr ist höher gewichtet
+    if (!this.readonly) {
+      this._readonly = this.field._meta.readonly;
+    } else {
+      this._readonly = this.readonly;
+    }
+
 
     //mark incomming error
     if (!this.field._isValid) {
@@ -140,7 +253,7 @@ class FuroDataTextInput extends FBP(LitElement) {
             display: none;
         }
 
-        furo-text-input{
+        furo-text-input {
             width: 100%;
         }
     `
@@ -151,9 +264,15 @@ class FuroDataTextInput extends FBP(LitElement) {
     return html`
        <furo-text-input 
           ?autofocus=${this.autofocus} 
-          ?disabled=${this.disabled} 
+          ?readonly=${this._readonly || this.disabled} 
           label="${this._label}" 
+          min="${this._min}" 
+          max="${this._max}" 
           ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"          
+          leading-icon="${this.leadingIcon}" 
+          trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
           hint="${this.hint}" 
           @-value-changed="--valueChanged"

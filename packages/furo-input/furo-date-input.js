@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import  "@furo/layout/furo-icon";
 
 /**
  * `furo-date-input`
@@ -148,6 +149,12 @@ class FuroDateInput extends FBP(LitElement) {
        */
       _float: {
         type: Boolean
+      },
+      /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
       },
       /**
        * The hint text for the field.
@@ -501,15 +508,15 @@ class FuroDateInput extends FBP(LitElement) {
             right: 8px;
         }
 
-        :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
             display: block;
         }
 
-        :host([leading-icon]) .wrapper {
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
             padding-left: 36px;
         }
 
-        :host([trailing-icon]) .wrapper {
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
             padding-right: 36px;
         }
 
@@ -587,7 +594,7 @@ class FuroDateInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       

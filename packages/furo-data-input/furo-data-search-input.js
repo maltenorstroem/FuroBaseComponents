@@ -1,7 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import {FuroInputBase} from "./FuroInputBase.js";
 import "@furo/input/furo-search-input";
 
 /**
@@ -15,7 +14,6 @@ import "@furo/input/furo-search-input";
  * @customElement
  * @demo demo-furo-data-search-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
 class FuroDataSearchInput extends FBP(LitElement) {
 
@@ -89,11 +87,13 @@ class FuroDataSearchInput extends FBP(LitElement) {
       // updates wieder einspielen
       this.error = true;
       this.errortext = this.field._validity.message;
+      this.requestUpdate();
     });
 
     this.field.addEventListener('field-became-valid', (e) => {
       // updates wieder einspielen
       this.error = false;
+      this.requestUpdate();
     });
   }
 

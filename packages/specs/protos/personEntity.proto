@@ -1,0 +1,12 @@
+syntax = "proto3";
+package furo.demo;
+
+
+import "person.proto";
+import "furo/type/meta.proto";
+import "furo/type/link.proto";
+
+// 
+service Service {   
+
+}

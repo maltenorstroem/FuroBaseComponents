@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import  "@furo/layout/furo-icon";
 
 /**
  * `furo-textarea-input`
@@ -136,6 +137,12 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       _float: {
         type: Boolean
+      },
+      /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
       },
       /**
        * The hint text for the field.

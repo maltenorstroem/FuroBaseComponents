@@ -80,7 +80,7 @@ class ViewHome extends FBP(LitElement) {
                 text-decoration: none;
                 line-height: 26px;
                 vertical-align: unset;
-                display: flex;
+                
                 align-content: start;
                 font-weight: 500;
                 color: var(--accent);
@@ -160,9 +160,10 @@ class ViewHome extends FBP(LitElement) {
         return html`
             <div class="content">
                 <p class="hero-title">フロー</p>
-                <p class="hero-caption">A enterprise grade and simple framework for creating fast, lightweight web apps
+                <p class="hero-caption">Version 0.xx.xx</p>
+                <p class="hero-caption">An enterprise grade and simple framework for creating fast, lightweight web apps
                     with web components</p>
-                <a class="hero-link" href="/guide">Get Started</a>
+                <a class="hero-link" href="/guide/md/overview/">Get Started</a>
 
                 <h1 class="title">Why use furo?</h1>
                 <furo-horizontal-flex padded>
@@ -213,6 +214,12 @@ class ViewHome extends FBP(LitElement) {
                         <p>If you like <a href="https://webpack.js.org/">webpack</a> or <a href="https://open-wc.org/">open-wc</a>,
                             feel free to change it.</p>
                     </div>
+                  <div class="panel" flex>
+                        <h2 class="caption">Dont Like Frameworks?</h2>
+                        <p>You can use the components from furo without having the "framework".</p>
+                        <p>You can also use the <strong>fbp</strong> without having the "framework" </p>
+                        
+                    </div>
 
                 </furo-horizontal-flex>
 
@@ -258,9 +265,9 @@ class ViewHome extends FBP(LitElement) {
                     </div>
                     <div class="panel" flex>
                         <h2 class="caption">Testable</h2>
-                        <p>Components built with furo are trivial to test. Trigger the wires or listen to data on a
-                            wire. No monster
-                            querySelectors needed.</p>
+                        <p>Components built with furo are easy to test. Trigger the wires or add a hook to an existing wire
+                        and inspect the data.
+                        </p>
                     </div>
                 </furo-horizontal-flex>
 

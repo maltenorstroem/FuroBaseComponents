@@ -1,4 +1,4 @@
-define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.radians=radians;_exports.rbox=rbox;_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.$navConfig=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.UpdatingElement=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nav=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.eventOptions$1=_exports.eventOptions=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const nav=[{group:"Packages",items:[{label:"Getting input",icon:"input",href:"input/doc/"},{label:"Dealing with data",icon:"cloud",href:"data/doc/"},{label:"Data UI",icon:"view-column",href:"data-ui/doc/"},{label:"Data Input",icon:"input",href:"data-input/doc/"},{label:"Layouts helper",icon:"dashboard",href:"layout/doc/"},{label:"Forms helper",icon:"dashboard",href:"form/doc/"},{label:"App Config",icon:"settings",href:"config/doc/"},{label:"Navigation",icon:"tab",href:"navigation/doc/"},{label:"Routing",icon:"arrow-forward",href:"route/doc/"},{label:"Timing",icon:"alarm",href:"timing/doc/"},{label:"Math",icon:"timeline",href:"math/doc/"},{label:"Logic",icon:"av:web",href:"logic/doc/"},{label:"Util",icon:"star-border",href:"util/doc/"},{label:"\uD83D\uDC80 Experiments",icon:"image:colorize",href:"experiments/doc/"}]},{group:"The Framework",items:[{label:"Overview",icon:"create",href:"doc/framework/"},{label:"Styling",icon:"image:color-lens",href:"md/api-design/"},{label:"Theming",icon:"image:brush",href:"doc/furo-config/"},{label:"Internationalisation",icon:"create",href:"md/api-design/"},{label:"Configuration",icon:"create",href:"md/api-design/"}]},{group:"Misc",items:[{label:"Test Coverage",icon:"create",href:"md/api-design/"}]}];_exports.nav=nav;var nav_config={nav:nav};_exports.$navConfig=nav_config;const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
+define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.radians=radians;_exports.rbox=rbox;_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.$navConfig=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.UpdatingElement=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nav=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.eventOptions$1=_exports.eventOptions=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const nav=[{group:"Packages",items:[{label:"Getting input",icon:"input",href:"input/doc/"},{label:"Dealing with data",icon:"cloud",href:"data/doc/"},{label:"Data UI",icon:"view-column",href:"data-ui/doc/"},{label:"Data Input",icon:"input",href:"data-input/doc/"},{label:"Layouts helper",icon:"dashboard",href:"layout/doc/"},{label:"Forms helper",icon:"dashboard",href:"form/doc/"},{label:"App Config",icon:"settings",href:"config/doc/"},{label:"Navigation",icon:"tab",href:"navigation/doc/"},{label:"Routing",icon:"arrow-forward",href:"route/doc/"},{label:"Timing",icon:"alarm",href:"timing/doc/"},{label:"Math",icon:"timeline",href:"math/doc/"},{label:"Logic",icon:"av:web",href:"logic/doc/"},{label:"Util",icon:"star-border",href:"util/doc/"},{label:"\uD83D\uDC80 Experiments",icon:"image:colorize",href:"experiments/doc/"}]},{group:"The Framework",items:[{label:"Overview",icon:"create",href:"framework/doc/"},{label:"Theming",icon:"image:brush",href:"framework/doc/Theme"},{label:"Internationalisation",icon:"create",href:"framework/doc/i18n"},{label:"Configuration",icon:"create",href:"framework/doc/Env"},{label:"Register Icons",icon:"image:color-lens",href:"framework/doc/Iconset"}]}];_exports.nav=nav;var nav_config={nav:nav};_exports.$navConfig=nav_config;const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
     * @license
     * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
     * This code may only be used under the BSD style license found at
@@ -2440,9 +2440,10 @@ return Theme.getThemeForComponent(this.name)||css`
 return html`
             <div class="content">
                 <p class="hero-title">フロー</p>
+                <p class="hero-caption">Version 0.xx.xx</p>
                 <p class="hero-caption">A enterprise grade and simple framework for creating fast, lightweight web apps
                     with web components</p>
-                <a class="hero-link" href="/guide">Get Started</a>
+                <a class="hero-link" href="/guide/md/overview/">Get Started</a>
 
                 <h1 class="title">Why use furo?</h1>
                 <furo-horizontal-flex padded>
@@ -2493,6 +2494,12 @@ return html`
                         <p>If you like <a href="https://webpack.js.org/">webpack</a> or <a href="https://open-wc.org/">open-wc</a>,
                             feel free to change it.</p>
                     </div>
+                  <div class="panel" flex>
+                        <h2 class="caption">Dont Like Frameworks?</h2>
+                        <p>You can use the components from furo without having the "framework".</p>
+                        <p>You can also use the <strong>fbp</strong> without having the "framework" </p>
+                        
+                    </div>
 
                 </furo-horizontal-flex>
 
@@ -2538,9 +2545,9 @@ return html`
                     </div>
                     <div class="panel" flex>
                         <h2 class="caption">Testable</h2>
-                        <p>Components built with furo are trivial to test. Trigger the wires or listen to data on a
-                            wire. No monster
-                            querySelectors needed.</p>
+                        <p>Components built with furo are easy to test. Trigger the wires or add a hook to an existing wire
+                        and inspect the data.
+                        </p>
                     </div>
                 </furo-horizontal-flex>
 
@@ -2748,68 +2755,7 @@ return[css`
      */render(){// language=HTML
 return html`
             <main-stage></main-stage>
-        `}}window.customElements.define("furo-shell",FuroShell);class Styling$1{static get theme(){// language=CSS
-return css`
-        :host {
-
-            /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-            /* https://material.io/design/material-theming/implementing-your-theme.html#color */
-            --primary-light: #4ccd50;
-            --primary: #4caf50;
-            --primary-dark: #4b9b4f;
-            --primary-variant: #f4f4f4;
-            --on-primary: #212121;
-
-            --secondary-light: #ffe525;
-            --secondary: #ffeb3b;
-            --secondary-dark: #efdb3b;
-            --secondary-variant: #edeeed;
-            --on-secondary: #000000;
-
-            --accent-light: #419bff;
-            --accent: #3f83e3;
-            --accent-dark: #3f6ece;
-            --on-accent: #e5e5e5;
-
-            --background: #ffffff;
-            --on-background: #212121;
-
-            --surface-light: #f2f2f2;
-            --surface: #eeeeee;
-            --surface-dark: #DEDEDE;
-            --on-surface: #212121;
-            --separator: #c3c4c3;
-
-            /* Input, Forms, Toast*/
-            --error: #C51162;
-            --on-error: #ffffff;
-
-            --danger-light: #FA0202;
-            --danger: #e20202;
-            --danger-dark: #b50202;
-            --on-danger: #FAFAFA;
-
-            --success: #129991;
-            --on-success: #202124;
-
-            --disabled: #c3c4c3;
-            --on-disabled: #585858;
-
-
-            /* Spacing */
-            --spacing-xxs: 4px;
-            --spacing-xs: 8px;
-            --spacing-s: 16px;
-            --spacing: 24px;
-            --spacing-m: 24px;
-            --spacing-l: 32px;
-            --spacing-xl: 48px;
-            --spacing-xxl: 96px;
-
-
-        }
-
-    `}}_exports.Styling=Styling$1;var styling$1={Styling:Styling$1};/*! markdown-it 9.0.1 https://github.com//markdown-it/markdown-it @license MIT */_exports.$styling$1=styling$1;(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
+        `}}window.customElements.define("furo-shell",FuroShell);/*! markdown-it 9.0.1 https://github.com//markdown-it/markdown-it @license MIT */(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
 //
 'use strict';/*eslint quotes:0*/module.exports=require("entities/maps/entities.json")},{"entities/maps/entities.json":52}],2:[function(require,module,exports){// List of valid html blocks names, accorting to commonmark spec
 // http://jgm.github.io/CommonMark/spec.html#html-blocks
@@ -5026,7 +4972,761 @@ return Theme.getThemeForComponent(this.name)||css`
 
 
     `}render(){return html`    
-      ${this.markdownRendered}`}}window.customElements.define("furo-markdown",FuroMarkdown);(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
+      ${this.markdownRendered}`}}window.customElements.define("furo-markdown",FuroMarkdown);class FlowRepeat extends FBP(HTMLElement){constructor(){super();this.template;this._insertedItems=[]}/**
+     * Clear the list
+     */clear(){this.injectItems([])}/**
+     * Triggers the wire --itemSelected on selected item and --itemDeSelected on last selected Item
+     * @param index
+     */select(index){if(this._insertedItems[index]){// deselect the last selected
+if(this.selectedIndex!==void 0){this.deselect(this.selectedIndex)}this._insertedItems[index].virtualElement._FBPTriggerWire("--itemSelected");this.selectedIndex=index}}/**
+     * select Next index
+     *
+     */selectNextIndex(){let i=this.selectedIndex+1;// loop around
+if(!this._insertedItems[i]){i=0}this.select(i)}selectPreviousIndex(){let i=this.selectedIndex-1;// loop around
+if(0>i){i=this._insertedItems.length-1}this.select(i)}triggerSelected(data){this.triggerIndex(this.selectedIndex,data)}// trigger all nodes
+triggerAll(data){for(let i=0;i<this._insertedItems.length;i++){this.triggerIndex(i,data)}}/**
+     * Triggers the wire --itemDeSelected on last selected item
+     */deselect(){if(this.selectedIndex!==void 0&&this._insertedItems[this.selectedIndex]){this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire("--itemDeSelected");this.selectedIndex=void 0}}_findFirstHost(parent){if(parent&&parent.host){return parent.host}if(null===parent){return null}return this._findFirstHost(parent.parentNode)}injectItems(items){if(!Array.isArray(items)){console.info("Items is not an array ",items,this);// make the list empty
+items=[]}this._firstHost=this._findFirstHost(this.parentNode);items.forEach((e,i,a)=>{let identity=!1;if(this.identityPath){identity=this.identityPath.split(".").reduce((acc,part)=>acc&&acc[part],e)}let elem;// wenn das element noch nicht existiert
+if(!this._insertedItems[i]){elem=this._buildDomNode(identity,i);elem._FBPTriggerWire("--init",e)}else{// wenn die identität abweicht
+if(!this._insertedItems[i].identity||this._insertedItems[i].identity!==identity){elem=this._buildDomNode(identity,i);// Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
+let reference=this;if(this._insertedItems[i+1]&&this._insertedItems[i+1].children[0]){reference=this._insertedItems[i+1].children[0]}// move the nodes
+this._insertedItems[i].children.map(attachedElem=>{this.parentNode.insertBefore(attachedElem,reference)});elem._FBPTriggerWire("--init",e)}else{elem=this._insertedItems[i].virtualElement}}// set item and index value on created element
+elem.item=e;elem.index=i;// trigger wires
+elem._FBPTriggerWire(this._internalWire,{item:e,index:i});if(0===i){elem._FBPTriggerWire("--firstItem",e)}if(i===a.length-1){elem._FBPTriggerWire("--lastItem",e)}elem._FBPTriggerWire("--item",e);elem._FBPTriggerWire("--host",this._firstHost);elem._FBPTriggerWire("--index",i)});// überzählige elemente aus dem dom entfernen
+this._insertedItems.slice(items.length,this._insertedItems.length).map(handle=>{handle.children.map(attachedElem=>{attachedElem.remove()})});// überzählige elemente aus dem array entfernen
+this._insertedItems.splice(items.length);if(0<items.length){/**
+       * @event items-in-dom
+       * Fired when items are attached to the dom
+       * detail payload: {Number} Number of items
+       */setTimeout(()=>{let customEvent=new Event("items-in-dom",{composed:!0,bubbles:!1});customEvent.detail=items.length;this.dispatchEvent(customEvent)},0)}}_buildDomNode(identity,i){// build hidden elem
+let elem;elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);let handle={virtualElement:elem,children:[].slice.call(elem.shadowRoot.children),identity:identity};// remove old entries
+if(this._insertedItems[i]){this._insertedItems[i].children.map(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
+let t=this.querySelector("template");if(t&&t.content){this.template=t.content}/**
+       * Identity path of a single item.
+       * Use this if you have a field which identifies the item.
+       * @type {*string}
+       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class FuroDocPropertiesItem extends FBP(LitElement){constructor(){super();this.prop}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 36px;
+        }
+
+
+        :host([hidden]) {
+            display: none;
+        }
+        span.default{
+            color:green;
+        }
+        span.propname{
+            font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+            font-weight: 900;
+        }
+       
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){this.cname=this.prop.name.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();// language=HTML
+return html`
+      <span class="propname">${this.cname}</span>   <span class="propname">(${this.prop.name}):</span>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
+      <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
+      
+    `}}window.customElements.define("furo-doc-properties-item",FuroDocPropertiesItem);class FuroDocProperties extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * hide props if empty
+       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        h2 {
+            margin-top: 48px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0125em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <h2>Attributes & Properties</h2>
+      <template is="flow-repeat" ƒ-inject-items="--data">
+        <furo-doc-properties-item ƒ-data="--item"></furo-doc-properties-item>
+
+      </template>
+    `}}window.customElements.define("furo-doc-properties",FuroDocProperties);class FuroDocMethodsItem extends FBP(LitElement){constructor(){super();this.method}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 36px;
+        }
+
+        strong {
+            font-weight: 700;
+            font-family: "Roboto Mono";
+
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        span.name {
+            color: green;
+        }
+
+        span.paramname {
+            font-family: "Roboto Mono";
+            color: #717171;
+        }
+
+        span.type, span.return {
+            color: #717171;
+            font-weight: 900;
+        }
+
+
+        span.type:after {
+            content: ","
+        }
+        .inherited{
+            font-style: italic;
+            line-height: 24px;
+            color: #7f7f7f;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+if(!this.method.return){this.method.return={}}this.cname=this.method.name.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();return html`
+      <strong>${this.cname}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+      <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
+      <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
+      
+      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
+      <ul>
+      <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+    <li><span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br>
+    <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown></li>   
+</template></ul> 
+    `}}window.customElements.define("furo-doc-methods-item",FuroDocMethodsItem);class FuroDocMethods extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
+     * @private
+     * @return {Object}
+     */static get methods(){return{/**
+       * hide props if empty
+       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){// show public fields only hide inhterite from inheritedFrom: "LitElement"
+data=data.filter(m=>{// todo: filter out inherited stuff like connectedCallback and so
+return"public"===m.privacy&&!m.inheritedFrom});data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        h2 {
+            margin-top: 48px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0125em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <h2>Methods</h2>
+      <template is="flow-repeat" ƒ-inject-items="--data">
+        <furo-doc-methods-item ƒ-data="--item"></furo-doc-methods-item>
+
+      </template>
+    `}}window.customElements.define("furo-doc-methods",FuroDocMethods);class FuroDocEventsItem extends FBP(LitElement){constructor(){super();this.prop}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 36px;
+        }
+        strong {
+            font-weight: 700;
+            font-family: "Roboto Mono";
+            
+        }
+        :host([hidden]) {
+            display: none;
+        }
+        span.type, span.return {
+            color: #717171;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <strong>${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
+      <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
+      
+    `}}window.customElements.define("furo-doc-events-item",FuroDocEventsItem);class FuroDocEvents extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
+     * @private
+     * @return {Object}
+     */static get events(){return{/**
+       * hide props if empty
+       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){this._FBPTriggerWire("--data",data);data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        h2 {
+            margin-top: 48px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0125em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <h2>Events</h2>
+      <template is="flow-repeat" ƒ-inject-items="--data">
+        <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
+
+      </template>
+    `}}window.customElements.define("furo-doc-events",FuroDocEvents);class FuroDemoLink extends FBP(LitElement){constructor(){super()}/**
+    * flow is ready lifecycle method
+    */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}injectData(data){this.data=data}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <a href="../demo/${this.data.url}">${this.data.url}</a> <i>${this.data.description}</i>
+    `}}window.customElements.define("furo-demo-link",FuroDemoLink);class FuroDocElement extends FBP(LitElement){constructor(){super();this.element={}}hide(){this.setAttribute("hidden","")}print(analysisElement){this.element=analysisElement;this._FBPTriggerWire("--data",this.element);if(this.element.demos){this.element.demos.forEach(d=>{d.package=this.element.__package});this._FBPTriggerWire("--demos",this.element.demos)}this.removeAttribute("hidden");this.requestUpdate();this.scrollTop=0}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        h1{
+            font-size: 2.8rem;
+            font-weight: 400;
+            line-height: 3.5rem;
+            margin-top: 0;
+            letter-spacing: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        h2.description {
+            margin-top: 20px;
+            margin-bottom: 24px;
+            max-width: 600px;
+            color: #999;
+            border-bottom: none;
+        }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0125em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <h1><${this.element.tagname}&gt;</h1>
+      <h2 class="description">${this.element.summary}</h2>         
+      <h2>Description</h2>
+      <furo-markdown unsafe ƒ-parse-markdown="--data(*.description)"></furo-markdown>
+      <h2>Demos</h2>
+      <template is="flow-repeat" ƒ-inject-items="--demos">
+          <furo-demo-link ƒ-inject-data="--item"></furo-demo-link>
+      </template>
+      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
+      <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
+      <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>
+    `}}window.customElements.define("furo-doc-element",FuroDocElement);class FuroDocClassMethodsItem extends FBP(LitElement){constructor(){super();this.method}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 36px;
+        }
+
+        strong {
+            font-weight: 700;
+            font-family: "Roboto Mono";
+           
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        span.name {
+            color: green;
+        }
+
+        span.paramname {
+            font-family: "Roboto Mono";
+            color: #717171;
+        }
+
+        span.type, span.return {
+            color: #717171;
+            font-weight: 900;
+        }
+        
+
+        span.type:after {
+            content: ","
+        }
+        .inherited{
+            font-style: italic;
+            line-height: 24px;
+            color: #7f7f7f;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+if(!this.method.return){this.method.return={}}return html`
+      <strong>${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+      <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
+      <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
+       <span class="inherited"> Inherited from ${this.method.inheritedFrom}</span>
+      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
+      <ul>
+      <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+    <li><span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br>
+    <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown></li>   
+</template></ul> 
+    `}}window.customElements.define("furo-doc-class-methods-item",FuroDocClassMethodsItem);class FuroDocClassMethods extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
+     * @private
+     * @return {Object}
+     */static get methods(){return{/**
+       * hide props if empty
+       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){// show public fields only
+data=data.filter(m=>{return"public"===m.privacy});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        h2 {
+            font-weight: 400;
+            line-height: 28px;
+            font-size: 20px;
+            margin-top: 48px;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <h2>Methods</h2>
+      <template is="flow-repeat" ƒ-inject-items="--data">
+        <furo-doc-class-methods-item ƒ-data="--item"></furo-doc-class-methods-item>
+
+      </template>
+    `}}window.customElements.define("furo-doc-class-methods",FuroDocClassMethods);class FuroDocClass extends FBP(LitElement){constructor(){super();this.class={}}hide(){this.setAttribute("hidden","")}print(analysisElement){this.class=analysisElement;this._FBPTriggerWire("--data",this.class);this.removeAttribute("hidden");this.requestUpdate();this.scrollTop=0}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+        h1{
+            font-size: 2.8rem;
+            font-weight: 400;
+            line-height: 3.5rem;
+            margin-top: 0;
+            letter-spacing: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        h2.description {
+            margin-top: 20px;
+            margin-bottom: 24px;
+            max-width: 600px;
+            color: #999;
+            border-bottom: none;
+        }
+        h2 {
+            font-weight: 400;
+            line-height: 28px;
+            font-size: 20px;
+            margin-top: 48px;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <h1>${this.class.name}</h1>
+      <h2 class="description">${this.class.summary}</h2>  
+      <h2>Description</h2>
+      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
+      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>     
+      <furo-doc-class-methods ƒ-data="--data(*.methods)"></furo-doc-class-methods>
+    `}}window.customElements.define("furo-doc-class",FuroDocClass);class FuroDocMenuElementItem extends FBP(LitElement){constructor(){super();//forward click to a
+this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(item){this.item=item;this.selected=item.__selected;if(this.selected){setTimeout(()=>{if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}},16)}}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Description
+       */selected:{type:Boolean,reflect:!0}}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: list-item;
+            padding-left: var(--spacing-s);
+            line-height: 30px;
+            margin-bottom: 4px;
+            color: var(--on-background);
+            letter-spacing: 0.0178571em;
+            font-size: 0.875rem;
+            font-weight: 300;
+            transition: all 0.2s ease 0s;
+            cursor: pointer;
+        }
+        
+        :host([hidden]) {
+            display: none;
+        }
+        
+
+        :host(:hover), :host([selected]) {
+            background-color: var(--secondary);
+            border-radius: 4px;
+            color: var(--on-secondary);
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+<a href="${this.item.tagname}" ƒ-click=":STOP,--click"></a>&lt;${this.item.tagname}&gt;
+      
+    `}}window.customElements.define("furo-doc-menu-element-item",FuroDocMenuElementItem);class FuroDocMenuClassItem extends FBP(LitElement){constructor(){super();this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(item){this.item=item;this.selected=item.__selected;if(this.selected){setTimeout(()=>{if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}},16)}// remove classes without names (ie superclasses)
+if(!this.item.name){this.remove()}}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Description
+       */selected:{type:Boolean,reflect:!0}}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: list-item;
+            padding-left: var(--spacing-s);
+            line-height: 30px;
+            margin-bottom: 4px;
+            color: var(--on-background);
+            letter-spacing: 0.0178571em;
+            font-size: 0.875rem;
+            font-weight: 300;
+            transition: all 0.2s ease 0s;
+            cursor: pointer;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+
+        :host(:hover), :host([selected]) {
+            background-color: var(--secondary);
+            border-radius: 4px;
+            color: var(--on-secondary);
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <a href="${this.item.name}" ƒ-click=":STOP,--click"></a>${this.item.name}
+    `}}window.customElements.define("furo-doc-menu-class-item",FuroDocMenuClassItem);class FuroDocMenu extends FBP(LitElement){constructor(){super()}analysis(analysis){if(analysis.elements){this._FBPTriggerWire("--elements",analysis.elements)}else{//clear
+this._FBPTriggerWire("--elements",[])}if(analysis.classes){this._FBPTriggerWire("--classes",analysis.classes)}else{//clear
+this._FBPTriggerWire("--classes",[])}if(analysis.mixins){this._FBPTriggerWire("--mixins",analysis.mixins)}else{//clear
+this._FBPTriggerWire("--mixins",[])}// send selected, analysis.__selectedElement is set from furo-doc-fetch-analysis
+if(analysis.__selectedElement){/**
+       * @event element
+       * Fired when element is selected
+       * detail payload: element analysis data
+       */let customEvent=new Event("element",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedElement;this.dispatchEvent(customEvent)}// send selected class
+if(analysis.__selectedClass){/**
+       * @event element
+       * Fired when element is selected
+       * detail payload: element analysis data
+       */let customEvent=new Event("class",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedClass;this.dispatchEvent(customEvent)}// send selected mixin
+if(analysis.__selectedMixin){/**
+       * @event element
+       * Fired when element is selected
+       * detail payload: element analysis data
+       */let customEvent=new Event("mixin",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedMixin;this.dispatchEvent(customEvent)}}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing-s);
+            background-color: var(--background);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        h3 {
+            position: sticky;
+            top: 0;
+            background-color: var(--background);
+            z-index: 1;
+            margin-top: 0;
+            color: var(--on-background);
+            letter-spacing: .07272727em;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+
+      <h3>Elements</h3>
+      <ul>
+        <template is="flow-repeat" ƒ-inject-items="--elements" identity-path="name">
+          <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
+        </template>
+      </ul>
+
+
+      <h3>Mixins</h3>
+      <ul>
+        <template is="flow-repeat" ƒ-inject-items="--mixins" identity-path="name">
+          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
+        </template>
+      </ul>
+
+      <h3>Classes</h3>
+      <ul>
+        <template is="flow-repeat" ƒ-inject-items="--classes" identity-path="name">
+          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
+        </template>
+      </ul>
+
+    `}}window.customElements.define("furo-doc-menu",FuroDocMenu);class Styling$1{static get theme(){// language=CSS
+return css`
+        :host {
+
+            /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
+            /* https://material.io/design/material-theming/implementing-your-theme.html#color */
+            --primary-light: #4ccd50;
+            --primary: #4caf50;
+            --primary-dark: #4b9b4f;
+            --primary-variant: #f4f4f4;
+            --on-primary: #212121;
+
+            --secondary-light: #ffe525;
+            --secondary: #ffeb3b;
+            --secondary-dark: #efdb3b;
+            --secondary-variant: #edeeed;
+            --on-secondary: #000000;
+
+            --accent-light: #419bff;
+            --accent: #3f83e3;
+            --accent-dark: #3f6ece;
+            --on-accent: #e5e5e5;
+
+            --background: #ffffff;
+            --on-background: #212121;
+
+            --surface-light: #f2f2f2;
+            --surface: #eeeeee;
+            --surface-dark: #DEDEDE;
+            --on-surface: #212121;
+            --separator: #c3c4c3;
+
+            /* Input, Forms, Toast*/
+            --error: #C51162;
+            --on-error: #ffffff;
+
+            --danger-light: #FA0202;
+            --danger: #e20202;
+            --danger-dark: #b50202;
+            --on-danger: #FAFAFA;
+
+            --success: #129991;
+            --on-success: #202124;
+
+            --disabled: #c3c4c3;
+            --on-disabled: #585858;
+
+
+            /* Spacing */
+            --spacing-xxs: 4px;
+            --spacing-xs: 8px;
+            --spacing-s: 16px;
+            --spacing: 24px;
+            --spacing-m: 24px;
+            --spacing-l: 32px;
+            --spacing-xl: 48px;
+            --spacing-xxl: 96px;
+
+
+        }
+
+    `}}_exports.Styling=Styling$1;var styling$1={Styling:Styling$1};_exports.$styling$1=styling$1;(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
       Copyright (c) 2012-2014 Chris Pettitt
       
       Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -9123,15 +9823,18 @@ return Theme.getThemeForComponent(this.name)||css`
      */render(){// language=HTML
 return html`
       <furo-graph-renderer ƒ-draw="--graph"></furo-graph-renderer>
-    `}}window.customElements.define("furo-show-flow",FuroShowFlow);class FuroDemoSnippet extends FBP(LitElement){constructor(){super();let t=this.querySelector("template");this.template=t.content;this.markdown="```html\n"+t.innerHTML+"\n```";this.addEventListener("source",e=>{this.source=!0;this.demo=!1;this.flow=!1;this._FBPTriggerWire("--markdown",this.markdown);let md=this.shadowRoot.querySelector("furo-markdown");md.style.width=this.offsetWidth+"px"});this.addEventListener("demo",e=>{this.source=!1;this.demo=!0;this.flow=!1});this.addEventListener("flow",e=>{this.source=!1;this.demo=!1;this.flow=!0;this._FBPTriggerWire("--template",this.template)})}firstUpdated(v){super.firstUpdated(v);let md=this.shadowRoot.querySelector("furo-markdown");md.style.width=this.offsetWidth+"px"}/**
+    `}}window.customElements.define("furo-show-flow",FuroShowFlow);class FuroDemoSnippet extends FBP(LitElement){constructor(){super();let t=this.querySelector("template");this.template=t.content;this.markdown="```html\n"+t.innerHTML+"\n```";this.icon="fullscreen";this.addEventListener("source",e=>{this.source=!0;this.demo=!1;this.flow=!1;this._FBPTriggerWire("--markdown",this.markdown);let md=this.shadowRoot.querySelector("furo-markdown");md.style.width=this.offsetWidth+"px"});this.addEventListener("demo",e=>{this.source=!1;this.demo=!0;this.flow=!1});this.addEventListener("flow",e=>{this.source=!1;this.demo=!1;this.flow=!0;this._FBPTriggerWire("--template",this.template)})}firstUpdated(v){super.firstUpdated(v);let md=this.shadowRoot.querySelector("furo-markdown");md.style.width=this.offsetWidth+"px"}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
        * Description
-       */source:{type:Boolean,reflect:!0},demo:{type:Boolean,reflect:!0},flow:{type:Boolean,reflect:!0},noDemo:{type:Boolean,reflect:!0,attribute:"no-demo"}}}/**
+       */source:{type:Boolean,reflect:!0},demo:{type:Boolean,reflect:!0},flow:{type:Boolean,reflect:!0},fullscreen:{type:Boolean,reflect:!0},noDemo:{type:Boolean,reflect:!0,attribute:"no-demo"}}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();// check if demo is disabled
-let demo=this.shadowRoot.querySelector("#demo");if(!this.noDemo){let elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);elem._FBPTraceWires();demo.appendChild(elem.shadowRoot)}else{demo.innerText="Demo is disabled"}if(!this.source&&!this.flow){this.demo=!0}if(this.source){this._FBPTriggerWire("--markdown",this.markdown)}if(this.flow){this._FBPTriggerWire("--template",this.template)}}/**
+let demo=this.shadowRoot.querySelector("#demo");if(!this.noDemo){let elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);elem._FBPTraceWires();demo.appendChild(elem.shadowRoot)}else{demo.innerText="Demo is disabled"}if(!this.source&&!this.flow){this.demo=!0}if(this.source){this._FBPTriggerWire("--markdown",this.markdown)}if(this.flow){this._FBPTriggerWire("--template",this.template)}/**
+       * Register hook on wire --fullscreen to
+       * toggle fullscreen of the demo
+       */this._FBPAddWireHook("--fullscreen",e=>{if(!this.fullscreen){this.requestFullscreen();this.fullscreen=!0;this.icon="fullscreen-exit";this.requestUpdate()}else{document.exitFullscreen();this.fullscreen=!1;this.icon="fullscreen";this.requestUpdate()}})}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -9139,13 +9842,29 @@ let demo=this.shadowRoot.querySelector("#demo");if(!this.noDemo){let elem=docume
 return[css`
           :host {
               display: block;
-              height: 300px;
+              height: 320px;
               box-sizing: border-box;
               overflow: hidden;
+              background-color: var(--background);
           }
 
           :host([hidden]) {
               display: none;
+          }
+
+
+          :host([fullscreen]) .nav{
+              background-color: var(--surface);
+              padding: 16px;
+          }
+          
+          :host([fullscreen]) .nav span {
+              border-bottom-color: var(--surface);
+          }
+          
+          :host([fullscreen]) {
+          
+              height: 100vh;
           }
 
           furo-markdown {
@@ -9179,16 +9898,21 @@ return[css`
           }
 
           .nav {
-              background-color: var(--demo-header);
+              background-color: var(--demo-header, white);
               color: var(--on-primary);
               margin-bottom: 24px;
           }
 
+          
           .nav span {
               display: inline-block;
               border-bottom: 1px solid var(--demo-header, white);
+              cursor: pointer;
           }
 
+          .nav furo-icon{
+              cursor: pointer;
+          }
           :host([flow]) .flow {
               font-weight: 800;
               border-bottom: 1px solid var(--on-primary);
@@ -9216,48 +9940,43 @@ return html`
 
       <furo-vertical-flex>
         <div class="nav"><span class="demo" @-click="-^demo">demo</span> | <span class="source" @-click="-^source">source</span>
-          | <span class="flow" @-click="-^flow">flow</span></div>
+          | <span class="flow" @-click="-^flow">flow</span> | <furo-icon style="float:right" @-click="--fullscreen" icon="${this.icon}"></furo-icon></div>
+        
         <div flex class="flexbody">
           <div id="demo" flex></div>
           <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
           <furo-markdown id="source" ƒ-parse-markdown="--markdown"></furo-markdown>
         </div>
       </furo-vertical-flex>
-    `}}window.customElements.define("furo-demo-snippet",FuroDemoSnippet);class FlowRepeat extends FBP(HTMLElement){constructor(){super();this.template;this._insertedItems=[]}/**
-     * Clear the list
-     */clear(){this.injectItems([])}/**
-     * Triggers the wire --itemSelected on selected item and --itemDeSelected on last selected Item
-     * @param index
-     */select(index){if(this._insertedItems[index]){// deselect the last selected
-if(this.selectedIndex!==void 0){this.deselect(this.selectedIndex)}this._insertedItems[index].virtualElement._FBPTriggerWire("--itemSelected");this.selectedIndex=index}}/**
-     * select Next index
-     *
-     */selectNextIndex(){let i=this.selectedIndex+1;// loop around
-if(!this._insertedItems[i]){i=0}this.select(i)}selectPreviousIndex(){let i=this.selectedIndex-1;// loop around
-if(0>i){i=this._insertedItems.length-1}this.select(i)}triggerSelected(data){this.triggerIndex(this.selectedIndex,data)}// trigger all nodes
-triggerAll(data){for(let i=0;i<this._insertedItems.length;i++){this.triggerIndex(i,data)}}/**
-     * Triggers the wire --itemDeSelected on last selected item
-     */deselect(){if(this.selectedIndex!==void 0&&this._insertedItems[this.selectedIndex]){this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire("--itemDeSelected");this.selectedIndex=void 0}}_findFirstHost(parent){if(parent&&parent.host){return parent.host}if(null===parent){return null}return this._findFirstHost(parent.parentNode)}injectItems(items){if(!Array.isArray(items)){console.info("Items is not an array ",items,this);// make the list empty
-items=[]}this._firstHost=this._findFirstHost(this.parentNode);items.forEach((e,i,a)=>{let identity=!1;if(this.identityPath){identity=this.identityPath.split(".").reduce((acc,part)=>acc&&acc[part],e)}let elem;// wenn das element noch nicht existiert
-if(!this._insertedItems[i]){elem=this._buildDomNode(identity,i);elem._FBPTriggerWire("--init",e)}else{// wenn die identität abweicht
-if(!this._insertedItems[i].identity||this._insertedItems[i].identity!==identity){elem=this._buildDomNode(identity,i);// Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
-let reference=this;if(this._insertedItems[i+1]&&this._insertedItems[i+1].children[0]){reference=this._insertedItems[i+1].children[0]}// move the nodes
-this._insertedItems[i].children.map(attachedElem=>{this.parentNode.insertBefore(attachedElem,reference)});elem._FBPTriggerWire("--init",e)}else{elem=this._insertedItems[i].virtualElement}}// set item and index value on created element
-elem.item=e;elem.index=i;// trigger wires
-elem._FBPTriggerWire(this._internalWire,{item:e,index:i});if(0===i){elem._FBPTriggerWire("--firstItem",e)}if(i===a.length-1){elem._FBPTriggerWire("--lastItem",e)}elem._FBPTriggerWire("--item",e);elem._FBPTriggerWire("--host",this._firstHost);elem._FBPTriggerWire("--index",i)});// überzählige elemente aus dem dom entfernen
-this._insertedItems.slice(items.length,this._insertedItems.length).map(handle=>{handle.children.map(attachedElem=>{attachedElem.remove()})});// überzählige elemente aus dem array entfernen
-this._insertedItems.splice(items.length);if(0<items.length){/**
-       * @event items-in-dom
-       * Fired when items are attached to the dom
-       * detail payload: {Number} Number of items
-       */setTimeout(()=>{let customEvent=new Event("items-in-dom",{composed:!0,bubbles:!1});customEvent.detail=items.length;this.dispatchEvent(customEvent)},0)}}_buildDomNode(identity,i){// build hidden elem
-let elem;elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);let handle={virtualElement:elem,children:[].slice.call(elem.shadowRoot.children),identity:identity};// remove old entries
-if(this._insertedItems[i]){this._insertedItems[i].children.map(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
-let t=this.querySelector("template");if(t&&t.content){this.template=t.content}/**
-       * Identity path of a single item.
-       * Use this if you have a field which identifies the item.
-       * @type {*string}
-       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class SideNavigationItem extends FBP(LitElement){constructor(){super();this.basePath=this.getAttribute("base-path");//forward click to a
+    `}}window.customElements.define("furo-demo-snippet",FuroDemoSnippet);class FuroDocFetchAnalysis extends FBP(LitElement){constructor(){super()}fetchSrc(src){fetch(src).then(res=>res.json()).then(analysis=>{this._analysis=analysis;if(this.__location){this.checkSubroute(this.__location)}}).catch(err=>err)}checkSubroute(location){// enqueue when analysis is not
+if(!this._analysis){this.__location=location;return}// Subelement deep linking
+// on ../input/component-name we want to select component-name
+if(location.pathSegments[0]){let subElement=location.pathSegments[0];if(this._analysis.elements){this._analysis.elements.forEach(e=>{// needed for linking to the demos
+e.__package=this._path;if(e.tagname===subElement){this._analysis.__selectedElement=e;//disable class
+this._analysis.__selectedClass=void 0;this._analysis.__selectedMixin=void 0;e.__selected=!0}else{e.__selected=!1}})}// check classes if available
+if(this._analysis.classes){this._analysis.classes.forEach((e,i)=>{if(e.name===subElement){this._analysis.__selectedClass=e;//disable element
+this._analysis.__selectedMixin=void 0;this._analysis.__selectedElement=void 0;e.__selected=!0}else{e.__selected=!1}})}// check mixins if available
+if(this._analysis.mixins){this._analysis.mixins.forEach((e,i)=>{if(e.name===subElement){this._analysis.__selectedMixin=e;//disable element
+this._analysis.__selectedClass=void 0;this._analysis.__selectedElement=void 0;e.__selected=!0}else{e.__selected=!1}})}}else{// select first element on default
+if(this._analysis.elements){this._analysis.__selectedElement=this._analysis.elements[0]}else{// try with classes
+if(this._analysis.classes){this._analysis.__selectedClass=this._analysis.classes[0]}}}/**
+       * @event data
+       * Fired when analysis loaded
+       * detail payload: analysis
+       */let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this._analysis;this.dispatchEvent(customEvent)}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}}window.customElements.define("furo-doc-fetch-analysis",FuroDocFetchAnalysis);class SideNavigationItem extends FBP(LitElement){constructor(){super();this.basePath=this.getAttribute("base-path");//forward click to a
 this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}injectItem(item){this.item=item;this.requestUpdate()}/**
      * @private
      * @return {Object}
@@ -9409,4 +10128,5764 @@ return html`
       <template is="flow-repeat" ƒ-inject-items="--groups">
         <side-navigation-group base-path="${this.basePath}" ƒ-inject-item="--item"></side-navigation-group>
       </template>
-    `}}window.customElements.define("side-navigation",SideNavigation)});
+    `}}window.customElements.define("side-navigation",SideNavigation);class FuroButtonBar extends LitElement{/**
+   *
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        ::slotted(*) {
+            margin: 0 8px;
+        }
+
+        ::slotted(*:first-child) {
+            margin-left: 0;
+        }
+
+        ::slotted(*:last-child) {
+            margin-right: 0;
+        }
+
+    `}render(){// language=HTML
+return html`        
+        <furo-horizontal-flex>
+          <slot></slot>
+        </furo-horizontal-flex>
+    `}}window.customElements.define("furo-button-bar",FuroButtonBar);class FuroCollapsibleBox extends FBP(LitElement){constructor(){super();/**
+              * @type {boolean}
+              */this._open=!1;/**
+                         * @type {string}
+                         */this.iconOpen="expand-more";/**
+                                    *
+                                    * @type {string}
+                                    */this.iconClosed="expand-less";/**
+                                      *
+                                      * @type {number}
+                                      */this.tabindex=0;this.icon=this._open?this.iconOpen:this.iconClosed;// toggle method
+this._FBPAddWireHook("--toggleClicked",()=>{this.toggle()});/**
+         * minimal keyboard navigation
+         */this._FBPAddWireHook("--keystrokes",e=>{switch(e.code){case"ArrowRight":this.open();break;case"ArrowLeft":this.close();break;case"Enter":this.toggle();break;}});this._FBPAddWireHook("--blured",()=>{if(this.closeOnBlur){this.close()}})}/**
+     * Opens the Box
+     */open(){this._open=!0;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
+     * closes the box
+     */close(){this._open=!1;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
+     * Toggles the box open/close
+     */toggle(){this._open=!this._open;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate();if(!0==this._open){/**
+       * @event opened
+       *
+       * Fired when collapsible box was opened
+       *
+       * detail payload: void
+       */let customEvent=new Event("opened",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}else{/**
+       * @event closed
+       * Fired when collapsible box was closed
+       *
+       * detail payload: void
+       */let customEvent=new Event("closed",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}/**
+       * @event toggled
+       * Fired when collapsible-box was toggled
+       * detail payload: Boolean true for open, false for closed
+       * @param Boolean true for open, false for closed
+       */let customEvent=new Event("toggled",{composed:!0,bubbles:!1});customEvent.detail=this._open;this.dispatchEvent(customEvent)}firstUpdated(changedProperties){super.firstUpdated(changedProperties);this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
+     * focus the box (focuses the icon)
+     */focus(){this._FBPTriggerWire("--focus");if(this.openOnFocus){this.open()}}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Label der Collapsible
+       */label:{type:String},/**
+       * Opens the box on focus
+       */openOnFocus:{type:Boolean,attribute:"open-on-focus"},/**
+       * Closes the box on blur (icon)
+       */closeOnBlur:{type:Boolean,attribute:"close-on-blur"},/**
+       * https://developer.mozilla.org/de/docs/Web/HTML/Globale_Attribute/tabindex
+       */tabindex:{type:Number},/**
+       * Indicates the collapse state, set the collapse state
+       */_open:{type:Boolean,reflect:!0,attribute:"open"},/**
+       * The icon for the open state.
+       *
+       */iconOpen:{type:String,attribute:"icon-open"},/**
+       * The icon for the closed state.
+       *
+       */iconClosed:{type:String,attribute:"icon-closed"},/**
+       * reserved flag
+       * todo implement remember component
+       */rememberState:{type:Boolean}}}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+
+        :host {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            padding: var(--furo-collapsible-box-padding, 16px);
+            background: var(--furo-collapsible-box-background, white);
+            display: block;
+            margin: var(--furo-collapsible-box-margin, 16px);
+            box-sizing: border-box;
+
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            line-height: 24px;
+            padding-left: 8px;
+            cursor: pointer;
+        }
+
+        .content {
+            display: none;
+        }
+
+        :host([open]) .content {
+            display: block;
+        }
+
+        .head {
+            border-bottom: 1px solid var(--separator-color, gainsboro);;
+
+        }
+
+        furo-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        furo-icon:focus {
+            color: var(--primary, #CDCDCD)
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+<furo-horizontal-flex class="head">
+  <furo-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"></furo-icon>     
+  <label flex  @-click="--toggleClicked">${this.label}</label>
+  <slot name="context"></slot>
+</furo-horizontal-flex>
+<div class="content"><slot></slot></div>
+    `}}window.customElements.define("furo-collapsible-box",FuroCollapsibleBox);class FuroInputRow extends FBP(LitElement){constructor(){super();/**
+              *
+              * @type {string}
+              */this.label="set the label!"}static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+        }
+
+        div {
+            line-height: 100%;
+            width: var(--input-row-width,140px);
+        }
+
+        ::slotted(*) {
+            resize: horizontal;
+        }
+    `}render(){// language=HTML
+return html`
+            <furo-horizontal-flex>
+                <div>${this.label}</div>
+                <slot></slot>
+            </furo-horizontal-flex>
+        `}static get properties(){return{/**
+       * The label for the input row
+       */label:{type:String}}}}window.customElements.define("furo-input-row",FuroInputRow);class FuroFormLayouter extends FBP(LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpoints="";const ro=new ResizeObserver(entries=>{for(let entry of entries){if(entry.contentRect&&810>entry.contentRect.width&&405<entry.contentRect.width){this.setAttribute("narrow","");this.removeAttribute("narrower")}else if(entry.contentRect&&405>entry.contentRect.width){this.setAttribute("narrower","");this.removeAttribute("narrow")}else{this.removeAttribute("narrow");this.removeAttribute("narrower")}}});ro.observe(this)}/**
+     * flow is ready lifecycle method
+     */__fbpReady(){super.__fbpReady();//this._FBPTraceWires()
+}static get properties(){return{/**
+       * Set custom breakpoints max. two values
+       * Default: "810,405"
+       */breakpoints:{type:String},/**
+       * Set narrow attribute to force
+       * a
+       */narrow:{type:Boolean,reflect:!0},/**
+       * Set narrower attribute to force
+       * 1 column view
+       */narrower:{type:Boolean,reflect:!0}}}static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+            :host {
+                display: grid;
+                grid-row-gap: 0px;
+                grid-column-gap: 0px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+            :host([two]) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: var(--spacing);
+            }
+
+            :host([four]) {
+                grid-template-columns: repeat(4, 1fr);
+                grid-column-gap: var(--spacing);
+            }
+
+            :host([narrow]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([four][narrow]) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            :host([narrower]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            ::slotted(*) {
+                width: 100%;
+            }
+
+        `}render(){// language=HTML
+return html`
+            <slot></slot>
+        `}}window.customElements.define("furo-form-layouter",FuroFormLayouter);class FuroButton extends FBP(LitElement){constructor(){super();this.label="label not set";this.disabled=!1;this.danger=!1}/**
+     * Set the focus to the button
+     * @param e
+     */focus(e){this._FBPTriggerWire("--focus")}/**
+     * Disables the button
+     */disable(){this.disabled=!0}/**
+     * Enables the button
+     */enable(){this.disabled=!1}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Beschriftung des buttons
+       */label:{type:String},/**
+       * Optional icon
+       */icon:{type:String},/**
+       * Set danger to true if it is dangerous to press this button
+       */danger:{type:Boolean,reflect:!0},/**
+       * Set disabled to disable the button
+       */disabled:{type:Boolean,reflect:!0},/**
+       * Focus the element automatically
+       */autofocus:{type:Boolean,reflect:!0},/**
+       * Give the button a "box" with shadow
+       */raised:{type:Boolean},/**
+       * Give the button a "box"
+       */unelevated:{type:Boolean},/**
+       * Give the button a "border"
+       */outline:{type:Boolean},/**
+       * Sets the color to the primary color (--primary)
+       */primary:{type:Boolean},/**
+       * Sets the color to the secondary color (--secondary)
+       */secondary:{type:Boolean},/**
+       * Sets the color to the accent color (--accent)
+       */accent:{type:Boolean}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: inline-block;
+            position: relative;
+            font-size: 16px;
+            box-sizing: border-box;
+
+            min-width: 64px;
+            height: 36px;
+
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        * {
+            transition: all 100ms ease-in;
+        }
+
+        button {
+            font-family: "Roboto", "Noto", sans-serif;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            width: 100%;
+            cursor: pointer;
+            color: var(--on-surface);
+            padding: 0 16px;
+            text-transform: uppercase;
+            font-size: 14px;
+            outline: none;
+            line-height: 34px;
+            background-color: transparent;
+            box-sizing: border-box;
+        }
+
+        :host([unelevated]) button {
+            background-color: var(--surface, #f7f7f7);
+            color: var(--on-surface, #333333);
+        }
+
+        :host([disabled]) button[disabled], :host([disabled]) button[disabled]:hover {
+            color: var(--disabled, #eeeeee);
+        }
+
+        :host([raised][disabled]) button[disabled] ,:host([raised][disabled]) button[disabled]:hover,  :host([unelevated][disabled]) button[disabled] ,:host([unelevated][disabled]) button[disabled]:hover ,  :host([outline][disabled]) button[disabled] ,:host([outline][disabled]) button[disabled]:hover {
+            background-color: var(--disabled, #eeeeee);
+            color: var(--on-disabled, #333333);
+            border-color:var(--disabled, #eeeeee);
+        }
+
+        
+        :host([primary]) button {
+            color: var(--primary);
+        }
+        :host([raised][primary]) button, :host([unelevated][primary]) button {
+            background-color: var(--primary);
+            color: var(--on-primary);
+        }
+        :host([outline][primary]) button {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        :host([raised][primary]) button:focus, :host([unelevated][primary]) button:focus{
+            background-color: var(--primary-light);
+        }
+        :host([raised][primary]) button:hover, :host([unelevated][primary]) button:hover{
+            background-color: var(--primary-dark);
+        }
+        :host([primary]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([primary]) button:hover{
+            background-color: var(--surface-dark);
+        }
+
+
+
+        :host([accent]) button {
+            color: var(--accent);
+        }
+        :host([raised][accent]) button, :host([unelevated][accent]) button {
+            background-color: var(--accent);
+            color: var(--on-accent);
+        }
+        :host([outline][accent]) button {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+        :host([raised][accent]) button:focus, :host([unelevated][accent]) button:focus{
+            background-color: var(--accent-light);
+        }
+        :host([raised][accent]) button:hover, :host([unelevated][accent]) button:hover{
+            background-color: var(--accent-dark);
+        }
+        :host([accent]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([accent]) button:hover{
+            background-color: var(--surface-dark);
+        }
+
+
+        :host([secondary]) button {
+            color: var(--secondary);
+        }
+        :host([raised][secondary]) button, :host([unelevated][secondary]) button {
+            background-color: var(--secondary);
+            color: var(--on-secondary);
+        }
+        :host([outline][secondary]) button {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+        :host([raised][secondary]) button:focus, :host([unelevated][secondary]) button:focus{
+            background-color: var(--secondary-light);
+        }
+        :host([raised][secondary]) button:hover, :host([unelevated][secondary]) button:hover{
+            background-color: var(--secondary-dark);
+        }
+        :host([secondary]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([secondary]) button:hover{
+            background-color: var(--surface-dark);
+        }
+
+        
+        
+
+
+        :host([danger]) button {
+            color: var(--danger, #ff0000);
+        }
+
+        :host([raised][danger]) button, :host([unelevated][danger]) button {
+            background-color: var(--danger, #ff0000);
+            color: var(--on-danger, #FFFFFF);
+        }
+ 
+
+        :host([outline][danger]) button {
+            background-color: transparent;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        :host([raised][danger]) button:focus, :host([unelevated][danger]) button:focus{
+            background-color: var(--on-danger, #FFFFFF);
+            color: var(--danger, #ff0000);
+        }
+        :host([raised][danger]) button:hover, :host([unelevated][danger]) button:hover{
+            background-color: var(--danger-dark);
+            color: var(--on-danger, #FFFFFF);
+        }
+        :host([danger]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([danger]) button:hover{
+            background-color: var(--surface-dark);
+        }
+
+
+        :host([outline]) button {
+            background-color: transparent;
+            color: var(--on-surface);
+            border: 1px solid var(--on-surface);
+        }
+
+        button:active {
+            box-shadow: none;
+        }
+
+        button:focus{
+            background-color: var(--surface-light);
+        }
+        button:hover{
+            background-color: var(--surface-dark);
+        }
+
+        :host([raised]) button:focus {
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
+        }
+
+        :host([raised]) button {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        :host([raised]) button:active {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
+
+
+        furo-icon {
+            width: 18px;
+            height: 18px;
+            margin: 0 8px 0 12px;
+        }
+
+        :host([icon]) button {
+            padding: 0 16px 0 0;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <button @-keypressed="--buttonPressed" ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}><furo-icon ?hidden="${!this.icon}" icon="${this.icon}"></furo-icon>${this.label}       
+        <furo-ripple ƒ-trigger="--buttonPressed"></furo-ripple>
+      </button>
+    `}}window.customElements.define("furo-button",FuroButton);class FuroNumberInput extends FBP(LitElement){constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];// mark min max error
+this.valid=!(input.validity.rangeOverflow||input.validity.rangeUnderflow);if(!input.validity.badInput){this.value=input.value;this._float=!!input.value;/**
+                                      * @event value-changed
+                                      * Fired when value has changed from inside the component
+                                      * detail payload: {Number} the number value
+                                      */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max, step
+let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.setAttribute("min",this.min)}if(this.max){inputField.setAttribute("max",this.max)}if(this.step){inputField.setAttribute("step",this.step)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:Number},/**
+       * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
+       *
+       * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
+       */step:{type:String},/**
+       * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
+       *
+       * This value must be greater than or equal to the value of the min attribute.
+       */max:{type:Number},/**
+       * The minimum value to accept for this input. If the value of the element is less than this, the element fails constraint validation. If a value is specified for min that isn't a valid number, the input has no minimum value.
+       *
+       * This value must be less than or equal to the value of the max attribute.
+       */min:{type:Number},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Set the value for the field
+     * @param {Number} num a valid number value
+     */setValue(num){this._value=num;this.value=num}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+
+
+
+        input {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        :host(:not([filled])) label span {
+            top: 0;
+            position: relative;
+        }
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            line-height: 56px;
+        }
+
+        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+            border-top: none;
+        }
+
+        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+            font-size: 12px;
+            top: -30px;
+            left:0;
+            position: relative;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+        :host([filled]) label {
+            border: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+        }
+
+        :host([filled]) label span {
+            position: relative;
+            top: 0;
+        }
+
+        :host([filled]) label[float] span, :host(:focus-within) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top:16px;
+        }
+        furo-icon.lead{
+            position: absolute;
+            
+            left:8px;
+        }
+        furo-icon.trail{
+            position: absolute;
+            right:8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+            left: 24px;
+        }
+
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+            left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
+            padding-left: 36px;
+        }
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
+            padding-right: 36px;
+        }
+        :host(:focus-within:not([valid])) label{
+            color: var(--input-error-text-color, var(--error, red));
+        }
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+            line-height: 36px;
+        }
+        :host([condensed]) input{
+            font-size: 14px;
+        }
+        :host([condensed][filled]) input{
+            font-size: 13px;
+        }
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
+            height: 36px;
+        }  
+        
+        :host([condensed])  furo-icon {
+            top:6px;
+        }
+        
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+            top:-15px;
+            font-size: 10px;
+        } 
+        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+            top:-20px;
+            font-size: 10px;
+        } 
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+        :host([condensed]){
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+      
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+       <div class="iwrap">    
+           <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+       type="number"       
+       ƒ-.value="--value" 
+       @-input="--inputInput(*)"   
+       ƒ-focus="--focus">
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroTextInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.valid=input.validity.valid;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
+                                   * @event value-changed
+                                   * Fired when value has changed from inside the component
+                                   * detail payload: {String} the text value
+                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max
+let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputField.setAttribute("pattern",this.pattern)}if(this.min){inputField.setAttribute("minlength",this.min)}if(this.max){inputField.setAttribute("maxlength",this.max)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
+       *
+       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
+       */pattern:{type:String},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.
+       */max:{type:Number},/**
+       * The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.
+       */min:{type:Number},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Sets the value for the input field.
+     * @param {String} string
+     */setValue(string){this._value=string;this.value=string}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+
+       
+
+        input {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        :host(:not([filled])) label span {
+            top: 0;
+            position: relative;
+        }
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            line-height: 56px;
+        }
+
+        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+            border-top: none;
+        }
+
+        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+            font-size: 12px;
+            top: -30px;
+            left:0;
+            position: relative;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+        :host([filled]) label {
+            border: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+        }
+
+        :host([filled]) label span {
+            position: relative;
+            top: 0;
+        }
+
+        :host([filled]) label[float] span, :host(:focus-within) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top:16px;
+        }
+        furo-icon.lead{
+            position: absolute;
+            
+            left:8px;
+        }
+        furo-icon.trail{
+            position: absolute;
+            right:8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+            left: 24px;
+        }
+
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+            left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
+            padding-left: 36px;
+        }
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
+            padding-right: 36px;
+        }
+        :host(:focus-within:not([valid])) label{
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+            line-height: 36px;
+        }
+        :host([condensed]) input{
+            font-size: 14px;
+        }
+        :host([condensed][filled]) input{
+            font-size: 13px;
+        }
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
+            height: 36px;
+        }  
+        
+        :host([condensed])  furo-icon {
+            top:6px;
+        }
+        
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+            top:-15px;
+            font-size: 10px;
+        } 
+        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+            top:-20px;
+            font-size: 10px;
+        } 
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+        :host([condensed]){
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+        type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-text-input",FuroTextInput);class FuroPasswordInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.valid=input.validity.valid;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
+                                   * @event value-changed
+                                   * Fired when value has changed from inside the component
+                                   * detail payload: {String} the password value
+                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max
+let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputField.setAttribute("pattern",this.pattern)}if(this.min){inputField.setAttribute("minlength",this.min)}if(this.max){inputField.setAttribute("maxlength",this.max)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
+       *
+       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
+       */pattern:{type:String},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * The maximum number of characters (as UTF-16 code units) the user can enter into the password input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the password input has no maximum length. This value must also be greater than or equal to the value of minlength.
+       */max:{type:Number},/**
+       * The minimum number of characters (as UTF-16 code units) the user can enter into the password input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the password input has no minimum length.
+       */min:{type:Number},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Sets the value for the input field.
+     * @param {String} string
+     */setValue(string){this._value=string;this.value=string}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Makes the password visible.
+     */makeVisible(){let f=this.shadowRoot.querySelector("input");f.setAttribute("type","text")}/**
+     * Makes the password invisible again (this is the default).
+     */makeInvisible(){let f=this.shadowRoot.querySelector("input");f.setAttribute("type","password")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+
+
+
+        input {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        :host(:not([filled])) label span {
+            top: 0;
+            position: relative;
+        }
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            line-height: 56px;
+        }
+
+        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+            border-top: none;
+        }
+
+        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+            font-size: 12px;
+            top: -30px;
+            left:0;
+            position: relative;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+        :host([filled]) label {
+            border: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+        }
+
+        :host([filled]) label span {
+            position: relative;
+            top: 0;
+        }
+
+        :host([filled]) label[float] span, :host(:focus-within) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top:16px;
+        }
+        furo-icon.lead{
+            position: absolute;
+            
+            left:8px;
+        }
+        furo-icon.trail{
+            position: absolute;
+            right:8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+            left: 24px;
+        }
+
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+            left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
+            padding-left: 36px;
+        }
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
+            padding-right: 36px;
+        }
+        :host(:focus-within:not([valid])) label{
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+            line-height: 36px;
+        }
+        :host([condensed]) input{
+            font-size: 14px;
+        }
+        :host([condensed][filled]) input{
+            font-size: 13px;
+        }
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
+            height: 36px;
+        }  
+        
+        :host([condensed])  furo-icon {
+            top:6px;
+        }
+        
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+            top:-15px;
+            font-size: 10px;
+        } 
+        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+            top:-20px;
+            font-size: 10px;
+        } 
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+        :host([condensed]){
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
+       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+       type="password" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-password-input",FuroPasswordInput);class FuroSearchInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.error=input.validity.rangeOverflow||input.validity.rangeUnderflow||input.validity.patternMismatch;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
+                                   * @event value-changed
+                                   * Fired when value has changed from inside the component
+                                   * detail payload: {String} the text value
+                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max
+let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputField.setAttribute("pattern",this.pattern)}if(this.min){inputField.setAttribute("minlength",this.min)}if(this.max){inputField.setAttribute("maxlength",this.max)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
+       *
+       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
+       */pattern:{type:String},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * The maximum number of characters (as UTF-16 code units) the user can enter into the search input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the search input has no maximum length. This value must also be greater than or equal to the value of minlength.
+       */max:{type:Number},/**
+       * The minimum number of characters (as UTF-16 code units) the user can enter into the search input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the search input has no minimum length.
+       */min:{type:Number},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Sets the value for the input field.
+     * @param {String} string
+     */setValue(string){this._value=string;this.value=string}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+
+
+
+        input {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            left:12px;
+            right: 12px;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        :host(:not([filled])) label span {
+            top: 0;
+            position: relative;
+        }
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            line-height: 56px;
+        }
+
+        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+            border-top: none;
+        }
+
+        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+            font-size: 12px;
+            top: -30px;
+            left:0;
+            position: relative;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+        :host([filled]) label {
+            border: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+        }
+
+        :host([filled]) label span {
+            position: relative;
+            top: 0;
+        }
+
+        :host([filled]) label[float] span, :host(:focus-within) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top:16px;
+        }
+        furo-icon.lead{
+            position: absolute;
+
+            left:8px;
+        }
+        furo-icon.trail{
+            position: absolute;
+            right:8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+            left: 24px;
+        }
+
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+            left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
+            padding-left: 36px;
+        }
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
+            padding-right: 36px;
+        }
+        :host(:focus-within:not([valid])) label{
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+            line-height: 36px;
+        }
+        :host([condensed]) input{
+            font-size: 14px;
+        }
+        :host([condensed][filled]) input{
+            font-size: 13px;
+        }
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
+            height: 36px;
+        }
+
+        :host([condensed])  furo-icon {
+            top:6px;
+        }
+
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+            top:-15px;
+            font-size: 10px;
+        }
+        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+            top:-20px;
+            font-size: 10px;
+        }
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+        :host([condensed]){
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly}       
+       type="search" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
+       
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-search-input",FuroSearchInput);class FuroRangeInput extends FBP(LitElement){constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];// mark min max error
+this.valid=!(input.validity.rangeOverflow||input.validity.rangeUnderflow);if(!input.validity.badInput){this.value=input.value;this._float=!!input.value;/**
+                                      * @event value-changed
+                                      * Fired when value has changed from inside the component
+                                      * detail payload: {Number} the number value
+                                      */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max, step
+let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.setAttribute("min",this.min)}if(this.max){inputField.setAttribute("max",this.max)}if(this.step){inputField.setAttribute("step",this.step)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:Number},/**
+       * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
+       *
+       * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
+       */step:{type:String},/**
+       * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
+       *
+       * This value must be greater than or equal to the value of the min attribute.
+       */max:{type:Number},/**
+       * The minimum value to accept for this input. If the value of the element is less than this, the element fails constraint validation. If a value is specified for min that isn't a valid number, the input has no minimum value.
+       *
+       * This value must be less than or equal to the value of the max attribute.
+       */min:{type:Number},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Set the value for the field
+     * @param {Number} num a valid number value
+     */setValue(num){this._value=num;this.value=num}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Disables the field
+     */disable(){this.disabled=!0}/**
+     * Makes the field writable.
+     */enable(){this.disabled=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+
+            padding: 0 12px;
+            box-sizing: border-box;
+            height: 56px;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+
+        input {
+            position: absolute;
+            top: 20px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            line-height: 56px;
+        }
+
+
+        :host(:not([filled])) label span {
+            position: relative;
+            font-size: 12px;
+            top: -30px;
+            left: 0;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+            border: none;
+        }
+
+        :host([filled]) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top: 16px;
+        }
+
+        furo-icon.lead {
+            position: absolute;
+
+            left: 8px;
+        }
+
+        furo-icon.trail {
+            position: absolute;
+            right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+            padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+            padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) input {
+            top: 8px;
+        }
+
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+            line-height: 36px;
+        }
+
+        
+        
+
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+            height: 36px;
+        }
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label span {
+            top: -15px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) label span {
+            top: -20px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+
+        :host([condensed]) {
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
+      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
+       type="range"       
+       ƒ-.value="--value" 
+       @-input="--inputInput(*)"   
+       ƒ-focus="--focus">
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-range-input",FuroRangeInput);class FuroTimeInput extends FBP(LitElement){constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];// mark min max step error
+this.valid=!(input.validity.rangeOverflow||input.validity.rangeUnderflow||input.validity.stepMismatch);if(!input.validity.badInput){this.value=input.value;this._float=!!input.value;/**
+                                      * @event value-changed
+                                      * Fired when value has changed from inside the component
+                                      * detail payload: {String} the time value like "12:15" or "11:59:59"
+                                      */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max, step
+let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.setAttribute("min",this.min)}if(this.max){inputField.setAttribute("max",this.max)}if(this.step){inputField.setAttribute("step",this.step)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
+       *
+       * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
+       */step:{type:String},/**
+       * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
+       *
+       * This value must be greater than or equal to the value of the min attribute.
+       */max:{type:String},/**
+       * The earliest time to accept as a valid input.
+       *
+       * A string specifying the earliest time to accept, given in the [time value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#Time_value_format). If the value specified isn't a valid time string, no minimum value is set.
+       */min:{type:String},/**
+       * The latest time to accept, in the syntax described under Time value format
+       *
+       * A string indicating the latest time to accept, specified in the same [time value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#Time_value_format). If the specified string isn't a valid time, no maximum value is set.
+       */label:{type:String,attribute:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Set the value for the field
+     * @param {Number} num a valid time number value
+     */setValue(num){this._value=num;this.value=num}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            width: 104px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+            height: 56px;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+       
+
+        input {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            line-height: 56px;
+        }
+
+
+        :host(:not([filled])) label span {
+            position: relative;
+            font-size: 12px;
+            top: -30px;
+            left:0;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+            border: none;
+        }
+
+        :host([filled]) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top:16px;
+        }
+        furo-icon.lead{
+            position: absolute;
+            
+            left:8px;
+        }
+        furo-icon.trail{
+            position: absolute;
+            right:8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
+            padding-left: 36px;
+        }
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
+            padding-right: 36px;
+        }
+        :host(:focus-within:not([valid])) label{
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+            line-height: 36px;
+        }
+        :host([condensed]) input{
+            font-size: 14px;
+        }
+        :host([condensed][filled]) input{
+            font-size: 13px;
+        }
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
+            height: 36px;
+        }  
+        
+        :host([condensed])  furo-icon {
+            top:6px;
+        }
+        
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+            top:-15px;
+            font-size: 10px;
+        }
+        :host([condensed]) label span {
+            top:-20px;
+            font-size: 10px;
+        }
+        
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+        :host([condensed]){
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>   
+       <div class="iwrap"> 
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+       type="time"       
+       ƒ-.value="--value" 
+       @-input="--inputInput(*)"   
+       ƒ-focus="--focus">
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroDateInput extends FBP(LitElement){constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];// mark min max step error
+this.valid=!(input.validity.rangeOverflow||input.validity.rangeUnderflow||input.validity.stepMismatch);if(!input.validity.badInput){this.value=input.value;this._float=!!input.value;/**
+                                      * @event value-changed
+                                      * Fired when value has changed from inside the component
+                                      * detail payload: {String} the date value like "12:15" or "11:59:59"
+                                      */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max, step
+let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.setAttribute("min",this.min)}if(this.max){inputField.setAttribute("max",this.max)}if(this.step){inputField.setAttribute("step",this.step)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
+       *
+       * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
+       *
+       * **Tipp:** set a `min` value as reference for the stepping calculations.
+       */step:{type:String},/**
+       * The latest date to accept. If the value entered into the element is later than this date, the element fails constraint validation. If the value of the max attribute isn't a valid string which follows the format yyyy-MM-dd, then the element has no maximum value.
+       *
+       * This value must specify a date string later than or equal to the one specified by the min attribute.
+       *
+       * For date inputs, the value of step is given in days, with a scaling factor of 86,400,000 (since the underlying numeric value is in milliseconds). The default value of step is 1, indicating 1 day.
+       *
+       * [more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#step)
+       */max:{type:String},/**
+       * The earliest date to accept as a valid input.
+       *
+       * Dates earlier than this will cause the element to fail constraint validation. If the value of the min attribute isn't a valid string which follows the format yyyy-MM-dd, then the element has no minimum value.
+       *
+       * This value must specify a date string earlier than or equal to the one specified by the max attribute.
+       */min:{type:String},/**
+       * The latest date to accept, in the syntax described under Date value format
+       *
+       * A string indicating the latest date to accept, specified in the same [date value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Date_value_format). If the specified string isn't a valid date, no maximum value is set.
+       */label:{type:String,attribute:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Set the value for the field
+     * @param {Number} num a valid date number value
+     */setValue(num){this._value=num;this.value=num}set errortext(v){this._errortext=v;this.__initalErrorText=v}get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            width: 174px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+            height: 56px;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+
+
+        input {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            line-height: 56px;
+        }
+
+
+        :host(:not([filled])) label span {
+            position: relative;
+            font-size: 12px;
+            top: -30px;
+            left: 0;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+            border: none;
+        }
+
+        :host([filled]) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top: 16px;
+        }
+
+        furo-icon.lead {
+            position: absolute;
+
+            left: 8px;
+        }
+
+        furo-icon.trail {
+            position: absolute;
+            right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+            padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+            padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) input {
+            top: 8px;
+        }
+
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+            line-height: 36px;
+        }
+
+        :host([condensed]) input {
+            font-size: 14px;
+        }
+
+        :host([condensed][filled]) input {
+            font-size: 13px;
+        }
+
+        :host([condensed]) .borderlabel , :host([condensed]) .wrapper{
+            height: 36px;
+        }
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+            top: -15px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) label span {
+            top:-20px;
+            font-size: 10px;
+        }
+        
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+
+        :host([condensed]) {
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+       type="date"     
+       ƒ-.value="--value" 
+       @-input="--inputInput(*)"   
+       ƒ-focus="--focus">
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroColorInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.error=input.validity.rangeOverflow||input.validity.rangeUnderflow||input.validity.patternMismatch;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
+                                   * @event value-changed
+                                   * Fired when value has changed from inside the component
+                                   * detail payload: {String} the text value
+                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Sets the value for the input field.
+     * @param {String} string
+     */setValue(string){this._value=string;this.value=string}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            width: 104px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+            height: 56px;
+        }
+
+        input {
+            position: absolute;
+            top: 10px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            left:20px;
+            width: 64px;
+            height: 40px;
+            padding: 6px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            line-height: 56px;
+        }
+
+
+        :host(:not([filled])) label span {
+            position: relative;
+            font-size: 12px;
+            top: -30px;
+            left: 0;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+            border: none;
+        }
+
+        :host([filled]) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top: 16px;
+        }
+
+        furo-icon.lead {
+            position: absolute;
+
+            left: 8px;
+        }
+
+        furo-icon.trail {
+            position: absolute;
+            right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+            padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+            padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+            line-height: 36px;
+        }
+        :host([condensed]) input {
+            font-size: 14px;
+            margin: 10px;
+        }
+
+        :host([condensed][filled]) input {
+            font-size: 13px;
+        }
+
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+            height: 36px;
+        }
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label span {
+            top: -15px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) label span {
+            top: -20px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+
+        :host([condensed]) {
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly}       
+       type="color" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
+       
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-color-input",FuroColorInput);class FuroTextareaInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.valid=!input.validity.valid;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
+                                   * @event value-changed
+                                   * Fired when value has changed from inside the component
+                                   * detail payload: {String} the text value
+                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max
+let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputField.setAttribute("pattern",this.pattern)}if(this.min){inputField.setAttribute("minlength",this.min)}if(this.max){inputField.setAttribute("maxlength",this.max)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
+       *
+       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
+       */pattern:{type:String},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * The maximum number of characters (as UTF-16 code units) the user can enter into the textarea input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the textarea input has no maximum length. This value must also be greater than or equal to the value of minlength.
+       */max:{type:Number},/**
+       * The minimum number of characters (as UTF-16 code units) the user can enter into the textarea input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the textarea input has no minimum length.
+       */min:{type:Number},/**
+       * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.
+       *
+       * If it is not specified, the default value is 20.
+       */cols:{type:Number},/**
+       * The number of visible text lines for the control.
+       */rows:{type:Number},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Sets the value for the input field.
+     * @param {String} string
+     */setValue(string){this._value=string;this.value=string}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: inline-block;
+            position: relative;
+            font-size: 12px;
+            box-sizing: border-box;
+            margin: 0 0 10px 0;
+            padding: 9px 0 0 0;
+            font-family: "Roboto", "Noto", sans-serif;
+            line-height: 1.5;
+        }
+       
+
+        :host([hidden]) {
+            display: none;
+        }
+
+
+        textarea {
+            border: none;
+            background: none;
+            font-size: 12px;
+            margin: 0;
+            line-height: normal;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+            color: inherit;
+            outline: none;
+        }
+
+
+        .border {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            border-bottom: 1px solid rgba(0, 0, 0, .12);
+        }
+
+        label {
+            position: absolute;
+            top: 8px;
+            color: rgba(0, 0, 0, .26);
+            font-size: 12px;
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+     
+        
+        label[float="true"] {
+            color: var(--on-background, #333333);
+            font-size: 10px;
+            top: -4px;
+            visibility: visible;
+        }
+
+        * {
+            transition: all 150ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: -17px;
+            font-size: 10px;
+            color: transparent;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--app-hint-color);
+            transition: all 550ms ease-in;
+        }
+
+        
+        :host([error]) .border {
+            border-color: var(--error, red);
+            border-width: 1px;
+        }
+
+        :host([error]) .errortext {
+            display: block;
+        }
+        .errortext {
+            color: var(--error, red);
+            display: none;
+        }
+
+
+        :host(:focus-within)  .errortext{
+            display: none;
+        }
+        
+        :host(:focus-within) label[float="true"] {
+            color: var(--accent, #333333);
+        }
+        
+        :host(:focus-within) .border {
+            border-color: var(--accent, #3f51b5);
+            border-width: 1px;
+        }
+        :host([error]:focus-within) .border {
+            border-color: var(--error, red);
+            border-width: 1px;
+        }
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+        ƒ-.value="--value" rows="${this.rows}" cols="${this.cols}" @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
+      <div class="border"></div>
+      <label float="${this._float}" for="input">${this.label}</label>  
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+    `}}window.customElements.define("furo-textarea-input",FuroTextareaInput);class FuroSelectInput extends FBP(LitElement){constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];// mark min max error
+this.valid=!(input.validity.rangeOverflow||input.validity.rangeUnderflow);if(!input.validity.badInput){this.value=input.value;/**
+                                   * @event value-changed
+                                   * Fired when value has changed from inside the component
+                                   * detail payload: {String} the id of the selected value
+                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}})}set _value(v){this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The list of options. Can be a simple list like ["A","B","C"]. In this case the value is equals the label
+       *
+       * With ids (key value):
+       *
+       * [{"id":1,"label":"AAA"},{"id":2,"label":"BBB"}]
+       *
+       *
+       * With preselect state in data:
+       *
+       * [{"id":23,"label":"AAA","selected":false},{"id":44,"label":"BBB","selected":true}]
+       */options:{type:Array},/**
+       * Set a string list as options:
+       *
+       * "A, B, C"
+       *
+       * This will convert to options ["A","B","C"]
+       */list:{type:String},label:{type:String,attribute:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Set the value for the field
+     * @param {String} the id of the selected item
+     */setValue(num){this.value=num}/**
+     * Set the options programmatically
+     * @param {Array} Array with options
+     */setOptions(optionArray){this.options=optionArray}/**
+     * Set the list programmatically
+     * @param {String} list with options
+     */setList(list){this.list=list}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}set options(collection){// convert array list to id, label structure
+if("string"===typeof collection[0]){collection=collection.map(item=>{return{id:item,label:item}})}let arr=collection.map(e=>{if(e.selected){this.value=e.id.toString()}return{id:e.id,label:e.label,selected:this.value===e.id.toString()||e.selected||!1}});if(!this.value){this.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}set list(v){let arr=v.split(",").map(function(item){return item.trim()});this.options=arr}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+
+
+        select {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            line-height: 56px;
+        }
+
+
+        :host(:not([filled])) label span {
+            position: relative;
+            font-size: 12px;
+            top: -30px;
+            left: 0;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+            border: none;
+        }
+
+        :host([filled]) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            color: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            color: var(--input-hint-color, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            color: var(--input-error-text-color, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top: 16px;
+        }
+
+        furo-icon.lead {
+            position: absolute;
+
+            left: 8px;
+        }
+
+        furo-icon.trail {
+            position: absolute;
+            right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+            padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+            padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) select {
+            top: 8px;
+        }
+
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+            line-height: 36px;
+        }
+
+        :host([condensed]) select {
+            font-size: 14px;
+        }
+
+        :host([condensed][filled]) select {
+            font-size: 13px;
+        }
+
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+            height: 36px;
+        }
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+            top: -15px;
+            font-size: 10px;
+        }
+        :host([condensed]) label span {
+            top: -20px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+
+        :host([condensed]) {
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+      
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+       <div class="iwrap">    
+           <select ?autofocus=${this.autofocus} ?disabled=${this.disabled||this.readonly}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
+            <template is="flow-repeat" ƒ-inject-items="--selection">
+                <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
+            </template>
+      </select>
+        
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label float for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+    `}}window.customElements.define("furo-select-input",FuroSelectInput);class FuroCheckboxInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.error=input.validity.rangeOverflow||input.validity.rangeUnderflow||input.validity.patternMismatch;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
+                                   * @event value-changed
+                                   * Fired when value has changed from inside the component
+                                   * detail payload: {String} the text value
+                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max
+let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputField.setAttribute("pattern",this.pattern)}if(this.min){inputField.setAttribute("minlength",this.min)}if(this.max){inputField.setAttribute("maxlength",this.max)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     * Sets the value for the input field.
+     * @param {String} string
+     */setValue(string){this._value=string;this.value=string}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 14px 0 0 0;
+            height: 75px;
+            font-family: "Roboto", "Noto", sans-serif;
+            min-width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+            height: 56px;
+        }
+
+        input {
+            position: absolute;
+            top: 10px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            color: inherit;
+            outline: none;
+            
+        }
+
+        :host([filled]) .wrapper {
+            background-checkbox: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-checkbox: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-checkbox: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-checkbox: var(--input-hover-checkbox, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+
+        label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            line-height: 56px;
+        }
+
+        
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 56px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+            display: block;
+        }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+            border: none;
+        }
+
+        label span {
+
+            
+            left: 32px;
+            position: relative;
+        }
+        
+        :host([filled]) label span {
+            
+            font-weight: 400;
+            
+            position: relative;
+        }
+
+
+        * {
+            transition: all 200ms ease-out;
+        }
+
+        .hint, .errortext {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            checkbox: transparent;
+            padding-left: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+            checkbox: var(--input-hint-checkbox, #999999);
+            transition: all 550ms ease-in;
+        }
+
+
+        :host([error]) .errortext {
+            display: block;
+        }
+
+        .errortext {
+            checkbox: var(--input-error-text-checkbox, var(--error, red));
+            display: none;
+        }
+
+
+        label {
+            checkbox: var(--input-hint-checkbox, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            checkbox: var(--input-active-float-label-checkbox, var(--primary, #3f51b5));
+            border-checkbox: var(--input-active-float-label-checkbox, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-checkbox: var(--input-active-activation-indicator-checkbox, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-checkbox: var(--input-active-activation-indicator-checkbox, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-checkbox: var(--input-error-text-checkbox, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            checkbox: var(--input-error-text-checkbox, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-checkbox: var(--input-error-activation-indicator-checkbox, var(--error, red));
+        }
+
+        furo-icon {
+            display: none;
+            top: 16px;
+        }
+
+        furo-icon.lead {
+            position: absolute;
+
+            left: 8px;
+        }
+
+        furo-icon.trail {
+            position: absolute;
+            right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+            padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+            padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+            checkbox: var(--input-error-text-checkbox, var(--error, red));
+        }
+
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+            line-height: 36px;
+        }
+        :host([condensed]) input {
+            font-size: 14px;
+            margin: 10px;
+        }
+
+        :host([condensed][filled]) input {
+            font-size: 13px;
+        }
+
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+            height: 36px;
+        }
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+       
+
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+
+        :host([condensed]) {
+            height: 53px;
+        }
+
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly}       
+       type="checkbox" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">${this.text}
+       
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroIconWithLabel extends FBP(LitElement){static get properties(){return{icon:{type:String}}}static get styles(){// language=CSS
+return[css`
+                :host {
+                    height: 48px;
+                    display: inline-block;
+                    width: 7em;
+                    margin: 1em 0.5em;
+                    text-align: center;
+                }
+
+                span{
+                    display: block;
+                    font-size: 8px;
+                }
+                
+                furo-icon{
+                    margin: auto;
+                    display: block;
+                    
+                }
+
+            `]}render(){// language=HTML
+return html`
+            <furo-icon icon="${this.icon}"></furo-icon>
+            <span> ${this.icon} </span>
+        `}}window.customElements.define("furo-icon-with-label",FuroIconWithLabel);class DemoFuroIconList extends FBP(LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <h2>Iconset baseIcons</h2>
+      <p>
+      <pre>
+        import {FuroBaseIcons} from "@furo/layout/iconsets/baseIcons";
+        Iconset.registerIconset("default", FuroBaseIcons);
+      </pre></p>
+      <div>
+        <furo-icon-with-label icon="3d-rotation"></furo-icon-with-label>
+        <furo-icon-with-label icon="accessibility"></furo-icon-with-label>
+        <furo-icon-with-label icon="accessible"></furo-icon-with-label>
+        <furo-icon-with-label icon="account-balance"></furo-icon-with-label>
+        <furo-icon-with-label icon="account-balance-wallet"></furo-icon-with-label>
+        <furo-icon-with-label icon="account-box"></furo-icon-with-label>
+        <furo-icon-with-label icon="account-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="add"></furo-icon-with-label>
+        <furo-icon-with-label icon="add-alert"></furo-icon-with-label>
+        <furo-icon-with-label icon="add-box"></furo-icon-with-label>
+        <furo-icon-with-label icon="add-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="add-circle-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="add-shopping-cart"></furo-icon-with-label>
+        <furo-icon-with-label icon="alarm"></furo-icon-with-label>
+        <furo-icon-with-label icon="alarm-add"></furo-icon-with-label>
+        <furo-icon-with-label icon="alarm-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="alarm-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="all-out"></furo-icon-with-label>
+        <furo-icon-with-label icon="android"></furo-icon-with-label>
+        <furo-icon-with-label icon="announcement"></furo-icon-with-label>
+        <furo-icon-with-label icon="apps"></furo-icon-with-label>
+        <furo-icon-with-label icon="archive"></furo-icon-with-label>
+        <furo-icon-with-label icon="arrow-back"></furo-icon-with-label>
+        <furo-icon-with-label icon="arrow-downward"></furo-icon-with-label>
+        <furo-icon-with-label icon="arrow-drop-down"></furo-icon-with-label>
+        <furo-icon-with-label icon="arrow-drop-down-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="arrow-drop-up"></furo-icon-with-label>
+        <furo-icon-with-label icon="arrow-forward"></furo-icon-with-label>
+        <furo-icon-with-label icon="arrow-upward"></furo-icon-with-label>
+        <furo-icon-with-label icon="aspect-ratio"></furo-icon-with-label>
+        <furo-icon-with-label icon="assessment"></furo-icon-with-label>
+        <furo-icon-with-label icon="assignment"></furo-icon-with-label>
+        <furo-icon-with-label icon="assignment-ind"></furo-icon-with-label>
+        <furo-icon-with-label icon="assignment-late"></furo-icon-with-label>
+        <furo-icon-with-label icon="assignment-return"></furo-icon-with-label>
+        <furo-icon-with-label icon="assignment-returned"></furo-icon-with-label>
+        <furo-icon-with-label icon="assignment-turned-in"></furo-icon-with-label>
+        <furo-icon-with-label icon="attachment"></furo-icon-with-label>
+        <furo-icon-with-label icon="autorenew"></furo-icon-with-label>
+        <furo-icon-with-label icon="backspace"></furo-icon-with-label>
+        <furo-icon-with-label icon="backup"></furo-icon-with-label>
+        <furo-icon-with-label icon="block"></furo-icon-with-label>
+        <furo-icon-with-label icon="book"></furo-icon-with-label>
+        <furo-icon-with-label icon="bookmark"></furo-icon-with-label>
+        <furo-icon-with-label icon="bookmark-border"></furo-icon-with-label>
+        <furo-icon-with-label icon="bug-report"></furo-icon-with-label>
+        <furo-icon-with-label icon="build"></furo-icon-with-label>
+        <furo-icon-with-label icon="cached"></furo-icon-with-label>
+        <furo-icon-with-label icon="camera-enhance"></furo-icon-with-label>
+        <furo-icon-with-label icon="cancel"></furo-icon-with-label>
+        <furo-icon-with-label icon="card-giftcard"></furo-icon-with-label>
+        <furo-icon-with-label icon="card-membership"></furo-icon-with-label>
+        <furo-icon-with-label icon="card-travel"></furo-icon-with-label>
+        <furo-icon-with-label icon="change-history"></furo-icon-with-label>
+        <furo-icon-with-label icon="check"></furo-icon-with-label>
+        <furo-icon-with-label icon="check-box"></furo-icon-with-label>
+        <furo-icon-with-label icon="check-box-outline-blank"></furo-icon-with-label>
+        <furo-icon-with-label icon="check-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="chevron-left"></furo-icon-with-label>
+        <furo-icon-with-label icon="chevron-right"></furo-icon-with-label>
+        <furo-icon-with-label icon="chrome-reader-mode"></furo-icon-with-label>
+        <furo-icon-with-label icon="class"></furo-icon-with-label>
+        <furo-icon-with-label icon="clear"></furo-icon-with-label>
+        <furo-icon-with-label icon="close"></furo-icon-with-label>
+        <furo-icon-with-label icon="cloud"></furo-icon-with-label>
+        <furo-icon-with-label icon="cloud-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="cloud-done"></furo-icon-with-label>
+        <furo-icon-with-label icon="cloud-download"></furo-icon-with-label>
+        <furo-icon-with-label icon="cloud-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="cloud-queue"></furo-icon-with-label>
+        <furo-icon-with-label icon="cloud-upload"></furo-icon-with-label>
+        <furo-icon-with-label icon="code"></furo-icon-with-label>
+        <furo-icon-with-label icon="compare-arrows"></furo-icon-with-label>
+        <furo-icon-with-label icon="content-copy"></furo-icon-with-label>
+        <furo-icon-with-label icon="content-cut"></furo-icon-with-label>
+        <furo-icon-with-label icon="content-paste"></furo-icon-with-label>
+        <furo-icon-with-label icon="copyright"></furo-icon-with-label>
+        <furo-icon-with-label icon="create"></furo-icon-with-label>
+        <furo-icon-with-label icon="create-new-folder"></furo-icon-with-label>
+        <furo-icon-with-label icon="credit-card"></furo-icon-with-label>
+        <furo-icon-with-label icon="dashboard"></furo-icon-with-label>
+        <furo-icon-with-label icon="date-range"></furo-icon-with-label>
+        <furo-icon-with-label icon="delete"></furo-icon-with-label>
+        <furo-icon-with-label icon="delete-forever"></furo-icon-with-label>
+        <furo-icon-with-label icon="delete-sweep"></furo-icon-with-label>
+        <furo-icon-with-label icon="description"></furo-icon-with-label>
+        <furo-icon-with-label icon="dns"></furo-icon-with-label>
+        <furo-icon-with-label icon="done"></furo-icon-with-label>
+        <furo-icon-with-label icon="done-all"></furo-icon-with-label>
+        <furo-icon-with-label icon="donut-large"></furo-icon-with-label>
+        <furo-icon-with-label icon="donut-small"></furo-icon-with-label>
+        <furo-icon-with-label icon="drafts"></furo-icon-with-label>
+        <furo-icon-with-label icon="eject"></furo-icon-with-label>
+        <furo-icon-with-label icon="error"></furo-icon-with-label>
+        <furo-icon-with-label icon="error-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="euro-symbol"></furo-icon-with-label>
+        <furo-icon-with-label icon="event"></furo-icon-with-label>
+        <furo-icon-with-label icon="event-seat"></furo-icon-with-label>
+        <furo-icon-with-label icon="exit-to-app"></furo-icon-with-label>
+        <furo-icon-with-label icon="expand-less"></furo-icon-with-label>
+        <furo-icon-with-label icon="expand-more"></furo-icon-with-label>
+        <furo-icon-with-label icon="explore"></furo-icon-with-label>
+        <furo-icon-with-label icon="extension"></furo-icon-with-label>
+        <furo-icon-with-label icon="face"></furo-icon-with-label>
+        <furo-icon-with-label icon="favorite"></furo-icon-with-label>
+        <furo-icon-with-label icon="favorite-border"></furo-icon-with-label>
+        <furo-icon-with-label icon="feedback"></furo-icon-with-label>
+        <furo-icon-with-label icon="file-download"></furo-icon-with-label>
+        <furo-icon-with-label icon="file-upload"></furo-icon-with-label>
+        <furo-icon-with-label icon="filter-list"></furo-icon-with-label>
+        <furo-icon-with-label icon="find-in-page"></furo-icon-with-label>
+        <furo-icon-with-label icon="find-replace"></furo-icon-with-label>
+        <furo-icon-with-label icon="fingerprint"></furo-icon-with-label>
+        <furo-icon-with-label icon="first-page"></furo-icon-with-label>
+        <furo-icon-with-label icon="flag"></furo-icon-with-label>
+        <furo-icon-with-label icon="flight-land"></furo-icon-with-label>
+        <furo-icon-with-label icon="flight-takeoff"></furo-icon-with-label>
+        <furo-icon-with-label icon="flip-to-back"></furo-icon-with-label>
+        <furo-icon-with-label icon="flip-to-front"></furo-icon-with-label>
+        <furo-icon-with-label icon="folder"></furo-icon-with-label>
+        <furo-icon-with-label icon="folder-open"></furo-icon-with-label>
+        <furo-icon-with-label icon="folder-shared"></furo-icon-with-label>
+        <furo-icon-with-label icon="font-download"></furo-icon-with-label>
+        <furo-icon-with-label icon="forward"></furo-icon-with-label>
+        <furo-icon-with-label icon="fullscreen"></furo-icon-with-label>
+        <furo-icon-with-label icon="fullscreen-exit"></furo-icon-with-label>
+        <furo-icon-with-label icon="g-translate"></furo-icon-with-label>
+        <furo-icon-with-label icon="gavel"></furo-icon-with-label>
+        <furo-icon-with-label icon="gesture"></furo-icon-with-label>
+        <furo-icon-with-label icon="get-app"></furo-icon-with-label>
+        <furo-icon-with-label icon="gif"></furo-icon-with-label>
+        <furo-icon-with-label icon="grade"></furo-icon-with-label>
+        <furo-icon-with-label icon="group-work"></furo-icon-with-label>
+        <furo-icon-with-label icon="help"></furo-icon-with-label>
+        <furo-icon-with-label icon="help-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="highlight-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="history"></furo-icon-with-label>
+        <furo-icon-with-label icon="home"></furo-icon-with-label>
+        <furo-icon-with-label icon="hourglass-empty"></furo-icon-with-label>
+        <furo-icon-with-label icon="hourglass-full"></furo-icon-with-label>
+        <furo-icon-with-label icon="http"></furo-icon-with-label>
+        <furo-icon-with-label icon="https"></furo-icon-with-label>
+        <furo-icon-with-label icon="important-devices"></furo-icon-with-label>
+        <furo-icon-with-label icon="inbox"></furo-icon-with-label>
+        <furo-icon-with-label icon="indeterminate-check-box"></furo-icon-with-label>
+        <furo-icon-with-label icon="info"></furo-icon-with-label>
+        <furo-icon-with-label icon="info-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="input"></furo-icon-with-label>
+        <furo-icon-with-label icon="invert-colors"></furo-icon-with-label>
+        <furo-icon-with-label icon="label"></furo-icon-with-label>
+        <furo-icon-with-label icon="label-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="language"></furo-icon-with-label>
+        <furo-icon-with-label icon="last-page"></furo-icon-with-label>
+        <furo-icon-with-label icon="launch"></furo-icon-with-label>
+        <furo-icon-with-label icon="lightbulb-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="line-style"></furo-icon-with-label>
+        <furo-icon-with-label icon="line-weight"></furo-icon-with-label>
+        <furo-icon-with-label icon="link"></furo-icon-with-label>
+        <furo-icon-with-label icon="list"></furo-icon-with-label>
+        <furo-icon-with-label icon="lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="lock-open"></furo-icon-with-label>
+        <furo-icon-with-label icon="lock-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="low-priority"></furo-icon-with-label>
+        <furo-icon-with-label icon="loyalty"></furo-icon-with-label>
+        <furo-icon-with-label icon="mail"></furo-icon-with-label>
+        <furo-icon-with-label icon="markunread"></furo-icon-with-label>
+        <furo-icon-with-label icon="markunread-mailbox"></furo-icon-with-label>
+        <furo-icon-with-label icon="menu"></furo-icon-with-label>
+        <furo-icon-with-label icon="more-horiz"></furo-icon-with-label>
+        <furo-icon-with-label icon="more-vert"></furo-icon-with-label>
+        <furo-icon-with-label icon="motorcycle"></furo-icon-with-label>
+        <furo-icon-with-label icon="move-to-inbox"></furo-icon-with-label>
+        <furo-icon-with-label icon="next-week"></furo-icon-with-label>
+        <furo-icon-with-label icon="note-add"></furo-icon-with-label>
+        <furo-icon-with-label icon="offline-pin"></furo-icon-with-label>
+        <furo-icon-with-label icon="opacity"></furo-icon-with-label>
+        <furo-icon-with-label icon="open-in-browser"></furo-icon-with-label>
+        <furo-icon-with-label icon="open-in-new"></furo-icon-with-label>
+        <furo-icon-with-label icon="open-with"></furo-icon-with-label>
+        <furo-icon-with-label icon="pageview"></furo-icon-with-label>
+        <furo-icon-with-label icon="pan-tool"></furo-icon-with-label>
+        <furo-icon-with-label icon="payment"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-camera-mic"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-contact-calendar"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-data-setting"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-device-information"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-identity"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-media"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-phone-msg"></furo-icon-with-label>
+        <furo-icon-with-label icon="perm-scan-wifi"></furo-icon-with-label>
+        <furo-icon-with-label icon="pets"></furo-icon-with-label>
+        <furo-icon-with-label icon="picture-in-picture"></furo-icon-with-label>
+        <furo-icon-with-label icon="picture-in-picture-alt"></furo-icon-with-label>
+        <furo-icon-with-label icon="play-for-work"></furo-icon-with-label>
+        <furo-icon-with-label icon="polymer"></furo-icon-with-label>
+        <furo-icon-with-label icon="power-settings-new"></furo-icon-with-label>
+        <furo-icon-with-label icon="pregnant-woman"></furo-icon-with-label>
+        <furo-icon-with-label icon="print"></furo-icon-with-label>
+        <furo-icon-with-label icon="query-builder"></furo-icon-with-label>
+        <furo-icon-with-label icon="question-answer"></furo-icon-with-label>
+        <furo-icon-with-label icon="radio-button-checked"></furo-icon-with-label>
+        <furo-icon-with-label icon="radio-button-unchecked"></furo-icon-with-label>
+        <furo-icon-with-label icon="receipt"></furo-icon-with-label>
+        <furo-icon-with-label icon="record-voice-over"></furo-icon-with-label>
+        <furo-icon-with-label icon="redeem"></furo-icon-with-label>
+        <furo-icon-with-label icon="redo"></furo-icon-with-label>
+        <furo-icon-with-label icon="refresh"></furo-icon-with-label>
+        <furo-icon-with-label icon="remove"></furo-icon-with-label>
+        <furo-icon-with-label icon="remove-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="remove-circle-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="remove-shopping-cart"></furo-icon-with-label>
+        <furo-icon-with-label icon="reorder"></furo-icon-with-label>
+        <furo-icon-with-label icon="reply"></furo-icon-with-label>
+        <furo-icon-with-label icon="reply-all"></furo-icon-with-label>
+        <furo-icon-with-label icon="report"></furo-icon-with-label>
+        <furo-icon-with-label icon="report-problem"></furo-icon-with-label>
+        <furo-icon-with-label icon="restore"></furo-icon-with-label>
+        <furo-icon-with-label icon="restore-page"></furo-icon-with-label>
+        <furo-icon-with-label icon="room"></furo-icon-with-label>
+        <furo-icon-with-label icon="rounded-corner"></furo-icon-with-label>
+        <furo-icon-with-label icon="rowing"></furo-icon-with-label>
+        <furo-icon-with-label icon="save"></furo-icon-with-label>
+        <furo-icon-with-label icon="schedule"></furo-icon-with-label>
+        <furo-icon-with-label icon="search"></furo-icon-with-label>
+        <furo-icon-with-label icon="select-all"></furo-icon-with-label>
+        <furo-icon-with-label icon="send"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-applications"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-backup-restore"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-bluetooth"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-brightness"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-cell"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-ethernet"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-input-antenna"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-input-component"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-input-composite"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-input-hdmi"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-input-svideo"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-overscan"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-phone"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-power"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-remote"></furo-icon-with-label>
+        <furo-icon-with-label icon="settings-voice"></furo-icon-with-label>
+        <furo-icon-with-label icon="shop"></furo-icon-with-label>
+        <furo-icon-with-label icon="shop-two"></furo-icon-with-label>
+        <furo-icon-with-label icon="shopping-basket"></furo-icon-with-label>
+        <furo-icon-with-label icon="shopping-cart"></furo-icon-with-label>
+        <furo-icon-with-label icon="sort"></furo-icon-with-label>
+        <furo-icon-with-label icon="speaker-notes"></furo-icon-with-label>
+        <furo-icon-with-label icon="speaker-notes-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="spellcheck"></furo-icon-with-label>
+        <furo-icon-with-label icon="star"></furo-icon-with-label>
+        <furo-icon-with-label icon="star-border"></furo-icon-with-label>
+        <furo-icon-with-label icon="star-half"></furo-icon-with-label>
+        <furo-icon-with-label icon="stars"></furo-icon-with-label>
+        <furo-icon-with-label icon="store"></furo-icon-with-label>
+        <furo-icon-with-label icon="subdirectory-arrow-left"></furo-icon-with-label>
+        <furo-icon-with-label icon="subdirectory-arrow-right"></furo-icon-with-label>
+        <furo-icon-with-label icon="subject"></furo-icon-with-label>
+        <furo-icon-with-label icon="supervisor-account"></furo-icon-with-label>
+        <furo-icon-with-label icon="swap-horiz"></furo-icon-with-label>
+        <furo-icon-with-label icon="swap-vert"></furo-icon-with-label>
+        <furo-icon-with-label icon="swap-vertical-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="system-update-alt"></furo-icon-with-label>
+        <furo-icon-with-label icon="tab"></furo-icon-with-label>
+        <furo-icon-with-label icon="tab-unselected"></furo-icon-with-label>
+        <furo-icon-with-label icon="text-format"></furo-icon-with-label>
+        <furo-icon-with-label icon="theaters"></furo-icon-with-label>
+        <furo-icon-with-label icon="thumb-down"></furo-icon-with-label>
+        <furo-icon-with-label icon="thumb-up"></furo-icon-with-label>
+        <furo-icon-with-label icon="thumbs-up-down"></furo-icon-with-label>
+        <furo-icon-with-label icon="timeline"></furo-icon-with-label>
+        <furo-icon-with-label icon="toc"></furo-icon-with-label>
+        <furo-icon-with-label icon="today"></furo-icon-with-label>
+        <furo-icon-with-label icon="toll"></furo-icon-with-label>
+        <furo-icon-with-label icon="touch-app"></furo-icon-with-label>
+        <furo-icon-with-label icon="track-changes"></furo-icon-with-label>
+        <furo-icon-with-label icon="translate"></furo-icon-with-label>
+        <furo-icon-with-label icon="trending-down"></furo-icon-with-label>
+        <furo-icon-with-label icon="trending-flat"></furo-icon-with-label>
+        <furo-icon-with-label icon="trending-up"></furo-icon-with-label>
+        <furo-icon-with-label icon="turned-in"></furo-icon-with-label>
+        <furo-icon-with-label icon="turned-in-not"></furo-icon-with-label>
+        <furo-icon-with-label icon="unarchive"></furo-icon-with-label>
+        <furo-icon-with-label icon="undo"></furo-icon-with-label>
+        <furo-icon-with-label icon="unfold-less"></furo-icon-with-label>
+        <furo-icon-with-label icon="unfold-more"></furo-icon-with-label>
+        <furo-icon-with-label icon="update"></furo-icon-with-label>
+        <furo-icon-with-label icon="verified-user"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-agenda"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-array"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-carousel"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-column"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-day"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-headline"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-list"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-module"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-quilt"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-stream"></furo-icon-with-label>
+        <furo-icon-with-label icon="view-week"></furo-icon-with-label>
+        <furo-icon-with-label icon="visibility"></furo-icon-with-label>
+        <furo-icon-with-label icon="visibility-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="warning"></furo-icon-with-label>
+        <furo-icon-with-label icon="watch-later"></furo-icon-with-label>
+        <furo-icon-with-label icon="weekend"></furo-icon-with-label>
+        <furo-icon-with-label icon="work"></furo-icon-with-label>
+        <furo-icon-with-label icon="youtube-searched-for"></furo-icon-with-label>
+        <furo-icon-with-label icon="zoom-in"></furo-icon-with-label>
+        <furo-icon-with-label icon="zoom-out"></furo-icon-with-label>
+      </div>
+
+
+      <h2>Iconset avIcons</h2>
+      <p>
+      <pre>
+        import {AvIcons} from "@furo/layout/iconsets/avIcons";
+        Iconset.registerIconset("av", AvIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="av:add-to-queue"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:airplay"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:album"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:art-track"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:av-timer"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:branding-watermark"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:call-to-action"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:closed-caption"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:equalizer"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:explicit"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:fast-forward"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:fast-rewind"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:featured-play-list"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:featured-video"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:fiber-dvr"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:fiber-manual-record"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:fiber-new"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:fiber-pin"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:fiber-smart-record"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:forward-10"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:forward-30"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:forward-5"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:games"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:hd"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:hearing"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:high-quality"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:library-add"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:library-books"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:library-music"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:loop"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:mic"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:mic-none"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:mic-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:movie"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:music-video"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:new-releases"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:not-interested"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:note"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:pause"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:pause-circle-filled"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:pause-circle-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:play-arrow"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:play-circle-filled"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:play-circle-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:playlist-add"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:playlist-add-check"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:playlist-play"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:queue"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:queue-music"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:queue-play-next"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:radio"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:recent-actors"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:remove-from-queue"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:repeat"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:repeat-one"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:replay"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:replay-10"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:replay-30"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:replay-5"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:shuffle"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:skip-next"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:skip-previous"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:slow-motion-video"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:snooze"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:sort-by-alpha"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:stop"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:subscriptions"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:subtitles"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:surround-sound"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:video-call"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:video-label"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:video-library"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:videocam"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:videocam-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:volume-down"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:volume-mute"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:volume-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:volume-up"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:web"></furo-icon-with-label>
+        <furo-icon-with-label icon="av:web-asset"></furo-icon-with-label>
+      </div>
+      
+      
+      
+      <h2>Iconset communicationIcons</h2>
+      <p>
+      <pre>
+        import {CommunicationIcons} from "@furo/layout/iconsets/communicationIcons";
+        Iconset.registerIconset("communication", CommunicationIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="communication:business"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call-end"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call-made"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call-merge"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call-missed"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call-missed-outgoing"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call-received"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:call-split"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:chat"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:chat-bubble"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:chat-bubble-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:clear-all"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:comment"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:contact-mail"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:contact-phone"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:contacts"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:dialer-sip"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:dialpad"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:email"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:forum"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:import-contacts"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:import-export"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:invert-colors-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:live-help"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:location-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:location-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:mail-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:message"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:no-sim"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:phone"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:phonelink-erase"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:phonelink-lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:phonelink-ring"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:phonelink-setup"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:portable-wifi-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:present-to-all"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:ring-volume"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:rss-feed"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:screen-share"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:speaker-phone"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:stay-current-landscape"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:stay-current-portrait"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:stay-primary-landscape"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:stay-primary-portrait"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:stop-screen-share"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:swap-calls"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:textsms"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:voicemail"></furo-icon-with-label>
+        <furo-icon-with-label icon="communication:vpn-key"></furo-icon-with-label>
+      </div>
+     
+      <h2>Iconset deviceIcons</h2>
+      <p>
+      <pre>
+        import {DeviceIcons} from "@furo/layout/iconsets/deviceIcons";
+        Iconset.registerIconset("device", DeviceIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="device:access-alarm"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:access-alarms"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:access-time"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:add-alarm"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:airplanemode-active"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:airplanemode-inactive"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-20"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-30"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-50"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-60"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-80"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-90"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-alert"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-charging-20"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-charging-30"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-charging-50"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-charging-60"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-charging-80"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-charging-90"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-charging-full"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-full"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-std"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:battery-unknown"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:bluetooth"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:bluetooth-connected"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:bluetooth-disabled"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:bluetooth-searching"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:brightness-auto"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:brightness-high"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:brightness-low"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:brightness-medium"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:data-usage"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:developer-mode"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:devices"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:dvr"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:gps-fixed"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:gps-not-fixed"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:gps-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:graphic-eq"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:location-disabled"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:location-searching"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:network-cell"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:network-wifi"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:nfc"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:screen-lock-landscape"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:screen-lock-portrait"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:screen-lock-rotation"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:screen-rotation"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:sd-storage"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:settings-system-daydream"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-0-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-1-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-2-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-3-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-4-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-0-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-1-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-2-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-3-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-4-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-no-sim"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-null"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-cellular-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-0-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-1-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-1-bar-lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-2-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-2-bar-lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-3-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-3-bar-lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-4-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-4-bar-lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:signal-wifi-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:storage"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:usb"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:wallpaper"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:widgets"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:wifi-lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="device:wifi-tethering"></furo-icon-with-label>
+      </div>
+     
+      <h2>Iconset editorIcons</h2>
+      <p>
+      <pre>
+        import {EditorIcons} from "@furo/layout/iconsets/editorIcons";
+        Iconset.registerIconset("editor", EditorIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="editor:attach-file"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:attach-money"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-all"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-bottom"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-clear"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-color"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-horizontal"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-inner"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-left"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-outer"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-right"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-style"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-top"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:border-vertical"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:bubble-chart"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:drag-handle"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-align-center"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-align-justify"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-align-left"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-align-right"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-bold"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-clear"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-color-fill"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-color-reset"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-color-text"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-indent-decrease"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-indent-increase"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-italic"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-line-spacing"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-list-bulleted"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-list-numbered"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-paint"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-quote"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-shapes"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-size"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-strikethrough"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-textdirection-l-to-r"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-textdirection-r-to-l"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:format-underlined"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:functions"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:highlight"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:insert-chart"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:insert-comment"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:insert-drive-file"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:insert-emoticon"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:insert-invitation"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:insert-link"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:insert-photo"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:linear-scale"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:merge-type"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:mode-comment"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:mode-edit"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:monetization-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:money-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:multiline-chart"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:pie-chart"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:pie-chart-outlined"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:publish"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:short-text"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:show-chart"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:space-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:strikethrough-s"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:text-fields"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:title"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:vertical-align-bottom"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:vertical-align-center"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:vertical-align-top"></furo-icon-with-label>
+        <furo-icon-with-label icon="editor:wrap-text"></furo-icon-with-label>
+      </div>
+     
+      <h2>Iconset hardwareIcons</h2>
+      <p>
+      <pre>
+        import {HardwareIcons} from "@furo/layout/iconsets/hardwareIcons";
+        Iconset.registerIconset("hardware", HardwareIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="hardware:cast"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:cast-connected"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:computer"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:desktop-mac"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:desktop-windows"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:developer-board"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:device-hub"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:devices-other"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:dock"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:gamepad"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:headset"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:headset-mic"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-arrow-down"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-arrow-left"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-arrow-right"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-arrow-up"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-backspace"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-capslock"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-hide"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-return"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-tab"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:keyboard-voice"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:laptop"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:laptop-chromebook"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:laptop-mac"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:laptop-windows"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:memory"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:mouse"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:phone-android"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:phone-iphone"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:phonelink"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:phonelink-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:power-input"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:router"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:scanner"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:security"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:sim-card"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:smartphone"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:speaker"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:speaker-group"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:tablet"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:tablet-android"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:tablet-mac"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:toys"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:tv"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:videogame-asset"></furo-icon-with-label>
+        <furo-icon-with-label icon="hardware:watch"></furo-icon-with-label>
+      </div>
+          
+      <h2>Iconset imageIcons</h2>
+      <p>
+      <pre>
+        import {ImageIcons} from "@furo/layout/iconsets/imageIcons";
+        Iconset.registerIconset("image", ImageIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="image:add-a-photo"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:add-to-photos"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:adjust"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:assistant"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:assistant-photo"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:audiotrack"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:blur-circular"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:blur-linear"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:blur-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:blur-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brightness-1"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brightness-2"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brightness-3"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brightness-4"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brightness-5"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brightness-6"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brightness-7"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:broken-image"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:brush"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:burst-mode"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:camera"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:camera-alt"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:camera-front"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:camera-rear"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:camera-roll"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:center-focus-strong"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:center-focus-weak"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:collections"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:collections-bookmark"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:color-lens"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:colorize"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:compare"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:control-point"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:control-point-duplicate"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-16-9"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-3-2"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-5-4"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-7-5"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-din"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-free"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-landscape"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-original"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-portrait"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-rotate"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:crop-square"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:dehaze"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:details"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:edit"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:exposure"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:exposure-neg-1"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:exposure-neg-2"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:exposure-plus-1"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:exposure-plus-2"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:exposure-zero"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-1"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-2"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-3"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-4"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-5"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-6"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-7"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-8"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-9"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-9-plus"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-b-and-w"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-center-focus"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-drama"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-frames"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-hdr"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-none"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-tilt-shift"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:filter-vintage"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:flare"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:flash-auto"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:flash-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:flash-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:flip"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:gradient"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:grain"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:grid-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:grid-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:hdr-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:hdr-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:hdr-strong"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:hdr-weak"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:healing"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:image"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:image-aspect-ratio"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:iso"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:landscape"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:leak-add"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:leak-remove"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:lens"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:linked-camera"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:looks"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:looks-3"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:looks-4"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:looks-5"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:looks-6"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:looks-one"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:looks-two"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:loupe"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:monochrome-photos"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:movie-creation"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:movie-filter"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:music-note"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:nature"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:nature-people"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:navigate-before"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:navigate-next"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:palette"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:panorama"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:panorama-fish-eye"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:panorama-horizontal"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:panorama-vertical"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:panorama-wide-angle"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo-album"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo-camera"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo-filter"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo-library"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo-size-select-actual"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo-size-select-large"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:photo-size-select-small"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:picture-as-pdf"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:portrait"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:remove-red-eye"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:rotate-90-degrees-ccw"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:rotate-left"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:rotate-right"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:slideshow"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:straighten"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:style"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:switch-camera"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:switch-video"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:tag-faces"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:texture"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:timelapse"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:timer"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:timer-10"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:timer-3"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:timer-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:tonality"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:transform"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:tune"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:view-comfy"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:view-compact"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:vignette"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:wb-auto"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:wb-cloudy"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:wb-incandescent"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:wb-iridescent"></furo-icon-with-label>
+        <furo-icon-with-label icon="image:wb-sunny"></furo-icon-with-label>
+      </div>
+           
+      <h2>Iconset mapsIcons</h2>
+      <p>
+      <pre>
+        import {MapsIcons} from "@furo/layout/iconsets/mapsIcons";
+        Iconset.registerIconset("maps", MapsIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="map:add-location"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:beenhere"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-bike"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-boat"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-bus"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-car"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-railway"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-run"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-subway"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-transit"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:directions-walk"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:edit-location"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:ev-station"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:flight"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:hotel"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:layers"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:layers-clear"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-activity"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-airport"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-atm"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-bar"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-cafe"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-car-wash"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-convenience-store"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-dining"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-drink"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-florist"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-gas-station"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-grocery-store"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-hospital"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-hotel"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-laundry-service"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-library"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-mall"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-movies"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-offer"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-parking"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-pharmacy"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-phone"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-pizza"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-play"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-post-office"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-printshop"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-see"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-shipping"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:local-taxi"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:map"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:my-location"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:navigation"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:near-me"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:person-pin"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:person-pin-circle"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:pin-drop"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:place"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:rate-review"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:restaurant"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:restaurant-menu"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:satellite"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:store-mall-directory"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:streetview"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:subway"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:terrain"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:traffic"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:train"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:tram"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:transfer-within-a-station"></furo-icon-with-label>
+        <furo-icon-with-label icon="map:zoom-out-map"></furo-icon-with-label>
+      </div>
+            
+      <h2>Iconset notificationIcons</h2>
+      <p>
+      <pre>
+        import {NotificationIcons} from "@furo/layout/iconsets/notificationIcons";
+        Iconset.registerIconset("notification", NotificationIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="notification:adb"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-flat"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-flat-angled"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-individual-suite"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-legroom-extra"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-legroom-normal"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-legroom-reduced"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-recline-extra"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:airline-seat-recline-normal"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:bluetooth-audio"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:confirmation-number"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:disc-full"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:do-not-disturb"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:do-not-disturb-alt"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:do-not-disturb-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:do-not-disturb-on"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:drive-eta"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:enhanced-encryption"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:event-available"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:event-busy"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:event-note"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:folder-special"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:live-tv"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:mms"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:more"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:network-check"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:network-locked"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:no-encryption"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:ondemand-video"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:personal-video"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:phone-bluetooth-speaker"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:phone-forwarded"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:phone-in-talk"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:phone-locked"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:phone-missed"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:phone-paused"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:power"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:priority-high"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:rv-hookup"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:sd-card"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:sim-card-alert"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:sms"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:sms-failed"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:sync"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:sync-disabled"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:sync-problem"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:system-update"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:tap-and-play"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:time-to-leave"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:vibration"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:voice-chat"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:vpn-lock"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:wc"></furo-icon-with-label>
+        <furo-icon-with-label icon="notification:wifi"></furo-icon-with-label>
+      </div>
+      
+      
+      <h2>Iconset placesIcons</h2>
+      <p>
+      <pre>
+        import {PlacesIcons} from "@furo/layout/iconsets/placesIcons";
+        Iconset.registerIconset("places", PlacesIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="places:ac-unit"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:airport-shuttle"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:all-inclusive"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:beach-access"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:business-center"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:casino"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:child-care"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:child-friendly"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:fitness-center"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:free-breakfast"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:golf-course"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:hot-tub"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:kitchen"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:pool"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:room-service"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:rv-hookup"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:smoke-free"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:smoking-rooms"></furo-icon-with-label>
+        <furo-icon-with-label icon="places:spa"></furo-icon-with-label>
+      </div>
+      
+      
+      <h2>Iconset socialIcons</h2>
+      <p>
+      <pre>
+        import {SocialIcons} from "@furo/layout/iconsets/socialIcons";
+        Iconset.registerIconset("social", SocialIcons);
+      </pre></p>
+
+      <div>
+        <furo-icon-with-label icon="social:cake"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:domain"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:group"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:group-add"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:location-city"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:mood"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:mood-bad"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:notifications"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:notifications-active"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:notifications-none"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:notifications-off"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:notifications-paused"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:pages"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:party-mode"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:people"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:people-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:person"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:person-add"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:person-outline"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:plus-one"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:poll"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:public"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:school"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:sentiment-dissatisfied"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:sentiment-neutral"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:sentiment-satisfied"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:sentiment-very-dissatisfied"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:sentiment-very-satisfied"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:share"></furo-icon-with-label>
+        <furo-icon-with-label icon="social:whatshot"></furo-icon-with-label>
+      </div>
+     
+    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList)});

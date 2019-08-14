@@ -1,12 +1,16 @@
 # Installation
 
-## furo-collection
+This page describes the manual installation. 
+If you want to make a component, you can use the starter pack for components.
 
+A starter pack for an app will follow soon.
+ 
+## furo-collection
 The furo-collection package contains all packages from [furoBaseComponents](/api/input/doc/). 
 The installed versions of the sub packages are cross checked for compatibility.     
      
 ```bash
-    npm install --save furo-collection
+    npm install --save @furo/collection
 ```
 
 
@@ -14,7 +18,7 @@ The installed versions of the sub packages are cross checked for compatibility.
 If you work with your own components and just want to have the fbp capability, install [furo-fbp](/api/fbp/doc/FBP).
 
 ```bash
-    npm install --save furo-fbp
+    npm install --save @furo/fbp
 ```
 
 

@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import  "@furo/layout/furo-icon";
 
 /**
  * `furo-text-input`
@@ -28,6 +29,7 @@ import {FBP} from "@furo/fbp";
  * @customElement
  * @polymer
  * @demo demo-furo-text-input Input samples
+ * @demo furo-text-input-playground Text-input playground
  * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
@@ -144,6 +146,12 @@ class FuroTextInput extends FBP(LitElement) {
         type: Boolean
       },
       /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
+      },
+      /**
        * The hint text for the field.
        */
       hint: {
@@ -181,7 +189,9 @@ class FuroTextInput extends FBP(LitElement) {
        */
       condensed:{
         type:Boolean
-      }
+      },
+
+
     };
   }
 
@@ -510,18 +520,22 @@ class FuroTextInput extends FBP(LitElement) {
             right:8px;
         }
 
-        :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
             display: block;
         }
 
-        :host([leading-icon]) label span {
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
             left: 24px;
         }
 
-        :host([leading-icon]) .wrapper{
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+            left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
             padding-left: 36px;
         }
-        :host([trailing-icon]) .wrapper{
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
             padding-right: 36px;
         }
         :host(:focus-within:not([valid])) label{
@@ -589,7 +603,7 @@ class FuroTextInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       

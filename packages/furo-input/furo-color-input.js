@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import  "@furo/layout/furo-icon";
 
 /**
  * `furo-color-input`
@@ -25,6 +26,7 @@ class FuroColorInput extends FBP(LitElement) {
 
     this._value = this.value || "";
     this._FBPAddWireHook("--inputInput", (e) => {
+
       let input = e.composedPath()[0];
       this.error = input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.patternMismatch;
       this._float = !!input.value;
@@ -42,18 +44,6 @@ class FuroColorInput extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
-
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
 
   }
 
@@ -75,14 +65,7 @@ class FuroColorInput extends FBP(LitElement) {
       value: {
         type: String
       },
-      /**
-       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
-       *
-       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
-       */
-      pattern: {
-        type: String
-      },
+
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
        */
@@ -114,6 +97,12 @@ class FuroColorInput extends FBP(LitElement) {
        */
       _float: {
         type: Boolean
+      },
+      /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
       },
       /**
        * The hint text for the field.
@@ -470,15 +459,15 @@ class FuroColorInput extends FBP(LitElement) {
             right: 8px;
         }
 
-        :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
             display: block;
         }
 
-        :host([leading-icon]) .wrapper {
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
             padding-left: 36px;
         }
 
-        :host([trailing-icon]) .wrapper {
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
             padding-right: 36px;
         }
 
@@ -551,7 +540,7 @@ class FuroColorInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       

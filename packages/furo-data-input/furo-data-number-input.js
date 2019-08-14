@@ -1,7 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import {FuroInputBase} from "./FuroInputBase.js";
 import "@furo/input/furo-number-input";
 
 /**
@@ -15,7 +14,6 @@ import "@furo/input/furo-number-input";
  * @customElement
  * @demo demo-furo-data-number-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
 class FuroDataNumberInput extends FBP(LitElement) {
 
@@ -106,6 +104,39 @@ class FuroDataNumberInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
+      },
+      /**
+       * html input validity
+       */
+      valid:{
+        type:Boolean,
+        reflect:true
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed:{
+        type:Boolean
+      },
+      /**
+       * passes always float the label
+       */
+      float:{
+        type:Boolean
       }
     }
   }
@@ -145,11 +176,13 @@ class FuroDataNumberInput extends FBP(LitElement) {
       // updates wieder einspielen
       this.error = true;
       this.errortext = this.field._validity.message;
+      this.requestUpdate();
     });
 
     this.field.addEventListener('field-became-valid', (e) => {
       // updates wieder einspielen
       this.error = false;
+      this.requestUpdate();
     });
   }
 
@@ -168,6 +201,8 @@ class FuroDataNumberInput extends FBP(LitElement) {
     } else {
       this._hint = this.hint;
     }
+    this.disabled = this.field._meta.readonly ? true : false;
+
     // min auf attr ist höher gewichtet
     if (!this.min) {
       this._min = this.field._meta.min;
@@ -237,6 +272,10 @@ class FuroDataNumberInput extends FBP(LitElement) {
           max="${this._max}" 
           step="${this._step}" 
           ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"          
+          leading-icon="${this.leadingIcon}" 
+          trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
           hint="${this.hint}" 
           @-value-changed="--valueChanged"

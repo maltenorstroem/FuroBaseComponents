@@ -1,13 +1,29 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import  "@furo/layout/furo-icon";
 
 /**
  * `furo-password-input`
  *
- *  <furo-password-input label="Password" hint="Look under your keyboard"></furo-password-input>
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
  *
- * @summary Password input field
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--input-hint-color` | Color of hint text | #999999 | --
+ * `--input-label-color` | Color of label in field| `--disabled,` | #333333
+ * `--input-label-float-color` | Color of label when floating | `--on-surface` | #333333
+ * `--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5
+
+ * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
+ * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
+ * `--input-error-text-color` | Color of error text | `--error` | red
+ * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
+ * `--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red
+ *
+ *
+ * @summary Text input field
  * @customElement
  * @polymer
  * @demo demo-furo-password-input Input samples
@@ -41,7 +57,6 @@ class FuroPasswordInput extends FBP(LitElement) {
       let customEvent = new Event('value-changed', {composed: true, bubbles: true});
       customEvent.detail = this.value;
       this.dispatchEvent(customEvent);
-        this.dispatchEvent(customEvent);
       }
     });
 
@@ -127,6 +142,12 @@ class FuroPasswordInput extends FBP(LitElement) {
        */
       _float: {
         type: Boolean
+      },
+      /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
       },
       /**
        * The hint text for the field.
@@ -272,7 +293,6 @@ class FuroPasswordInput extends FBP(LitElement) {
             box-sizing: border-box;
             margin: 14px 0 0 0;
             height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
             width: 190px;
         }
 
@@ -281,7 +301,6 @@ class FuroPasswordInput extends FBP(LitElement) {
         }
 
         .wrapper {
-            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
         }
@@ -516,18 +535,22 @@ class FuroPasswordInput extends FBP(LitElement) {
             right:8px;
         }
 
-        :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
             display: block;
         }
 
-        :host([leading-icon]) label span {
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
             left: 24px;
         }
 
-        :host([leading-icon]) .wrapper{
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+            left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
             padding-left: 36px;
         }
-        :host([trailing-icon]) .wrapper{
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
             padding-right: 36px;
         }
         :host(:focus-within:not([valid])) label{
@@ -595,7 +618,7 @@ class FuroPasswordInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       

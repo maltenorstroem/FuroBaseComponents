@@ -1,19 +1,18 @@
 # Getting started with Furo Flowbased Programming
 
-With FBP you mostly connect the the output of a component (event) with the functions of an ohter element.
+With FBP you mostly connect the the output of a component (a dom event) with the functions of an ohter element.
 
 
 
 ## Connecting things
 
-We have a button and an elements which we want to remove after the button is clicked.
+We have a lightswitch (button) and lightbulb which we want to toggle when the switch is clicked.
  
-  
 
 <furo-demo-snippet demo>
 <template>
-  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
-  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button> 
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>  
 </template>
 </furo-demo-snippet>
 
@@ -82,7 +81,7 @@ You can trigger multiple wires from one source by comma separating them.
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
   <furo-button @-click="--lightSwitchClicked, --blinkerClicked" label="i am a lightswitch"></furo-button>   
-  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="1500"></interval-pulse>
+  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></interval-pulse>
   <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
 </template>
 </furo-demo-snippet>
@@ -98,7 +97,7 @@ You can receive from multiple wires by comma separating them.
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
   <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   
   <furo-button @-click="--blinkerClicked" label="i am a blinkswitch"></furo-button>   
-  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="1500"></interval-pulse>
+  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></interval-pulse>
   <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
 </template>
@@ -114,7 +113,7 @@ By default the **event.detail** is passed to the function you wire.
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse" ƒ-set-color="--newColor"></light-bulb>  
   <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   
   <furo-button @-click="--blinkerClicked" label="i am a blinkswitch"></furo-button>   
-  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="1500"></interval-pulse>
+  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></interval-pulse>
   <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse" ƒ-set-color="--newColor"></light-bulb>
     

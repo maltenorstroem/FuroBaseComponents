@@ -1,0 +1,11 @@
+syntax = "proto3";
+package furo.demo;
+
+
+import "task.proto";
+import "person.proto";
+
+// 
+service Service {   
+
+}
