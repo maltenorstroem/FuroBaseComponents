@@ -1,0 +1,10 @@
+{
+  "name": "@furo/specs",
+  "description": "Furo spec tooling",
+  "main": "furo-catalog.js",
+  "license": "MIT",
+  "version": "0.0.2",
+  "publishConfig": {
+    "access": "public"
+  }
+}

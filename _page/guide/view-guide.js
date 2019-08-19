@@ -6,8 +6,6 @@ import {nav} from "./nav_config";
 import "@furo/doc-helper/side-navigation"
 import "@furo/doc-helper/furo-demo-snippet"
 
-import "../components/topic-title";
-import "../components/topic-intro";
 //pages
 import "./panel-md-loader";
 import "./demoimports";
@@ -112,9 +110,6 @@ class ViewGuide extends FBP(LitElement) {
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
-          
-          <panel-guide name="pages"></panel-guide>
-        
           <panel-md-loader name="md"></panel-md-loader>
           
           <div name="welcome">Coming soon.</div>
