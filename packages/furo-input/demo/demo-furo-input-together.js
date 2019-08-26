@@ -30,6 +30,9 @@ class DemoFuroInputTogether extends FBP(LitElement) {
             display: none;
         }
 
+
+
+
     `
   }
 
@@ -47,57 +50,129 @@ class DemoFuroInputTogether extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-card style="margin:8px;height:200px">
-              <div ƒ-.inner-text="--fromTextarea">Do not forget to give the card <br> a height</div>
-              <furo-horizontal-flex slot="action">
-                <furo-button primary label="primary"></furo-button>
-                <furo-button label="other"></furo-button>
-                <furo-button accent label="accent"></furo-button>
-                <furo-empty-spacer></furo-empty-spacer>
-                <furo-button danger label="Danger"></furo-button>
-              </furo-horizontal-flex>
-            </furo-card>
-            <br>
-            <br>
-            <furo-time-input ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
-                             label="Time  field" @-value-changed="--time"></furo-time-input>
-            <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
-                              @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
-           
-            <furo-color-input label="Color" value="#FEA234"></furo-color-input>
-            <furo-search-input label="Search"></furo-search-input>
-            <furo-date-input ƒ-set-value="--date" max="2020-12-31" min="2020-01-01" value="2020-02-02"
-                             hint="Min max in 2020 only" label="Date input field"
-                             @-value-changed="--date"></furo-date-input>
-            <furo-password-input
-                    value="1234"
-                    hint="under your keyboard or on postit below monitor"
-                    label="super secret password"
-                    ƒ-make-visible="--showPasswordClicked"
-                    ƒ-make-invisible="--hidePasswordClicked"
-            ></furo-password-input>
+            <style>furo-card {
+              margin: 16px;
+              width: 300px;
+            }</style>
+            <furo-vertical-scroller>
+              <furo-horizontal-flex>
+                <furo-card>
 
-            <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
-                             label="Text input field" @-value-changed="--text"></furo-text-input>
-            <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
-                               label="Number input field" @-value-changed="--number"></furo-number-input>
-            <furo-text-input style="width: 100%" ƒ-set-value="--time" label="Input field" @-value-changed="--time"></furo-text-input>
-            
-            <hr>
-            <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v" @-value-changed="--fromTextarea"></furo-textarea-input>
-            
-            <furo-input-row label="row label">
-              <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
-                               label="Text input field" @-value-changed="--text"></furo-text-input>
-              <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
-                                 label="Number input field" @-value-changed="--number"></furo-number-input>
-            </furo-input-row>
-            <furo-button-bar>
-              <furo-button primary raised label="primary"></furo-button>
-              <furo-button secondary raised label="secondary"></furo-button>
-              <furo-empty-spacer></furo-empty-spacer>
-              <furo-button danger raised label="danger"></furo-button>
-            </furo-button-bar>
+                  <furo-vertical-flex>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input label="Benutzerdefinierter "></furo-checkbox-input>
+                  </furo-vertical-flex>
+
+
+                  <furo-horizontal-flex slot="action">
+                    <furo-button primary label="primary"></furo-button>
+                    <furo-button label="other"></furo-button>
+
+                  </furo-horizontal-flex>
+                </furo-card>
+
+                <furo-card>
+                  <furo-form-layouter two>
+                    <furo-horizontal-flex space>
+                      <furo-time-input ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
+                                       label="Time  field" @-value-changed="--time"></furo-time-input>
+                      <furo-empty-spacer></furo-empty-spacer>
+                      <furo-color-input label="Color" value="#FEA234"></furo-color-input>
+
+                    </furo-horizontal-flex>
+                    <furo-text-input leading-icon="fingerprint" label="Owner"></furo-text-input>
+                    <furo-text-input label="Special hint"></furo-text-input>
+                    <furo-text-input label="Owner"></furo-text-input>
+                  </furo-form-layouter>
+                </furo-card>
+
+                <furo-card>
+                  <img slot="media" src="/_page/images/hamburg.png" alt="">
+                  <div ƒ-.inner-text="--fromTextarea" style="margin-bottom: 30px">Do not forget to give the card <br> a
+                    height
+                  </div>
+                  <furo-horizontal-flex space slot="action">
+                    <furo-button primary label="primary"></furo-button>
+                    <furo-button accent label="accent"></furo-button>
+                    <furo-empty-spacer></furo-empty-spacer>
+                    <furo-button danger label="Danger"></furo-button>
+                  </furo-horizontal-flex>
+                </furo-card>
+              </furo-horizontal-flex>
+
+              <furo-horizontal-flex space>
+                <furo-card>
+                  <img slot="media" src="/_page/images/hamburg.png" alt="">
+                  <furo-form-layouter two>
+                    <furo-search-input leading-icon="arrow-downward" hint="jkhdsfkjsfdjk"
+                                       label="Search"></furo-search-input>
+                    <furo-date-input ƒ-set-value="--date" max="2020-12-31" min="2020-01-01" value="2020-02-02"
+                                     hint="Min max in 2020 only" label="Date input field"
+                                     @-value-changed="--date"></furo-date-input>
+
+                    <furo-password-input
+                            value="1234"
+                            hint="under your keyboard or on postit below monitor"
+                            label="super secret password"
+                            ƒ-make-visible="--showPasswordClicked"
+                            ƒ-make-invisible="--hidePasswordClicked"
+                    ></furo-password-input>
+                  </furo-form-layouter>
+                </furo-card>
+                <furo-horizontal-flex flex space>
+
+                  <furo-text-input flex ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
+                                   label="Text input field" @-value-changed="--text"></furo-text-input>
+
+                  <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
+                                    @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
+                  <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
+                                     label="Number input field" @-value-changed="--number"></furo-number-input>
+                </furo-horizontal-flex>
+              </furo-horizontal-flex>
+
+              <br>
+
+
+              <furo-horizontal-flex space>
+                <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint"
+                                     @-value-changed="--check" autofocus></furo-checkbox-input>
+                <furo-checkbox-input style="margin-top: 19px" label="Disabled " ƒ-set-value="--check" checked
+                                     disabled></furo-checkbox-input>
+              </furo-horizontal-flex>
+
+
+              <br>
+
+              <furo-horizontal-flex space>
+
+                <furo-text-input condensed ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
+                                 label="Text input field" @-value-changed="--text"></furo-text-input>
+
+
+                <furo-date-input condensed ƒ-set-value="--time" label="Date field"
+                                 @-value-changed="--date"></furo-date-input>
+
+
+              </furo-horizontal-flex>
+
+              <hr>
+              <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"
+                                   @-value-changed="--fromTextarea"></furo-textarea-input>
+
+
+              <br>
+
+              <furo-button-bar>
+                <furo-button primary raised label="primary"></furo-button>
+                <furo-button secondary raised label="secondary"></furo-button>
+                <furo-empty-spacer></furo-empty-spacer>
+                <furo-button danger raised label="danger"></furo-button>
+              </furo-button-bar>
+            </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

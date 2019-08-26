@@ -2,7 +2,6 @@
   "name": "furo-base-components",
   "description": "Collection of furo base components",
   "devDependencies": {
-    "@google-web-components/google-youtube": "^3.0.1",
     "@polymer/polymer": "^3.3.0",
     "babel-traverse": "^6.24.1",
     "lerna": "^3.13.1",
@@ -24,9 +23,9 @@
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "doc": "./scripts/generate-analysis.sh",
-    "serve": "polymer serve -p 7777",
+    "serve": "polymer serve -p 5555",
     "test": "wct",
-    "genpage" : "./scripts/publish-documentation.sh"
+    "genpage": "./scripts/publish-documentation.sh"
   },
   "author": "veith",
   "license": "MIT",

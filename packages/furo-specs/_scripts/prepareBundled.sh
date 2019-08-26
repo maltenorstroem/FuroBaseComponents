@@ -1,38 +1,39 @@
 #!/usr/bin/env bash
 
-echo "generating services and types from api specification ..."
+echo "preparing services and types from api specification ..."
 echo "*** Prepare ***"
+SPECDIR=$1
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-mkdir -p $DIR/../_tmp
+mkdir -p ./__tmp
+BASETYPEDIR="$DIR/../_baseTypes"
 
-rm $DIR/../_tmp/types.json
+rm ./__tmp/types_bundled.json
 # open Array
-echo '{"bundlepackage":"'$1'", "types":[' >> $DIR/../_tmp/types.json
+echo '{"types":[' >> ./__tmp/types_bundled.json
 
-for t in `find ./specs -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../_tmp/tmptypes.json; done
-
-
-cat $DIR/../_tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../_tmp/types.json
-rm $DIR/../_tmp/tmptypes.json
+for t in `find $SPECDIR -name '*.type.spec'`; do (cat $t; echo ',') >> ./__tmp/tmptypes.json; done
+#for t in `find $BASETYPEDIR -name '*.type.spec'`; do (cat $t; echo ',') >> ./__tmp/tmptypes.json; done
+cat ./__tmp/tmptypes.json | sed '$ s/.$//' >> ./__tmp/types_bundled.json
+rm ./__tmp/tmptypes.json
 # close Array
-echo ']}' >> $DIR/../_tmp/types.json
+echo ']}' >> ./__tmp/types_bundled.json
 
-echo "types done."
+echo "bundled types done."
 
 
-rm $DIR/../_tmp/services.json
+rm ./__tmp/services_bundled.json
 # open Array
-echo '{"bundlepackage":"'$1'","services":[' >> $DIR/../_tmp/services.json
+echo '{"services":[' >> ./__tmp/services_bundled.json
 
-for t in `find ./specs -name '*.service.spec'`; do (cat $t; echo ',') >> $DIR/../_tmp/tmpservices.json; done
+for t in `find $SPECDIR -name '*.service.spec'`; do (cat $t; echo ',') >> ./__tmp/tmpservices.json; done
 echo $t
-cat $DIR/../_tmp/tmpservices.json | sed '$ s/.$//' >> $DIR/../_tmp/services.json
-rm $DIR/../_tmp/tmpservices.json
+cat ./__tmp/tmpservices.json | sed '$ s/.$//' >> ./__tmp/services_bundled.json
+rm ./__tmp/tmpservices.json
 # close Array
-echo ']}' >> $DIR/../_tmp/services.json
+echo ']}' >> ./__tmp/services_bundled.json
 
-echo "services done."
+echo "bundled services done."
 
 
 cd $DIR

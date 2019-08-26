@@ -1,7 +1,12 @@
 #! /bin/bash
 
+BUILDPATH="$1protos"
+SPECDIR=$2
+TEMPLATEDIR="$3"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 echo "make the base types"
-for t in `find ./_baseTypes -name '*.type.spec'`;
+for t in `find $DIR/../_baseTypes -name '*.type.spec'`;
 do
  protofile="`basename -s .type\.spec $t`.proto"
 
@@ -21,14 +26,14 @@ PROTOFILE=$(cat $t \
  | sed 's/[",]//g' \
  | tr -d '[[:space:]]')
 
-mkdir -p build/protos/$FOLDER
+mkdir -p $BUILDPATH/$FOLDER
 
- simple-generator -d $t -t _scripts/templates/single.message.proto.tmpl > build/protos/$FOLDER/$PROTOFILE.proto
+ simple-generator -d $t -t $TEMPLATEDIR/single.message.proto.tmpl > $BUILDPATH/$FOLDER/$PROTOFILE.proto
 done
 
 
 echo "make the specs"
-for t in `find ./specs -name '*.type.spec'`;
+for t in `find $SPECDIR -name '*.type.spec'`;
 do
  protofile="`basename -s .type\.spec $t`.proto"
 
@@ -48,14 +53,14 @@ PROTOFILE=$(cat $t \
  | sed 's/[",]//g' \
  | tr -d '[[:space:]]')
 
-mkdir -p build/protos/$FOLDER
+mkdir -p $BUILDPATH/$FOLDER
 
- simple-generator -d $t -t _scripts/templates/single.message.proto.tmpl > build/protos/$FOLDER/$PROTOFILE.proto
+ simple-generator -d $t -t $TEMPLATEDIR/single.message.proto.tmpl > $BUILDPATH/$FOLDER/$PROTOFILE.proto
 done
 
 
 echo "make the services"
-for t in `find ./specs -name '*.service.spec'`;
+for t in `find $SPECDIR -name '*.service.spec'`;
 do
 
  FOLDER=$(cat $t \
@@ -74,6 +79,6 @@ PROTOFILE=$(cat $t \
  | sed 's/[",]//g' \
  | tr -d '[[:space:]]')
 
- mkdir -p build/protos/$FOLDER
- simple-generator -d $t -t _scripts/templates/single.service.proto.tmpl > build/protos/$FOLDER/$PROTOFILE.proto
+ mkdir -p $BUILDPATH/$FOLDER
+ simple-generator -d $t -t $TEMPLATEDIR/single.service.proto.tmpl > $BUILDPATH/$FOLDER/$PROTOFILE.proto
 done

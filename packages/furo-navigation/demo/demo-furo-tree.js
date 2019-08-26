@@ -4,7 +4,6 @@ import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 
 import '../furo-catalog';
-import "../test/initEnv"
 import "@furo/data"
 import "../test/produce-data"
 import "@furo/data-input"
@@ -58,13 +57,14 @@ class DemoFuroTree extends FBP(LitElement) {
               width: 100%
             }</style>
 
+            <produce-data  @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
-            <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
 
             <furo-split-view style="height: 500px;">
-              <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj"
+              <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
                          @-node-selected="--nodeSelected"
                          ƒ-select-next="--next"
                          ƒ-select-prev="--prev"
@@ -83,7 +83,7 @@ class DemoFuroTree extends FBP(LitElement) {
                                       ƒ-bind-data="--nodeSelected(*.display_name)"></furo-data-text-input>
                 <furo-data-collection-dropdown leading-icon="apps" ƒ-bind-data="--nodeSelected(*.icon)"
                                                label="Select icon"
-                                               list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon"
+                                               list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon, android, account-balance, apps, check-box-outline-blank, aspect-ratio, change-history"
                                                @-value-changed="--icon"></furo-data-collection-dropdown>
                 <furo-data-textarea-input label="Text"
                                           ƒ-bind-data="--nodeSelected(*.description)"></furo-data-textarea-input>
@@ -98,7 +98,7 @@ class DemoFuroTree extends FBP(LitElement) {
             </furo-split-view>
 
 
-            <produce-data auto @-data="--data"></produce-data>
+            
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

@@ -1,9 +1,8 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-   <title>Tests</title>
+  <title>Tests</title>
 
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -15,14 +14,23 @@
 
 
 </head>
-  <body>
-    <script>
-      // Load and run all tests (.html, .js):
-      WCT.loadSuites([
-        'deep-link_test.html',
-        'reverse-deep-link_test.html',
-        'rel-exists_test.html'
-      ]);
-    </script>
-  </body>
+<body>
+<script>
+  // Load and run all tests (.html, .js):
+  WCT.loadSuites([
+    'furo-api-fetch_test.html',
+    'furo-collection-agent_test.html',
+    'furo-custom-method_test.html',
+    'furo-data-object_test.html',
+    'furo-deep-link_test.html',
+    'furo-entity-agent_test.html',
+    'furo-entity-field_test.html',
+    'furo-entity-validator_test.html',
+    'furo-rel-exists_test.html',
+    'furo-filter-field_test.html',
+    'furo-filter-container_test.html',
+    'furo-reverse-deep-link_test.html'
+  ]);
+</script>
+</body>
 </html>

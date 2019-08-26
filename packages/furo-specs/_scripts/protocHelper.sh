@@ -1,14 +1,21 @@
 #! /bin/bash
 
-if [ -z "$1" ]
+if [ -z "$2" ]
 then
   echo 'missing argument, package folder is required'
 exit 1
 fi
-
-PACKAGE=$1
+PACKAGE=$2
+BUILDPATHPROTOS=$1
+if [ ! -d $BUILDPATHPROTOS ]
+then
+    echo "Package folder /$BUILDPATHPROTOS DOES NOT exists."
+    exit 1
+fi
 # https://github.com/gogo/protobuf/issues/325
-cd build/protos/$PACKAGE
+cd $BUILDPATHPROTOS/$PACKAGE
+
+
 mkdir -p ../../pb/$PACKAGE
 mkdir -p ../../java/$PACKAGE
 mkdir -p ../../swagger/$PACKAGE
@@ -22,6 +29,7 @@ protoc --proto_path=../ \
 -I../task \
 -I../tree \
 -I../person \
+-I../experiment \
 -I$GOPATH/src \
 -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
 --gogofast_out=.\
@@ -40,10 +48,9 @@ Mperson/person.proto=../person,\
 Mtask/task.proto=../task,\
 Mtree/tree.proto=../tree,\
 Mproject/project.proto=../project,\
+Mexperiment/experiment.proto=../experiment, \
 plugins=grpc:../../pb/$PACKAGE \
 --swagger_out=logtostderr=true:../../swagger/$PACKAGE \
---java_out=../../java/$PACKAGE.jar \
+--java_out=../../java/ \
 --grpc-gateway_out=logtostderr=true:../../pb/$PACKAGE \
 *.proto
-
-rmdir ../../java/$PACKAGE

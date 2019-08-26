@@ -1,4 +1,4 @@
-define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.nav=_exports.Types$1=_exports.Types=_exports.Services=_exports.RepeaterNode=_exports.NodeEvent=_exports.FuroTreeItem=_exports.FuroInputBase=_exports.FieldNode=_exports.EventTreeNode=_exports.EntityNode=_exports.CollectionNode=_exports.CollectionControls=_exports.$panelRegistry=_exports.$navConfig=_exports.$furoTreeItem=_exports.$apiConfig$1=_exports.$apiConfig=_exports.$RepeaterNode=_exports.$FuroInputBase=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$EntityNode=_exports.$CollectionNode=_exports.$CollectionControls=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
+define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.nav=_exports.RepeaterNode=_exports.NodeEvent=_exports.FuroTreeItem=_exports.FuroInputBase=_exports.FieldNode=_exports.EventTreeNode=_exports.DataObject=_exports.$panelRegistry=_exports.$navConfig=_exports.$furoTreeItem=_exports.$RepeaterNode=_exports.$FuroInputBase=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$DataObject=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
        * @event data
        * Fired when analysis loaded
        * detail payload: analysis
@@ -212,8 +212,7 @@ return _furoShell.html`
       </furo-demo-snippet>
 
 
-    `}}window.customElements.define("demo-furo-split-view",DemoFuroSplitView);// -- initialize application env, theme, api
-_furoShell.Iconset.registerIconset("default",_furoShell.FuroBaseIcons);_furoShell.Iconset.registerIconset("av",_furoShell.AvIcons);_furoShell.Iconset.registerIconset("com",_furoShell.CommunicationIcons);_furoShell.Iconset.registerIconset("device",_furoShell.DeviceIcons);_furoShell.Iconset.registerIconset("editor",_furoShell.EditorIcons);_furoShell.Iconset.registerIconset("social",_furoShell.SocialIcons);_furoShell.Iconset.registerIconset("places",_furoShell.PlacesIcons);_furoShell.Iconset.registerIconset("notify",_furoShell.NotificationIcons);_furoShell.Iconset.registerIconset("map",_furoShell.MapsIcons);_furoShell.Iconset.registerIconset("hardware",_furoShell.HardwareIcons);_furoShell.Iconset.registerIconset("image",_furoShell.ImageIcons);class DemoFuroIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-split-view",DemoFuroSplitView);class DemoFuroIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -275,28 +274,83 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host([hidden]) {
             display: none;
         }
+        furo-demo-snippet{
+            height: 800px;
+        }
 
     `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
+        <furo-vertical-flex>
       <h2>Demo demo-furo-card</h2>
       <p>description</p>
-      <furo-demo-snippet>
+      <furo-demo-snippet flex>
         <template>
           <style>furo-card {
-            margin: 20px
+            margin: 20px;
+            width: 320px;
+            float: left;
+            
           }</style>
-          
-          <furo-card>
-            <div><furo-icon icon="mail"></furo-icon>
-              <hr>
-              Content</div>
-            <div slot="action"><button>df</button></div>
+          <furo-vertical-scroller>
+        
+
+          <furo-card title="With media" secondary-text="Secondary text goes here">
+            <img slot="media" src="/_page/images/hamburg.png" alt="">
+            <div ƒ-.inner-text="--fromTextarea" style="margin-bottom: 30px">Do not forget to give the card <br> a height</div>
+            <furo-horizontal-flex space slot="action">
+              <furo-button primary label="primary"></furo-button>
+              <furo-button accent label="accent"></furo-button>
+              <furo-empty-spacer></furo-empty-spacer>
+              <furo-button danger label="Danger"></furo-button>
+            </furo-horizontal-flex>
           </furo-card>
+
+
+          <furo-card>
+            <img slot="media" src="/_page/images/hamburg.png" alt="">
+            <h1>Title in content</h1>
+            <div ƒ-.inner-text="--fromTextarea" style="margin-bottom: 30px">Do not forget to give the card <br> a height</div>
+            <furo-horizontal-flex space slot="action">
+              <furo-button primary label="primary"></furo-button>
+              <furo-button accent label="accent"></furo-button>
+              <furo-empty-spacer></furo-empty-spacer>
+              <furo-button danger label="Danger"></furo-button>
+            </furo-horizontal-flex>
+          </furo-card>
+
+            <furo-card title="Title goes here" secondary-text="Secondary text goes hereSecondary text goes hereSecondary text goes hereSecondary text goes here">
+              <div>Text in default slot</div>
+              <div slot="action">
+                <furo-horizontal-flex space slot="action">
+                  <furo-button primary label="primary"></furo-button>
+
+                  <furo-empty-spacer></furo-empty-spacer>
+                  <furo-button label="Danger"></furo-button>
+                </furo-horizontal-flex>
+              </div>
+            </furo-card>
+
+            <furo-card title="Title goes here" secondary-text="Secondary text goes here">
+              <div>
+                Content text blah
+              </div>
+              <div slot="action">
+                <furo-horizontal-flex space slot="action">
+                  <furo-button primary label="primary"></furo-button>
+
+                  <furo-empty-spacer></furo-empty-spacer>
+                  <furo-button label="Danger"></furo-button>
+                </furo-horizontal-flex>
+              </div>
+            </furo-card>
+          </furo-vertical-scroller>
         </template>
       </furo-demo-snippet>
+
+        </furo-vertical-flex>
     `}}window.customElements.define("demo-furo-card",DemoFuroCard);class DemoFuroCollapsibleBox extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
@@ -777,19 +831,22 @@ return _furoShell.html`
         </div>
         <furo-horizontal-scroller flex>
           
-            <div style="background-color: #e5e5e5; padding: 30px">
+            <div style="background-color:var(--surface); padding: 30px">
               <furo-text-input min="5" leading-icon="send" label="Label" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="send" filled label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  error label="Label" errortext="errortext"></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  filled error label="Label" value="Val" errortext="errortext"></furo-text-input>
             </div>
             <div style="padding:30px">
+              
               <furo-text-input label="Label" value="Val" hint="Hint jkfdjkdkjf"></furo-text-input>
               <furo-text-input filled label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input error label="Label" value="Val" hint="tex" errortext="errortext"></furo-text-input>
-              <furo-text-input trailing-icon="send" filled error label="Label" value="Val" errortext="errortext"></furo-text-input>
+              <furo-checkbox></furo-checkbox>
+              <furo-text-input trailing-icon="send" filled condensed error label="Label" value="Val" errortext="errortext"></furo-text-input>
             </div> 
             <div style="padding:30px">
+              
               <furo-text-input disabled trailing-icon="fingerprint"  condensed label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="fingerprint"  condensed label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="fingerprint"  condensed filled label="Label" value="Val" hint="Hint"></furo-text-input>
@@ -846,7 +903,7 @@ return _furoShell.html`
                 <furo-button autofocus label="default" ƒ-focus="--primaryraisedClicked" @-click="--defautlClicked"></furo-button>
               </td>
               <td>
-                <furo-button disabled label="raised"></furo-button>
+                <furo-button disabled>label in tag</furo-button>
               </td>
               <td>
                 <furo-button raised icon="fingerprint" label="other" ƒ-focus="--defautlClicked" @-click="--raisedClicked"></furo-button>
@@ -1243,6 +1300,9 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             display: none;
         }
 
+
+
+
     `}/**
      * @private
      * @returns {TemplateResult}
@@ -1254,57 +1314,129 @@ return _furoShell.html`
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-card style="margin:8px;height:200px">
-              <div ƒ-.inner-text="--fromTextarea">Do not forget to give the card <br> a height</div>
-              <furo-horizontal-flex slot="action">
-                <furo-button primary label="primary"></furo-button>
-                <furo-button label="other"></furo-button>
-                <furo-button accent label="accent"></furo-button>
-                <furo-empty-spacer></furo-empty-spacer>
-                <furo-button danger label="Danger"></furo-button>
-              </furo-horizontal-flex>
-            </furo-card>
-            <br>
-            <br>
-            <furo-time-input ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
-                             label="Time  field" @-value-changed="--time"></furo-time-input>
-            <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
-                              @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
-           
-            <furo-color-input label="Color" value="#FEA234"></furo-color-input>
-            <furo-search-input label="Search"></furo-search-input>
-            <furo-date-input ƒ-set-value="--date" max="2020-12-31" min="2020-01-01" value="2020-02-02"
-                             hint="Min max in 2020 only" label="Date input field"
-                             @-value-changed="--date"></furo-date-input>
-            <furo-password-input
-                    value="1234"
-                    hint="under your keyboard or on postit below monitor"
-                    label="super secret password"
-                    ƒ-make-visible="--showPasswordClicked"
-                    ƒ-make-invisible="--hidePasswordClicked"
-            ></furo-password-input>
+            <style>furo-card {
+              margin: 16px;
+              width: 300px;
+            }</style>
+            <furo-vertical-scroller>
+              <furo-horizontal-flex>
+                <furo-card>
 
-            <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
-                             label="Text input field" @-value-changed="--text"></furo-text-input>
-            <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
-                               label="Number input field" @-value-changed="--number"></furo-number-input>
-            <furo-text-input style="width: 100%" ƒ-set-value="--time" label="Input field" @-value-changed="--time"></furo-text-input>
-            
-            <hr>
-            <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v" @-value-changed="--fromTextarea"></furo-textarea-input>
-            
-            <furo-input-row label="row label">
-              <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
-                               label="Text input field" @-value-changed="--text"></furo-text-input>
-              <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
-                                 label="Number input field" @-value-changed="--number"></furo-number-input>
-            </furo-input-row>
-            <furo-button-bar>
-              <furo-button primary raised label="primary"></furo-button>
-              <furo-button secondary raised label="secondary"></furo-button>
-              <furo-empty-spacer></furo-empty-spacer>
-              <furo-button danger raised label="danger"></furo-button>
-            </furo-button-bar>
+                  <furo-vertical-flex>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input label="Benutzerdefinierter "></furo-checkbox-input>
+                  </furo-vertical-flex>
+
+
+                  <furo-horizontal-flex slot="action">
+                    <furo-button primary label="primary"></furo-button>
+                    <furo-button label="other"></furo-button>
+
+                  </furo-horizontal-flex>
+                </furo-card>
+
+                <furo-card>
+                  <furo-form-layouter two>
+                    <furo-horizontal-flex space>
+                      <furo-time-input ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
+                                       label="Time  field" @-value-changed="--time"></furo-time-input>
+                      <furo-empty-spacer></furo-empty-spacer>
+                      <furo-color-input label="Color" value="#FEA234"></furo-color-input>
+
+                    </furo-horizontal-flex>
+                    <furo-text-input leading-icon="fingerprint" label="Owner"></furo-text-input>
+                    <furo-text-input label="Special hint"></furo-text-input>
+                    <furo-text-input label="Owner"></furo-text-input>
+                  </furo-form-layouter>
+                </furo-card>
+
+                <furo-card>
+                  <img slot="media" src="/_page/images/hamburg.png" alt="">
+                  <div ƒ-.inner-text="--fromTextarea" style="margin-bottom: 30px">Do not forget to give the card <br> a
+                    height
+                  </div>
+                  <furo-horizontal-flex space slot="action">
+                    <furo-button primary label="primary"></furo-button>
+                    <furo-button accent label="accent"></furo-button>
+                    <furo-empty-spacer></furo-empty-spacer>
+                    <furo-button danger label="Danger"></furo-button>
+                  </furo-horizontal-flex>
+                </furo-card>
+              </furo-horizontal-flex>
+
+              <furo-horizontal-flex space>
+                <furo-card>
+                  <img slot="media" src="/_page/images/hamburg.png" alt="">
+                  <furo-form-layouter two>
+                    <furo-search-input leading-icon="arrow-downward" hint="jkhdsfkjsfdjk"
+                                       label="Search"></furo-search-input>
+                    <furo-date-input ƒ-set-value="--date" max="2020-12-31" min="2020-01-01" value="2020-02-02"
+                                     hint="Min max in 2020 only" label="Date input field"
+                                     @-value-changed="--date"></furo-date-input>
+
+                    <furo-password-input
+                            value="1234"
+                            hint="under your keyboard or on postit below monitor"
+                            label="super secret password"
+                            ƒ-make-visible="--showPasswordClicked"
+                            ƒ-make-invisible="--hidePasswordClicked"
+                    ></furo-password-input>
+                  </furo-form-layouter>
+                </furo-card>
+                <furo-horizontal-flex flex space>
+
+                  <furo-text-input flex ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
+                                   label="Text input field" @-value-changed="--text"></furo-text-input>
+
+                  <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
+                                    @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
+                  <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
+                                     label="Number input field" @-value-changed="--number"></furo-number-input>
+                </furo-horizontal-flex>
+              </furo-horizontal-flex>
+
+              <br>
+
+
+              <furo-horizontal-flex space>
+                <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint"
+                                     @-value-changed="--check" autofocus></furo-checkbox-input>
+                <furo-checkbox-input style="margin-top: 19px" label="Disabled " ƒ-set-value="--check" checked
+                                     disabled></furo-checkbox-input>
+              </furo-horizontal-flex>
+
+
+              <br>
+
+              <furo-horizontal-flex space>
+
+                <furo-text-input condensed ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
+                                 label="Text input field" @-value-changed="--text"></furo-text-input>
+
+
+                <furo-date-input condensed ƒ-set-value="--time" label="Date field"
+                                 @-value-changed="--date"></furo-date-input>
+
+
+              </furo-horizontal-flex>
+
+              <hr>
+              <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"
+                                   @-value-changed="--fromTextarea"></furo-textarea-input>
+
+
+              <br>
+
+              <furo-button-bar>
+                <furo-button primary raised label="primary"></furo-button>
+                <furo-button secondary raised label="secondary"></furo-button>
+                <furo-empty-spacer></furo-empty-spacer>
+                <furo-button danger raised label="danger"></furo-button>
+              </furo-button-bar>
+            </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
@@ -1429,7 +1561,866 @@ return _furoShell.html`
       </furo-demo-snippet>
 
 
-    `}}window.customElements.define("demo-furo-select-input",DemoFuroSelectInput);class FuroDataPasswordInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-select-input",DemoFuroSelectInput);class DemoFuroCheckbox extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <h2>Demo furo-checkbox</h2>
+      
+      <furo-demo-snippet >
+        <template>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>checked</th>
+                    <th>unchecked</th>
+                </tr>
+                <tr>
+                  <td>enabled</td>
+                  <td> <furo-checkbox checked></furo-checkbox></td>
+                  <td> <furo-checkbox ></furo-checkbox></td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td> <furo-checkbox checked disabled></furo-checkbox></td>
+                    <td> <furo-checkbox disabled></furo-checkbox></td>
+                </tr>
+                <tr>
+                    <td>focus</td>
+                    <td> <furo-checkbox checked autofocus></furo-checkbox></td>
+                    <td> </td>
+                </tr>
+            </table>
+
+        </template>
+      </furo-demo-snippet>
+    `}}window.customElements.define("demo-furo-checkbox",DemoFuroCheckbox);/**
+                                                                       * `furo-api-fetch`
+                                                                       *
+                                                                       * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
+                                                                       *
+                                                                       * ```html
+                                                                       * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
+                                                                       * ```
+                                                                       *
+                                                                       * @customElement
+                                                                       * @demo demo/furo-api-fetch_demo.html
+                                                                       */class FuroApiFetch extends HTMLElement{/**
+   * Fired when a request is sent.
+   * Payload: request
+   * @event request-started
+   */ /**
+       * Fired when a request was canceled.
+       * Payload: request
+       * @event request-aborted
+       */ /**
+           * Fired when a response is received.
+           * Here you will get the raw response object
+           * Payload: Raw response
+           * @event response-raw
+           */ /**
+               * Fired when a response is received.
+               * Here you will get the parsed response
+               * Format depends on request header `content-type`
+               * supported types:
+               * - text/plain
+               * - application/json
+               * - image/jpeg (Blob)
+               * - application/octet-stream (ArrayBuffer)
+               * - application/pdf (Blob)
+               *
+               * Payload: parsed response
+               * @event response
+               */ /**
+                   * Fired when an error has occoured.
+                   * This is a general error event. The specific error events are fired additionally.
+                   * @event response-error
+                   */ /**
+                       * Fired when an error has occoured.
+                       * This is a specific error event.
+                       * @event response-error-[status-code]
+                       */constructor(){super();/**
+              * LastRequest's response.
+              *
+              * Note that lastResponse is set when ongoing request finishes, so if loading is true,
+              * then lastResponse will correspond to the result of the previous request.
+              * @type {Object}
+              */this.lastRequest={};/**
+                            * True while request is in flight.
+                            * @type boolean
+                            */this.isLoading=!1;/**
+                             * True if fetch API is not available
+                             * @type {boolean}
+                             */this.xhrFallback=!window.hasOwnProperty("fetch")}/**
+     * Sends a HTTP request to the server
+     * @param {Request} request (The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request
+     * @public
+     */invokeRequest(request){this.lastRequest=request;this._executeRequest(request)}/**
+     * Aborts a pending request
+     * You have to submit an AbortController
+     * @param {AbortController} controller (The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
+     * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+     */abortRequest(controller){console.info("The request is about to be aborted",this);controller.abort()}/**
+     * Requests are made via the Fetch API if possible.
+     * Fallback XMLHttpRequest
+     *
+     * **payload** request object
+     * @event fatal-error
+     * @param request
+     */_executeRequest(request){/**
+     * dispatches fatal-error
+     * @param detail
+     */let fatal=detail=>{this.dispatchEvent(new CustomEvent("fatal-error",{detail:detail,bubbles:!0,composed:!0}))};/**
+        * Fallback, if Fetch API ist not available
+        */if(this.xhrFallback){this._invokeXHR(request).then(response=>{this._reworkRequest(response)},function(error){fatal(error)})}else{/**
+       * Default API fetch
+       * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+       */this.isLoading=!0;this.dispatchEvent(new CustomEvent("request-started",{detail:request,bubbles:!0,composed:!0}));fetch(request).then(response=>{this._reworkRequest(response)}).catch(err=>{if("AbortError"===err.name){this.dispatchEvent(new CustomEvent("request-aborted",{detail:request,bubbles:!0,composed:!0}));console.error("RequestService fetch aborted: ",err)}else{console.error("RequestService fatal error",err)}fatal(request)})}}/**
+     * Requests are made via fallback XMLHttpRequest
+     * @param request
+     * @private
+     */_invokeXHR(request){console.info("Fetch API not available, fallback to XMLHttpRequest");this.isLoading=!0;return new Promise(function(resolve,reject){/**
+       * map Request to XHR
+       */let req=new XMLHttpRequest;req.open(request.method,request.url,!0);if(request.headers.get("content-type").includes("json")){req.responseType="json"}else{req.responseType="arraybuffer"}/**
+         * Append headers from request object to XHR
+         */for(var pair of request.headers.entries()){if(/[A-Z]/.test(pair[0])){console.error("Headers must be lower case, got",pair[0])}else{req.setRequestHeader(pair[0],pair[1])}}/**
+         * XHR event handlers
+         */req.onloadstart=()=>{this.dispatchEvent(new CustomEvent("request-started",{detail:req,bubbles:!0,composed:!0}))};req.onload=()=>{resolve(req)};req.onerror=err=>{console.error("XMLHttpRequest network error",err);reject(req)};req.ontimeout=err=>{console.warn("XMLHttpRequest timeout",err);reject(req)};// Do request
+req.send()}.bind(this))}/**
+     * Rework of Request
+     * @param response
+     */ /**
+         * Succeeded is true if the request succeeded. The request succeeded if it
+         * loaded without error, wasn't aborted, and the status code is ≥ 200, and
+         * < 300, or if the status code is 0.
+         */ /**
+             * Errorhandling according to Google rest-api-v3 Status Codes
+             * (https://developers.google.com/maps-booking/reference/rest-api-v3/status_codes)
+             *
+             * Dispatches event `response-error` and a specific error event with status code
+             */_reworkRequest(response){/**
+     * The status code 0 is accepted as a success because some schemes - e.g.
+     * file:// - don't provide status codes.
+     */this.isLoading=!1;let status=0|response.status;if(0===status||200<=status&&300>status){/**
+       * Loaded without error, fires event `response` with full response object
+       */this.lastResponse=response;this.dispatchEvent(new CustomEvent("response-raw",{detail:response,bubbles:!0,composed:!0}));/**
+            * parses response object according to response heaader informationen `content-type`
+            * you will find the supported content-types in the declaration area
+            */this._parseResponse(response)}else{/**
+       * Error detected
+       */this.lastResponse=void 0;this.dispatchEvent(new CustomEvent("response-error-raw",{detail:response,bubbles:!0,composed:!0}));response.json().then(error=>{if(error){response.error=error.error;this.dispatchEvent(new CustomEvent("response-error-"+response.status,{detail:error,bubbles:!0,composed:!0}));this.dispatchEvent(new CustomEvent("response-error",{detail:error,bubbles:!0,composed:!0}));//console.error('Looks like there was a problem. Status Code: ', response.status);
+}}).catch(()=>{this.dispatchEvent(new CustomEvent("parse-error",{detail:response,bubbles:!0,composed:!0}))})}}/**
+     * parses response object according to lastRequest heaader informationen `content-type`
+     * you will find the supported content-types in the declaration area
+     * respone Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]
+     * Default response handler is json!
+     * @param response
+     */_parseResponse(response){var _self=this;if(response){let contentType=this.lastRequest.headers.get("content-type"),responseHandler={"text/plain":r=>{r.text().then(function(text){_self.dispatchEvent(new CustomEvent("response",{detail:text,bubbles:!0,composed:!0}))})},"application/json":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}},"application/octet-stream":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.arrayBuffer().then(function(buffer){_self.dispatchEvent(new CustomEvent("response",{detail:buffer,bubbles:!0,composed:!0}))})}},"application/pdf":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},"image/jpeg":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},default:r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:JSON.parse(r.response),bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}}},typeHandler=responseHandler[contentType]||responseHandler["default"];typeHandler(response)}}}customElements.define("furo-api-fetch",FuroApiFetch);class furoCollectionAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @event ALL_BUBBLING_EVENTS_FROM_furo-api-fetch
+   *
+   * All bubbling events from [furo-api-fetch](furo-api-fetch) will be fired, because furo-collection-agent uses furo-api-fetch internally.
+   *
+   */constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
+this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links)){/**
+         * @event response-hts-updated
+         * Fired when
+         * detail payload: hts
+         */let customEvent=new Event("response-hts-updated",{composed:!0,bubbles:!0});customEvent.detail=r.links;this.dispatchEvent(customEvent)}});this._singleElementQueue=[];//queue for calls, before hts is set
+this._queryParams={}}/**
+     * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
+     * @param eventPrefix
+     * @private
+     */_attachListeners(eventPrefix){let success=e=>{// we do not want req-success and req-failed outside of this component
+e.stopPropagation();let customEvent=new Event(eventPrefix+"-success",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent);// remove listeners
+this.removeEventListener("req-success",success,!0);this.removeEventListener("req-failed",failed,!0)},failed=e=>{// we do not want req-success and req-failed outside of this component
+e.stopPropagation();let customEvent=new Event(eventPrefix+"-failed",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent);// remove listeners
+this.removeEventListener("req-success",success,!0);this.removeEventListener("req-failed",failed,!0)};/**
+        * do not add the listener directly to response, otherwise it kicks in before hts is updated
+        * This extra "loop" is to guarante the order of handling the events
+        */this.addEventListener("req-success",success,!0);this.addEventListener("req-failed",failed,!0)}static get properties(){return{/**
+       * The service name. Like ProjectService
+       */service:{type:String,attribute:!0},pageSize:{type:Number,attribute:"page-size"},fields:{type:String,attribute:!0},orderBy:{type:String,attribute:"order-by"},filter:{type:Array,attribute:!0},view:{type:String,attribute:!0},listOnHtsIn:{type:Boolean,attribute:"list-on-hts-in"}}}/**
+     * https://cloud.google.com/apis/design/design_patterns
+     */ /**
+         * Partielle Repräsentation
+         * https://cloud.google.com/apis/design/design_patterns#partial_response
+         *
+         * etwas seltsam, aber google sieht hier $fields vor. Wird aber nicht so verwendet
+         *
+         */setFields(fields){this.fields=fields}/**
+     * Sortierreihenfolge
+     * https://cloud.google.com/apis/design/design_patterns#sorting_order
+     *
+     * To avoid sql injection errors we do not send sql like syntax!
+     *
+     * order-by="foo,-bar"  means foo asc and bar desc
+     */setOrderBy(order){this.orderBy=order}/**
+     * clear filter
+     */clearFilter(){this._filter=void 0}// Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
+setFilter(filterstring){if(Array.isArray(filterstring)){this.filter=filterstring}}set filter(f){this._filter=f;/**
+                       * @event filter-updated
+                       * Fired when filter was updated with ƒ-set-filter
+                       * detail payload:
+                       */let customEvent=new Event("filter-changed",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}// Gewünschte Seite. Tipp: Folge dem HATEOAS
+// Seitengrösse  page_size
+// Meta für die Anzahl der Elemente der Resource
+/**
+   * contextbezogene Darstellung
+   *
+   * https://cloud.google.com/apis/design/design_patterns#resource_view
+   *
+   * view=smallcards
+   *
+   */ /**
+       * Setze den Service
+       * @param service
+       */set service(service){if(!this._servicedefinitions[service]){console.warn("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}// set pagination defaults
+}/**
+     * Update query params
+     * a qp like {"active":true} will just update the qp *active*
+     *
+     * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
+     * @param {Object} key value pairs
+     */updateQp(qp){let qpChanged=!1;for(let key in qp){if(qp.hasOwnProperty(key)){if(this._queryParams[key]!=qp[key]){qpChanged=!0}this._queryParams[key]=qp[key]}}if(qpChanged){/**
+      * @event qp-changed
+      * Fired when query params changed
+      * detail payload: qp
+      */let customEvent=new Event("qp-changed",{composed:!0,bubbles:!0});customEvent.detail=this._queryParams;this.dispatchEvent(customEvent)}}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
+let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");headers.append("Content-Type","application/json");let params={},r=link.href.split("?"),req=r[0];// add existing params from href
+if(r[1]){r[1].split("&").forEach(p=>{let s=p.split("=");params[s[0]]=s[1]})}// append query params
+// query params
+for(let key in this._queryParams){if(this._queryParams.hasOwnProperty(key)){params[key]=this._queryParams[key]}}// Fields
+if(this.fields){params.fields=this.fields.split(" ").join("")}// Sort
+if(this.orderBy){params.order_by=this.orderBy.split(" ").join("")}// Filter
+if(this._filter){params.filter=JSON.stringify(this._filter)}// rebuild req
+let qp=[];for(let key in params){if(params.hasOwnProperty(key)){qp.push(key+"="+params[key])}}if(0<qp.length){req=req+"?"+qp.join("&")}return new Request(req,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
+if(!this._service.services[serviceName]){console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}//queue if no hts is set, queue it
+if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return!0}// check Hateoas
+if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);return!0}return!1}_followRelService(rel,serviceName){if(this._checkServiceAndHateoasLinkError(rel,serviceName)){let customEvent=new Event("missing-hts-"+rel,{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return;return}this._attachListeners(rel);this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[rel]))}/**
+     * loads the entity if hts is available
+     */list(){return this._followRelService("list","List")}search(term){if(""!==term){this._queryParams.q=term;this.list()}else{delete this._queryParams.q}}/**
+     * loads the entity if hts is available
+     */first(){this._followRelService("first","List")}/**
+     * loads the entity if hts is available
+     */prev(){this._followRelService("prev","List")}/**
+     * loads the entity if hts is available
+     */next(){this._followRelService("next","List")}/**
+     * loads the entity if hts is available
+     */last(){this._followRelService("last","List")}_updateInternalHTS(hts){// convert link object to hts array
+if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
+           * @event hts-updated
+           * Fired when hateoas is updated from response
+           * detail payload: {Array|HATEOAS}
+           */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);return!0}return!1}htsIn(hts){if(this._updateInternalHTS(hts)){/**
+       * @event hts-updated
+       * Fired when hateoas is updated
+       * detail payload: Hateoas links
+       */let customEvent=new Event("hts-injected",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);if(this.listOnHtsIn){this.list()}// there was a list,last,next call before the hts was set
+if(0<this._singleElementQueue.length){let q=this._singleElementQueue.pop();this._followRelService(q[0],q[1])}}}render(){// language=HTML
+return _furoShell.html`
+      <!-- Add a style block here -->
+      <style>
+        :host {
+          display: none;
+        }
+      </style>
+      <furo-api-fetch
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abort-demanded"
+              @-response="--responseParsed,^^req-success"
+              @-response-error="^^req-failed">
+      </furo-api-fetch>
+    `}}customElements.define("furo-collection-agent",furoCollectionAgent);class FuroCustomMethod extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api}static get properties(){return{/**
+       * Name des Services
+       */service:{type:String,attribute:!0},/**
+       * Name der Methode
+       */method:{type:String,attribute:!0}}}/**
+     * Setze den Service
+     * @param service
+     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}bindRequestObject(entityTree){this._entityTree=entityTree}bindData(entityTree){this._entityTree=entityTree}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
+let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");headers.append("Content-Type","application/json");return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
+let s=Object.keys(this._service.services).map(key=>{return key.toLowerCase()});if(-1===s.indexOf(serviceName.toLowerCase())){// todo fehler werfen ???
+console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}// check Hateoas
+if(!this._hts[rel]){console.warn("No HATEOAS for rel self",this._hts,this);return!0}return!1}/**
+     * trigger the method with respect for binded-requset-object
+     */trigger(){if(this._entityTree){this.triggerWithBody(this._entityTree.rawData)}else{this.triggerEmpty()}}triggerEmpty(){if(this._checkServiceAndHateoasLinkError(this.method,this.method)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[this.method]))}/**
+     * trigger the method with data
+     */triggerWithBody(body){if(this._checkServiceAndHateoasLinkError(this.method,this.method)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[this.method],body))}htsIn(hts){if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
+          * @event hts-updated
+          * Fired when
+          * detail payload:
+          */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!0});customEvent.detail=hts;this.dispatchEvent(customEvent)}}render(){// language=HTML
+return _furoShell.html`
+      <!-- Add a style block here -->
+      <style>
+        :host {
+          display: none;
+        }
+      </style>
+      <furo-api-fetch
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abort-demanded"
+              @-response="--responseParsed">
+      </furo-api-fetch>
+    `}}window.customElements.define("furo-custom-method",FuroCustomMethod);/**
+                                                                       * Custom event type for the AST
+                                                                       */class NodeEvent{constructor(type,detail,bubbles=!0){/**
+     * Event type / name
+     * @type {string}
+     */this.type=type;this.path=[];/**
+                     *
+                     * @type {undefined}
+                     */this.target=void 0;/**
+                              * should the Event bubble
+                              * @type {boolean}
+                              */this.bubbles=bubbles;/**
+                             * Event details
+                             * @type {*}
+                             */this.detail=detail;/**
+                           * If you are in a parent element and set this to true it will not bubble
+                           * @type {boolean}
+                           */this.cancelBubble=!1;/**
+                                * if you are in a child element and set this to true, the event will not broadcast downwards
+                                * @type {boolean}
+                                */this.cancelBroadcast=!1}stopPropagation(){this.cancelBubble=!0}stopBroadcast(){//todo: implement
+this.cancelBroadcast=!0}}/**
+   * Simulates a tree which can handle events and broadcast events to all nodes
+   *
+   */_exports.NodeEvent=NodeEvent;class EventTreeNode{constructor(parentNode){this.__parentNode=parentNode;this.__eventListener={};this.__childNodes=[];if(parentNode){parentNode.__childNodes.push(this)}}/**
+     * shorthand function to add a property as child node
+     * @param name
+     * @returns {*}
+     */addChildProperty(name,treeNode){this[name]=treeNode||new EventTreeNode(this);return this[name]}/**
+     * Add a listener to a node
+     * @param type
+     * @param handler
+     * @param options  for once,...
+     */addEventListener(type,handler,options={}){if(!this.__eventListener[type]){this.__eventListener[type]=[]}this.__eventListener[type].push({cb:handler,options:options})}/**
+     * Removes the listener from a node
+     * @param type
+     * @param handler
+     */removeEventListener(type,handler){this.__eventListener[type]=this.__eventListener[type].filter((e,i)=>{if(e.cb===handler){return!1}})}/**
+     * Dispatch an event
+     * @param {NodeEvent} event
+     * @returns {*}
+     */dispatchNodeEvent(event){// simulate target and path
+if(!event.target){event.target=this}event.path.push(this);// trigger the events on current node
+this.__triggerNodeEvents(event);//trigger parent node
+if(event.bubbles&&!event.cancelBubble&&this.__parentNode){this.__parentNode.dispatchNodeEvent(event)}return event}/**
+     * Broadcast the event to node and all childNodes and their childNodes
+     * Bubbling is ignored, but propagation can be stopped
+     * @param event
+     * @returns {*}
+     */broadcastEvent(event){// trigger the events on current node
+this.__triggerNodeEvents(event);//children
+if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;this._meta=spec.meta||{};this._pristine=!0;this._isValid=!0;if(Array.isArray(this._meta.initialValue)){this.value=this._meta.initialValue}/**
+       * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
+       */this.addEventListener("field-became-valid",e=>{if(0===this.repeats.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("repeat-became-valid",this))}});/**
+         * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
+         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
+         * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}/**
+     * deletes all repeated fields on this node
+     */removeAllChildren(){this.__childNodes=[];this.repeats=[];this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed",this.repeats,!1))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
+this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}get value(){return this.repeats.map(f=>{return f.value})}/**
+     * Deletes a repeated item by index
+     * @param index
+     */deleteChild(index){this.repeats.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
+fieldNode._deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
+error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
+if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
+return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;this._meta=fieldSpec.meta||{};this._constraints=fieldSpec.constraints;this._options=fieldSpec.options;this._name=fieldName;this._value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
+if(this.__specdefinitions[this._spec.type]!==void 0){this._createVendorType(this._spec.type)}// set default value from meta
+if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default;this._pristine=!1}/**
+       * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
+       */this.addEventListener("field-became-valid",e=>{let v=this.__childNodes.filter(f=>!f._isValid);if(0===v.length){this._isValid=!0}});/**
+         * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
+         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1})}_createVendorType(type){if(this.__specdefinitions[type]){for(let fieldName in this.__specdefinitions[type].fields){if(this.__specdefinitions[type].fields[fieldName].meta&&this.__specdefinitions[type].fields[fieldName].meta.repeated){this[fieldName]=new RepeaterNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}else{this[fieldName]=new FieldNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}}}else{console.warn(type+" does not exist")}}set value(val){// type any
+this._createAnyType(val);// map<string, something> typ
+if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];if(val.hasOwnProperty(field._name)){field.value=val[field._name]}}this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}else{// update the primitive type
+this.oldvalue=this.value;this._value=val;this._pristine=!1;if(JSON.stringify(this.oldvalue)!==JSON.stringify(this._value)){/**
+           * @event (field-value-changed)
+           *
+           * ✋ Internal Event from EntityNode which you can use in the targeted components!
+           *
+           * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
+           *
+           * detail payload: **{NodeEvent}** with reference to the FieldNode
+           */this.dispatchNodeEvent(new NodeEvent("field-value-changed",this,!0));/**
+                                                                                        * @event (this-field-value-changed)
+                                                                                        *
+                                                                                        * ✋ Internal Event from EntityNode which you can use in the targeted components!
+                                                                                        *
+                                                                                        * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
+                                                                                        *
+                                                                                        * detail payload: **{NodeEvent}** with reference to the FieldNode
+                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}}_createAnyType(val){// remove if type changes
+if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("any"===this._spec.type&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
+// any can only be a complex type
+this._createVendorType(val["@type"]);this.__anyCreated=!0;this["@type"]=val["@type"]}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
+for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldNode(this,fieldSpec,fieldName)}//update data
+this[fieldName].value=val[fieldName]}//remove unseted
+for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}}/**
+     * deletes the fieldnode
+     */deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];// remove from list if this is a repeated item
+if("function"===typeof this._deleteFromList){this._deleteFromList()}//notify
+this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// type any
+this._createAnyType(val);if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this.oldvalue=this.value;this._value=val;this._pristine=!0}}}get value(){if(0<this.__childNodes.length){this._value={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index];this._value[field._name]=field.value}}return this._value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
+                            * @event (field-became-valid)
+                            *
+                            * ✋ Internal Event from EntityNode which you can use in the targeted components!
+                            *
+                            * Fired when a field or subfield gets invalid.
+                            *
+                            * detail payload: **{NodeEvent}** with reference to the FieldNode
+                            */this.dispatchNodeEvent(new NodeEvent("field-became-valid",this,!0));/**
+                                                                                * @event (this-field-became-valid)
+                                                                                *
+                                                                                * ✋ Internal Event from EntityNode which you can use in the targeted components!
+                                                                                *
+                                                                                * Fired when a field gets invalid. This event **does not bubble**. Can be used on any node.
+                                                                                *
+                                                                                * detail payload: **{NodeEvent}** with reference to the FieldNode
+                                                                                */this.dispatchNodeEvent(new NodeEvent("this-field-became-valid",this,!1))}}_setInvalid(error){// set field empty, if not defined
+error.field=error.field||"";let path=error.field.split(".");if(0<path.length&&""!==path[0]){// rest wieder in error reinwerfen
+error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path,this._name)}}else{this._isValid=!1;this._validity=error;this.dispatchNodeEvent(new NodeEvent("field-became-invalid",this))}}toString(){//todo parse format rules from _meta...
+return this._value}}_exports.FieldNode=FieldNode;var FieldNode$1={FieldNode:FieldNode};_exports.$FieldNode=FieldNode$1;class DataObject extends EventTreeNode{constructor(parentNode,type,specs){super(parentNode);this.__specdefinitions=specs;this._spec=this.__specdefinitions[type];this.__specdefinitions=this.__specdefinitions;this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0;/**
+                           * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
+                           */this.addEventListener("field-became-valid",e=>{if(0===this.__childNodes.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("entity-became-valid",this))}});/**
+         * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
+         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("entity-became-invalid",this))});/**
+         * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}/**
+     * Injecten eines raw models wie bspw body oder entity einer collection
+     * @param rawEntity
+     */injectRaw(rawEntity){this._rawEntity=rawEntity;let meta={};if(rawEntity.meta){meta=rawEntity.meta.fields}this._updateFieldValuesAndMetaFromRawEntity(this,rawEntity,meta);this._pristine=!0;this._isValid=!0;if(rawEntity.error&&rawEntity.details){rawEntity.details.forEach(errorSet=>{if(errorSet.field_violations){this._handleErrorsFromRawEntity(this,errorSet.field_violations)}})}/**
+       * @event (data-injected)
+       *
+       * ✋ Internal Event from EntityNode which you can use in the targeted components!
+       *
+       * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+       *
+       * This event **bubbles**.
+       *
+       * detail payload: **{NodeEvent}**
+       */this.dispatchNodeEvent(new NodeEvent("data-injected",this,!0))}/**
+     * Resete zum letzten injectet state zurück
+     */reset(){if(this._rawEntity){this.injectRaw(this._rawEntity)}}/**
+     * Inits the EntityNode without breaking the reference
+     */init(){this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0}get rawEntity(){return this._rawEntity}/**
+     * Returns a json representation of your Data Object
+     * @return {*}
+     */get json(){return this.getJson()}/**
+     * Returns a json representation of your Data Object
+     * @return {*}
+     */getJson(){let data={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index];data[field._name]=field.value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data,dynamicFieldMeta){for(let fieldName in data){let fieldNode=node[fieldName];if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;//fieldNode.removeAllChildren();
+// update records
+data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
+if(!fieldNode.repeats[i]){fieldNode._addSilent()}let repMeta={};if(dynamicFieldMeta[fieldName]){if(dynamicFieldMeta[fieldName].fields){repMeta=dynamicFieldMeta[fieldName].fields}}// Werte aktualisieren
+fieldNode.repeats[i].value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
+let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode,!1))}else{if(fieldNode){fieldNode._clearInvalidity();let meta={},submeta={};// Kommen neue metas von draussen rein
+if(dynamicFieldMeta[fieldName]){meta=dynamicFieldMeta[fieldName];// setze node Meta wenn neue metas gekommen sind
+// TODO @veith Metas mischen und nicht überklatschen, ev immer von spec meta aus und nicht von runtime meta
+if(meta.constraints){for(let key in meta.constraints){fieldNode._constraints[key]=meta.constraints[key]}}if(meta.meta){for(let key in meta.meta){fieldNode._meta[key]=meta.meta[key]}}if(meta.options){for(let key in meta.options){fieldNode._options[key]=meta.options[key]}}// hat es meta für subfelder
+if(meta.fields){submeta=meta.fields}}// Werte aktualisieren
+fieldNode.value=data[fieldName];fieldNode._pristine=!0}}}}}_handleErrorsFromRawEntity(fields,fieldErrors){fieldErrors&&fieldErrors.map(error=>{if(error.description){error.message=error.description}let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
+error.field=path.slice(1).join(".");if(fields[path[0]]){fields[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path)}}})}/**
+     * Baut die Felder aufgrund der spec auf
+     * @param node
+     * @param fieldSpec
+     * @private
+     */_initFieldsFromSpec(node,fieldSpec){for(let fieldName in fieldSpec){if(fieldSpec[fieldName].meta&&fieldSpec[fieldName].meta.repeated){node[fieldName]=new RepeaterNode(node,fieldSpec[fieldName],fieldName)}else{node[fieldName]=new FieldNode(node,fieldSpec[fieldName],fieldName)}}}toString(){return this.spec.mimetype}}_exports.DataObject=DataObject;var DataObject$1={DataObject:DataObject};_exports.$DataObject=DataObject$1;class FuroDataObject extends _furoShell.LitElement{constructor(){super();this._specs=_furoShell.Env.api.specs}static get properties(){return{/**
+       * The name of the type you want to use. The type must be registered in Env
+       */type:{type:String}}}/**
+     * inject a raw data response from the corresonding agent.
+     *
+     * Input may look something like this:
+     *
+     * **Entity data**
+     * ```json
+     *  {data:{},links:[],meta{}}
+     * ```
+     *
+     * **Collection data**
+     * ```json
+     *  {data:{},links:[],meta{},entities:[]}
+     * ```
+     *
+     * @param jsonObj
+     */injectRaw(jsonObj){this._injectPromise=new Promise(resolve=>{// queue inject bis entity bereit ist
+if(!this.data){this._queue=jsonObj;this._queuedInjectResolver=resolve}else{this.data.injectRaw(jsonObj);resolve(this.data)}});return this._injectPromise}/**
+     * Set the type. The type must be available in the environment
+     * @param type
+     */set type(type){if(this._checkType(type)){this._type=type}}/**
+     *
+     * @param type
+     * @private
+     */_checkType(type){if(this._specs[type]===void 0){console.warn("Type does not exist.",type,this,this._specs);return!1}/**
+       * create the entity node
+       * @type {EntityNode}
+       */this.data=new DataObject(null,type,this._specs);// if data is on queue inject it.
+if(this._queue!==void 0){this.data.injectRaw(this._queue);this._queue=void 0;this._queuedInjectResolver(this.data)}/**
+       * @event object-ready
+       * Fired when the object is built (based on the type).
+       *
+       * **detail payload:** A EntityNode object
+       *
+       * **bubbles**
+       */let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.data;setTimeout(()=>{this.dispatchEvent(customEvent)},0);this.data.addEventListener("data-injected",e=>{/**
+       * @event data-injected
+       * Fired when injected data was processed.
+       *
+       * **detail payload**: {Object|EntityNode} reference to entity
+       *
+       * **bubbles**
+       */let customEvent=new Event("data-injected",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});this.data.addEventListener("field-value-changed",e=>{/**
+       * @event data-changed
+       * Fired when data in furo-data-object has changed
+       *
+       *   **detail payload:** {Object|CollectionNode}
+       *
+       *   **bubbles**
+       */let customEvent=new Event("data-changed",{composed:!0,bubbles:!0});customEvent.detail=this.data.rawData;this.dispatchEvent(customEvent)});return!0}}window.customElements.define("furo-data-object",FuroDataObject);class FuroDeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
+       * @type {object|QueryParams} Query Params
+       */qp:{type:Object},/**
+       * Name des Services
+       */service:{type:String,attribute:!0}}}/**
+     * Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
+     */trigger(){if(this._qp&&this._service){this._buildHTS(this._qp,this._service)}}_buildHTS(qp,service){this._hts=[];// loop services
+for(let serviceName in service.services){let candidate={rel:service.services[serviceName].deeplink.rel,href:service.services[serviceName].deeplink.href,method:service.services[serviceName].deeplink.method,type:service.services[serviceName].request};for(let param in this._qp){candidate.href=candidate.href.replace("{"+param+"}",this._qp[param])}//wenn es keine {xx} mehr hat, ist es ein treffer
+if(-1===candidate.href.indexOf("{")){//candidate.type = "application/" + candidate.type + "+json"
+this._hts.push(candidate)}}if(this._hts.length){/**
+       * @event hts-out
+       * Fired when hateoas is available
+       * detail payload: {[]Links} Array of hateoas links
+       */let customEvent=new Event("hts-out",{composed:!0,bubbles:!0});customEvent.detail=this._hts;this.dispatchEvent(customEvent)}}/**
+     * set queryParams and evaluate for hateoas
+     * @param queryParams
+     */qpIn(queryParams){this._qp=queryParams;this.trigger()}/**
+     * Deprecated
+     *
+     * use ƒ-qp-in instead
+     *
+     * Inject a QueryParams (key value) Object
+     * @param {object|QueryParams} qp
+     */injectQueryParams(qp){console.warn("injectQueryParams is deprecated, use \u0192-qp-in instead");console.warn("This feature will be removed in Q3-2019",this);// zwischenspeichern für einen ev. ƒ-trigger
+this._qp=qp;this.trigger()}/**
+     * Sets the service
+     *
+     * Services must be registered like:
+     *
+     * ```html
+     * import {Services,Types} from "./apiConfig.js"
+     * Init.registerApiServices(Services);
+     * Init.registerApiTypes(Types);
+     * ```
+     * Usually this is done in your main-app.js
+     *
+     * @param serviceName
+     */setService(serviceName){this.service=serviceName}/**
+     * Setze den Service
+     * @param service
+     */set service(service){if(this._servicedefinitions[service]){this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}else{console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions)}}}window.customElements.define("furo-deep-link",FuroDeepLink);class FuroEntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
+this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links)){/**
+         * @event response-hts-updated
+         * Fired when
+         * detail payload: hts
+         */let customEvent=new Event("response-hts-updated",{composed:!0,bubbles:!0});customEvent.detail=r.links;this.dispatchEvent(customEvent)}});this._singleElementQueue=[];//queue for calls, before hts is set
+}static get properties(){return{/**
+       * Name des Services
+       */service:{type:String,attribute:!0}}}/**
+     * Setze den Service
+     * @param service
+     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}/**
+     * Binds a furo-data-object type. Use this if you want save data.
+     *
+     * @param dataObject
+     */bindRequestData(dataObject){this._entityTree=dataObject}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
+let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");if("put"!==link.method.toLowerCase()){headers.append("Content-Type","application/json")}return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
+if(!this._service.services[serviceName]){console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}//queue if no hts is set, queue it
+if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return!0}// check Hateoas
+if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);return!0}return!1}/**
+     * @event load-success
+     * Fired when load was successful
+     * detail payload: response
+     */ /**
+         * @event load-failed
+         * Fired when load was not successful
+         * detail payload: response
+         */ /**
+             * loads the entity if hts is available
+             */load(){if(this._checkServiceAndHateoasLinkError("self","Get")){return!1}this._attachListeners("load");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.self))}/**
+     * @event delete-success
+     * Fired when load was successful
+     * detail payload: response
+     */ /**
+         * @event delete-failed
+         * Fired when load was not successful
+         * detail payload: response
+         */ /**
+             * delete the entity if hts is available
+             */delete(){if(this._checkServiceAndHateoasLinkError("delete","Delete")){return}this._attachListeners("delete");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.delete))}/**
+     * @event save-success
+     * Fired when load was successful
+     * detail payload: response
+     */ /**
+         * @event save-failed
+         * Fired when load was not successful
+         * detail payload: response
+         */ /**
+             * loads the entity if hts is available
+             */save(){// wen kein rel self vorhanden ist, aber ein rel create existiert, verwendenn wir create
+// rel self ist bewusst gewählt
+if(!this._hts.self&&this._hts.create){this.create();return}if(this._checkServiceAndHateoasLinkError("update","Update")){let customEvent=new Event("missing-hts-update",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return}this._attachListeners("save");// TODO nur modifizierte daten senden (.pristine)
+this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.update,this._entityTree.rawData))}/**
+     * @event create-success
+     * Fired when load was successful
+     * detail payload: response
+     */ /**
+         * @event create-failed
+         * Fired when load was not successful
+         * detail payload: response
+         */ /**
+             * loads the entity if hts is available
+             */create(){if(this._checkServiceAndHateoasLinkError("create","Create")){return}this._attachListeners("create");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.create,this._entityTree.rawData))}/**
+     * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
+     * @param eventPrefix
+     * @private
+     */_attachListeners(eventPrefix){let success=e=>{// we do not want req-success and req-failed outside of this component
+e.stopPropagation();let customEvent=new Event(eventPrefix+"-success",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent);// remove listeners
+this.removeEventListener("req-success",success,!0);this.removeEventListener("req-failed",failed,!0)},failed=e=>{// we do not want req-success and req-failed outside of this component
+e.stopPropagation();let customEvent=new Event(eventPrefix+"-failed",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent);// remove listeners
+this.removeEventListener("req-success",success,!0);this.removeEventListener("req-failed",failed,!0)};/**
+        * do not add the listener directly to response, otherwise it kicks in before hts is updated
+        * This extra "loop" is to guarante the order of handling the events
+        */this.addEventListener("req-success",success,!0);this.addEventListener("req-failed",failed,!0)}_updateInternalHTS(hts){// convert link object to hts array
+if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
+           * @event hts-updated
+           * Fired when hateoas is updated from response
+           * detail payload: {Array|HATEOAS}
+           */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);return!0}return!1}htsIn(hts){if(this._updateInternalHTS(hts)){/**
+       * @event hts-injected
+       * Fired when hateoas is updated
+       * detail payload: Hateoas links
+       */let customEvent=new Event("hts-injected",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);// there was a list,last,next call before the hts was set
+if(0<this._singleElementQueue.length){let q=this._singleElementQueue.pop();this._followRelService(q[0],q[1])}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.css`
+        :host {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @return {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-api-fetch
+              ƒ-invoke-request="--triggerLoad"
+              ƒ-abort-request="--abort-demanded"
+              @-response="--responseParsed,^^req-success"
+              @-response-error="^^req-failed">
+      </furo-api-fetch>
+    `}}window.customElements.define("furo-entity-agent",FuroEntityAgent);class FuroEntityValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.checks={};this._initChecks()}_initChecks(){this.checks.string={min:field=>{let constraint=field._constraints.min;if(field.value.length<constraint.value){if(constraint.message){return{message:constraint.message,constraint:"min"}}return{message:"Mindestens "+constraint.value+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field.value.length>constraint.value){if(constraint.message){return{message:constraint.message,constraint:"max"}}return{message:"Maximal "+constraint.value+" Zeichen",constraint:"max"}}return null},mandatory:field=>{let constraint=field._constraints.required;if(0===field.value.length){return{message:"Eingabe erforderlich",constraint:"mandatory"}}return null}};this.checks.int={min:field=>{let constraint=field._constraints.min;if(field.value<constraint.value){return{message:"Mindestens "+constraint.value+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field.value>constraint.value){if(constraint.message){return{message:constraint.message,constraint:"max"}}return{message:"Maximal "+constraint.value+" Zeichen",constraint:"max"}}return null}}}bindData(fields){let self=this;// this.validator ist hier wegen dem hoisting...
+this.validator=e=>{let field=e.target,type=field._spec.type;// nur prüfen wenn field constraints  und checker existieren
+if(field._constraints&&this.checks[type]){let err;for(let constraint in field._constraints){if(this.checks[type][constraint]){err=this.checks[type][constraint](field)}if(err){field._setInvalid(err);// bei erstem fehler aufhören
+return}else{// nur zurücksetzen wenn das field ungültig war
+if(!field._isValid){field._clearInvalidity()}}}}};fields.addEventListener("field-value-changed",this.validator);this._FBPTriggerWire("--dataInjected",fields);/** TODO: eventqueue wie in FBP aufbauen??
+                                                     setTimeout(()=>{
+                                                      //check all field on init
+                                                      fields.__childNodes.map(e=>{
+                                                        let field = {target:e};
+                                                        this.validator(field)
+                                                      });
+                                                    },16);
+                                                     */}}window.customElements.define("furo-entity-validator",FuroEntityValidator);class FuroEntityField extends _furoShell.LitElement{/**
+   * Set the value of the field.
+   * @param v
+   */setValue(v){this.value=v}set value(v){this._value=v;this.field.value=v}get value(){return this._value}/**
+     * Bind a entity field to the date-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(this);return}this.field=fieldNode;this.field.addEventListener("field-value-changed",e=>{/**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("furo-entity-field",FuroEntityField);class FuroFilterContainer extends(0,_furoShell.FBP)(HTMLElement){constructor(){super();this.style.display="none";this.type=this.getAttribute("type");// find .querySelectorAll("simple-filter-field")
+let filterFields=this.querySelectorAll("simple-filter-field");if(null!=filterFields){filterFields.forEach(f=>{// set types to children
+f.type=this.type})}// register changes
+this.addEventListener("furo-filter-field-changed",e=>{// baum für filter aufbauen
+let filter=[];this._scanfilterFields(this,filter);if(0<filter.length){// debounce filters for 16ms
+clearTimeout(this._debounce);this._debounce=setTimeout(()=>{/**
+           * @event filter-changed
+           * Fired when filter changed
+           * detail payload: filter
+           */let customEvent=new Event("filter-changed",{composed:!0,bubbles:!0});customEvent.detail=filter;console.log(JSON.stringify(filter));this.dispatchEvent(customEvent)},16)}else{/**
+         * @event filter-cleared
+         * Fired when filter is empty
+         * detail payload: none
+         */let customEvent=new Event("filter-cleared",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}},!0)}_appendAnd(node,filterArray){let andFilter=filterArray;for(let index=0,el;index<node.children.length;index++){el=node.children[index];if("FURO-FILTER-FIELD"===el.tagName){if(el._value){let f=[el._field,el._is,el._value];if(index+1<node.children.length){f.push([])}andFilter.push(f);andFilter=f[3]}}else{if("FURO-FILTER-AND"===el.tagName){// append to index3
+this._appendAnd(el,andFilter)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,andFilter)}}}}_appendOr(node,filterArray){for(let index=0,el;index<node.children.length;index++){el=node.children[index];if("FURO-FILTER-FIELD"===el.tagName){if(el._value){let f=[el._field,el._is,el._value];// oder reinpushen
+filterArray.push(f)}}else{let sub=[];filterArray.push(sub);if("FURO-FILTER-AND"===el.tagName){// append to index3
+this._appendAnd(el,sub)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,sub)}}}}_scanfilterFields(node,filterArray){for(let index in node.children){let el=node.children[index];if("FURO-FILTER-AND"===el.tagName){// append to index3
+this._appendAnd(el,filterArray)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,filterArray)}}}}window.customElements.define("furo-filter-container",FuroFilterContainer);class FuroFilterField extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{is:{type:String},field:{type:String},value:{type:String}}}set is(val){this._is=val;this._notifyChanges()}set field(val){this._field=val;this._notifyChanges()}set value(val){this._value=val;this._notifyChanges()}_notifyChanges(){if(this._field&&this._value!==void 0&&this._is){/**
+       * @event furo-filter-changed
+       * Fired when something changed
+       * detail payload:
+       */let customEvent=new Event("furo-filter-field-changed",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.css`
+        :host {
+            display: none;
+        }
+    `}}window.customElements.define("furo-filter-field",FuroFilterField);class FuroReverseDeepLink extends _furoShell.LitElement{constructor(){super();this.service="";this._services=_furoShell.Env.api.services}/**
+     * converts the href of a LinkObject
+     *
+     * @param {object|linkObject} {object|rawEntity} {object|rawCollection} data
+     * @return {object|QueryParams} Object with query params key value
+     */convert(data){let qp={};if(this._services[this.service]===void 0){console.warn(this.service," service is not defined",this);return}this._serviceDef=this._services[this.service].services;let linkObject=data;// Entity or Collection
+if(Array.isArray(data.links)){if(data&&Array.isArray(data.data)){// is collection
+// default rel if not set
+if(!this.rel){this.rel="list"}}else{// is entity
+if(!this.rel){this.rel="self"}}linkObject=data.links.filter(e=>{return e.rel.toLowerCase()===this.rel.toLowerCase()})[0]}// Links Array
+if(Array.isArray(data)){linkObject=data.filter(e=>{return e.rel===this.rel})[0]}if(linkObject){qp=this._convert(linkObject)}/**
+       * @event converted
+       * Fired when input was converted
+       * detail payload: {object|QueryParams}
+       */let customEvent=new Event("converted",{composed:!0,bubbles:!0});customEvent.detail=qp;this.dispatchEvent(customEvent);return qp}_convert(link){let linkObject={rel:link.rel,href:link.href,method:link.method,type:link.type};if("self"===linkObject.rel){linkObject.rel="Get"}linkObject.rel=linkObject.rel.charAt(0).toUpperCase()+linkObject.rel.slice(1);let pattern="";if(this._serviceDef[linkObject.rel]){pattern=this._serviceDef[linkObject.rel].deeplink.href}let rgx=/{([^}]*)}/gi,keys=[],m;while(null!==(m=rgx.exec(pattern))){pattern=pattern.replace(m[0],"(.*)");keys.push(m[1])}let srgx=new RegExp(pattern+"$"),qp={},matches=srgx.exec(linkObject.href);if(matches){keys.forEach((e,i)=>{qp[e]=matches[i+1]})}return qp}static get properties(){return{/**
+       * Name of service
+       */service:{type:String},/**
+       * Optional rel to convert.
+       *
+       * Not needed if you inject a link object.
+       *
+       * If you insert an entity rel self is taken. If you insert a collection, rel list is used.
+       */rel:{type:String}}}}window.customElements.define("furo-reverse-deep-link",FuroReverseDeepLink);class FuroRelExists extends _furoShell.LitElement{constructor(){super()}/**
+     * Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
+     *
+     * inject returns true for existing links and false for non existing links.
+     *
+     * @param linkArray
+     * @return {boolean}
+     */inject(linkArray){let links=linkArray.filter(link=>{if(this.type){return link.rel===this.rel&&link.type===this.type}return link.rel===this.rel});if(0<links.length){/**
+       * @event furo-rel-exists
+       * Fired when rel exists in linkArray
+       * detail payload: {Object} Hateoas Link
+       */let customEvent=new Event("furo-rel-exists",{composed:!0,bubbles:!0});customEvent.detail=links[0];this.dispatchEvent(customEvent);return!0}/**
+       * @event rel-dont-exist
+       * Fired when rel does not exists in linkArray
+       * detail payload: void
+       */let customEvent=new Event("rel-dont-exist",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent);return!1}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Name of the rel
+       */rel:{type:String},/**
+       * define the type if you want a specific check on the type also
+       */type:{type:String}}}attributeChangedCallback(name,old,value){switch(name){case"rel":this.rel=value;break;case"type":this.type=value;break;}}}window.customElements.define("furo-rel-exists",FuroRelExists);class FuroDataObjectForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}bindFields(EntityFields){this._FBPTriggerWire("--dataObjectFields",EntityFields)}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Description
+       */myBool:{type:Boolean}}}/**
+    * flow is ready lifecycle method
+    */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return _furoShell.html`
+      Some fields are readonly:
+      <furo-form-layouter>
+        <furo-data-text-input ƒ-bind-data="--dataObject(*.fields.display_name)"></furo-data-text-input>
+        <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.start)"></furo-data-date-input>
+        <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.end)"></furo-data-date-input>
+      </furo-form-layouter>
+        Thank you
+    `}}window.customElements.define("furo-data-object-form",FuroDataObjectForm);class DemoFuroDataObject extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo demo-furo-data-object</h2>
+          <p>A furo-data-object receives its data regulary from a furo-entity-agent or a collection-ageen. Make sure that you bind 
+            the correct properties to the receiver. In this example <i>furo-data-object-form</i> is excepting fields.</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <!-- Styles in furo-card are just for the demo -->
+            <furo-card style="width: 300px; margin: 30px" title="Some data" secondary-text="Save is not implemented">
+              <furo-data-object-form ƒ-bind-fields="--dataObject(*.fields)"></furo-data-object-form>
+              <furo-horizontal-flex slot="action">
+                <!-- The button will trigger the wire --saveClicked, which triggers ƒ-save on the furo-entity-agent as soon it is clicked -->
+                <furo-button primary  @-click="--saveClicked" label="save data"></furo-button>
+              </furo-horizontal-flex>
+            </furo-card>
+           
+           <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  --> 
+            <furo-entity-agent service="ProjectService" ƒ-save="--saveClicked" ƒ-bind-request-data="--dataObject" @-response="--response" ></furo-entity-agent>
+            <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
+            <furo-data-object type="project.Project" ƒ-inject-raw="--response(*.data)" @-object-ready="--dataObject"></furo-data-object>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class FuroDataPasswordInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -2221,97 +3212,76 @@ return _furoShell.html`
           hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-time-input>      
-    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(FuroInputBase(_furoShell.LitElement)){/**
+    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
    *
-   * @private
-   * @return {CSSResult}
-   */static get styles(){// language=CSS
+   * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
+   *
+   */constructor(){super();this.disabled=!1;this.hint="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}})}/**
+     * Sets the field to readonly
+     */disable(){this._readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1}/**
+     * Bind a entity field to the furo-data-checkbox-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(this);return}this.field=fieldNode;this._updateField();this.field.addEventListener("field-value-changed",e=>{this._updateField()});this.field.addEventListener("field-became-invalid",e=>{// updates wieder einspielen
+this.error=!0;this.errortext=this.field._validity.message;this.requestUpdate()});this.field.addEventListener("field-became-valid",e=>{// updates wieder einspielen
+this.error=!1;this.requestUpdate()})}// label setter and getter are needed for rendering on the first time
+set label(l){this._l=l;this._label=l}get label(){return this._l}_updateField(){if(!this.label){this._label=this.field._meta.label}else{this._label=this.label}if(!this.hint){this._hint=this.field._meta.hint}else{this._hint=this.hint}this.disabled=this.field._meta.readonly?!0:!1;// readonly auf attr ist höher gewichtet
+if(!this.readonly){this._readonly=this.field._meta.readonly}else{this._readonly=this.readonly}//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.message}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}static get properties(){return{/**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */label:{type:String,attribute:!0},/**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */hint:{type:String},/**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */readonly:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 8px 0 2px 0;
-            height: 75px;
-            line-height: 1.5;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-
-        :host([error]) .border {
-            border-color: red;
-            border-width: 1px;
+            width: 300px;
         }
 
         :host([hidden]) {
             display: none;
         }
 
-        input {
-            border: none;
-            background: 0 0;
-            font-size: 12px;
-            margin: 0;
-            padding: 0;
-            width: unset;
-            text-align: left;
-            color: inherit;
-            outline: none;
-        }
-        
-        .border{
-            position: absolute;
+        furo-checkbox-input {
             width: 100%;
-            height: 1px;
-            top:28px;
-            border: none;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
         }
-
-        :host(:focus-within) .border{
-            border-color: var(--primary,#3f51b5);
-            border-width: 1px;
-        }
-        
-        label {
-            position: unset;
-            top: unset;
-            color: unset;
-            pointer-events: unset;
-            display: unset;
-            width: unset;
-            overflow: unset;
-            padding-left: 12px;
-        }
-        * {
-            transition: all 150ms ease-out;
-        }
-
-        .hint{
-            position: absolute;
-            top: 30px;
-            font-size: 10px;
-            color:transparent;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-        :host(:focus-within) .hint{
-            color: var(--app-hint-color);
-            transition: all 550ms ease-in;
-        }
-    `}render(){return _furoShell.html` 
-      <input id="input"  aria-label="${this._label}" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.checked="--value" @-input="--inputCheckbox(*)"   ƒ-focus="--focusReceived">     
-      <label for="input" class="text">${this._label}</label>
-      
-      <div class="border"></div>  
-      <div class="hint">${this.hint}</div>
- 
-    `;// language=HTML
-}constructor(){super();this._text=this.getAttribute("text")}static get properties(){return{text:{type:String,attribute:!0}}}}customElements.define("furo-data-checkbox-input",FuroDataCheckboxInput);class FuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}render(){// language=HTML
+return _furoShell.html`
+             <furo-checkbox-input 
+                id="input"
+                ?autofocus=${this.autofocus} 
+                ?disabled=${this._readonly||this.disabled} 
+                label="${this._label}" 
+                ?error="${this.error}" 
+                ?condensed="${this.condensed}"          
+                errortext="${this.errortext}" 
+                hint="${this._hint}" 
+                @-value-changed="--valueChanged"
+                ƒ-set-value="--value"></furo-checkbox-input>      
+          `}}customElements.define("furo-data-checkbox-input",FuroDataCheckboxInput);class FuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -2504,92 +3474,7 @@ return _furoShell.html`
         </template>
              
     </div>                                
-`}}window.customElements.define("furo-data-reference-search",FuroDataReferenceSearch);/**
-                                                                                      * Custom event type for the AST
-                                                                                      */class NodeEvent{constructor(type,detail,bubbles=!0){/**
-     * Event type / name
-     * @type {string}
-     */this.type=type;this.path=[];/**
-                     *
-                     * @type {undefined}
-                     */this.target=void 0;/**
-                              * should the Event bubble
-                              * @type {boolean}
-                              */this.bubbles=bubbles;/**
-                             * Event details
-                             * @type {*}
-                             */this.detail=detail;/**
-                           * If you are in a parent element and set this to true it will not bubble
-                           * @type {boolean}
-                           */this.cancelBubble=!1;/**
-                                * if you are in a child element and set this to true, the event will not broadcast downwards
-                                * @type {boolean}
-                                */this.cancelBroadcast=!1}stopPropagation(){this.cancelBubble=!0}stopBroadcast(){//todo: implement
-this.cancelBroadcast=!0}}/**
-   * Simulates a tree which can handle events and broadcast events to all nodes
-   *
-   */_exports.NodeEvent=NodeEvent;class EventTreeNode{constructor(parentNode){this.__parentNode=parentNode;this.__eventListener={};this.__childNodes=[];if(parentNode){parentNode.__childNodes.push(this)}}/**
-     * shorthand function to add a property as child node
-     * @param name
-     * @returns {*}
-     */addChildProperty(name,treeNode){this[name]=treeNode||new EventTreeNode(this);return this[name]}/**
-     * Add a listener to a node
-     * @param type
-     * @param handler
-     * @param options  for once,...
-     */addEventListener(type,handler,options={}){if(!this.__eventListener[type]){this.__eventListener[type]=[]}this.__eventListener[type].push({cb:handler,options:options})}/**
-     * Removes the listener from a node
-     * @param type
-     * @param handler
-     */removeEventListener(type,handler){this.__eventListener[type]=this.__eventListener[type].filter((e,i)=>{if(e.cb===handler){return!1}})}/**
-     * Dispatch an event
-     * @param {NodeEvent} event
-     * @returns {*}
-     */dispatchNodeEvent(event){// simulate target and path
-if(!event.target){event.target=this}event.path.push(this);// trigger the events on current node
-this.__triggerNodeEvents(event);//trigger parent node
-if(event.bubbles&&!event.cancelBubble&&this.__parentNode){this.__parentNode.dispatchNodeEvent(event)}return event}/**
-     * Broadcast the event to node and all childNodes and their childNodes
-     * Bubbling is ignored, but propagation can be stopped
-     * @param event
-     * @returns {*}
-     */broadcastEvent(event){// trigger the events on current node
-this.__triggerNodeEvents(event);//children
-if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;this._meta=spec.meta||{};this._pristine=!0;this._isValid=!0;if(Array.isArray(this._meta.initialValue)){this.value=this._meta.initialValue}/**
-       * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
-       */this.addEventListener("field-became-valid",e=>{if(0===this.repeats.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("repeat-became-valid",this))}});/**
-         * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
-         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
-         * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}removeAllChildren(){this.__childNodes=[];this.repeats=[];this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed",this.repeats,!1))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
-this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.repeats,!1))}get value(){return this.repeats.map(f=>{return f.value})}deleteChild(index){this.repeats.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
-fieldNode.deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
-error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
-if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
-return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;this._meta=fieldSpec.meta||{};this._constraints=fieldSpec.constraints;this._options=fieldSpec.options;this._name=fieldName;this._value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
-if(this.__specdefinitions[this._spec.type]!==void 0){this._createVendorType(this._spec.type)}// set default value from meta
-if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default;this._pristine=!1}/**
-       * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
-       */this.addEventListener("field-became-valid",e=>{let v=this.__childNodes.filter(f=>!f._isValid);if(0===v.length){this._isValid=!0}});/**
-         * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
-         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1})}_createVendorType(type){if(this.__specdefinitions[type]){for(let fieldName in this.__specdefinitions[type].fields){if(this.__specdefinitions[type].fields[fieldName].meta&&this.__specdefinitions[type].fields[fieldName].meta.repeated){this[fieldName]=new RepeaterNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}else{this[fieldName]=new FieldNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}}}else{console.warn(type+" does not exist")}}set value(val){// type any
-this._createAnyType(val);// map<string, something> typ
-if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];if(val.hasOwnProperty(field._name)){field.value=val[field._name]}}this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}else{// update the primitive type
-this.oldvalue=this.value;this._value=val;this._pristine=!1;if(JSON.stringify(this.oldvalue)!==JSON.stringify(this._value)){this.dispatchNodeEvent(new NodeEvent("field-value-changed",this,!0))}}}}_createAnyType(val){// remove if type changes
-if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("any"===this._spec.type&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
-// any can only be a complex type
-this._createVendorType(val["@type"]);this.__anyCreated=!0;this["@type"]=val["@type"]}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
-for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldNode(this,fieldSpec,fieldName)}//update data
-this[fieldName].value=val[fieldName]}//remove unseted
-for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}}/**
-     * deletes the fieldnode
-     */deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];//notify
-this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// type any
-this._createAnyType(val);if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this.oldvalue=this.value;this._value=val;this._pristine=!0}}}get value(){if(0<this.__childNodes.length){this._value={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];this._value[field._name]=field.value}}return this._value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};this.dispatchNodeEvent(new NodeEvent("field-became-valid",this))}}_setInvalid(error){// set field empty, if not defined
-error.field=error.field||"";let path=error.field.split(".");if(0<path.length&&""!==path[0]){// rest wieder in error reinwerfen
-error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path,this._name)}}else{this._isValid=!1;this._validity=error;this.dispatchNodeEvent(new NodeEvent("field-became-invalid",this))}}toString(){//todo parse format rules from _meta...
-return this._value}}_exports.FieldNode=FieldNode;var FieldNode$1={FieldNode:FieldNode};_exports.$FieldNode=FieldNode$1;class FuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{this.toggle()});this.symboltrue="\u25BC";this.symbolfalse="\u25B6";this.field={};this._updateSymbol()}toggle(){this.field.value=!this.field.value}/**
+`}}window.customElements.define("furo-data-reference-search",FuroDataReferenceSearch);class FuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{this.toggle()});this.symboltrue="\u25BC";this.symbolfalse="\u25B6";this.field={};this._updateSymbol()}toggle(){this.field.value=!this.field.value}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -2643,604 +3528,7 @@ return _furoShell.html`
           <furo-data-bool-icon ></furo-data-bool-icon>
         </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("demo-furo-data-bool-icon",DemoFuroDataBoolIcon);/**
-                                                                                 * `api-fetch`
-                                                                                 *
-                                                                                 * api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
-                                                                                 *
-                                                                                 * ```html
-                                                                                 * <api-fetch ƒ-invoke-request="" ƒ-abort-request=""></api-fetch>
-                                                                                 * ```
-                                                                                 *
-                                                                                 * @customElement
-                                                                                 * @demo demo/api-fetch_demo.html
-                                                                                 */class ApiFetch extends HTMLElement{/**
-   * Fired when a request is sent.
-   * Payload: request
-   * @event request-started
-   */ /**
-       * Fired when a request was canceled.
-       * Payload: request
-       * @event request-aborted
-       */ /**
-           * Fired when a response is received.
-           * Here you will get the raw response object
-           * Payload: Raw response
-           * @event response-raw
-           */ /**
-               * Fired when a response is received.
-               * Here you will get the parsed response
-               * Format depends on request header `content-type`
-               * supported types:
-               * - text/plain
-               * - application/json
-               * - image/jpeg (Blob)
-               * - application/octet-stream (ArrayBuffer)
-               * - application/pdf (Blob)
-               *
-               * Payload: parsed response
-               * @event response
-               */ /**
-                   * Fired when an error has occoured.
-                   * This is a general error event. The specific error events are fired additionally.
-                   * @event response-error
-                   */ /**
-                       * Fired when an error has occoured.
-                       * This is a specific error event.
-                       * @event response-error-[status-code]
-                       */constructor(){super();/**
-              * LastRequest's response.
-              *
-              * Note that lastResponse is set when ongoing request finishes, so if loading is true,
-              * then lastResponse will correspond to the result of the previous request.
-              * @type {Object}
-              */this.lastRequest={};/**
-                            * True while request is in flight.
-                            * @type boolean
-                            */this.isLoading=!1;/**
-                             * True if fetch API is not available
-                             * @type {boolean}
-                             */this.xhrFallback=!window.hasOwnProperty("fetch")}/**
-     * Sends a HTTP request to the server
-     * @param {Request} request (The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request
-     * @public
-     */invokeRequest(request){this.lastRequest=request;this._executeRequest(request)}/**
-     * Aborts a pending request
-     * You have to submit an AbortController
-     * @param {AbortController} controller (The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
-     * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
-     */abortRequest(controller){console.info("The request is about to be aborted",this);controller.abort()}/**
-     * Requests are made via the Fetch API if possible.
-     * Fallback XMLHttpRequest
-     *
-     * @event fatal-error(payload request object)
-     * @param request
-     */_executeRequest(request){/**
-     * dispatches fatal-error
-     * @param detail
-     */let fatal=detail=>{this.dispatchEvent(new CustomEvent("fatal-error",{detail:detail,bubbles:!0,composed:!0}))};/**
-        * Fallback, if Fetch API ist not available
-        */if(this.xhrFallback){this._invokeXHR(request).then(response=>{this._reworkRequest(response)},function(error){fatal(error)})}else{/**
-       * Default API fetch
-       * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-       */this.isLoading=!0;this.dispatchEvent(new CustomEvent("request-started",{detail:request,bubbles:!0,composed:!0}));fetch(request).then(response=>{this._reworkRequest(response)}).catch(err=>{if("AbortError"===err.name){this.dispatchEvent(new CustomEvent("request-aborted",{detail:request,bubbles:!0,composed:!0}));console.error("RequestService fetch aborted: ",err)}else{console.error("RequestService fatal error",err)}fatal(request)})}}/**
-     * Requests are made via fallback XMLHttpRequest
-     * @param request
-     * @private
-     */_invokeXHR(request){console.info("Fetch API not available, fallback to XMLHttpRequest");this.isLoading=!0;return new Promise(function(resolve,reject){/**
-       * map Request to XHR
-       */let req=new XMLHttpRequest;req.open(request.method,request.url,!0);if(request.headers.get("content-type").includes("json")){req.responseType="json"}else{req.responseType="arraybuffer"}/**
-         * Append headers from request object to XHR
-         */for(var pair of request.headers.entries()){if(/[A-Z]/.test(pair[0])){console.error("Headers must be lower case, got",pair[0])}else{req.setRequestHeader(pair[0],pair[1])}}/**
-         * XHR event handlers
-         */req.onloadstart=()=>{this.dispatchEvent(new CustomEvent("request-started",{detail:req,bubbles:!0,composed:!0}))};req.onload=()=>{resolve(req)};req.onerror=err=>{console.error("XMLHttpRequest network error",err);reject(req)};req.ontimeout=err=>{console.warn("XMLHttpRequest timeout",err);reject(req)};// Do request
-req.send()}.bind(this))}/**
-     * Rework of Request
-     * @param response
-     */ /**
-         * Succeeded is true if the request succeeded. The request succeeded if it
-         * loaded without error, wasn't aborted, and the status code is ≥ 200, and
-         * < 300, or if the status code is 0.
-         */ /**
-             * Errorhandling according to Google rest-api-v3 Status Codes
-             * (https://developers.google.com/maps-booking/reference/rest-api-v3/status_codes)
-             *
-             * Dispatches event `response-error` and a specific error event with status code
-             */_reworkRequest(response){/**
-     * The status code 0 is accepted as a success because some schemes - e.g.
-     * file:// - don't provide status codes.
-     */this.isLoading=!1;let status=0|response.status;if(0===status||200<=status&&300>status){/**
-       * Loaded without error, fires event `response` with full response object
-       */this.lastResponse=response;this.dispatchEvent(new CustomEvent("response-raw",{detail:response,bubbles:!0,composed:!0}));/**
-            * parses response object according to response heaader informationen `content-type`
-            * you will find the supported content-types in the declaration area
-            */this._parseResponse(response)}else{/**
-       * Error detected
-       */this.lastResponse=void 0;this.dispatchEvent(new CustomEvent("response-error-raw",{detail:response,bubbles:!0,composed:!0}));response.json().then(error=>{if(error){response.error=error.error;this.dispatchEvent(new CustomEvent("response-error-"+response.status,{detail:error,bubbles:!0,composed:!0}));this.dispatchEvent(new CustomEvent("response-error",{detail:error,bubbles:!0,composed:!0}));//console.error('Looks like there was a problem. Status Code: ', response.status);
-}}).catch(()=>{this.dispatchEvent(new CustomEvent("parse-error",{detail:response,bubbles:!0,composed:!0}))})}}/**
-     * parses response object according to lastRequest heaader informationen `content-type`
-     * you will find the supported content-types in the declaration area
-     * respone Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]
-     * Default response handler is json!
-     * @param response
-     */_parseResponse(response){var _self=this;if(response){let contentType=this.lastRequest.headers.get("content-type"),responseHandler={"text/plain":r=>{r.text().then(function(text){_self.dispatchEvent(new CustomEvent("response",{detail:text,bubbles:!0,composed:!0}))})},"application/json":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}},"application/octet-stream":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.arrayBuffer().then(function(buffer){_self.dispatchEvent(new CustomEvent("response",{detail:buffer,bubbles:!0,composed:!0}))})}},"application/pdf":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},"image/jpeg":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},default:r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:JSON.parse(r.response),bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}}},typeHandler=responseHandler[contentType]||responseHandler["default"];typeHandler(response)}}}customElements.define("api-fetch",ApiFetch);class CollectionControls extends EventTreeNode{constructor(collectionAgent,type,specs){super();this.collectionAgent=collectionAgent;this.paginaton={first:!1,next:!0,prev:!0,last:!1,currentPage:1,pageSize:this.pageSize,numOfRecords:23};this.filter={};this.order={};this.info={fields:this.collectionAgent.fields}}}_exports.CollectionControls=CollectionControls;var CollectionControls$1={CollectionControls:CollectionControls};_exports.$CollectionControls=CollectionControls$1;class collectionAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
-this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links)){/**
-         * @event response-hts-updated
-         * Fired when
-         * detail payload: hts
-         */let customEvent=new Event("response-hts-updated",{composed:!0,bubbles:!0});customEvent.detail=r.links;this.dispatchEvent(customEvent)}});this._singleElementQueue=[];//queue for calls, before hts is set
-this._queryParams={}}static get properties(){return{/**
-       * Name des Services
-       */service:{type:String,attribute:!0},pageSize:{type:Number,attribute:"page-size"},fields:{type:String,attribute:!0},orderBy:{type:String,attribute:"order-by"},filter:{type:Array,attribute:!0},view:{type:String,attribute:!0},listOnHtsIn:{type:Boolean,attribute:"list-on-hts-in"}}}firstUpdated(){super.firstUpdated();/**
-                           * @event collection-controls
-                           * Fired when
-                           * detail payload:
-                           */let customEvent=new Event("collection-controls",{composed:!0,bubbles:!0});customEvent.detail=new CollectionControls(this,this.service,this._servicedefinitions);setTimeout(()=>{this.dispatchEvent(customEvent)},0)}/**
-     * https://cloud.google.com/apis/design/design_patterns
-     */ /**
-         * Partielle Repräsentation
-         * https://cloud.google.com/apis/design/design_patterns#partial_response
-         *
-         * etwas seltsam, aber google sieht hier $fields vor. Wird aber nicht so verwendet
-         *
-         */setFields(fields){this.fields=fields}/**
-     * Sortierreihenfolge
-     * https://cloud.google.com/apis/design/design_patterns#sorting_order
-     *
-     * To avoid sql injection errors we do not send sql like syntax!
-     *
-     * order-by="foo,-bar"  means foo asc and bar desc
-     */setOrderBy(order){this.orderBy=order}/**
-     * clear filter
-     */clearFilter(){this._filter=void 0}// Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
-setFilter(filterstring){if(Array.isArray(filterstring)){this.filter=filterstring}}set filter(f){this._filter=f;/**
-                       * @event filter-updated
-                       * Fired when filter was updated with ƒ-set-filter
-                       * detail payload:
-                       */let customEvent=new Event("filter-changed",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}// Gewünschte Seite. Tipp: Folge dem HATEOAS
-// Seitengrösse  page_size
-// Meta für die Anzahl der Elemente der Resource
-/**
-   * contextbezogene Darstellung
-   *
-   * https://cloud.google.com/apis/design/design_patterns#resource_view
-   *
-   * view=smallcards
-   *
-   */ /**
-       * Setze den Service
-       * @param service
-       */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}// set pagination defaults
-}bindRequestObject(entityTree){this._entityTree=entityTree}/**
-     * Update query params
-     * a qp like {"active":true} will just update the qp *active*
-     *
-     * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
-     * @param {Object} key value pairs
-     */updateQp(qp){let qpChanged=!1;for(let key in qp){if(qp.hasOwnProperty(key)){if(this._queryParams[key]!=qp[key]){qpChanged=!0}this._queryParams[key]=qp[key]}}if(qpChanged){/**
-      * @event qp-changed
-      * Fired when query params changed
-      * detail payload: qp
-      */let customEvent=new Event("qp-changed",{composed:!0,bubbles:!0});customEvent.detail=this._queryParams;this.dispatchEvent(customEvent)}}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
-let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");headers.append("Content-Type","application/json");let params={},r=link.href.split("?"),req=r[0];// add existing params from href
-if(r[1]){r[1].split("&").forEach(p=>{let s=p.split("=");params[s[0]]=s[1]})}// append query params
-// query params
-for(let key in this._queryParams){if(this._queryParams.hasOwnProperty(key)){params[key]=this._queryParams[key]}}// Fields
-if(this.fields){params.fields=this.fields.split(" ").join("")}// Sort
-if(this.orderBy){params.order_by=this.orderBy.split(" ").join("")}// Filter
-if(this._filter){params.filter=JSON.stringify(this._filter)}// rebuild req
-let qp=[];for(let key in params){if(params.hasOwnProperty(key)){qp.push(key+"="+params[key])}}if(0<qp.length){req=req+"?"+qp.join("&")}return new Request(req,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
-if(!this._service.services[serviceName]){// todo fehler werfen ???
-console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}//queue if no hts is set, queue it
-if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return!0}// check Hateoas
-if(!this._hts[rel]){console.warn("No HATEOAS for rel self",this._hts,this);return!0}return!1}_followRelService(rel,serviceName){if(this._checkServiceAndHateoasLinkError(rel,serviceName)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[rel]))}/**
-     * loads the entity if hts is available
-     */list(){this._followRelService("list","List")}search(term){if(""!==term){this._queryParams.q=term;this.list()}else{delete this._queryParams.q}}/**
-     * loads the entity if hts is available
-     */first(){this._followRelService("first","List")}/**
-     * loads the entity if hts is available
-     */prev(){this._followRelService("prev","List")}/**
-     * loads the entity if hts is available
-     */next(){this._followRelService("next","List")}/**
-     * loads the entity if hts is available
-     */last(){this._followRelService("last","List")}_updateInternalHTS(hts){// convert link object to hts array
-if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
-           * @event hts-updated
-           * Fired when hateoas is updated from response
-           * detail payload: {Array|HATEOAS}
-           */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);return!0}return!1}htsIn(hts){if(this._updateInternalHTS(hts)){/**
-       * @event hts-updated
-       * Fired when hateoas is updated
-       * detail payload: Hateoas links
-       */let customEvent=new Event("hts-injected",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);if(this.listOnHtsIn){this.list()}// there was a list,last,next call before the hts was set
-if(0<this._singleElementQueue.length){let q=this._singleElementQueue.pop();this._followRelService(q[0],q[1])}}}render(){// language=HTML
-return _furoShell.html`
-      <!-- Add a style block here -->
-      <style>
-        :host {
-          display: none;
-        }
-      </style>
-      <api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed">
-      </api-fetch>
-    `}}customElements.define("collection-agent",collectionAgent);class CollectionNode extends EventTreeNode{constructor(parentNode,type,specs){super(parentNode);this.__specdefinitions=specs;this._spec=this.__specdefinitions[type];this.data=[]}injectRaw(rawResponse){//daten aktualisieren
-this.data=rawResponse.data;this.dispatchNodeEvent(new NodeEvent("data-changed",this.data))}_templateMe(template,data){const pattern=/\{(.*?)\}/g;return template.replace(pattern,(match,token)=>data[token])}}_exports.CollectionNode=CollectionNode;var CollectionNode$1={CollectionNode:CollectionNode};_exports.$CollectionNode=CollectionNode$1;class CollectionObject extends _furoShell.LitElement{constructor(){super();this._specs=_furoShell.Env.api.specs}injectRaw(jsonObj){this.collection.injectRaw(jsonObj)}// make the collection Object empty
-clear(){this.collection.injectRaw({data:[]})}set type(type){if(this._type){this._checkType(type)}this._type=type}_checkType(type){if(this._specs[type]===void 0){/**
-       * @event spec-error
-       * Fired when spec could not be loaded
-       * detail payload: {string} spec name
-       */let customEvent=new Event("spec-error",{composed:!0,bubbles:!0});customEvent.detail=type;setTimeout(()=>{this.dispatchEvent(customEvent)},0);return}this.collection=new CollectionNode(null,type,this._specs);this.collection.addEventListener("data-changed",e=>{/**
-      * @event data-changed
-      * Fired when data in collection has changed
-      * detail payload: {Object|CollectionNode}
-      */let customEvent=new Event("data-changed",{composed:!0,bubbles:!0});customEvent.detail=this.collection;this.dispatchEvent(customEvent)});/**
-         * @event object-ready
-         * Fired when
-         * detail payload:
-         */let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.collection;setTimeout(()=>{this.dispatchEvent(customEvent)},0)}static get properties(){return{/**
-       * Ein Entitätenbaum mit allen Feldern
-       */collection:{type:Object},/**
-       * Name der Spec
-       */type:{type:String}}}firstUpdated(){super.firstUpdated();// queueing
-if(this._type){this._checkType(this._type)}}}window.customElements.define("collection-object",CollectionObject);class CustomMethod extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api}static get properties(){return{/**
-       * Name des Services
-       */service:{type:String,attribute:!0},/**
-       * Name der Methode
-       */method:{type:String,attribute:!0}}}/**
-     * Setze den Service
-     * @param service
-     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}}bindRequestObject(entityTree){this._entityTree=entityTree}bindData(entityTree){this._entityTree=entityTree}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
-let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");headers.append("Content-Type","application/json");return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
-let s=Object.keys(this._service.services).map(key=>{return key.toLowerCase()});if(-1===s.indexOf(serviceName.toLowerCase())){// todo fehler werfen ???
-console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}// check Hateoas
-if(!this._hts[rel]){console.warn("No HATEOAS for rel self",this._hts,this);return!0}return!1}/**
-     * trigger the method with respect for binded-requset-object
-     */trigger(){if(this._entityTree){this.triggerWithBody(this._entityTree.rawData)}else{this.triggerEmpty()}}triggerEmpty(){if(this._checkServiceAndHateoasLinkError(this.method,this.method)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[this.method]))}/**
-     * trigger the method with data
-     */triggerWithBody(body){if(this._checkServiceAndHateoasLinkError(this.method,this.method)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[this.method],body))}htsIn(hts){if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
-          * @event hts-updated
-          * Fired when
-          * detail payload:
-          */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!0});customEvent.detail=hts;this.dispatchEvent(customEvent)}}render(){// language=HTML
-return _furoShell.html`
-      <!-- Add a style block here -->
-      <style>
-        :host {
-          display: none;
-        }
-      </style>
-      <api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed">
-      </api-fetch>
-    `}}window.customElements.define("custom-method",CustomMethod);class DeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
-       * @type {object|QueryParams} Query Params
-       */qp:{type:Object},/**
-       * Name des Services
-       */service:{type:String,attribute:!0}}}/**
-     * Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
-     */trigger(){if(this._qp&&this._service){this._buildHTS(this._qp,this._service)}}_buildHTS(qp,service){this._hts=[];// loop services
-for(let serviceName in service.services){let candidate={rel:service.services[serviceName].deeplink.rel,href:service.services[serviceName].deeplink.href,method:service.services[serviceName].deeplink.method,type:service.services[serviceName].request};for(let param in this._qp){candidate.href=candidate.href.replace("{"+param+"}",this._qp[param])}//wenn es keine {xx} mehr hat, ist es ein treffer
-if(-1===candidate.href.indexOf("{")){//candidate.type = "application/" + candidate.type + "+json"
-this._hts.push(candidate)}}if(this._hts.length){/**
-       * @event hts-out
-       * Fired when hateoas is available
-       * detail payload: {[]Links} Array of hateoas links
-       */let customEvent=new Event("hts-out",{composed:!0,bubbles:!0});customEvent.detail=this._hts;this.dispatchEvent(customEvent)}}/**
-     * set queryParams and evaluate for hateoas
-     * @param queryParams
-     */qpIn(queryParams){this._qp=queryParams;this.trigger()}/**
-     * Deprecated
-     *
-     * Set QP via attribute (for polymer 3 compatibility), use ƒ-qp-in (qpIn) instead
-     * @param qp
-     */set qp(qp){// zwischenspeichern für einen ev. ƒ-trigger
-console.warn("setting the qp via attribute is deprecated, use \u0192-qp-in instead");console.warn("This feature will be removed in Q3-2019",this);this._qp=qp;this.trigger()}/**
-     * Deprecated
-     *
-     * use ƒ-qp-in instead
-     *
-     * Inject a QueryParams (key value) Object
-     * @param {object|QueryParams} qp
-     */injectQueryParams(qp){console.warn("injectQueryParams is deprecated, use \u0192-qp-in instead");console.warn("This feature will be removed in Q3-2019",this);// zwischenspeichern für einen ev. ƒ-trigger
-this._qp=qp;this.trigger()}/**
-     * Sets the service
-     *
-     * Services must be registered like:
-     *
-     * ```html
-     * import {Services,Types} from "./apiConfig.js"
-     * Init.registerApiServices(Services);
-     * Init.registerApiTypes(Types);
-     * ```
-     * Usually this is done in your main-app.js
-     *
-     * @param serviceName
-     */setService(serviceName){this.service=serviceName}/**
-     * Setze den Service
-     * @param service
-     */set service(service){if(this._servicedefinitions[service]){this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}}else{console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions)}}}window.customElements.define("deep-link",DeepLink);class ReverseDeepLink extends _furoShell.LitElement{constructor(){super();this.service="";this._services=_furoShell.Env.api.services}/**
-     * converts the href of a LinkObject
-     *
-     * @param {object|linkObject} {object|rawEntity} {object|rawCollection} data
-     * @return {object|QueryParams} Object with query params key value
-     */convert(data){let qp={};if(this._services[this.service]===void 0){console.warn(this.service," service is not defined",this);return}this._serviceDef=this._services[this.service].services;let linkObject=data;// Entity or Collection
-if(Array.isArray(data.links)){if(data&&Array.isArray(data.data)){// is collection
-// default rel if not set
-if(!this.rel){this.rel="list"}}else{// is entity
-if(!this.rel){this.rel="self"}}linkObject=data.links.filter(e=>{return e.rel.toLowerCase()===this.rel.toLowerCase()})[0]}// Links Array
-if(Array.isArray(data)){linkObject=data.filter(e=>{return e.rel===this.rel})[0]}if(linkObject){qp=this._convert(linkObject)}/**
-       * @event converted
-       * Fired when input was converted
-       * detail payload: {object|QueryParams}
-       */let customEvent=new Event("converted",{composed:!0,bubbles:!0});customEvent.detail=qp;this.dispatchEvent(customEvent);return qp}_convert(link){let linkObject={rel:link.rel,href:link.href,method:link.method,type:link.type};if("self"===linkObject.rel){linkObject.rel="Get"}linkObject.rel=linkObject.rel.charAt(0).toUpperCase()+linkObject.rel.slice(1);let pattern=this._serviceDef[linkObject.rel].deeplink.href,rgx=/{([^}]*)}/gi,keys=[],m;while(null!==(m=rgx.exec(pattern))){pattern=pattern.replace(m[0],"(.*)");keys.push(m[1])}let srgx=new RegExp(pattern+"$"),qp={},matches=srgx.exec(linkObject.href);if(matches){keys.forEach((e,i)=>{qp[e]=matches[i+1]})}return qp}static get properties(){return{/**
-       * Name of service
-       */service:{type:String},/**
-       * Optional rel to convert.
-       *
-       * Not needed if you inject a link object.
-       *
-       * If you insert an entity rel self is taken. If you insert a collection, rel list is used.
-       */rel:{type:String}}}}window.customElements.define("reverse-deep-link",ReverseDeepLink);class EntityNode extends EventTreeNode{constructor(parentNode,type,specs){super(parentNode);this.__specdefinitions=specs;this._spec=this.__specdefinitions[type];this.addChildProperty("fields");this.fields.__specdefinitions=this.__specdefinitions;this._initFieldsFromSpec(this.fields,this._spec.fields);this._pristine=!0;this._isValid=!0;/**
-                           * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
-                           */this.addEventListener("field-became-valid",e=>{if(0===this.fields.__childNodes.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("entity-became-valid",this))}});/**
-         * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
-         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("entity-became-invalid",this))});/**
-         * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}/**
-     * Injecten eines raw models wie bspw body oder entity einer collection
-     * @param rawEntity
-     */injectRaw(rawEntity){this._rawEntity=rawEntity;let meta={};if(rawEntity.meta){meta=rawEntity.meta.fields}this._updateFieldValuesAndMetaFromRawEntity(this.fields,rawEntity.data,meta);this._pristine=!0;this._isValid=!0;if(rawEntity.error&&rawEntity.details){rawEntity.details.forEach(errorSet=>{if(errorSet.field_violations){this._handleErrorsFromRawEntity(this.fields,errorSet.field_violations)}})}this.dispatchNodeEvent(new NodeEvent("data-injected",this,!0))}/**
-     * Resete zum letzten injectet state zurück
-     */reset(){if(this._rawEntity){this.injectRaw(this._rawEntity)}}/**
-     * Inits the EntityNode without breaking the reference
-     */init(){this._initFieldsFromSpec(this.fields,this._spec.fields);this._pristine=!0;this._isValid=!0}get rawEntity(){return this._rawEntity}get rawData(){return this.getRawData()}getRawData(){let data={};// nur reine Daten zurück geben
-for(let index in this.fields.__childNodes){let field=this.fields.__childNodes[index];data[field._name]=field.value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data,dynamicFieldMeta){for(let fieldName in data){let fieldNode=node[fieldName];if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;//fieldNode.removeAllChildren();
-// update records
-data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
-if(!fieldNode.repeats[i]){fieldNode._addSilent()}let repMeta={};if(dynamicFieldMeta[fieldName]){if(dynamicFieldMeta[fieldName].fields){repMeta=dynamicFieldMeta[fieldName].fields}}// Werte aktualisieren
-fieldNode.repeats[i].value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
-let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode.repeats,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode.repeats,!1))}else{if(fieldNode){fieldNode._clearInvalidity();let meta={},submeta={};// Kommen neue metas von draussen rein
-if(dynamicFieldMeta[fieldName]){meta=dynamicFieldMeta[fieldName];// setze node Meta wenn neue metas gekommen sind
-// TODO @veith Metas mischen und nicht überklatschen, ev immer von spec meta aus und nicht von runtime meta
-if(meta.constraints){for(let key in meta.constraints){fieldNode._constraints[key]=meta.constraints[key]}}if(meta.meta){for(let key in meta.meta){fieldNode._meta[key]=meta.meta[key]}}if(meta.options){for(let key in meta.options){fieldNode._options[key]=meta.options[key]}}// hat es meta für subfelder
-if(meta.fields){submeta=meta.fields}}// Werte aktualisieren
-fieldNode.value=data[fieldName];fieldNode._pristine=!0}}}}}_handleErrorsFromRawEntity(fields,fieldErrors){fieldErrors&&fieldErrors.map(error=>{if(error.description){error.message=error.description}let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
-error.field=path.slice(1).join(".");if(fields[path[0]]){fields[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path)}}})}/**
-     * Baut die Felder aufgrund der spec auf
-     * @param node
-     * @param fieldSpec
-     * @private
-     */_initFieldsFromSpec(node,fieldSpec){for(let fieldName in fieldSpec){if(fieldSpec[fieldName].meta&&fieldSpec[fieldName].meta.repeated){node[fieldName]=new RepeaterNode(node,fieldSpec[fieldName],fieldName)}else{node[fieldName]=new FieldNode(node,fieldSpec[fieldName],fieldName)}}}toString(){return this.spec.mimetype}}_exports.EntityNode=EntityNode;var EntityNode$1={EntityNode:EntityNode};_exports.$EntityNode=EntityNode$1;class EntityObject extends _furoShell.LitElement{constructor(){super();this._specs=_furoShell.Env.api.specs}static get properties(){return{/**
-       * Name der Spec
-       */type:{type:String}}}injectPlainData(data){this.injectRaw({data:data})}/**
-     * inject a raw entity json {data:..,links:...,meta,..-}
-     * @param jsonObj
-     */injectRaw(jsonObj){// queue inject bis entity bereit ist
-if(!this.entity){setTimeout(()=>{this.injectRaw(jsonObj)},0)}else{this.entity.injectRaw(jsonObj)}}set type(type){if(this._type){this._checkType(type)}this._type=type}_checkType(type){if(this._specs[type]===void 0){console.warn("Type does not exist.",type,this,this._specs);return}/**
-       * create the entity node
-       * @type {EntityNode}
-       */this.entity=new EntityNode(null,type,this._specs);/**
-                                                            * @event object-ready
-                                                            * Fired when
-                                                            * detail payload:
-                                                            */let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.entity;setTimeout(()=>{this.dispatchEvent(customEvent)},0);this.entity.addEventListener("data-injected",e=>{/**
-      * @event data-injected
-      * Fired when injected data was processed.
-      * detail payload: {Object|EntityNode} reference to entity
-      */let customEvent=new Event("data-injected",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});this.entity.addEventListener("field-value-changed",e=>{/**
-       * @event data-changed
-       * Fired when data in collection has changed
-       * detail payload: {Object|CollectionNode}
-       */let customEvent=new Event("data-changed",{composed:!0,bubbles:!0});customEvent.detail=this.entity.rawData;this.dispatchEvent(customEvent);/**
-                                        * @event (field-value-changed)
-                                        *
-                                        * ✋ Internal Event!
-                                        *
-                                        * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
-                                        *
-                                        * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                        */ /**
-                                            * @event (this-field-value-changed)
-                                            *
-                                            * ✋ Internal Event!
-                                            *
-                                            * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
-                                            *
-                                            * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                            */ /**
-                                                * @event (data-injected)
-                                                *
-                                                * ✋ Internal Event!
-                                                *
-                                                * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
-                                                *
-                                                * This event **bubbles**.
-                                                *
-                                                * detail payload: **{NodeEvent}**
-                                                */})}/**
-     * Inits internal entity
-     * References will still be valid
-     */init(){this.entity.init();let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.entity;setTimeout(()=>{this.dispatchEvent(customEvent)},0)}firstUpdated(){super.firstUpdated();// queueing
-if(this._type){this._checkType(this._type)}// data objects
-this._entityFields=this.querySelectorAll("entity-field");// console.log("todo",this._entityFields);
-}}window.customElements.define("entity-object",EntityObject);class EntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
-this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links)){/**
-         * @event response-hts-updated
-         * Fired when
-         * detail payload: hts
-         */let customEvent=new Event("response-hts-updated",{composed:!0,bubbles:!0});customEvent.detail=r.links;this.dispatchEvent(customEvent)}});this._singleElementQueue=[];//queue for calls, before hts is set
-}static get properties(){return{/**
-       * Name des Services
-       */service:{type:String,attribute:!0}}}/**
-     * Setze den Service
-     * @param service
-     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}}bindRequestObject(entityTree){this._entityTree=entityTree}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
-let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");if("put"!==link.method.toLowerCase()){headers.append("Content-Type","application/json")}return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
-if(!this._service.services[serviceName]){console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}//queue if no hts is set, queue it
-if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return!0}// check Hateoas
-if(!this._hts[rel]){console.warn("No HATEOAS for rel self",this._hts,this);return!0}return!1}/**
-     * @event load-success
-     * Fired when load was successful
-     * detail payload: response
-     */ /**
-         * @event load-failed
-         * Fired when load was not successful
-         * detail payload: response
-         */ /**
-             * loads the entity if hts is available
-             */load(){if(this._checkServiceAndHateoasLinkError("self","Get")){return}this._attachListeners("load");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.self))}/**
-     * @event delete-success
-     * Fired when load was successful
-     * detail payload: response
-     */ /**
-         * @event delete-failed
-         * Fired when load was not successful
-         * detail payload: response
-         */ /**
-             * delete the entity if hts is available
-             */delete(){if(this._checkServiceAndHateoasLinkError("delete","Delete")){return}this._attachListeners("delete");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.delete))}/**
-     * @event save-success
-     * Fired when load was successful
-     * detail payload: response
-     */ /**
-         * @event save-failed
-         * Fired when load was not successful
-         * detail payload: response
-         */ /**
-             * loads the entity if hts is available
-             */save(){// wen kein rel self vorhanden ist, aber ein rel create existiert, verwendenn wir create
-// rel self ist bewusst gewählt
-if(!this._hts.self){this.create();return}if(this._checkServiceAndHateoasLinkError("update","Update")){return}this._attachListeners("save");// TODO nur delta senden
-this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.update,this._entityTree.rawData))}/**
-     * @event create-success
-     * Fired when load was successful
-     * detail payload: response
-     */ /**
-         * @event create-failed
-         * Fired when load was not successful
-         * detail payload: response
-         */ /**
-             * loads the entity if hts is available
-             */create(){if(this._checkServiceAndHateoasLinkError("create","Create")){return}this._attachListeners("create");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.create,this._entityTree.rawData))}/**
-     * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
-     * @param eventPrefix
-     * @private
-     */_attachListeners(eventPrefix){let success=e=>{// we do not want req-success and req-failed outside of this component
-e.stopPropagation();let customEvent=new Event(eventPrefix+"-success",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent);// remove listeners
-this.removeEventListener("req-success",success,!0);this.removeEventListener("req-failed",failed,!0)},failed=e=>{// we do not want req-success and req-failed outside of this component
-e.stopPropagation();let customEvent=new Event(eventPrefix+"-failed",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent);// remove listeners
-this.removeEventListener("req-success",success,!0);this.removeEventListener("req-failed",failed,!0)};/**
-        * do not add the listener directly to response, otherwise it kicks in before hts is updated
-        * This extra "loop" is to guarante the order of handling the events
-        */this.addEventListener("req-success",success,!0);this.addEventListener("req-failed",failed,!0)}_updateInternalHTS(hts){// convert link object to hts array
-if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
-           * @event hts-updated
-           * Fired when hateoas is updated from response
-           * detail payload: {Array|HATEOAS}
-           */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);return!0}return!1}htsIn(hts){if(this._updateInternalHTS(hts)){/**
-       * @event hts-injected
-       * Fired when hateoas is updated
-       * detail payload: Hateoas links
-       */let customEvent=new Event("hts-injected",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);// there was a list,last,next call before the hts was set
-if(0<this._singleElementQueue.length){let q=this._singleElementQueue.pop();this._followRelService(q[0],q[1])}}}/**
-     *
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return _furoShell.css`
-              :host {
-                  display: none;
-              }
-          `}/**
-     * @private
-     * @return {TemplateResult}
-     */render(){// language=HTML
-return _furoShell.html`        
-      <api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed,^^req-success"
-              @-response-error="^^req-failed">
-      </api-fetch>
-    `}}window.customElements.define("entity-agent",EntityAgent);class EntityValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.checks={};this._initChecks()}_initChecks(){this.checks.string={min:field=>{let constraint=field._constraints.min;if(field.value.length<constraint.value){if(constraint.message){return{message:constraint.message,constraint:"min"}}return{message:"Mindestens "+constraint.value+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field.value.length>constraint.value){if(constraint.message){return{message:constraint.message,constraint:"max"}}return{message:"Maximal "+constraint.value+" Zeichen",constraint:"max"}}return null},mandatory:field=>{let constraint=field._constraints.required;if(0===field.value.length){return{message:"Eingabe erforderlich",constraint:"mandatory"}}return null}};this.checks.int={min:field=>{let constraint=field._constraints.min;if(field.value<constraint.value){return{message:"Mindestens "+constraint.value+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field.value>constraint.value){if(constraint.message){return{message:constraint.message,constraint:"max"}}return{message:"Maximal "+constraint.value+" Zeichen",constraint:"max"}}return null}}}bindData(fields){let self=this;// this.validator ist hier wegen dem hoisting...
-this.validator=e=>{let field=e.target,type=field._spec.type;// nur prüfen wenn field constraints  und checker existieren
-if(field._constraints&&this.checks[type]){let err;for(let constraint in field._constraints){if(this.checks[type][constraint]){err=this.checks[type][constraint](field)}if(err){field._setInvalid(err);// bei erstem fehler aufhören
-return}else{// nur zurücksetzen wenn das field ungültig war
-if(!field._isValid){field._clearInvalidity()}}}}};fields.addEventListener("field-value-changed",this.validator);this._FBPTriggerWire("--dataInjected",fields);/** TODO: eventqueue wie in FBP aufbauen??
-                                                     setTimeout(()=>{
-                                                      //check all field on init
-                                                      fields.__childNodes.map(e=>{
-                                                        let field = {target:e};
-                                                        this.validator(field)
-                                                      });
-                                                    },16);
-                                                     */}}window.customElements.define("entity-validator",EntityValidator);class EntityField extends _furoShell.LitElement{constructor(){super()}setValue(v){this.value=v}set value(v){this._value=v;this.field.value=v}get value(){return this._value}bindData(d){if(d===void 0){console.warn("Invalid binding ");console.log(this);return}this.field=d;this.field.addEventListener("field-value-changed",e=>{// updates wieder einspielen
-/**
-      * @event value-changed
-      * Fired when
-      * detail payload:
-      */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("entity-field",EntityField);class FuroFilterContainer extends(0,_furoShell.FBP)(HTMLElement){constructor(){super();this.style.display="none";this.type=this.getAttribute("type");// find .querySelectorAll("simple-filter-field")
-let filterFields=this.querySelectorAll("simple-filter-field");if(null!=filterFields){filterFields.forEach(f=>{// set types to children
-f.type=this.type})}// register changes
-this.addEventListener("furo-filter-field-changed",e=>{// baum für filter aufbauen
-let filter=[];this._scanfilterFields(this,filter);if(0<filter.length){// debounce filters for 16ms
-clearTimeout(this._debounce);this._debounce=setTimeout(()=>{/**
-           * @event filter-changed
-           * Fired when filter changed
-           * detail payload: filter
-           */let customEvent=new Event("filter-changed",{composed:!0,bubbles:!0});customEvent.detail=filter;console.log(JSON.stringify(filter));this.dispatchEvent(customEvent)},16)}else{/**
-         * @event filter-cleared
-         * Fired when filter is empty
-         * detail payload: none
-         */let customEvent=new Event("filter-cleared",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}},!0)}_appendAnd(node,filterArray){let andFilter=filterArray;for(let index=0,el;index<node.children.length;index++){el=node.children[index];if("FURO-FILTER-FIELD"===el.tagName){if(el._value){let f=[el._field,el._is,el._value];if(index+1<node.children.length){f.push([])}andFilter.push(f);andFilter=f[3]}}else{if("FURO-FILTER-AND"===el.tagName){// append to index3
-this._appendAnd(el,andFilter)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,andFilter)}}}}_appendOr(node,filterArray){for(let index=0,el;index<node.children.length;index++){el=node.children[index];if("FURO-FILTER-FIELD"===el.tagName){if(el._value){let f=[el._field,el._is,el._value];// oder reinpushen
-filterArray.push(f)}}else{let sub=[];filterArray.push(sub);if("FURO-FILTER-AND"===el.tagName){// append to index3
-this._appendAnd(el,sub)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,sub)}}}}_scanfilterFields(node,filterArray){for(let index in node.children){let el=node.children[index];if("FURO-FILTER-AND"===el.tagName){// append to index3
-this._appendAnd(el,filterArray)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,filterArray)}}}}window.customElements.define("furo-filter-container",FuroFilterContainer);class FuroFilterField extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{is:{type:String},field:{type:String},value:{type:String}}}set is(val){this._is=val;this._notifyChanges()}set field(val){this._field=val;this._notifyChanges()}set value(val){this._value=val;this._notifyChanges()}_notifyChanges(){if(this._field&&this._value!==void 0&&this._is){/**
-       * @event furo-filter-changed
-       * Fired when something changed
-       * detail payload:
-       */let customEvent=new Event("furo-filter-field-changed",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}}/**
-     *
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return _furoShell.css`
-        :host {
-            display: none;
-        }
-    `}}window.customElements.define("furo-filter-field",FuroFilterField);class RelExists extends _furoShell.LitElement{constructor(){super()}/**
-     * Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
-     *
-     * inject returns true for existing links and false for non existing links.
-     *
-     * @param linkArray
-     * @return {boolean}
-     */inject(linkArray){let links=linkArray.filter(link=>{if(this.type){return link.rel===this.rel&&link.type===this.type}return link.rel===this.rel});if(0<links.length){/**
-       * @event rel-exists
-       * Fired when rel exists in linkArray
-       * detail payload: {Object} Hateoas Link
-       */let customEvent=new Event("rel-exists",{composed:!0,bubbles:!0});customEvent.detail=links[0];this.dispatchEvent(customEvent);return!0}/**
-       * @event rel-dont-exist
-       * Fired when rel does not exists in linkArray
-       * detail payload: void
-       */let customEvent=new Event("rel-dont-exist",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent);return!1}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Name of the rel
-       */rel:{type:String},/**
-       * define the type if you want a specific check on the type also
-       */type:{type:String}}}attributeChangedCallback(name,old,value){switch(name){case"rel":this.rel=value;break;case"type":this.type=value;break;}}}window.customElements.define("rel-exists",RelExists);const Services={tasks:{general:{name:"tasks",description:"Task Services",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"}},services:{Create:{description:"creates a new contract composite",data:{request:"vnd.com.acme.task",response:"vnd.com.acme.task"},query:[],deeplink:{rel:"create",method:"POST",href:"/api/v1/tasks"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},List:{description:"The List method takes a collection name and zero or more parameters as input, and returns a list of resources (response type definition) that match the input.",data:{request:null,response:"vnd.com.acme.task"},query:{parameters:{opt:{description:"Option des Taskes",value:"",type:"string"}}},deeplink:{rel:"list",method:"GET",href:"./api/v1/tasks/list.json"},options:{filter:{enabled:!0,fields:["taskId","title"]},sort:{enabled:!0,fields:["taskId","title"]},pagination:{enabled:!0,default:19,max:42}},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},Update:{description:"The Update method takes a Body.",data:{request:"vnd.com.acme.task",response:"vnd.com.acme.task"},query:[],deeplink:{rel:"update",method:"PATCH",href:"./api/v1/tasks/{vtr}.json"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},Get:{description:"The Get method takes a resource name, zero or more parameters, and returns the specified resource (response type definition).",data:{request:null,response:"vnd.com.acme.task"},query:[],deeplink:{rel:"self",method:"GET",href:"./api/v1/tasks/{vtr}.json"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},Release:{description:"Releases the pending contract",data:{request:null,response:"vnd.com.acme.task"},query:[],deeplink:{rel:"release",method:"POST",href:"/api/v1/tasks/{vtr}:release"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}}}},tasksDeprecated:{general:{name:"tasks",description:"Task Services",version:"1.0.0",lifecycle:{deprecated:!0,info:"Please change to service tasks until Q3-2033"}},services:{Create:{description:"creates a new contract composite",data:{request:"vnd.com.acme.task",response:"vnd.com.acme.task"},query:[],deeplink:{rel:"create",method:"POST",href:"/api/v1/tasks"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},List:{description:"The List method takes a collection name and zero or more parameters as input, and returns a list of resources (response type definition) that match the input.",data:{request:null,response:"vnd.com.acme.task"},query:{parameters:{opt:{description:"Option des Taskes",value:"",type:"string"}}},deeplink:{rel:"list",method:"GET",href:"./api/v1/tasks/list.json"},options:{filter:{enabled:!0,fields:["taskId","title"]},sort:{enabled:!0,fields:["taskId","title"]},pagination:{enabled:!0,default:19,max:42}},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},Update:{description:"The Update method takes a Body.",data:{request:"vnd.com.acme.task",response:"vnd.com.acme.task"},query:[],deeplink:{rel:"update",method:"PATCH",href:"./api/v1/tasks/{vtr}.json"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},Get:{description:"The Get method takes a resource name, zero or more parameters, and returns the specified resource (response type definition).",data:{request:null,response:"vnd.com.acme.task"},query:[],deeplink:{rel:"self",method:"GET",href:"./api/v1/tasks/{vtr}.json"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}},Release:{description:"Releases the pending contract",data:{request:null,response:"vnd.com.acme.task"},query:[],deeplink:{rel:"release",method:"POST",href:"/api/v1/tasks/{vtr}:release"},caching:{"no-cache":!1,private:!0,"max-age":10,Expires:10,ETag:!0}}}}};_exports.Services=Services;const Types={"vnd.acme.zeitunddatum":{description:"Task komposit",type:"vnd.acme.zeitunddatum",fields:{date:{description:"Beschreibung",type:"date",meta:{default:"",hint:"",label:"Datum"},constraints:{min:{value:"today",message:"max 129"},max:{value:"eom"},mandatory:{value:!1},readonly:{value:!1}},options:{},toString:{fields:["taskNummer"],fmt:"%1"}},repstring:{description:"repstring",type:"string",meta:{repeated:!0,default:"repeat in repeat"}},time:{description:"Beschreibung",type:"time",meta:{label:"Zeit",default:"",hint:""},constraints:{mandatory:{value:!1},readonly:{value:!1}},options:{},toString:{fields:["taskNummer"],fmt:"%1"}},anytype:{description:"kann alles sein, kommt als JSON",type:"any",meta:{default:{"@type":"vnd.com.acme.reference",display_name:"Any default ref",id:3223}}},keyvaluetype:{description:"key value map",type:"map<string, string>",meta:{default:{error:"invalid username",message:"invalid username"}}}}},"vnd.com.acme.reference":{name:"Reference",type:"vnd.com.acme.reference",description:"reference",fields:{display_name:{description:"String representation of the reference",type:"string",__proto:{number:1}},id:{description:"Value of the reference",type:"string",__proto:{number:2}},rel:{description:"the relationship",type:"string",__proto:{number:3}},method:{description:"method of curl GET, POST, PUT, PATCH, DELETE",type:"string",__proto:{number:4}},href:{description:"link",type:"string",__proto:{number:5}},type:{description:"mime type",type:"string",__proto:{number:6}}}},"vnd.com.acme.task":{name:"Task",type:"vnd.com.acme.task",mime:"application/vnd.com.acme.task+json",description:"Task komposit",fields:{ref:{description:"ref",type:"vnd.com.acme.reference",meta:{label:"REFsrch",default:{display_name:"Hampel",id:"0003",href:"./api/v1/tasks/list.json",rel:"list",method:"get",type:"vnd.com.acme.task"},hint:""}},id:{description:"ulid des Taskes",type:"int",meta:{label:"Task ID",default:443343,hint:""},constraints:{min:{value:3,message:"max 129"},max:{value:129},mandatory:{value:!1},readonly:{value:!1}}},display_name:{description:"Nummer des Taskes",type:"string",meta:{label:"TITEL",default:"Tit",hint:"dsfdfs",readonly:!0},constraints:{min:{value:3,message:"Drei Zeichen sind zwingend"},max:{value:9,message:"Neun Zeichen sind genug"},mandatory:{value:!1},readonly:{value:!1}},options:{},toString:{fields:["taskNummer"],fmt:"%1"}},description:{description:"Beschreibung",type:"string",meta:{label:"Beschreibung",default:"",hint:"short text"},constraints:{min:{value:3,message:"max 129"},max:{value:129},mandatory:{value:!1},readonly:{value:!1}},options:{},toString:{fields:["taskNummer"],fmt:"%1"}},descrWithDefault:{description:"To test default values",type:"string",meta:{label:"Beschreibung",default:"YES",hint:"short text"},constraints:{min:{value:3,message:"max 129"},max:{value:129},mandatory:{value:!1},readonly:{value:!1}},options:{},toString:{fields:["taskNummer"],fmt:"%1"}},repdate:{type:"vnd.acme.zeitunddatum",meta:{repeated:!0,default:{date:"2019-12-12",time:"11:44"}}},repstring:{type:"string",meta:{repeated:!0,initialValue:["aaaa","bbbbb","ccc"]},constraints:{min:{value:3,message:"Kleinster wert ist 3"},max:{value:9}}},zeitunddatum:{type:"vnd.acme.zeitunddatum"},produktId:{name:"produktId",description:"ProduktId des Taskes",type:"int",meta:{label:"Produktid",default:"",hint:"Wert zwischen 3 und 9"},constraints:{min:{value:3,message:"Kleinster wert ist 3"},max:{value:9},mandatory:{value:!1},readonly:{value:!1}},options:[],toString:{fields:["produktId"],fmt:"%1"}}}}};_exports.Types=Types;var apiConfig={Services:Services,Types:Types};// -- initialize application env, theme, api
-_exports.$apiConfig=apiConfig;_furoShell.Init.registerApiServices(Services);_furoShell.Init.registerApiTypes(Types);class SampleFuroDataTextInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-data-bool-icon",DemoFuroDataBoolIcon);class SampleFuroDataTextInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -3324,7 +3612,7 @@ return _furoShell.html`
       <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the entity-object specs.</p>
       <furo-demo-snippet >
         <template>
-          <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+          <furo-data-object type="vnd.com.acme.task" @-object-ready="--entity"></furo-data-object>
           <furo-data-text-input trailing-icon="dashboard" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
           <furo-data-text-input leading-icon="dashboard" float label="Always float" hint="Always float" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
           <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textChanged"></furo-data-text-input>
@@ -3362,7 +3650,7 @@ return _furoShell.html`
         </div>
         <furo-demo-snippet flex>
           <template>
-            <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+            <entity-object type="task.Task" @-object-ready="--entity"></entity-object>
             <furo-horizontal-flex>
               <furo-data-date-input autofocus ƒ-bind-data="--entity(*.fields.id)"
                                       hint="Hint should come from spec and overflows"></furo-data-date-input>
@@ -3405,7 +3693,7 @@ return _furoShell.html`
       <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the entity-object specs.</p>
       <furo-demo-snippet >
         <template>
-          <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+          <entity-object type="project.Project" @-object-ready="--entity"></entity-object>
           <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.fields.description)"></furo-data-textarea-input>
           <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textareaChanged"></furo-data-textarea-input>
           <!-- --textareaChanged only comes when data was typed in. -->
@@ -3538,7 +3826,60 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-time-input",DemoFuroDataTimeInput);class SampleFuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-data-time-input",DemoFuroDataTimeInput);class DemoFuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+                height: 100%;
+                padding-right: var(--spacing);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <h2>Demo furo-data-checkbox-input</h2>
+            <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+                The labels, hints, defaults are comming from the entity-object specs.</p>
+            <furo-demo-snippet>
+                <template>
+                    <furo-data-checkbox-input trailing-icon="dashboard"
+                                              ƒ-bind-data="--entity(*.fields.open)"></furo-data-checkbox-input>
+                    <furo-data-checkbox-input leading-icon="dashboard" label="disabled" hint="disabled hint"
+                                              disabled=true
+                                              ƒ-bind-data="--entity(*.fields.open)"></furo-data-checkbox-input>
+                    <furo-horizontal-flex space>
+
+                        <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                  @-value-changed="--checkChanged"
+                                                  hint="the checked value will be sent to text input"></furo-data-checkbox-input>
+
+                        <furo-text-input condensed label="wire the checkbox" ƒ-set-value="--checkChanged"></furo-text-input>
+                        <furo-button style="margin-top:18px" @-click='--qpIn' label="load test data"  raised></furo-button>
+                    </furo-horizontal-flex>
+
+
+                    <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+                                      ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                    <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-trigger="--qpIn" qp='{"exp": 1}'></furo-deep-link>
+                    <furo-entity-agent service="ExperimentService"
+                                  ƒ-hts-in="--hts"
+                                  ƒ-load="--hts"
+                                  ƒ-bind-request-data="--entity"
+                                  @-response="--response">
+                    </furo-entity-agent>
+                </template>
+            </furo-demo-snippet>
+        `}}window.customElements.define("demo-furo-data-checkbox-input",DemoFuroDataCheckboxInput);class SampleFuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -3570,18 +3911,224 @@ return _furoShell.html`
           <furo-data-collection-dropdown condensed label="Label" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-data="--collection" ƒ-bind-data="--entity(*.fields.description)"></furo-data-collection-dropdown>
         </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("sample-furo-data-collection-dropdown",SampleFuroDataCollectionDropdown);/**
-                                                                                                         *
-                                                                                                         * `furo-head-tail`
-                                                                                                         *  Splits an iterable (i.e. Array) in its head and tail part.
-                                                                                                         *
-                                                                                                         *```
-                                                                                                         *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
-                                                                                                         *```
-                                                                                                         *
-                                                                                                         * @summary split an array
-                                                                                                         * @customElement
-                                                                                                         */class FuroHeadTail extends HTMLElement{/**
+    `}}window.customElements.define("sample-furo-data-collection-dropdown",SampleFuroDataCollectionDropdown);const tableHeaders=fields=>_furoShell.html`${fields.map(f=>_furoShell.html`<th class="head"><div class="cell">${f.meta.label}</div></th>`)}`,tableDetails=fields=>_furoShell.html`${fields.map(f=>_furoShell.html`<td><div class="cell" ƒ-.inner-text="${f.name}"></div></td>`)}`;/**
+                                                                                                                             * `furo-data-table`
+                                                                                                                             * Read only data table based on the response type from the rest api spec.
+                                                                                                                             *
+                                                                                                                             * ```
+                                                                                                                             * <furo-data-table type="project.Project"
+                                                                                                                             *                  ƒ-bind-data="--data"></furo-data-table>
+                                                                                                                             * ```
+                                                                                                                             *
+                                                                                                                             * Custom property | Description | Default  | Fallback
+                                                                                                                             * ----------------|-------------|----------|----------
+                                                                                                                             * `--furo-data-table-background` | Background color of the element | --background | white
+                                                                                                                             * `--furo-data-table-select-color` | Background color of the focused table row element | --accent-light | lightgrey
+                                                                                                                             *
+                                                                                                                             * Configuration:
+                                                                                                                             * Attribute: hide-header | hides the table header row
+                                                                                                                             *
+                                                                                                                             * Tags: data-ui
+                                                                                                                             *
+                                                                                                                             * @summary datatable
+                                                                                                                             * @demo demo-furo-data-table Simple data table demo
+                                                                                                                             * @customElement
+                                                                                                                             * @mixes FBP
+                                                                                                                             */class FuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Fired when a table row has been selected.
+   * Payload: Entity
+   * @event tablerow-selected
+   */ /**
+       * Fired when inject data has successfully finished.
+       * Payload: this
+       * @event data-loaded
+       */ /**
+           * Fired when context menu is requested
+           * Payload: entity
+           * @event contextmenu-requested
+           */ /**
+               * Fired when a key was pressed
+               * Payload: KeyboardEvent
+               * @event key-pressed
+               */ /**
+                   * Fired when a row is checked or unchecked
+                   * Payload: Array of raw Entities
+                   * @event checkstate-changed
+                   */constructor(){super();this._specs=_furoShell.Env.api.specs;this.type="";this.cols=[];this._selectedIndex=-1;this.hideHeader=!1;this._checkedRows=[];this._collection=[];this._FBPAddWireHook("--rowCheckChanged",r=>{if("INPUT"===r.composedPath()[0].nodeName){if(r.composedPath()[0].checked){this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex])}else{this._checkedRows.pop(this._collection.rawEntity.entities[this._selectedIndex])}}this.dispatchEvent(new CustomEvent("checkstate-changed",{detail:this._checkedRows,bubbles:!0,composed:!0}))})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+this._FBPAddWireHook("--entity",w=>{console.log(w)})}static get properties(){return{/**
+       * Typedefinition of incoming collection items
+       * REST SPEC Type
+       * e.g. vnd.com.abc.[type]
+       */type:{type:String,attribute:"type"},/**
+       * Flag to show table header information
+       * TRUE => shows header
+       */hideHeader:{type:Boolean,attribute:"hide-header"}}}/**
+     * Theme data or default style
+     * @returns {*|CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+
+            :host {
+                display: block;
+                height: 100%;
+                background-color: var(--furo-data-table-background, var(--background, white));
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+            :host([hide-header]) thead {
+                display: none;
+            }
+
+            table {
+                table-layout: fixed;
+                display: block;
+                width: 0;
+                border-spacing: 0;
+                padding: 0;
+                margin-bottom: var(--spacing, 8px);
+            }
+
+            th {
+                color: var(--primary, #035CA1);
+                white-space: nowrap;
+                font-weight: 400;
+                padding-left: 0;
+                -webkit-font-smoothing: antialiased;
+                text-align: left;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                font-size: 10px;
+            }
+
+            tr {
+                outline: none;
+                line-height: 40px;
+                position: relative;
+            }
+
+            tbody tr:hover {
+                box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+                z-index: 1;
+            }
+
+            .cell {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 12px;
+                margin-right: var(--spacing, 12px);
+            }
+
+            .fx {
+                display: block;
+                width: var(--spacing, 12px);
+                padding-right: var(--spacing, 12px);
+                padding-left: var(--spacing, 12px);
+                outline: none;
+            }
+
+            tbody tr[selected=true] {
+                background-color: var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey));
+                color: var(--furo-data-table-select-color, var(--on-accent, black));
+            }
+
+            input[type=checkbox] {
+                opacity: .48;
+            }
+
+            *[hidden] {
+                display: none;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+        `}set type(type){if(this._type){this._checkType(type)}this._type=type}/**
+     * SPEC Type checker
+     * Builds the column Array for the inner template
+     * @param type
+     * @private
+     */_checkType(type){if(this._specs[type]===void 0){/**
+       * @event spec-error
+       * Fired when spec could not be loaded
+       * detail payload: {string} spec name
+       */let customEvent=new Event("spec-error",{composed:!0,bubbles:!0});customEvent.detail=type;setTimeout(()=>{this.dispatchEvent(customEvent);console.warn("spec-error: Could not find specification of type: "+type)},0)}for(const key in this._specs[this._type].fields){//optional check for properties from prototype chain
+if(this._specs[this._type].fields.hasOwnProperty(key)){let field={};if(this._specs[this._specs[this._type].fields[key].type]===void 0){field.name="--entity(*.fields."+key+")"}else{// append .display_name if the field type is a registered  type in data_environment
+field.name="--entity(*.fields."+key+".display_name)"}field.meta=this._specs[this._type].fields[key].meta||{};/**
+                                                                      * Internationalisation if possible
+                                                                      * @type {*|{}}
+                                                                      */field.meta.label=_furoShell.i18n.t(field.meta.label);field.contraints=this._specs[this._type].fields[key].contraints||{};field.id=key;this.cols.push(field)}}this.requestUpdate()}/**
+     * Event listening and type check
+     * @private
+     * @param changedProps
+     */firstUpdated(changedProps){super.firstUpdated(changedProps);// queueing
+if(this._type){this._checkType(this._type)}this.shadowRoot.querySelector("tbody").onclick=e=>{this._selectRow(e)};this.shadowRoot.querySelector("tbody").onkeydown=e=>{this._navigate(e)};this.shadowRoot.querySelector("tbody").onkeypress=e=>{this.dispatchEvent(new CustomEvent("key-pressed",{detail:e,bubbles:!1,composed:!0}))};this.shadowRoot.querySelector("tbody").oncontextmenu=e=>{e.preventDefault();this.dispatchEvent(new CustomEvent("contextmenu-requested",{detail:this._collection.rawEntity.entities[e.target.parentElement.rowIndex],bubbles:!1,composed:!0}))}}/**
+     * Triggers wire name --focus for internal use
+     */focus(){this._selectRowByIndex(0);this._FBPTriggerWire("--focus")}/**
+     * Binds collection-object to data-table
+     * @param {CollectionNode} collectionNode
+     */bindData(collectionNode){this._collection=collectionNode;/**
+                                        * new data arrived from CollectionNode
+                                        */this._collection.addEventListener("data-injected",data=>{this._FBPTriggerWire("--collectionData",data.detail._rawEntity.entities)});this.dispatchEvent(new CustomEvent("data-loaded",{detail:this,bubbles:!0,composed:!0}))}/**
+     * Template rendering
+     * @private
+     * @returns {TemplateResult|TemplateResult}
+     */render(){//language=HTML
+return _furoShell.html`
+        <div class="table-container">
+            <table @-input="--rowCheckChanged(*)">
+                <thead>
+                    <tr>
+                        <th class="fx"></th>
+                        ${tableHeaders(this.cols)}
+                    </tr>
+                </thead>
+                <tbody>
+                    <template is="flow-repeat" ƒ-inject-items="--collectionData()" internal-wire="--internal">
+                        <tr tabindex="0" ƒ-focus="--entity" draggable="true">
+                            <td class="fx">
+                                <div><input type="checkbox"></div>
+                            </td>
+                            ${tableDetails(this.cols)}
+                            <span hidden></span>
+                            <furo-data-object type="${this._type}" 
+                                          ƒ-inject-raw="--internal(*.item)"
+                                          @-object-ready="--entity"></furo-data-object>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>`}/**
+     * Handles key navigation
+     * @param e
+     * @private
+     */_navigate(e){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");switch(e.key){case"ArrowUp":if(0<=this._selectedIndex){this._selectRowByIndex(this._selectedIndex-1)}break;case"ArrowDown":if(allTr.length>this._selectedIndex){this._selectRowByIndex(this._selectedIndex+1)}break;case"Enter":this.dispatchEvent(new CustomEvent("tablerow-selected",{detail:this._collection.rawEntity.entities[this._selectedIndex],bubbles:!0,composed:!0}));break;}}/**
+     * Handles table row select
+     * @private
+     * @param e
+     */_selectRow(e){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr"),len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}if(0<=e.target.parentElement.parentNode.rowIndex){e.target.parentElement.parentNode.setAttribute("selected",!0);this._selectedIndex=e.target.parentElement.parentNode.rowIndex-1;if("click"===e.type){this.dispatchEvent(new CustomEvent("tablerow-selected",{detail:this._collection.rawEntity.entities[this._selectedIndex],bubbles:!0,composed:!0}))}}else if("INPUT"===e.target.nodeName&&0<=e.target.parentNode.parentElement.parentElement.rowIndex){this._selectedIndex=e.target.parentNode.parentElement.parentElement.rowIndex-1}}/**
+     * Comfort function to select a specific table row
+     * by index
+     * @param idx
+     * @private
+     */_selectRowByIndex(idx){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");if(0<=idx&&1<allTr.length&&idx<allTr.length){let len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}allTr[idx].setAttribute("selected",!0);this._selectedIndex=idx}}}window.customElements.define("furo-data-table",FuroDataTable);/**
+                                                                 *
+                                                                 * `furo-head-tail`
+                                                                 *  Splits an iterable (i.e. Array) in its head and tail part.
+                                                                 *
+                                                                 *```
+                                                                 *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
+                                                                 *```
+                                                                 *
+                                                                 * @summary split an array
+                                                                 * @customElement
+                                                                 */class FuroHeadTail extends HTMLElement{/**
    * Splits an iterable to its head (first item) and its tail (the rest) parts.
    *
    * ```
@@ -3642,7 +4189,82 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      */injectData(json){if(json){this.markedText=JSON.stringify(json,null,2);this.markedText=this._syntaxHighlight(this.markedText);this.shadowRoot.querySelector("#content").innerHTML=this.markedText}}_syntaxHighlight(json){if("string"!=typeof json){json=JSON.stringify(json,void 0,2)}json=json.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,function(match){var cls="number";if(/^"/.test(match)){if(/:$/.test(match)){cls="key"}else{cls="string"}}else if(/true|false/.test(match)){cls="boolean"}else if(/null/.test(match)){cls="null"}return"<span class=\""+cls+"\">"+match+"</span>"})}render(){// language=HTML
 return _furoShell.html`
             <pre id="content"></pre>
-        `}}window.customElements.define("furo-pretty-json",FuroPrettyJson);class DemoFuroMarkdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+        `}}window.customElements.define("furo-pretty-json",FuroPrettyJson);class FuroKeyFilter extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Check the event and dispatch matched when the conditions are fulfilled.
+     *
+     * @param keyboardEvent
+     */filter(keyboardEvent){let key=keyboardEvent.key||keyboardEvent.keyCode;// check shift, alt, command,...
+if(this.shift&&!keyboardEvent.shiftKey){return}if(this.alt&&!keyboardEvent.altKey){return}if((this.meta||this.command)&&!keyboardEvent.metaKey){return}if(this.control&&!keyboardEvent.controlKey){return}if(-1!==this.keys.split(/\W+/).indexOf(key)){/**
+      * @event matched
+      * Fired when key matches the options
+      * detail payload: keyboardEvent
+      */let customEvent=new Event("matched",{composed:!0,bubbles:!0});customEvent.detail=keyboardEvent;this.dispatchEvent(customEvent)}}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Coma separated list with allowed keys to pass. i.e "Enter, ArrowUp"
+       */keys:{type:String},/**
+       * Modifier key **shift** must be pressed too to match
+       */shift:{type:Boolean},/**
+       * Modifier key **alt** must be pressed too to match
+       */alt:{type:Boolean},/**
+       * Alias for meta.
+       *
+       * Modifier key **meta** must be pressed too to match.
+       */command:{type:Boolean},/**
+       * Modifier key **meta** must be pressed too to match
+       */meta:{type:Boolean},/**
+       * Modifier key **control** must be pressed too to match
+       */control:{type:Boolean// stopPropagation, disableDefault??
+}}}}window.customElements.define("furo-key-filter",FuroKeyFilter);class DemoFuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
+            :host {
+                display: block;
+                height: 100%;
+                padding-right: var(--spacing);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+        `,_furoShell.Styling.theme]}constructor(){super()}_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <furo-vertical-flex>
+                <div>
+                    <h2>furo-data-table playground</h2>
+                    <furo-button label="List data" primary unelevated @-click="--btnListClicked">
+                </div>
+                <div class="flex">
+                    <furo-data-table type="project.Project" 
+                                     ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>
+                   
+                </div>
+                <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
+            </furo-vertical-flex>
+
+            <furo-deep-link ƒ-trigger="--btnListClicked" service="ProjectService" @-hts-out="--hts"></furo-deep-link>
+            <furo-collection-agent service="ProjectService"
+                              ƒ-hts-in="--hts"
+                              list-on-hts-in
+                              @-response-hts-updated="--responseHts"
+                              @-response="--collectionResponse">
+            </furo-collection-agent>
+
+            <furo-data-object type="project.ProjectCollection"
+                               ƒ-inject-raw="--collectionResponse"
+                               @-object-ready="--data">
+            </furo-data-object>
+
+        `}}window.customElements.define("demo-furo-data-table",DemoFuroDataTable);class DemoFuroMarkdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -3679,7 +4301,7 @@ return _furoShell.html`
           <furo-markdown unsafe mdsrc="/_page/markdown/demo.md"></furo-markdown>
         </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("demo-furo-markdown",DemoFuroMarkdown);class ProduceData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.data={data:{panel:"view",root:{id:1,display_name:"root",description:"root",icon:"mail",open:!0,link:{rel:"self",method:"GET",href:"./api/v1/tasks/12.json",type:"vnd.com.acme.task"},children:[{id:2,display_name:"A",description:"first with veery big title sub",link:{rel:"self",method:"GET",href:"./api/v1/tasks/A.json",type:"vnd.com.acme.task"},children:[{id:3,display_name:"C",description:"sub sirst with veery big titleub",link:{rel:"self",method:"GET",href:"./api/v1/tasks/c4.json",type:"vnd.com.acme.task"},children:[]}]},{id:4,display_name:"B",description:"second sirst with veery big titleub",open:!0,link:{rel:"self",method:"GET",href:"./api/v1/tasks/12.json",type:"vnd.com.acme.task-b"},children:[{id:5,display_name:"D",description:"sub suirst with veery big titleb",link:{rel:"self",method:"GET",href:"./api/v1/tasks/12.json",type:"vnd.com.acme.task"},children:[{id:6,display_name:"E",description:"sub suirst with veery big titleb",link:{rel:"self",method:"GET",href:"./api/v1/tasks/12.json",type:"vnd.com.acme.task"},children:[{id:7,display_name:"E",description:"sub sub",link:{rel:"self",method:"GET",href:"./api/v1/tasks/12.json",type:"vnd.com.acme.task"},children:[{id:8,display_name:"E",description:"sub sub",link:{rel:"self",method:"GET",href:"./api/v1/tasks/12.json",type:"vnd.com.acme.task"},children:[{id:455,display_name:"E",description:"Berlin",children:[]}]}]}]}]},{id:234,display_name:"E",description:"sub unknown type",link:{rel:"self",method:"GET",href:"./api/v1/tasks/12.json",type:"vnd.com.acme.unknown"},children:[]}]}]}}};this.addEventListener("click",this.produce)}_FBPReady(){super._FBPReady();if(this.auto){this.produce()}}/**
+    `}}window.customElements.define("demo-furo-markdown",DemoFuroMarkdown);class ProduceData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",this.produce)}_FBPReady(){super._FBPReady();if(this.auto){this.produce()}}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -3688,7 +4310,7 @@ return _furoShell.html`
      * @event data
      * Fired when
      * detail payload:
-     */let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this.data;this.dispatchEvent(customEvent)}/**
+     */return fetch("/mockdata/trees/1/testdata.json").then(res=>res.json()).then(data=>{this.data=data;let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this.data;this.dispatchEvent(customEvent)})}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -3898,7 +4520,7 @@ if(!this._hoveredField.isBranch()&&this._hoveredField.open.value){this._hoveredF
 if(!this._hoveredField.isBranch()&&!this._hoveredField.open.value){this._hoveredField.toggleOpenClose()}else{this._hoverNext()}break;case"Escape":if(this._searchIsActive){event.stopPropagation();this._resetSearch()}break;case"Backspace":this._removeLastSymbofFromSearch();break;}});// keyboard navigation on top node only
 this.addEventListener("keypress",event=>{let key=event.key||event.keyCode;if("Enter"===key){return}if(!event.ctrlKey){event.preventDefault();this._addSymbolToSearch(key)}else{switch(key){// expand recursive with ctrl-e
 case"e":event.preventDefault();this._hoveredField.expandRecursive();break;}}})}_removeLastSymbofFromSearch(){this._searchTerm=this._searchTerm.substr(0,this._searchTerm.length-1);if(0===this._searchTerm.length){this._resetSearch()}else{this.searchOpenTree(this._searchTerm)}}_addSymbolToSearch(key){this._searchTerm+=key;this.searchOpenTree(this._searchTerm)}searchOpenTree(){this._searchIsActive=!0;let d={term:this._searchTerm,results:[]};this._foundSearchItems=d.results;this._FBPTriggerWire("--searchRequested",d);// select first result
-if(0<d.results.length){d.results[0].triggerHover()}this._updateSearchmatchAttributesOnItems();this.requestUpdate()}_resetSearch(){this._searchIsActive=!1;this._searchTerm="";this._foundSearchItems=[];this._updateSearchmatchAttributesOnItems()}_updateSearchmatchAttributesOnItems(){this._rootNode.broadcastEvent(new NodeEvent("search-didnt-match",this._rootNode,!0));this._foundSearchItems.map(node=>{node.dispatchNodeEvent(new NodeEvent("search-matched",this._rootNode,!1))})}_hoverHome(){let parent=this._hoveredField.getParentElement();if(parent){parent.triggerHover()}}/**
+if(0<d.results.length){d.results[0].triggerHover()}this._updateSearchmatchAttributesOnItems();this.requestUpdate()}_resetSearch(){this._searchIsActive=!1;this._searchTerm="";this._foundSearchItems=[];this._updateSearchmatchAttributesOnItems()}_updateSearchmatchAttributesOnItems(){this._rootNode.broadcastEvent(new NodeEvent("search-didnt-match",this._rootNode,!0));this._foundSearchItems.map(node=>{node.dispatchNodeEvent(new NodeEvent("search-matched",this._rootNode,!1))})}_hoverHome(){let parent=this._hoveredField.getParentElement();if("FURO-TREE"!==parent.nodeName){parent.triggerHover()}}/**
      * hovers the previous item
      */_hoverPrevious(){let prev;if(this._searchIsActive){for(let i=0;i<this._foundSearchItems.length;i++){if(this._foundSearchItems[i].__flatTreeIndex>=this._hoveredField.__flatTreeIndex){prev=this._foundSearchItems[i-1];break}}// select last
 if(!prev){prev=this._foundSearchItems[this._foundSearchItems.length-1]}}else{prev=this._hoveredField.getPrevElement()}if(prev){prev.triggerHover()}}/**
@@ -3910,7 +4532,7 @@ this._hoveredField.selectItem()}/**
      * expands the currently selected node recursive
      */collapseNodeRecursive(){this._selectedField.collapseRecursive()}/**
      * toggles the currently selected node
-     */toggle(){this._selectedField.toggleOpenClose()}addSubNode(rawNode){let newnode=this._selectedField.children.add();newnode.value=rawNode;this._buildFlatTree(this._rootNode);setTimeout(()=>{newnode.selectItem()},10)}deleteNode(){this._selectedField.__parentNode.deleteChild(this._selectedField.__index);this._buildFlatTree(this._rootNode)}/**
+     */toggle(){this._selectedField.toggleOpenClose()}addSubNode(rawNode){let newnode=this._selectedField.children.add();newnode.value=rawNode;setTimeout(()=>{newnode.selectItem()},60)}deleteNode(){this._selectedField.__parentNode.deleteChild(this._selectedField.__index);this._buildFlatTree(this._rootNode)}/**
      * select the next visible item
      */selectNext(){this._hoveredField=this._selectedField||this._hoveredField;this._hoverNext();// open the hovered field
 this._hoveredField.selectItem()}/**
@@ -3929,7 +4551,8 @@ if(!next){next=this._foundSearchItems[0]}}else{next=this._hoveredField.getNextVi
      * focuses the element
      */focus(){super.focus()}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady()}/**
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -4022,7 +4645,7 @@ return _furoShell.html`
     <div class="srch">🔍 ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested">
+        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id.value">
           <tr>
             <td>
               ${this._treeItemTepmplate}
@@ -4031,7 +4654,7 @@ return _furoShell.html`
         </template>
       </table>
       </div>
-    `}bindData(treeNode){if(treeNode.fields===void 0){return}this._tree=treeNode.fields;this._rootNode=this._tree.root;treeNode.addEventListener("data-injected",e=>{this._init()});this._init()}_init(){this._buildFlatTree(this._rootNode);// set visible on root node
+    `}bindData(treeNode){if(treeNode.root===void 0){return}this._rootNode=treeNode.root;treeNode.addEventListener("repeated-fields-changed",e=>{this._init()});this._init()}_init(){this._buildFlatTree(this._rootNode);// set visible on root node
 this._rootNode.children.broadcastEvent(new NodeEvent("ancestor-visible",this._rootNode));if(!this.__listenersInitialized){this._initHoverAndSelectEvents()}this.__listenersInitialized=!0;// initial hover on first element
 this._hoveredField=this._flatTree[0];setTimeout(()=>{this._hoveredField.triggerHover()},0)}_initHoverAndSelectEvents(){// Internal Event, when a node gets hovered
 this._rootNode.addEventListener("tree-node-hovered",e=>{// broadcast blur
@@ -4069,16 +4692,27 @@ node.getNextVisibleElement=()=>{for(let i=index+1;i<this._flatTree.length;i++){i
 node.getPrevElement=()=>{for(let i=index-1;0<=i;i--){if(!this._flatTree[i]._isHidden){return this._flatTree[i]}}return!1};// is branch
 node.isBranch=()=>{return 0===node.children.repeats.length};// get Parent
 node.getParentElement=()=>{return node.__parentNode.__parentNode};// add openclose method to treeNode
-node.toggleOpenClose=()=>{node.open.value=!node.open.value};// hovers the current node
+node.toggleOpenClose=()=>{node.open.value=!node.open.value;if(node.open.value){/**
+           * @event node-opened
+           * Fired when a node is opened
+           */let customEvent=new Event("node-opened",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)}else{/**
+           * @event node-closed
+           * Fired when a node is closed
+           */let customEvent=new Event("node-closed",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)}};// hovers the current node
 node.triggerHover=()=>{node.dispatchNodeEvent(new NodeEvent("tree-node-hovered",this,!0));node.dispatchNodeEvent(new NodeEvent("this-node-hovered",this,!1))};// selects the current item
 node.selectItem=()=>{node.dispatchNodeEvent(new NodeEvent("tree-node-selected",node,!0));node.dispatchNodeEvent(new NodeEvent("this-node-selected",node,!1));// used to open the paths upwards from the selected node
 node.__parentNode.dispatchNodeEvent(new NodeEvent("descendant-selected",this,!0));//node.triggerHover()
 };// if a descendant was selected, we ensure to open the path
 node.addEventListener("descendant-selected",e=>{node.open.value=!0});// expand recursive
-node.expandRecursive=()=>{node.broadcastEvent(new NodeEvent("recursive-expand-requested",node))};node.addEventListener("recursive-expand-requested",e=>{node.open.value=!0});// collapse recursive
-node.collapseRecursive=()=>{node.broadcastEvent(new NodeEvent("recursive-collapse-requested",node))};node.addEventListener("recursive-collapse-requested",e=>{node.open.value=!1})}// open the root ode
-tree.open.value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;level++;tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);const Types$1={"vnd.com.acme.tree":{name:"Tree",type:"vnd.com.acme.tree",mime:"application/vnd.com.acme.tree+json",description:"Tree komposit",fields:{id:{description:"id",type:"int"},display_name:{description:"Label",type:"string"},panel:{description:"Label",type:"string"},description:{description:"description",type:"string"},open:{description:"open close",type:"bool",meta:{default:!1}},root:{descripion:"The root node",type:"vnd.com.acme.treeitem"}}},"vnd.com.acme.treeitem":{name:"Tree",type:"vnd.com.acme.tree",mime:"application/vnd.com.acme.tree+json",description:"Tree komposit",fields:{id:{description:"id",type:"int"},display_name:{description:"Label",type:"string"},subtitle:{description:"Label",type:"string"},icon:{description:"Label",type:"string"},description:{description:"description",type:"string"},key_words:{description:"description",type:"string"},has_error:{description:"description",type:"bool"},link:{description:"self Link",type:"vnd.furo.link"},open:{description:"open close",type:"bool",meta:{default:!1}},children:{descripion:"Child nodes",type:"vnd.com.acme.treeitem",meta:{repeated:!0}}}},"vnd.furo.link":{name:"Link",type:"vnd.furo.link",mime:"application/vnd.furo.link+json",description:"link",fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}}}}};_exports.Types$1=Types$1;var apiConfig$1={Types:Types$1};// -- initialize application env, theme, api
-_exports.$apiConfig$1=apiConfig$1;_furoShell.Init.registerApiTypes(Types$1);class DemoFuroTree extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+node.expandRecursive=()=>{let event=new NodeEvent("recursive-expand-requested",node);node.broadcastEvent(event);/**
+                                     * @event nodes-expanded
+                                     * Fired when nodes are expanded recursive
+                                     */let customEvent=new Event("nodes-expanded",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-expand-requested",e=>{node.open.value=!0});// collapse recursive
+node.collapseRecursive=()=>{node.broadcastEvent(new NodeEvent("recursive-collapse-requested",node));/**
+                                                                                   * @event nodes-collapsed
+                                                                                   * Fired when nodes are collapsed recursive
+                                                                                   */let customEvent=new Event("nodes-collapsed",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-collapse-requested",e=>{node.open.value=!1})}// open the root ode
+tree.open.value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;level++;tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);class DemoFuroTree extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -4109,13 +4743,14 @@ return _furoShell.html`
               width: 100%
             }</style>
 
+            <produce-data  @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
-            <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
 
             <furo-split-view style="height: 500px;">
-              <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj"
+              <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
                          @-node-selected="--nodeSelected"
                          ƒ-select-next="--next"
                          ƒ-select-prev="--prev"
@@ -4134,7 +4769,7 @@ return _furoShell.html`
                                       ƒ-bind-data="--nodeSelected(*.display_name)"></furo-data-text-input>
                 <furo-data-collection-dropdown leading-icon="apps" ƒ-bind-data="--nodeSelected(*.icon)"
                                                label="Select icon"
-                                               list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon"
+                                               list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon, android, account-balance, apps, check-box-outline-blank, aspect-ratio, change-history"
                                                @-value-changed="--icon"></furo-data-collection-dropdown>
                 <furo-data-textarea-input label="Text"
                                           ƒ-bind-data="--nodeSelected(*.description)"></furo-data-textarea-input>
@@ -4149,7 +4784,7 @@ return _furoShell.html`
             </furo-split-view>
 
 
-            <produce-data auto @-data="--data"></produce-data>
+            
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

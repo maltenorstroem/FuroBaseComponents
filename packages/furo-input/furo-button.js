@@ -7,7 +7,13 @@ import  "@furo/layout/furo-icon";
 /**
  * `furo-button` displays a button.
  *
+ *  ```html
+ *  <!-- Label can be set with attribute -->
+ *  <furo-button label="Label"></furo-button>
  *
+ *  <!-- Label can be set inside tag -->
+ *  <furo-button>Label</furo-button>
+ *  ```
  * <sample-furo-button></sample-furo-button>
  *
  *
@@ -22,7 +28,7 @@ class FuroButton extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.label = "label not set";
+    this.label = this.innerText;
     this.disabled = false;
     this.danger = false;
   }
@@ -165,7 +171,7 @@ class FuroButton extends FBP(LitElement) {
             width: 100%;
             cursor: pointer;
             color: var(--on-surface);
-            padding: 0 16px;
+            padding: 0  var(--furo-button-padding, var(--spacing-s, 16px));;
             text-transform: uppercase;
             font-size: 14px;
             outline: none;

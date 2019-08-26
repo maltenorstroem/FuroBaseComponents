@@ -8,6 +8,21 @@ import  "@furo/layout/furo-icon";
  *
  *  <sample-furo-range-input></sample-furo-range-input>
  *
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--input-hint-color` | Color of hint text | #999999 | --
+ * `--input-label-color` | Color of label in field| `--disabled,` | #333333
+ * `--input-label-float-color` | Color of label when floating | `--on-surface` | #333333
+ * `--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5
+ * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
+ * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
+ * `--input-error-text-color` | Color of error text | `--error` | red
+ * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
+ * `--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red
+ *
  * @summary Range input field
  * @customElement
  * @polymer
@@ -177,6 +192,12 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean
+      },
+      /**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */
+      filled: {
+        type: Boolean
       }
     };
   }
@@ -265,9 +286,8 @@ class FuroRangeInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 190px;
         }
 
@@ -276,10 +296,12 @@ class FuroRangeInput extends FBP(LitElement) {
         }
 
         .wrapper {
-
+            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
             height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
@@ -382,7 +404,7 @@ class FuroRangeInput extends FBP(LitElement) {
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -416,7 +438,7 @@ class FuroRangeInput extends FBP(LitElement) {
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -511,15 +533,16 @@ class FuroRangeInput extends FBP(LitElement) {
 
         :host([condensed]) input {
             top: 8px;
+            font-size: 14px;
         }
 
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
             line-height: 36px;
+            font-size: 14px;
         }
-
-        
-        
-
+        :host([condensed][filled]) input{
+            font-size: 13px;
+        }
         :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
             height: 36px;
         }
@@ -529,7 +552,7 @@ class FuroRangeInput extends FBP(LitElement) {
         }
 
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label span {
@@ -542,12 +565,8 @@ class FuroRangeInput extends FBP(LitElement) {
             font-size: 10px;
         }
 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
-
         :host([condensed]) {
-            height: 53px;
+            height: 36px;
         }
 
     `
