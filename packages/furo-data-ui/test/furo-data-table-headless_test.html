@@ -42,7 +42,7 @@
 <script type="module">
 
 
-    import '@furo/data';
+
     import "@furo/fbp/testhelper/test-bind"; // for testing
     import "@furo/testhelper/initEnv.js";
     import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
@@ -82,10 +82,10 @@
 
             dataTable.addEventListener('spec-error', (e) => {
 
-                assert.equal(e.detail, "vnd.com.acme.invalid");
+                assert.equal(e.detail, "invalid.invalid");
                 done();
             });
-            dataTable.type = "vnd.com.acme.invalid";
+            dataTable.type = "invalid.invalid";
 
         });
 

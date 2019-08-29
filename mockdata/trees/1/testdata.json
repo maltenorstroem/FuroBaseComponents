@@ -1,10 +1,10 @@
 {
   "data":{
-  "id": "1",
+  "id": "2121",
   "display_name": "Project tree",
   "description": "Navigation tree",
   "root": {
-    "id": 1,
+    "id": "1",
     "display_name": "Home",
     "secondary_text": "Secondary node description",
     "description": "Description for home",
@@ -17,11 +17,11 @@
       "rel": "self",
       "method": "GET",
       "href": "./api/v1/tasks/12.json",
-      "type": "vnd.com.acme.task"
+      "type": "task.Task"
     },
     "children": [
       {
-        "id": 2,
+        "id": "2",
         "display_name": "A",
         "secondary_text": "Secondary node description",
         "description": "first with veery big title sub",
@@ -34,11 +34,11 @@
           "rel": "self",
           "method": "GET",
           "href": "./api/v1/tasks/A.json",
-          "type": "vnd.com.acme.task"
+          "type": "task.Task"
         },
         "children": [
           {
-            "id": 3,
+            "id": "3",
             "display_name": "C",
             "secondary_text": "Secondary node description",
             "description": "Fingerprint Studio",
@@ -51,12 +51,12 @@
               "rel": "self",
               "method": "GET",
               "href": "./api/v1/tasks/c4.json",
-              "type": "vnd.com.acme.task"
+              "type": "task.Task"
             },
             "children": []
           },
           {
-            "id": null,
+            "id": "4",
             "display_name": null,
             "secondary_text": null,
             "description": "Android Studo",
@@ -76,7 +76,7 @@
         ]
       },
       {
-        "id": 4,
+        "id": "4w",
         "display_name": "B",
         "secondary_text": "Secondary node description",
         "description": "Sent data",
@@ -89,11 +89,11 @@
           "rel": "self",
           "method": "GET",
           "href": "./api/v1/tasks/12.json",
-          "type": "vnd.com.acme.task-b"
+          "type": "task.Task-b"
         },
         "children": [
           {
-            "id": 5,
+            "id": "5",
             "display_name": "D",
             "secondary_text": "Secondary node description",
             "description": "sub suirst with veery big titleb",
@@ -106,11 +106,11 @@
               "rel": "self",
               "method": "GET",
               "href": "./api/v1/tasks/12.json",
-              "type": "vnd.com.acme.task"
+              "type": "task.Task"
             },
             "children": [
               {
-                "id": 6,
+                "id": "6",
                 "display_name": "E",
                 "secondary_text": "Secondary node description",
                 "description": "sub suirst with veery big titleb",
@@ -123,11 +123,11 @@
                   "rel": "self",
                   "method": "GET",
                   "href": "./api/v1/tasks/12.json",
-                  "type": "vnd.com.acme.task"
+                  "type": "task.Task"
                 },
                 "children": [
                   {
-                    "id": 7,
+                    "id": "7",
                     "display_name": "E",
                     "secondary_text": "Secondary node description",
                     "description": "sub sub",
@@ -140,11 +140,11 @@
                       "rel": "self",
                       "method": "GET",
                       "href": "./api/v1/tasks/12.json",
-                      "type": "vnd.com.acme.task"
+                      "type": "task.Task"
                     },
                     "children": [
                       {
-                        "id": 8,
+                        "id": "82",
                         "display_name": "E",
                         "secondary_text": "Secondary node description",
                         "description": "sub sub",
@@ -157,11 +157,11 @@
                           "rel": "self",
                           "method": "GET",
                           "href": "./api/v1/tasks/12.json",
-                          "type": "vnd.com.acme.task"
+                          "type": "task.Task"
                         },
                         "children": [
                           {
-                            "id": 455,
+                            "id": "455",
                             "display_name": "E",
                             "secondary_text": null,
                             "description": "Berlin",
@@ -187,7 +187,7 @@
             ]
           },
           {
-            "id": 234,
+            "id": "234",
             "display_name": "E",
             "secondary_text": "Secondary node description",
             "description": "sub unknown type",
@@ -200,7 +200,7 @@
               "rel": "self",
               "method": "GET",
               "href": "./api/v1/tasks/12.json",
-              "type": "vnd.com.acme.unknown"
+              "type": "task.Task"
             },
             "children": []
           }

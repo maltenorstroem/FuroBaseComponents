@@ -47,9 +47,9 @@ class SampleFuroDataNumberInput extends FBP(LitElement) {
       
       <furo-demo-snippet >
         <template>
-          <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
-          <furo-data-number-input autofocus ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
-          <furo-data-number-input  hint="Type in a number" label="label" ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
+          <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
+          <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
+          <furo-data-number-input  hint="Type in a number" label="label" ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
         </template>
       </furo-demo-snippet>
     `;

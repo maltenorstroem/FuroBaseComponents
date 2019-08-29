@@ -9,6 +9,7 @@ import "../test/produce-data"
 import "@furo/data-input"
 import "@furo/layout"
 import "@furo/form"
+import "./helper/tree-demo-form"
 
 /**
  * `demo-furo-tree`
@@ -53,15 +54,12 @@ class DemoFuroTree extends FBP(LitElement) {
         <p>description</p>
         <furo-demo-snippet flex>
           <template>
-            <style>furo-data-text-input, furo-data-textarea-input {
-              width: 100%
-            }</style>
-
-            <produce-data  @-data="--data"></produce-data>
+            <produce-data @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
-            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
+            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"
+                              @-object-ready="--entityObj"></furo-data-object>
 
             <furo-split-view style="height: 500px;">
               <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
@@ -75,30 +73,17 @@ class DemoFuroTree extends FBP(LitElement) {
                          ƒ-delete-node="--deleteNode"
                          @-node-hovered="--nodeHovered"></furo-tree>
 
-              <furo-card style="width: 400px">
-
-                <h4>Selected tree node</h4>
-
-                <furo-data-text-input label="title" hint="The title is the first part in the tree"
-                                      ƒ-bind-data="--nodeSelected(*.display_name)"></furo-data-text-input>
-                <furo-data-collection-dropdown leading-icon="apps" ƒ-bind-data="--nodeSelected(*.icon)"
-                                               label="Select icon"
-                                               list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon, android, account-balance, apps, check-box-outline-blank, aspect-ratio, change-history"
-                                               @-value-changed="--icon"></furo-data-collection-dropdown>
-                <furo-data-textarea-input label="Text"
-                                          ƒ-bind-data="--nodeSelected(*.description)"></furo-data-textarea-input>
-                <hr>
-                <furo-button outline @-click="--prev" label="prev"></furo-button>
-                <furo-button outline @-click="--next" label="next"></furo-button>
-                <furo-button outline @-click="--expandNode" label="expand"></furo-button>
-                <hr>
-                <furo-button outline @-click="--addSub" icon="add" label="add sub"></furo-button>
-                <furo-button danger outline @-click="--deleteNode" label="delete Node"></furo-button>
-              </furo-card>
+              <tree-demo-form
+                      ƒ-bind-data="--nodeSelected"
+                      @-nav-prev-clicked="--prev"
+                      @-nav-next-clicked="--next"
+                      @-nav-add-clicked="--addSub"
+                      @-nav-expand-clicked="--expandNode"
+                      @-nav-delete-clicked="--deleteNode"
+              ></tree-demo-form>
             </furo-split-view>
 
 
-            
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
