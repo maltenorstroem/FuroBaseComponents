@@ -50,12 +50,12 @@ class DemoFuroTreeQp extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <h2>Demo demo-furo-tree</h2>
-        <p>description</p>
+        <p>Navigate and refresh the browser to see the deep-linking</p>
         <furo-demo-snippet flex>
           <template>
 
 
-            <produce-data @-data="--data"></produce-data>
+            <produce-data auto @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
@@ -87,7 +87,7 @@ class DemoFuroTreeQp extends FBP(LitElement) {
             </furo-split-view>
 
 
-            <qp-changer ƒ-set-qp="--qpchangerequest"></qp-changer>
+            <furo-qp-changer ƒ-set-qp="--qpchangerequest"></furo-qp-changer>
             <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"
                               @-object-ready="--entityObj"></furo-data-object>
             <furo-location url-space-regex="^/api/navigation/demo/demo-furo-tree"

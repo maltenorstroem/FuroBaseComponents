@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.53.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.53.1...@furo/input@0.53.2) (2019-09-05)
+
+
+### Bug Fixes
+
+* remove pattern when it is undefined ([275935f](https://github.com/veith/FuroBaseComponents/commit/275935f))
+
+
+
+
+
+## [0.53.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.53.0...@furo/input@0.53.1) (2019-09-05)
+
+
+### Bug Fixes
+
+* fix furo-range-input, modify test and demo ([63f17fa](https://github.com/veith/FuroBaseComponents/commit/63f17fa))
+* fix furo-time-input, modify test and demo ([b3b11e7](https://github.com/veith/FuroBaseComponents/commit/b3b11e7))
+
+
+
+
+
+# [0.53.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.52.1...@furo/input@0.53.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* condensed ([ae469d8](https://github.com/veith/FuroBaseComponents/commit/ae469d8))
+* rename deprecated types and services ([fed08cb](https://github.com/veith/FuroBaseComponents/commit/fed08cb))
+
+
+### Features
+
+* furo-button can be labeled inside tag ([87cc66b](https://github.com/veith/FuroBaseComponents/commit/87cc66b))
+* tree with qp and qp-change-request ([5fe9e10](https://github.com/veith/FuroBaseComponents/commit/5fe9e10))
+
+
+
+
+
 ## [0.52.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.52.0...@furo/input@0.52.1) (2019-08-20)
 
 

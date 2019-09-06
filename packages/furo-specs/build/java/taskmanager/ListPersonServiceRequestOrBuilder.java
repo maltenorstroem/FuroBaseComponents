@@ -9,7 +9,7 @@ public interface ListPersonServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   *Partielle Repräsentation fields=id,name // 10
+   *Partial representation, fields=id,name
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -17,7 +17,7 @@ public interface ListPersonServiceRequestOrBuilder extends
   java.lang.String getFields();
   /**
    * <pre>
-   *Partielle Repräsentation fields=id,name // 10
+   *Partial representation, fields=id,name
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -27,25 +27,27 @@ public interface ListPersonServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   *Sortierung nach feldern
-   ***?filter=-completed** um completed absteigend zu bekommen
-   ***?filter=completed** um completed aufsteigend zu bekommen
+   **
+   * Sort fields, comma separated list for the ordering
+   * use **?filter=-display_name** with a dash to sort descending
+   * use **?filter=display_name** to sort ascending
    * </pre>
    *
-   * <code>string sort = 2;</code>
+   * <code>string order_by = 2;</code>
    */
-  java.lang.String getSort();
+  java.lang.String getOrderBy();
   /**
    * <pre>
-   *Sortierung nach feldern
-   ***?filter=-completed** um completed absteigend zu bekommen
-   ***?filter=completed** um completed aufsteigend zu bekommen
+   **
+   * Sort fields, comma separated list for the ordering
+   * use **?filter=-display_name** with a dash to sort descending
+   * use **?filter=display_name** to sort ascending
    * </pre>
    *
-   * <code>string sort = 2;</code>
+   * <code>string order_by = 2;</code>
    */
   com.google.protobuf.ByteString
-      getSortBytes();
+      getOrderByBytes();
 
   /**
    * <pre>
@@ -67,7 +69,7 @@ public interface ListPersonServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   *Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+   *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
    * </pre>
    *
    * <code>int32 page = 4;</code>
@@ -76,7 +78,7 @@ public interface ListPersonServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   *Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+   *Number of elements to return per page
    * </pre>
    *
    * <code>int32 limit = 5;</code>
@@ -85,34 +87,7 @@ public interface ListPersonServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   *Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-   * </pre>
-   *
-   * <code>bool count = 6;</code>
-   */
-  boolean getCount();
-
-  /**
-   * <pre>
-   *not implemented
-   * </pre>
-   *
-   * <code>string sum = 7;</code>
-   */
-  java.lang.String getSum();
-  /**
-   * <pre>
-   *not implemented
-   * </pre>
-   *
-   * <code>string sum = 7;</code>
-   */
-  com.google.protobuf.ByteString
-      getSumBytes();
-
-  /**
-   * <pre>
-   *not implemented (ehemals context)
+   *https://cloud.google.com/apis/design/design_patterns#resource_view
    * </pre>
    *
    * <code>string view = 8;</code>
@@ -120,7 +95,7 @@ public interface ListPersonServiceRequestOrBuilder extends
   java.lang.String getView();
   /**
    * <pre>
-   *not implemented (ehemals context)
+   *https://cloud.google.com/apis/design/design_patterns#resource_view
    * </pre>
    *
    * <code>string view = 8;</code>

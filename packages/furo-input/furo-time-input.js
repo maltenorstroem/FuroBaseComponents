@@ -292,7 +292,7 @@ class FuroTimeInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 19px 0 0 0;
+            margin: 10px 0 15px 0;
             height: 56px;
             width: 104px;
         }
@@ -391,7 +391,7 @@ class FuroTimeInput extends FBP(LitElement) {
         :host(:not([filled])) label span {
             position: relative;
             font-size: 12px;
-            top: -30px;
+            top: -28px;
             left:0;
         }
 
@@ -591,10 +591,13 @@ class FuroTimeInput extends FBP(LitElement) {
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>   
        <div class="iwrap"> 
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-       type="time"       
-       ƒ-.value="--value" 
-       @-input="--inputInput(*)"   
-       ƒ-focus="--focus">
+           type="time"       
+           min="${this.min}"
+           max="${this.max}"
+           step="${this.step}"
+           ƒ-.value="--value" 
+           @-input="--inputInput(*)"   
+           ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>

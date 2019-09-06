@@ -2,6 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-number-input";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-data-number-input`
@@ -31,14 +33,100 @@ class FuroDataNumberInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
     this.errortext = "";
-    this.hint = "";
+
 
     this._FBPAddWireHook("--valueChanged", (val) => {
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
       if (this.field) {
         this.field.value = val;
       }
     });
+
+    this._FBPAddWireHook("--inputInvalid", (val) => {
+      // val is a ValidityState
+      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+      if (val) {
+        if(val.rangeUnderflow) {
+          this._hint = this._minErrorMessage;
+        }
+        else if(val.rangeOverflow)
+        {
+          this._hint = this._maxErrorMessage;
+        }
+        else if(val.stepMismatch) {
+          this._hint = this._stepErrorMessage;
+        }
+
+        this.requestUpdate();
+      }
+    });
   }
+
+  /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
+  }
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
+  }
+
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
+  set leadingIcon(value) {
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
+  }
+
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
+  set trailingIcon(value) {
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
+  /**
+   * Updater for the step attr
+   * @param value
+   */
+  set step(value) {
+    Helper.UpdateInputAttribute(this, "step", value);
+  }
+
 
   static get properties() {
     return {
@@ -50,7 +138,14 @@ class FuroDataNumberInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -122,21 +217,21 @@ class FuroDataNumberInput extends FBP(LitElement) {
       /**
        * html input validity
        */
-      valid:{
-        type:Boolean,
-        reflect:true
+      valid: {
+        type: Boolean,
+        reflect: true
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
-      condensed:{
-        type:Boolean
+      condensed: {
+        type: Boolean
       },
       /**
        * passes always float the label
        */
-      float:{
-        type:Boolean
+      float: {
+        type: Boolean
       }
     }
   }
@@ -144,13 +239,14 @@ class FuroDataNumberInput extends FBP(LitElement) {
   /**
    * Sets the field to readonly
    */
-  disable(){
+  disable() {
     this._readonly = true;
   }
+
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this._readonly = false;
   }
 
@@ -167,15 +263,22 @@ class FuroDataNumberInput extends FBP(LitElement) {
     }
 
     this.field = fieldNode;
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     this._updateField();
+
     this.field.addEventListener('field-value-changed', (e) => {
       this._updateField();
+    });
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     });
 
     this.field.addEventListener('field-became-invalid', (e) => {
       // updates wieder einspielen
       this.error = true;
-      this.errortext = this.field._validity.message;
+      this.errortext = this.field._validity.description;
       this.requestUpdate();
     });
 
@@ -188,52 +291,11 @@ class FuroDataNumberInput extends FBP(LitElement) {
 
 
   _updateField() {
-    // label auf attr ist höher gewichtet
-    if (!this.label) {
-      this._label = this.field._meta.label;
-    } else {
-      this._label = this.label;
-    }
-
-    // hint auf attr ist höher gewichtet
-    if (!this.hint) {
-      this._hint = this.field._meta.hint;
-    } else {
-      this._hint = this.hint;
-    }
-    this.disabled = this.field._meta.readonly ? true : false;
-
-    // min auf attr ist höher gewichtet
-    if (!this.min) {
-      this._min = this.field._meta.min;
-    } else {
-      this._min = this.min;
-    }
-    // max auf attr ist höher gewichtet
-    if (!this.max) {
-      this._max = this.field._meta.max;
-    } else {
-      this._max = this.max;
-    }
-    // step auf attr ist höher gewichtet
-    if (!this.step) {
-      this._step = this.field._meta.step;
-    } else {
-      this._step = this.step;
-    }
-     // readonly auf attr ist höher gewichtet
-    if (!this.readonly) {
-      this._readonly = this.field._meta.readonly;
-    } else {
-      this._readonly = this.readonly;
-    }
-
-
 
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
-      this.errortext = this.field._validity.message;
+      this.errortext = this.field._validity.description;
     }
     this._FBPTriggerWire('--value', this.field.value);
     this.requestUpdate();
@@ -255,7 +317,8 @@ class FuroDataNumberInput extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        furo-number-input{
+
+        furo-number-input {
             width: 100%;
         }
     `
@@ -264,21 +327,17 @@ class FuroDataNumberInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-       <furo-number-input 
+       <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
-          label="${this._label}" 
-          min="${this._min}" 
-          max="${this._max}" 
-          step="${this._step}" 
+          ?readonly=${this._readonly || this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
-          errortext="${this.errortext}" 
-          hint="${this._hint}" 
+          ?required=${this._required}
           @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-number-input>      
     `;
   }

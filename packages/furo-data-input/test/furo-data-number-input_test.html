@@ -19,14 +19,26 @@
   <template>
     <test-bind>
       <template>
-        <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-        <furo-data-number-input  ƒ-bind-data="--entity(*.id)"></furo-data-number-input>
-        <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.id)"
-                                min="1"
+        <furo-data-number-input ƒ-bind-data="--entityReady(*.furo_data_number_input)"></furo-data-number-input>
+        <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_number_input)"
+                                min="1" required readonly
                                 max="10"
                                 step="0.5"
-                              @-value-changed="--textChanged"></furo-data-number-input>
-        <furo-data-number-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-number-input>
+                                @-value-changed="--textChanged"></furo-data-number-input>
+        <furo-data-number-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-number-input>
+
+        <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady"
+                          ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+
+        <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+        <furo-entity-agent service="ExperimentService"
+                           ƒ-hts-in="--hts"
+                           ƒ-load="--hts"
+                           ƒ-bind-request-data="--entity"
+                           @-response="--response">
+        </furo-entity-agent>
+
       </template>
     </test-bind>
 
@@ -37,7 +49,9 @@
   import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
   import "@furo/testhelper/initEnv.js"
-  import "@furo/data/furo-data-object.js"
+  import "@furo/data/furo-data-object.js";
+  import "@furo/data/furo-entity-agent";
+  import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -46,73 +60,131 @@
   describe('furo-data-number-input_test tests ', function () {
 
 
-    let dataNumberInput, host, entityObject, secondNumberInput, invalidNumberInput;
+    let dataNumberInput, host, entityObject, secondNumberInput, invalidNumberInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entityObject = fix[1];
+      entityObject = fix[4];
       await entityObject.updateComplete;
 
-      dataNumberInput = fix[2];
+      dataNumberInput = fix[1];
       await dataNumberInput.updateComplete;
 
-      secondNumberInput = fix[3];
+      secondNumberInput = fix[2];
       await secondNumberInput.updateComplete;
 
-      invalidNumberInput = fix[4];
+      invalidNumberInput = fix[3];
       await invalidNumberInput.updateComplete;
+
+      deeplink = fix[5];
+      await deeplink.updateComplete;
 
     });
 
-    it('should override hints ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput._hint, "FromTPL");
+    it('should log invalid bindings', (done) => {
+      dataNumberInput._FBPAddWireHook("--value", (val) => {
+        // invalid binding
+        assert.equal(invalidNumberInput.field, undefined);
+        // valid binding
+        assert.equal(dataNumberInput.field._isValid, true);
         done();
+      });
+    });
+
+    it('should override hints ', (done) => {
+
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("hint"), "FromTPL");
+          done();
+        },0)
       });
     });
 
     it('should override labels ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput._label, "FromTPL");
-        done();
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("label"), "FromTPL");
+          done();
+        },0)
       });
 
     });
     it('should override min ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput.min, 1);
-        done();
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("min"), 1);
+          done();
+        },0)
       });
     });
     it('should override max ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput.max, 10);
-        done();
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("max"), 10);
+          done();
+        },0)
       });
     });
     it('should override step ', (done) => {
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("step"), "0.5");
+          done();
+        },0)
+      });
+    });
+
+    it('should override readonly ', (done) => {
       secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput.step, 0.5);
+        assert.equal(secondNumberInput.readonly, true);
         done();
       });
     });
 
+    it('should set readonly via disable method', (done) => {
+      secondNumberInput.disable();
+      assert.equal(secondNumberInput._readonly, true);
+      done();
+    });
+
+    it('should remove readonly via enable method', (done) => {
+      secondNumberInput.enable();
+      assert.equal(secondNumberInput._readonly, false);
+      done();
+    });
 
     it('should receive value with bind', (done) => {
-      entityObject.data.id.value = 2332;
-      dataNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, 2332);
-        done();
+      entityObject.addEventListener("data-injected", (e) => {
+
+        setTimeout(()=>{
+          assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
+          assert.equal(dataNumberInput._theInputElement.getAttribute("hint"), "hint");
+          assert.equal(dataNumberInput._theInputElement.getAttribute("min"), 1);
+          assert.equal(dataNumberInput._theInputElement.getAttribute("max"), 555);
+          //assert.equal(dataNumberInput._theInputElement.getAttribute("step"), "3");
+          done();
+        },0);
+
       });
+
+      deeplink.qpIn({"exp": 1});
     });
 
 
     it('should bind the field description', (done) => {
-      host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataNumberInput._label, "Id");
-        done();
-      })
+
+
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+
+          assert.equal(dataNumberInput._theInputElement.getAttribute("label"), "number-input");
+          done();
+        },0);
+
+      });
+      deeplink.qpIn({"exp": 1});
     });
 
 
@@ -126,18 +198,7 @@
       });
     });
 
-    it('should update the entity when values changed', (done) => {
-      // ignore the init values
-      setTimeout(() => {
-        secondNumberInput._FBPAddWireHook("--value", (val) => {
-          assert.equal(val, "newText");
-          done();
-        });
 
-        dataNumberInput._FBPTriggerWire("--valueChanged", "newText");
-      }, 10)
-
-    });
     // a11y tests
     it('a11y', () => {
       return axeReport(fixture('basic'));

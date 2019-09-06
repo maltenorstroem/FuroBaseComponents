@@ -13,8 +13,8 @@ export class DataObject extends EventTreeNode {
     this.__specdefinitions = specs;
     this._spec = this.__specdefinitions[type];
 
-    this.__specdefinitions = this.__specdefinitions;
     this._initFieldsFromSpec(this, this._spec.fields);
+
     this._pristine = true;
     this._isValid = true;
 
@@ -44,6 +44,10 @@ export class DataObject extends EventTreeNode {
     this.addEventListener("field-value-changed", (e) => {
       this._pristine = false;
     });
+
+    this.addEventListener("repeated-fields-added", (e) => {
+      this._pristine = false;
+    });
   }
 
   /**
@@ -52,23 +56,10 @@ export class DataObject extends EventTreeNode {
    */
   injectRaw(rawEntity) {
     this._rawEntity = rawEntity;
-    let meta = {};
-
-    if (rawEntity.meta) {
-      meta = rawEntity.meta.fields;
-    }
-
-    this._updateFieldValuesAndMetaFromRawEntity(this, rawEntity, meta);
+    this._updateFieldValuesAndMetaFromRawEntity(this, rawEntity);
     this._pristine = true;
     this._isValid = true;
 
-    if (rawEntity.error && rawEntity.details) {
-      rawEntity.details.forEach((errorSet) => {
-        if (errorSet["field_violations"]) {
-          this._handleErrorsFromRawEntity(this, errorSet["field_violations"]);
-        }
-      });
-    }
     /**
      * @event (data-injected)
      *
@@ -80,7 +71,7 @@ export class DataObject extends EventTreeNode {
      *
      * detail payload: **{NodeEvent}**
      */
-    this.dispatchNodeEvent(new NodeEvent("data-injected", this,true));
+    this.dispatchNodeEvent(new NodeEvent("data-injected", this, true));
   }
 
   /**
@@ -93,9 +84,14 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
-   * Inits the EntityNode without breaking the reference
+   * Inits the EntityNode
    */
   init() {
+
+    for(let i = this.__childNodes.length-1; i >= 0; i--){
+      this.__childNodes[i].deleteNode();
+    }
+
     this._initFieldsFromSpec(this, this._spec.fields);
     this._pristine = true;
     this._isValid = true;
@@ -109,9 +105,10 @@ export class DataObject extends EventTreeNode {
    * Returns a json representation of your Data Object
    * @return {*}
    */
-  get json() {
+  get value() {
     return this.getJson();
   }
+
 
   /**
    * Returns a json representation of your Data Object
@@ -128,13 +125,14 @@ export class DataObject extends EventTreeNode {
   }
 
 
-
-
-  _updateFieldValuesAndMetaFromRawEntity(node, data, dynamicFieldMeta) {
-
+  _updateFieldValuesAndMetaFromRawEntity(node, data) {
+    let furoMetaDetected = false;
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
 
+      if (fieldNode._spec.type === "furo.Meta") {
+        furoMetaDetected = data[fieldName];
+      }
       if (!fieldNode) {
         console.warn("unspecified field", fieldName)
       } else {
@@ -149,12 +147,7 @@ export class DataObject extends EventTreeNode {
             if (!fieldNode.repeats[i]) {
               fieldNode._addSilent();
             }
-            let repMeta = {};
-            if (dynamicFieldMeta[fieldName]) {
-              if (dynamicFieldMeta[fieldName].fields) {
-                repMeta = dynamicFieldMeta[fieldName].fields;
-              }
-            }
+
 
             // Werte aktualisieren
             fieldNode.repeats[i].value = repdata;
@@ -178,68 +171,54 @@ export class DataObject extends EventTreeNode {
           if (fieldNode) {
             fieldNode._clearInvalidity();
 
-            let meta = {};
-            let submeta = {};
-
-
-            // Kommen neue metas von draussen rein
-            if (dynamicFieldMeta[fieldName]) {
-              meta = dynamicFieldMeta[fieldName];
-              // setze node Meta wenn neue metas gekommen sind
-              // TODO @veith Metas mischen und nicht überklatschen, ev immer von spec meta aus und nicht von runtime meta
-
-              if (meta.constraints) {
-                for (let key in meta.constraints) {
-                  fieldNode._constraints[key] = meta.constraints[key];
-                }
-              }
-
-              if (meta.meta) {
-                for (let key in meta.meta) {
-                  fieldNode._meta[key] = meta.meta[key];
-                }
-              }
-              if (meta.options) {
-                for (let key in meta.options) {
-                  fieldNode._options[key] = meta.options[key];
-                }
-              }
-
-              // hat es meta für subfelder
-              if (meta.fields) {
-                submeta = meta.fields
-              }
-            }
-
-
             // Werte aktualisieren
             fieldNode.value = data[fieldName];
+
             fieldNode._pristine = true;
           }
         }
-
-
       }
     }
+    if (furoMetaDetected) {
+      this.__updateMetaAndConstraints(furoMetaDetected);
+    }
+
   }
 
 
-  _handleErrorsFromRawEntity(fields, fieldErrors) {
-    fieldErrors && fieldErrors.map((error) => {
-      if (error.description) {
-        error.message = error.description;
+  __updateMetaAndConstraints(metaAndConstraints) {
+    // on this layer you can only pass the constraint to the children
+    // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
+    // a field which is targeted we delegate the sub request to  this field
+    for (let fieldname in metaAndConstraints.fields) {
+      let mc = metaAndConstraints.fields[fieldname];
+      let f = fieldname.split(".");
+      let target = f[0];
+      let subMetaAndConstraints = {fields: {}};
+      subMetaAndConstraints.fields[f.slice(1).join(".")] = mc;
+      this[target].__updateMetaAndConstraints(subMetaAndConstraints);
+    }
+
+  }
+
+
+  _setInvalid(error) {
+    // set field empty, if not defined
+    error.field = error.field || "";
+    let path = error.field.split(".");
+    if (path.length > 0 && path[0] !== "") {
+      // rest wieder in error reinwerfen
+      error.field = path.slice(1).join(".");
+      if (this[path[0]]) {
+        this[path[0]]._setInvalid(error);
+      } else {
+        console.warn("Unknown field", path, this._name)
       }
-      let path = error.field.split(".");
-      if (path.length > 0) {
-        // rest wieder in error reinwerfen
-        error.field = path.slice(1).join(".");
-        if (fields[path[0]]) {
-          fields[path[0]]._setInvalid(error);
-        } else {
-          console.warn("Unknown field", path)
-        }
-      }
-    });
+    } else {
+      this._isValid = false;
+      this._validity = error;
+      this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));
+    }
   }
 
   /**
@@ -249,6 +228,7 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   _initFieldsFromSpec(node, fieldSpec) {
+
     for (let fieldName in fieldSpec) {
       if (fieldSpec[fieldName].meta && fieldSpec[fieldName].meta.repeated) {
         node[fieldName] = new RepeaterNode(node, fieldSpec[fieldName], fieldName);
@@ -261,6 +241,6 @@ export class DataObject extends EventTreeNode {
 
 
   toString() {
-    return this.spec.mimetype;
+    return this._spec.type;
   };
 }

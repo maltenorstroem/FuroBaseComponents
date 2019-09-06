@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-text-input`
@@ -38,7 +39,9 @@ class FuroTextInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
+
   }
+
 
   _FBPReady() {
     super._FBPReady();
@@ -60,26 +63,54 @@ class FuroTextInput extends FBP(LitElement) {
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
+      } else {
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity;
+        this.dispatchEvent(customEvent);
       }
     });
 
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
   }
 
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set pattern(value) {
+    Helper.UpdateInputAttribute(this,"pattern", value);
+  }
+
+  /**
+   * Updater for the min => minlength attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"minlength", value);
+  }
+
+  /**
+   * Updater for the max => maxlength attr
+   * * same problem like in pattern
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"maxlength", value);
+  }
 
   set _value(v) {
     this._float = !!v;
-    this._FBPTriggerWire("--value", v)
+    this._FBPTriggerWire("--value", v);
   }
 
   static get properties() {
@@ -101,6 +132,13 @@ class FuroTextInput extends FBP(LitElement) {
        */
       pattern: {
         type: String
+      },
+      /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean
       },
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
@@ -282,7 +320,7 @@ class FuroTextInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 19px 0 0 0;
+            margin: 10px 0 15px 0;
             height: 56px;
             width: 190px;
         }
@@ -386,7 +424,7 @@ class FuroTextInput extends FBP(LitElement) {
 
         :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
             font-size: 12px;
-            top: -30px;
+            top: -28px;
             left: 0;
             position: relative;
         }
@@ -568,7 +606,7 @@ class FuroTextInput extends FBP(LitElement) {
         :host([condensed][filled]) input {
             top: 12px;
         }
-
+        
         :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
             height: 40px;
         }
@@ -583,13 +621,13 @@ class FuroTextInput extends FBP(LitElement) {
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
             top: -12px;
-             
+
         }
 
         :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top: -24px;
+            top: -20px;
         }
-        
+
         :host([condensed]) {
             height: 40px;
         }
@@ -598,7 +636,7 @@ class FuroTextInput extends FBP(LitElement) {
   }
 
   /**
-   *
+   * toto add option to hide `*` when the field is required
    * @return {TemplateResult | TemplateResult}
    * @private
    */
@@ -608,14 +646,14 @@ class FuroTextInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-        type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} ?required=${this.required} 
+        type="text" ƒ-.value="--value" @-input="--inputInput(*)" ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float || this.float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float || this.float}" for="input"><span>${this.label} ${this.required ? html`*` : html``}</span></label>
       <div class="right-border"></div>
       </div>
       

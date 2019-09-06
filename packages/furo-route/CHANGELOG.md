@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.17.1...@furo/route@0.17.2) (2019-09-05)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.17.0...@furo/route@0.17.1) (2019-09-05)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.16.6...@furo/route@0.17.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* rename deprecated types and services ([fed08cb](https://github.com/veith/FuroBaseComponents/commit/fed08cb))
+
+
+### Features
+
+* tree with qp and qp-change-request ([5fe9e10](https://github.com/veith/FuroBaseComponents/commit/5fe9e10))
+
+
+
+
+
 ## [0.16.6](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.16.5...@furo/route@0.16.6) (2019-08-19)
 
 **Note:** Version bump only for package @furo/route

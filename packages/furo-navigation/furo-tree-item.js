@@ -190,11 +190,13 @@ export class FuroTreeItem extends FBP(LitElement) {
 
     this.fieldNode.addEventListener("this-node-hovered", (e) => {
       this.hovered = true;
+      //this.scrollIntoViewIfNeeded();
     });
 
     this.fieldNode.addEventListener("this-node-selected", (e) => {
       this.selected = true;
       this.fieldNode._isSelected = true;
+      //this.scrollIntoViewIfNeeded();
     });
 
     // This item is not or no more in the search results
@@ -227,6 +229,7 @@ export class FuroTreeItem extends FBP(LitElement) {
             display: block;
             line-height: 40px;
             cursor: pointer;
+            font-weight: 400;
             user-select: none;
             padding-left: var(--spacing-xs, 16px);
             border-radius: 2px;

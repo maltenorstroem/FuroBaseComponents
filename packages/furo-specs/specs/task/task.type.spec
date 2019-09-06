@@ -20,7 +20,6 @@
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 1
       }
@@ -29,13 +28,12 @@
       "description": "Localized String representation of a task",
       "type": "string",
       "meta": {
-        "label": "Task",
+        "label": "task.display_name.label",
         "default": "",
-        "hint": "",
+        "hint": "task.display_name.hint",
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 2
       }
@@ -44,12 +42,16 @@
       "description": "Short task description",
       "type": "string",
       "meta": {
-        "label": "Description",
+        "label": "task.desc.label",
         "default": "",
         "hint": ""
       },
-      "constraints": {},
-      "options": [],
+      "constraints": {
+        "max": {
+          "value": 180,
+          "message": "task.desc.maxlength"
+        }
+      },
       "__proto": {
         "number": 3
       }
@@ -63,7 +65,6 @@
         "hint": ""
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 4,
         "type": "int32"
@@ -85,7 +86,6 @@
         "hint": ""
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 5
       }
@@ -100,7 +100,6 @@
         "repeated": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 6
       }

@@ -17,9 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private ListProjectServiceRequest() {
     fields_ = "";
-    sort_ = "";
+    orderBy_ = "";
     filter_ = "";
-    sum_ = "";
     view_ = "";
     q_ = "";
   }
@@ -57,7 +56,7 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            sort_ = s;
+            orderBy_ = s;
             break;
           }
           case 26: {
@@ -74,17 +73,6 @@ private static final long serialVersionUID = 0L;
           case 40: {
 
             limit_ = input.readInt32();
-            break;
-          }
-          case 48: {
-
-            count_ = input.readBool();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sum_ = s;
             break;
           }
           case 66: {
@@ -135,7 +123,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object fields_;
   /**
    * <pre>
-   *Partielle Repräsentation fields=id,name // 10
+   *Partial representation, fields=id,name
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -154,7 +142,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Partielle Repräsentation fields=id,name // 10
+   *Partial representation, fields=id,name
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -173,46 +161,48 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SORT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object sort_;
+  public static final int ORDER_BY_FIELD_NUMBER = 2;
+  private volatile java.lang.Object orderBy_;
   /**
    * <pre>
-   *Sortierung nach feldern
-   ***?filter=-completed** um completed absteigend zu bekommen
-   ***?filter=completed** um completed aufsteigend zu bekommen
+   **
+   * Sort fields, comma separated list for the ordering
+   * use **?filter=-display_name** with a dash to sort descending
+   * use **?filter=display_name** to sort ascending
    * </pre>
    *
-   * <code>string sort = 2;</code>
+   * <code>string order_by = 2;</code>
    */
-  public java.lang.String getSort() {
-    java.lang.Object ref = sort_;
+  public java.lang.String getOrderBy() {
+    java.lang.Object ref = orderBy_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      sort_ = s;
+      orderBy_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *Sortierung nach feldern
-   ***?filter=-completed** um completed absteigend zu bekommen
-   ***?filter=completed** um completed aufsteigend zu bekommen
+   **
+   * Sort fields, comma separated list for the ordering
+   * use **?filter=-display_name** with a dash to sort descending
+   * use **?filter=display_name** to sort ascending
    * </pre>
    *
-   * <code>string sort = 2;</code>
+   * <code>string order_by = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getSortBytes() {
-    java.lang.Object ref = sort_;
+      getOrderByBytes() {
+    java.lang.Object ref = orderBy_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      sort_ = b;
+      orderBy_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -265,7 +255,7 @@ private static final long serialVersionUID = 0L;
   private int page_;
   /**
    * <pre>
-   *Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+   *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
    * </pre>
    *
    * <code>int32 page = 4;</code>
@@ -278,7 +268,7 @@ private static final long serialVersionUID = 0L;
   private int limit_;
   /**
    * <pre>
-   *Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+   *Number of elements to return per page
    * </pre>
    *
    * <code>int32 limit = 5;</code>
@@ -287,66 +277,11 @@ private static final long serialVersionUID = 0L;
     return limit_;
   }
 
-  public static final int COUNT_FIELD_NUMBER = 6;
-  private boolean count_;
-  /**
-   * <pre>
-   *Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-   * </pre>
-   *
-   * <code>bool count = 6;</code>
-   */
-  public boolean getCount() {
-    return count_;
-  }
-
-  public static final int SUM_FIELD_NUMBER = 7;
-  private volatile java.lang.Object sum_;
-  /**
-   * <pre>
-   *not implemented
-   * </pre>
-   *
-   * <code>string sum = 7;</code>
-   */
-  public java.lang.String getSum() {
-    java.lang.Object ref = sum_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      sum_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *not implemented
-   * </pre>
-   *
-   * <code>string sum = 7;</code>
-   */
-  public com.google.protobuf.ByteString
-      getSumBytes() {
-    java.lang.Object ref = sum_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      sum_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   public static final int VIEW_FIELD_NUMBER = 8;
   private volatile java.lang.Object view_;
   /**
    * <pre>
-   *not implemented (ehemals context)
+   *https://cloud.google.com/apis/design/design_patterns#resource_view
    * </pre>
    *
    * <code>string view = 8;</code>
@@ -365,7 +300,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *not implemented (ehemals context)
+   *https://cloud.google.com/apis/design/design_patterns#resource_view
    * </pre>
    *
    * <code>string view = 8;</code>
@@ -443,8 +378,8 @@ private static final long serialVersionUID = 0L;
     if (!getFieldsBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fields_);
     }
-    if (!getSortBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sort_);
+    if (!getOrderByBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, orderBy_);
     }
     if (!getFilterBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filter_);
@@ -454,12 +389,6 @@ private static final long serialVersionUID = 0L;
     }
     if (limit_ != 0) {
       output.writeInt32(5, limit_);
-    }
-    if (count_ != false) {
-      output.writeBool(6, count_);
-    }
-    if (!getSumBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, sum_);
     }
     if (!getViewBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, view_);
@@ -479,8 +408,8 @@ private static final long serialVersionUID = 0L;
     if (!getFieldsBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fields_);
     }
-    if (!getSortBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sort_);
+    if (!getOrderByBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, orderBy_);
     }
     if (!getFilterBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, filter_);
@@ -492,13 +421,6 @@ private static final long serialVersionUID = 0L;
     if (limit_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, limit_);
-    }
-    if (count_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, count_);
-    }
-    if (!getSumBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, sum_);
     }
     if (!getViewBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, view_);
@@ -523,18 +445,14 @@ private static final long serialVersionUID = 0L;
 
     if (!getFields()
         .equals(other.getFields())) return false;
-    if (!getSort()
-        .equals(other.getSort())) return false;
+    if (!getOrderBy()
+        .equals(other.getOrderBy())) return false;
     if (!getFilter()
         .equals(other.getFilter())) return false;
     if (getPage()
         != other.getPage()) return false;
     if (getLimit()
         != other.getLimit()) return false;
-    if (getCount()
-        != other.getCount()) return false;
-    if (!getSum()
-        .equals(other.getSum())) return false;
     if (!getView()
         .equals(other.getView())) return false;
     if (!getQ()
@@ -552,19 +470,14 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + FIELDS_FIELD_NUMBER;
     hash = (53 * hash) + getFields().hashCode();
-    hash = (37 * hash) + SORT_FIELD_NUMBER;
-    hash = (53 * hash) + getSort().hashCode();
+    hash = (37 * hash) + ORDER_BY_FIELD_NUMBER;
+    hash = (53 * hash) + getOrderBy().hashCode();
     hash = (37 * hash) + FILTER_FIELD_NUMBER;
     hash = (53 * hash) + getFilter().hashCode();
     hash = (37 * hash) + PAGE_FIELD_NUMBER;
     hash = (53 * hash) + getPage();
     hash = (37 * hash) + LIMIT_FIELD_NUMBER;
     hash = (53 * hash) + getLimit();
-    hash = (37 * hash) + COUNT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getCount());
-    hash = (37 * hash) + SUM_FIELD_NUMBER;
-    hash = (53 * hash) + getSum().hashCode();
     hash = (37 * hash) + VIEW_FIELD_NUMBER;
     hash = (53 * hash) + getView().hashCode();
     hash = (37 * hash) + Q_FIELD_NUMBER;
@@ -704,17 +617,13 @@ private static final long serialVersionUID = 0L;
       super.clear();
       fields_ = "";
 
-      sort_ = "";
+      orderBy_ = "";
 
       filter_ = "";
 
       page_ = 0;
 
       limit_ = 0;
-
-      count_ = false;
-
-      sum_ = "";
 
       view_ = "";
 
@@ -747,12 +656,10 @@ private static final long serialVersionUID = 0L;
     public taskmanager.ListProjectServiceRequest buildPartial() {
       taskmanager.ListProjectServiceRequest result = new taskmanager.ListProjectServiceRequest(this);
       result.fields_ = fields_;
-      result.sort_ = sort_;
+      result.orderBy_ = orderBy_;
       result.filter_ = filter_;
       result.page_ = page_;
       result.limit_ = limit_;
-      result.count_ = count_;
-      result.sum_ = sum_;
       result.view_ = view_;
       result.q_ = q_;
       onBuilt();
@@ -807,8 +714,8 @@ private static final long serialVersionUID = 0L;
         fields_ = other.fields_;
         onChanged();
       }
-      if (!other.getSort().isEmpty()) {
-        sort_ = other.sort_;
+      if (!other.getOrderBy().isEmpty()) {
+        orderBy_ = other.orderBy_;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
@@ -820,13 +727,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getLimit() != 0) {
         setLimit(other.getLimit());
-      }
-      if (other.getCount() != false) {
-        setCount(other.getCount());
-      }
-      if (!other.getSum().isEmpty()) {
-        sum_ = other.sum_;
-        onChanged();
       }
       if (!other.getView().isEmpty()) {
         view_ = other.view_;
@@ -868,7 +768,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object fields_ = "";
     /**
      * <pre>
-     *Partielle Repräsentation fields=id,name // 10
+     *Partial representation, fields=id,name
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -887,7 +787,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partielle Repräsentation fields=id,name // 10
+     *Partial representation, fields=id,name
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -907,7 +807,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partielle Repräsentation fields=id,name // 10
+     *Partial representation, fields=id,name
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -924,7 +824,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partielle Repräsentation fields=id,name // 10
+     *Partial representation, fields=id,name
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -937,7 +837,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partielle Repräsentation fields=id,name // 10
+     *Partial representation, fields=id,name
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -954,23 +854,24 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object sort_ = "";
+    private java.lang.Object orderBy_ = "";
     /**
      * <pre>
-     *Sortierung nach feldern
-     ***?filter=-completed** um completed absteigend zu bekommen
-     ***?filter=completed** um completed aufsteigend zu bekommen
+     **
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
      * </pre>
      *
-     * <code>string sort = 2;</code>
+     * <code>string order_by = 2;</code>
      */
-    public java.lang.String getSort() {
-      java.lang.Object ref = sort_;
+    public java.lang.String getOrderBy() {
+      java.lang.Object ref = orderBy_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        sort_ = s;
+        orderBy_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -978,21 +879,22 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Sortierung nach feldern
-     ***?filter=-completed** um completed absteigend zu bekommen
-     ***?filter=completed** um completed aufsteigend zu bekommen
+     **
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
      * </pre>
      *
-     * <code>string sort = 2;</code>
+     * <code>string order_by = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getSortBytes() {
-      java.lang.Object ref = sort_;
+        getOrderByBytes() {
+      java.lang.Object ref = orderBy_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        sort_ = b;
+        orderBy_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1000,55 +902,58 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Sortierung nach feldern
-     ***?filter=-completed** um completed absteigend zu bekommen
-     ***?filter=completed** um completed aufsteigend zu bekommen
+     **
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
      * </pre>
      *
-     * <code>string sort = 2;</code>
+     * <code>string order_by = 2;</code>
      */
-    public Builder setSort(
+    public Builder setOrderBy(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      sort_ = value;
+      orderBy_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *Sortierung nach feldern
-     ***?filter=-completed** um completed absteigend zu bekommen
-     ***?filter=completed** um completed aufsteigend zu bekommen
+     **
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
      * </pre>
      *
-     * <code>string sort = 2;</code>
+     * <code>string order_by = 2;</code>
      */
-    public Builder clearSort() {
+    public Builder clearOrderBy() {
       
-      sort_ = getDefaultInstance().getSort();
+      orderBy_ = getDefaultInstance().getOrderBy();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *Sortierung nach feldern
-     ***?filter=-completed** um completed absteigend zu bekommen
-     ***?filter=completed** um completed aufsteigend zu bekommen
+     **
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
      * </pre>
      *
-     * <code>string sort = 2;</code>
+     * <code>string order_by = 2;</code>
      */
-    public Builder setSortBytes(
+    public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      sort_ = value;
+      orderBy_ = value;
       onChanged();
       return this;
     }
@@ -1145,7 +1050,7 @@ private static final long serialVersionUID = 0L;
     private int page_ ;
     /**
      * <pre>
-     *Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
      * </pre>
      *
      * <code>int32 page = 4;</code>
@@ -1155,7 +1060,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
      * </pre>
      *
      * <code>int32 page = 4;</code>
@@ -1168,7 +1073,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
      * </pre>
      *
      * <code>int32 page = 4;</code>
@@ -1183,7 +1088,7 @@ private static final long serialVersionUID = 0L;
     private int limit_ ;
     /**
      * <pre>
-     *Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+     *Number of elements to return per page
      * </pre>
      *
      * <code>int32 limit = 5;</code>
@@ -1193,7 +1098,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+     *Number of elements to return per page
      * </pre>
      *
      * <code>int32 limit = 5;</code>
@@ -1206,7 +1111,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+     *Number of elements to return per page
      * </pre>
      *
      * <code>int32 limit = 5;</code>
@@ -1218,137 +1123,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean count_ ;
-    /**
-     * <pre>
-     *Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-     * </pre>
-     *
-     * <code>bool count = 6;</code>
-     */
-    public boolean getCount() {
-      return count_;
-    }
-    /**
-     * <pre>
-     *Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-     * </pre>
-     *
-     * <code>bool count = 6;</code>
-     */
-    public Builder setCount(boolean value) {
-      
-      count_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-     * </pre>
-     *
-     * <code>bool count = 6;</code>
-     */
-    public Builder clearCount() {
-      
-      count_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object sum_ = "";
-    /**
-     * <pre>
-     *not implemented
-     * </pre>
-     *
-     * <code>string sum = 7;</code>
-     */
-    public java.lang.String getSum() {
-      java.lang.Object ref = sum_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        sum_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *not implemented
-     * </pre>
-     *
-     * <code>string sum = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getSumBytes() {
-      java.lang.Object ref = sum_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sum_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *not implemented
-     * </pre>
-     *
-     * <code>string sum = 7;</code>
-     */
-    public Builder setSum(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      sum_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *not implemented
-     * </pre>
-     *
-     * <code>string sum = 7;</code>
-     */
-    public Builder clearSum() {
-      
-      sum_ = getDefaultInstance().getSum();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *not implemented
-     * </pre>
-     *
-     * <code>string sum = 7;</code>
-     */
-    public Builder setSumBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      sum_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object view_ = "";
     /**
      * <pre>
-     *not implemented (ehemals context)
+     *https://cloud.google.com/apis/design/design_patterns#resource_view
      * </pre>
      *
      * <code>string view = 8;</code>
@@ -1367,7 +1145,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *not implemented (ehemals context)
+     *https://cloud.google.com/apis/design/design_patterns#resource_view
      * </pre>
      *
      * <code>string view = 8;</code>
@@ -1387,7 +1165,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *not implemented (ehemals context)
+     *https://cloud.google.com/apis/design/design_patterns#resource_view
      * </pre>
      *
      * <code>string view = 8;</code>
@@ -1404,7 +1182,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *not implemented (ehemals context)
+     *https://cloud.google.com/apis/design/design_patterns#resource_view
      * </pre>
      *
      * <code>string view = 8;</code>
@@ -1417,7 +1195,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *not implemented (ehemals context)
+     *https://cloud.google.com/apis/design/design_patterns#resource_view
      * </pre>
      *
      * <code>string view = 8;</code>

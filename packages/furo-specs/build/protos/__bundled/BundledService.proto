@@ -6,16 +6,15 @@ package taskmanager;
 
 option csharp_namespace = "Google.Protobuf.WellKnownTypes";
 option go_package = "taskmanager";
-option java_multiple_files = true;
-option java_outer_classname = "AnyProto";
 option java_package = "taskmanager";
+option java_outer_classname = "AnyProto";
+option java_multiple_files = true;
 option objc_class_prefix = "GPB";
 
 import "google/api/annotations.proto";
 
 import "tree/tree.proto";
 import "google/protobuf/empty.proto";
-import "test/test.proto";
 import "person/person.proto";
 import "project/project.proto";
 import "task/task.proto";
@@ -62,49 +61,6 @@ service BundledService {
         //
         option (google.api.http) = {
             patch: "/mockdata/trees/{tre}"
-            body: "data"
-        };
-    }
-
-
-// service specs for the test api
-                      
-   
-    // Creates a new Test
-    rpc CreateTest (CreateTestServiceRequest) returns (test.TestEntity){
-        //
-        option (google.api.http) = {
-            post: "/api/tests"
-            body: "data"
-        };
-    }   
-    // Delete a Test
-    rpc DeleteTest (DeleteTestServiceRequest) returns (google.protobuf.Empty){
-        //
-        option (google.api.http) = {
-            delete: "/api/tests/{tst}"
-            
-        };
-    }   
-    // The Get method takes zero or more parameters, and returns a TestEntity which contains a Test
-    rpc GetTest (GetTestServiceRequest) returns (test.TestEntity){
-        //
-        option (google.api.http) = {
-            get: "/api/tests/{tst}"
-        };
-    }   
-    // The List method takes zero or more parameters as input, and returns a TestCollection of TestEntity that match the input parameters.
-    rpc ListTests (ListTestServiceRequest) returns (test.TestCollection){
-        //Describe_the_query_params_if_you_have
-        option (google.api.http) = {
-            get: "/api/tests"
-        };
-    }   
-    // Updates a Test, partial updates are supported
-    rpc UpdateTest (UpdateTestServiceRequest) returns (test.TestEntity){
-        //
-        option (google.api.http) = {
-            patch: "/api/tests/{tst}"
             body: "data"
         };
     }
@@ -330,23 +286,21 @@ message GetTreeServiceRequest {
    
 message ListTreeServiceRequest { 
     
-    //Partielle Repräsentation fields=id,name // 10
+    //Partial representation, fields=id,name
     string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
+    /**
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
+     */
+    string order_by = 2;
     //Filter
     string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
     int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    //Number of elements to return per page
     int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
+    //https://cloud.google.com/apis/design/design_patterns#resource_view
     string view = 8;       
        
     //Query term to search a tree
@@ -358,64 +312,6 @@ message UpdateTreeServiceRequest {
     
     string tre = 1;
     tree.Tree data =  2;  
-}
-
-
-
-
-// service specs for the test api
-                      
-
-   
-message CreateTestServiceRequest { 
-    
-    test.Test data =  1;  
-}
-
-   
-message DeleteTestServiceRequest { 
-    
-    string tst = 1;
-    google.protobuf.Empty data =  2;  
-}
-
-   
-message GetTestServiceRequest { 
-    
-    string tst = 1; 
-}
-
-   
-message ListTestServiceRequest { 
-    
-    //Partielle Repräsentation fields=id,name // 10
-    string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
-    //Filter
-    string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
-    int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
-    int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
-    string view = 8;       
-       
-    //Query term to search a test
-    string q = 11;
-}
-
-   
-message UpdateTestServiceRequest { 
-    
-    string tst = 1;
-    test.Test data =  2;  
 }
 
 
@@ -446,23 +342,21 @@ message GetPersonServiceRequest {
    
 message ListPersonServiceRequest { 
     
-    //Partielle Repräsentation fields=id,name // 10
+    //Partial representation, fields=id,name
     string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
+    /**
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
+     */
+    string order_by = 2;
     //Filter
     string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
     int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    //Number of elements to return per page
     int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
+    //https://cloud.google.com/apis/design/design_patterns#resource_view
     string view = 8;       
        
     //Query term to search a person
@@ -504,23 +398,21 @@ message GetProjectServiceRequest {
    
 message ListProjectServiceRequest { 
     
-    //Partielle Repräsentation fields=id,name // 10
+    //Partial representation, fields=id,name
     string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
+    /**
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
+     */
+    string order_by = 2;
     //Filter
     string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
     int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    //Number of elements to return per page
     int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
+    //https://cloud.google.com/apis/design/design_patterns#resource_view
     string view = 8;       
        
     //Query term to search a project
@@ -543,23 +435,21 @@ message UpdateProjectServiceRequest {
    
 message ListProjectMembersServiceRequest { 
     
-    //Partielle Repräsentation fields=id,name // 10
+    //Partial representation, fields=id,name
     string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
+    /**
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
+     */
+    string order_by = 2;
     //Filter
     string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
     int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    //Number of elements to return per page
     int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
+    //https://cloud.google.com/apis/design/design_patterns#resource_view
     string view = 8;       
        
     //Query term to search a member
@@ -602,23 +492,21 @@ message GetTaskServiceRequest {
    
 message ListTaskServiceRequest { 
     
-    //Partielle Repräsentation fields=id,name // 10
+    //Partial representation, fields=id,name
     string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
+    /**
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
+     */
+    string order_by = 2;
     //Filter
     string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
     int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    //Number of elements to return per page
     int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
+    //https://cloud.google.com/apis/design/design_patterns#resource_view
     string view = 8;       
        
     //Query term to search a task
@@ -660,23 +548,21 @@ message GetExperimentServiceRequest {
    
 message ListExperimentServiceRequest { 
     
-    //Partielle Repräsentation fields=id,name // 10
+    //Partial representation, fields=id,name
     string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
+    /**
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
+     */
+    string order_by = 2;
     //Filter
     string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
     int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    //Number of elements to return per page
     int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
+    //https://cloud.google.com/apis/design/design_patterns#resource_view
     string view = 8;       
        
     //Query term to search a experiment

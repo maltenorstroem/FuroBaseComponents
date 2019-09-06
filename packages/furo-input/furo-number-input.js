@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-number-input`
@@ -33,7 +34,6 @@ class FuroNumberInput extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.step = "any";
     this.valid = true;
   }
 
@@ -49,7 +49,7 @@ class FuroNumberInput extends FBP(LitElement) {
       // mark min max error
       this.valid = !(input.validity.rangeOverflow || input.validity.rangeUnderflow);
 
-      if (!input.validity.badInput) {
+      if (input.validity.valid) {
         this.value = input.value;
         this._float = !!input.value;
         /**
@@ -61,24 +61,46 @@ class FuroNumberInput extends FBP(LitElement) {
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
       }
+      else{
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity ;
+        this.dispatchEvent(customEvent);
+      }
     });
-
-    // set pattern, min, max, step
-    let inputField = this.shadowRoot.querySelector("#input");
-
-
-    if (this.min) {
-      inputField.setAttribute("min", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("max", this.max);
-    }
-    if (this.step) {
-      inputField.setAttribute("step", this.step);
-    }
   }
 
+  /**
+   * Updater for the min attr
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"min", value);
+  }
 
+  /**
+   * Updater for the max attr
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"max", value);
+  }
+
+  /**
+   * Updater for the step attr
+   *
+   * @param value
+   */
+  set step(value) {
+    Helper.UpdateInputAttribute(this,"step", value);
+  }
 
   set _value(v) {
     this._float = !!v;
@@ -121,6 +143,13 @@ class FuroNumberInput extends FBP(LitElement) {
        */
       min: {
         type: Number
+      },
+      /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean
       },
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
@@ -286,7 +315,7 @@ class FuroNumberInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 19px 0 0 0;
+            margin: 10px 0 15px 0;
             height: 56px;
             width: 190px;
         }
@@ -391,7 +420,7 @@ class FuroNumberInput extends FBP(LitElement) {
 
         :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
             font-size: 12px;
-            top: -30px;
+            top: -28px;
             left:0;
             position: relative;
         }
@@ -604,26 +633,27 @@ class FuroNumberInput extends FBP(LitElement) {
     return html` 
       <div class="wrapper">
       
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
-       <div class="iwrap">    
-           <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-       type="number"       
-       ƒ-.value="--value" 
-       @-input="--inputInput(*)"   
-       ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+           <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+           <div class="iwrap">    
+               <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
+                   type="number"       
+                   ?required=${this.required} 
+                   ƒ-.value="--value" 
+                   @-input="--inputInput(*)"   
+                   ƒ-focus="--focus">
+           </div>
+           <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label} ${this.required ? html `*` : html``}</span></label>
       <div class="right-border"></div>
       </div>
       
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
+
     `;
   }
 

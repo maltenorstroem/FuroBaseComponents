@@ -20,12 +20,11 @@
     <test-bind>
       <template>
 
-        <furo-data-object type="experiment.Experiment" @-data-injected="--entity"  ƒ-inject-raw="--response(*.data)"></furo-data-object>
         <furo-data-checkbox-input ƒ-bind-data="--entity(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
         <furo-data-checkbox-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                               @-value-changed="--valueChanged"></furo-data-checkbox-input>
 
-
+        <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
         <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
         <furo-entity-agent service="ExperimentService"
                           ƒ-hts-in="--hts"
@@ -61,14 +60,16 @@
         beforeEach(async () => {
             let fix = fixture('basic');
             host = fix[0]._host;
-            entityObject = fix[1];
-            await entityObject.updateComplete;
 
-            dataCheckboxInput = fix[2];
+
+            dataCheckboxInput = fix[1];
             await dataCheckboxInput.updateComplete;
 
-            secondCheckboxInput = fix[3];
+            secondCheckboxInput = fix[2];
             await secondCheckboxInput.updateComplete;
+
+            entityObject = fix[3];
+            await entityObject.updateComplete;
 
             deeplink = fix[4];
             await deeplink.updateComplete;
@@ -77,21 +78,44 @@
 
         //those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
         it('should override labels ', (done) => {
-            console.log("those tests are base on the mockdata/experiment/1/get.json");
 
-            deeplink.qpIn({"exp":1});
             secondCheckboxInput._FBPAddWireHook("--value", (val) => {
                 assert.equal(secondCheckboxInput._label, "FromTPL")
                 done();
             });
         });
 
-        it('should receive value with bind', (done) => {
-            deeplink.qpIn({"exp":1});
+
+        it('should receive label from meta in spec by entity object ready', (done) => {
+
             dataCheckboxInput._FBPAddWireHook("--value", (val) => {
-                assert.equal(val, true)
+                assert.equal(dataCheckboxInput._label, "checkbox_input");
                 done();
             });
+        });
+
+        it('should receive hint from meta in spec by entity object ready', (done) => {
+
+            dataCheckboxInput._FBPAddWireHook("--value", (val) => {
+                assert.equal(dataCheckboxInput._hint, "Hint");
+                done();
+            });
+        });
+
+        it('should receive value with bind', (done) => {
+            console.log("those tests are base on the mockdata/experiment/1/get.json");
+
+            host._FBPAddWireHook("--hts", (e) => {
+                entityObject.addEventListener("data-changed",(e)=>{
+                    secondCheckboxInput._FBPAddWireHook("--value", (val) => {
+                        assert.equal(val, true);
+                        done();
+                    });
+
+                },{once:true});
+
+            });
+            deeplink.qpIn({"exp": 1});
         });
 
         // a11y tests

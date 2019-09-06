@@ -8,5 +8,3 @@ Init.registerApiServices(Services);
 Init.registerApiTypes(Types);
 i18n.registerResBundle(Translations);
 
-
-

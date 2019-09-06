@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-time-input";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 
 /**
  * `furo-data-time-input`
@@ -31,13 +32,30 @@ class FuroDataTimeInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
     this.errortext = "";
-    this.hint = "";
+
 
     this._FBPAddWireHook("--valueChanged", (val) => {
       if (this.field) {
         this.field.value = val;
       }
     });
+  }
+
+
+  // label setter and getter are needed for rendering on the first time
+  set label(l) {
+    this._label = l;
+    this._l = l;
+  }
+  set hint(v) {
+    this._hint = v;
+    this._h = v;
+  }
+  get label(){
+    return this._l;
+  }
+  get hint(){
+    return this._h;
   }
 
   static get properties() {
@@ -50,7 +68,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -66,7 +83,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       min: {
-        type: Number,
+        type: String,
       },
       /**
        * Overrides the max value from the **specs**.
@@ -74,7 +91,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       max: {
-        type: Number,
+        type: String,
       },
       /**
        * Overrides the step value from the **specs**.
@@ -135,15 +152,22 @@ class FuroDataTimeInput extends FBP(LitElement) {
     }
 
     this.field = fieldNode;
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     this._updateField();
+
     this.field.addEventListener('field-value-changed', (e) => {
       this._updateField();
+    });
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     });
 
     this.field.addEventListener('field-became-invalid', (e) => {
       // updates wieder einspielen
       this.error = true;
-      this.errortext = this.field._validity.message;
+      this.errortext = this.field._validity.description;
       this.requestUpdate();
     });
 
@@ -155,60 +179,12 @@ class FuroDataTimeInput extends FBP(LitElement) {
   }
 
 
-  // label setter and getter are needed for rendering on the first time
-  set label(l) {
-    this._l = l;
-    this._label = l;
-  }
-
-  get label() {
-    return this._l;
-  }
 
   _updateField() {
-    // label auf attr ist höher gewichtet
-    if (!this.label) {
-      this._label = this.field._meta.label;
-    } else {
-      this._label = this.label;
-    }
-
-    // hint auf attr ist höher gewichtet
-    if (!this.hint) {
-      this._hint = this.field._meta.hint;
-    } else {
-      this._hint = this.hint;
-    }
-    // min auf attr ist höher gewichtet
-    if (!this.min) {
-      this._min = this.field._meta.min;
-    } else {
-      this._min = this.min;
-    }
-    // max auf attr ist höher gewichtet
-    if (!this.max) {
-      this._max = this.field._meta.max;
-    } else {
-      this._max = this.max;
-    }
-    // step auf attr ist höher gewichtet
-    if (!this.step) {
-      this._step = this.field._meta.step;
-    } else {
-      this._step = this.step;
-    }
-    // readonly auf attr ist höher gewichtet
-    if (!this.readonly) {
-      this._readonly = this.field._meta.readonly;
-    } else {
-      this._readonly = this.readonly;
-    }
-
-
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
-      this.errortext = this.field._validity.message;
+      this.errortext = this.field._validity.description;
     }
     this._FBPTriggerWire('--value', this.field.value);
     this.requestUpdate();

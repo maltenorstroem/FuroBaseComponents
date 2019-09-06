@@ -4,7 +4,10 @@
   "description": "experiment spec for testing",
   "__proto": {
     "package": "experiment",
-    "imports": ["google/protobuf/any.proto"],
+    "imports": [
+      "google/protobuf/any.proto",
+      "furo/property.proto"
+    ],
     "targetfile": "experiment.proto"
   },
   "fields": {
@@ -18,7 +21,6 @@
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 1
       }
@@ -33,7 +35,6 @@
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 2
       }
@@ -47,7 +48,6 @@
         "hint": ""
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 3
       }
@@ -62,7 +62,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 4
       }
@@ -76,10 +75,23 @@
         "readonly": false
       },
       "constraints": {
-        "min": 3,
-        "max": 15
+        "required": {
+          "value": true,
+          "message": "This value must be set"
+        },
+        "min": {
+          "value": 3,
+          "message": "at least 3 characters"
+        },
+        "max": {
+          "value": 15,
+          "message": "15 characters maximum"
+        },
+        "pattern": {
+          "value": "a.*",
+          "message": "must start with a"
+        }
       },
-      "options": [],
       "__proto": {
         "number": 5
       }
@@ -93,7 +105,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 6
       }
@@ -107,11 +118,19 @@
         "readonly": false
       },
       "constraints": {
-        "min":"00-00",
-        "max":"24:59",
-        "step":""
+        "min": {
+          "value": "05:00",
+          "message": "From 05:00"
+        },
+        "max": {
+          "value": "19:00",
+          "message": "to 19:00"
+        },
+        "step": {
+          "value":"5",
+          "message": "step 5"
+        }
       },
-      "options": [],
       "__proto": {
         "number": 7
       }
@@ -125,11 +144,20 @@
         "readonly": false
       },
       "constraints": {
-        "min":null,
-        "max":null,
-        "step":""
+        "min": {
+          "value": 20,
+          "message": "From 20"
+        },
+        "max": {
+          "value": 50,
+          "message": "to 50"
+        },
+        "step": {
+          "value": "2.5",
+          "message":"step 2.5"
+        }
+
       },
-      "options": [],
       "__proto": {
         "number": 8
       }
@@ -143,11 +171,19 @@
         "readonly": false
       },
       "constraints": {
-        "min":1,
-        "max":5,
-        "step":""
+        "min": {
+          "value": 1,
+          "message": "from 1"
+        },
+        "max": {
+          "value": 555,
+          "message": "to 555"
+        },
+        "step": {
+          "value": "3",
+          "message":"step 3"
+        }
       },
-      "options": [],
       "__proto": {
         "number": 9
       }
@@ -161,7 +197,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 10
       }
@@ -175,11 +210,15 @@
         "readonly": false
       },
       "constraints": {
-        "min":6,
-        "max":15,
-        "pattern":""
+        "min": {
+          "value": 6,
+          "message": "min 6"
+        },
+        "max": {
+          "value": 15,
+          "message": "max 15"
+        }
       },
-      "options": [],
       "__proto": {
         "number": 11
       }
@@ -193,11 +232,19 @@
         "readonly": false
       },
       "constraints": {
-        "min":1,
-        "max":15,
-        "pattern":""
+        "min": {
+          "value": 1,
+          "message": "min 1"
+        },
+        "max": {
+          "value": 15,
+          "message": "max 15"
+        },
+        "pattern": {
+          "value": "a.*",
+          "message": "must start with a"
+        }
       },
-      "options": [],
       "__proto": {
         "number": 12
       }
@@ -211,11 +258,15 @@
         "readonly": false
       },
       "constraints": {
-        "min":"1800-01-01",
-        "max":"2099-12-31",
-        "pattern":""
+        "min": {
+          "value": "1800-01-01",
+          "message": "from 1800-01-01"
+        },
+        "max": {
+          "value": "2099-12-31",
+          "message": "to 2099-12-31"
+        }
       },
-      "options": [],
       "__proto": {
         "number": 13
       }
@@ -229,12 +280,10 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 14
       }
     },
-
     "the_any_type": {
       "description": "field for testing any",
       "type": "google.protobuf.Any",
@@ -244,9 +293,39 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 15
+      }
+    },
+    "type_with_options": {
+      "description": "field for testing static options",
+      "type": "string",
+      "meta": {
+        "label": "String options",
+        "hint": "Choose one",
+        "options": {
+          "list": [
+            "option_1",
+            "option_2",
+            "option_3"
+          ]
+        }
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 16
+      }
+    },
+    "type_property": {
+      "description": "field for testing property",
+      "type": "furo.Property",
+      "meta": {
+        "label": "Additional fields",
+        "repeated": true
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 17
       }
     }
   }
