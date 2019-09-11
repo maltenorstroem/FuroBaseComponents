@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-date-input`
@@ -37,8 +38,34 @@ class FuroDateInput extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.step = "any";
     this.valid = true;
+  }
+
+  /**
+   * Updater for the min attr
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"min", value);
+  }
+
+  /**
+   * Updater for the max attr
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"max", value);
+  }
+
+  /**
+   * Updater for the step attr
+   *
+   * @param value
+   */
+  set step(value) {
+    Helper.UpdateInputAttribute(this,"step", value);
   }
 
   _FBPReady() {
@@ -50,10 +77,10 @@ class FuroDateInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
 
-      // mark min max step error
-      this.valid = !(input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.stepMismatch);
+      // mark error
+      this.valid = input.validity.valid;
 
-      if (!input.validity.badInput) {
+      if (input.validity.valid) {
         this.value = input.value;
         this._float = !!input.value;
         /**
@@ -65,21 +92,18 @@ class FuroDateInput extends FBP(LitElement) {
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
       }
+      else{
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity ;
+        this.dispatchEvent(customEvent);
+      }
     });
-
-    // set pattern, min, max, step
-    let inputField = this.shadowRoot.querySelector("#input");
-
-
-    if (this.min) {
-      inputField.setAttribute("min", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("max", this.max);
-    }
-    if (this.step) {
-      inputField.setAttribute("step", this.step);
-    }
   }
 
 

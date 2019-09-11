@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-textarea-input`
@@ -26,7 +27,7 @@ class FuroTextareaInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
 
-      this.valid = !input.validity.valid;
+      this.valid = input.validity.valid;
       this._float = !!input.value;
 
       if (input.validity.valid) {
@@ -39,20 +40,51 @@ class FuroTextareaInput extends FBP(LitElement) {
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
+      }else {
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity;
+        this.dispatchEvent(customEvent);
       }
     });
+  }
 
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
+
+  /**
+   * Updater for the min => minlength attr
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"minlength", value);
+  }
+
+  /**
+   * Updater for the max => maxlength attr
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"maxlength", value);
+  }
+
+  /**
+   * Updater for the rows attr
+   * @param value
+   */
+  set rows(value) {
+    Helper.UpdateInputAttribute(this,"rows", value);
+  }
+
+  /**
+   * Updater for the cols attr*
+   * @param value
+   */
+  set cols(value) {
+    Helper.UpdateInputAttribute(this,"cols", value);
   }
 
 
@@ -72,14 +104,6 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       value: {
         type: String
-      },
-      /**
-       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
-       *
-       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
-       */
-      pattern:{
-        type:String
       },
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
@@ -155,20 +179,6 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       errortext: {
         type: String,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: "leading-icon"
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: "trailing-icon"
       },
       /**
        * html input validity
@@ -390,7 +400,7 @@ class FuroTextareaInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-        ƒ-.value="--value" rows="${this.rows}" cols="${this.cols}" @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
+        ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>  
       <div class="hint">${this.hint}</div>

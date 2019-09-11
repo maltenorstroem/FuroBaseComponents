@@ -14,8 +14,11 @@ export class CheckMetaAndOverrides {
       if (element.field._meta.hint) {
         element._hint = element.field._meta.hint;
       }
-      if (element.field._meta.required) {
-        element._required = element.field._meta.required.value;
+      if (element.field._meta.cols) {
+        element._cols = element.field._meta.cols;
+      }
+      if (element.field._meta.rows) {
+        element._rows = element.field._meta.rows;
       }
     }
     // check if constraints ara available
@@ -35,6 +38,9 @@ export class CheckMetaAndOverrides {
       if (element.field._constraints.pattern) {
         element._pattern = element.field._constraints.pattern.value;
         element._patternErrorMessage = element.field._constraints.pattern.message;
+      }
+      if (element.field._constraints.required) {
+        element._required = element.field._meta.required;
       }
     }
 
@@ -76,6 +82,14 @@ export class CheckMetaAndOverrides {
 
     if (element.required) {
       element._required = element.required;
+    }
+
+    if (element.cols) {
+      element._cols = element.cols;
+    }
+
+    if (element.rows) {
+      element._rows = element.rows;
     }
   }
 }

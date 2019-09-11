@@ -32,7 +32,6 @@ class FuroDataNumberInput extends FBP(LitElement) {
     super();
     this.error = false;
     this.disabled = false;
-    this.errortext = "";
 
 
     this._FBPAddWireHook("--valueChanged", (val) => {
@@ -123,7 +122,7 @@ class FuroDataNumberInput extends FBP(LitElement) {
    * Updater for the step attr
    * @param value
    */
-  set step(value) {
+  set _step(value) {
     Helper.UpdateInputAttribute(this, "step", value);
   }
 
@@ -256,39 +255,8 @@ class FuroDataNumberInput extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    if (fieldNode === undefined) {
-      console.warn("Invalid binding ");
-      console.log(this);
-      return
-    }
-
-    this.field = fieldNode;
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-    this._updateField();
-
-    this.field.addEventListener('field-value-changed', (e) => {
-      this._updateField();
-    });
-
-    // update meta and constraints when they change
-    this.field.addEventListener('this-metas-changed', (e) => {
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-    });
-
-    this.field.addEventListener('field-became-invalid', (e) => {
-      // updates wieder einspielen
-      this.error = true;
-      this.errortext = this.field._validity.description;
-      this.requestUpdate();
-    });
-
-    this.field.addEventListener('field-became-valid', (e) => {
-      // updates wieder einspielen
-      this.error = false;
-      this.requestUpdate();
-    });
+    Helper.BindData(this, fieldNode);
   }
-
 
   _updateField() {
 
@@ -333,8 +301,6 @@ class FuroDataNumberInput extends FBP(LitElement) {
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
-          leading-icon="${this.leadingIcon}" 
-          trailing-icon="${this.trailingIcon}" 
           ?required=${this._required}
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"

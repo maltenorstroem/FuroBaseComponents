@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.54.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.53.3...@furo/input@0.54.0) (2019-09-11)
+
+
+### Features
+
+* form.spec.tmpl ([53b621e](https://github.com/veith/FuroBaseComponents/commit/53b621e))
+
+
+
+
+
+## [0.53.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.53.2...@furo/input@0.53.3) (2019-09-08)
+
+
+### Bug Fixes
+
+* data-input pattern min max ([6eefc67](https://github.com/veith/FuroBaseComponents/commit/6eefc67))
+* tests for data-input pattern min max ([455fa8e](https://github.com/veith/FuroBaseComponents/commit/455fa8e))
+* **furo-input:** adjust spacing for label and hints ([711088f](https://github.com/veith/FuroBaseComponents/commit/711088f))
+
+
+
+
+
 ## [0.53.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.53.1...@furo/input@0.53.2) (2019-09-05)
 
 

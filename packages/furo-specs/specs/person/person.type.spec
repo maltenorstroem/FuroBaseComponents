@@ -44,7 +44,9 @@
         "default": "",
         "hint": ""
       },
-      "constraints": {},
+      "constraints": {
+        "required": true
+      },
       "__proto": {
         "number": 3
       }
@@ -60,6 +62,9 @@
       "constraints": {},
       "__proto": {
         "number": 4
+      },
+      "__ui": {
+        "component": "furo-data-text-input"
       }
     },
     "phone_nr": {

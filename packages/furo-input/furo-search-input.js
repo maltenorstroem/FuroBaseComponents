@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-search-input`
@@ -41,7 +42,7 @@ class FuroSearchInput extends FBP(LitElement) {
     this._value = this.value || "";
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
-      this.error = input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.patternMismatch;
+      this.valid = input.validity.valid;
       this._float = !!input.value;
 
       if (input.validity.valid) {
@@ -55,23 +56,50 @@ class FuroSearchInput extends FBP(LitElement) {
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
+      }else {
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity;
+        this.dispatchEvent(customEvent);
       }
     });
-
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
-
   }
 
+
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set pattern(value) {
+    Helper.UpdateInputAttribute(this,"pattern", value);
+  }
+
+  /**
+   * Updater for the min => minlength attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"minlength", value);
+  }
+
+  /**
+   * Updater for the max => maxlength attr
+   * * same problem like in pattern
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"maxlength", value);
+  }
 
   set _value(v) {
     this._float = !!v;
