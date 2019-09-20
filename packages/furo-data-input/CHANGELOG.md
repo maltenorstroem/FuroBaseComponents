@@ -3,6 +3,194 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.3...@furo/data-input@0.53.0) (2019-09-19)
+
+
+### Features
+
+* data-repeater ([c2f6d12](https://github.com/veith/FuroBaseComponents/commit/c2f6d12))
+
+
+
+
+
+## [0.52.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.2...@furo/data-input@0.52.3) (2019-09-19)
+
+
+### Bug Fixes
+
+*  fix furo-radio-button-input position ([6f4b867](https://github.com/veith/FuroBaseComponents/commit/6f4b867))
+
+
+
+
+
+## [0.52.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.1...@furo/data-input@0.52.2) (2019-09-18)
+
+
+### Bug Fixes
+
+* notify with original item on select-item event ([0acb720](https://github.com/veith/FuroBaseComponents/commit/0acb720))
+
+
+
+
+
+## [0.52.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.0...@furo/data-input@0.52.1) (2019-09-18)
+
+
+### Bug Fixes
+
+* notify select-item on init ([8cb2e40](https://github.com/veith/FuroBaseComponents/commit/8cb2e40))
+
+
+
+
+
+# [0.52.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.51.0...@furo/data-input@0.52.0) (2019-09-18)
+
+
+### Bug Fixes
+
+* reset hint according to meta and attribute after input becomes valid again ([4044caa](https://github.com/veith/FuroBaseComponents/commit/4044caa))
+
+
+### Features
+
+*  add furo-radio-button,furo-radio-button-input, furo-data-radio-button-input and their demos ([d4dc477](https://github.com/veith/FuroBaseComponents/commit/d4dc477))
+* furo-data-collection-dropdown label and hint override ([9a6ffdb](https://github.com/veith/FuroBaseComponents/commit/9a6ffdb))
+
+
+
+
+
+# [0.51.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.50.0...@furo/data-input@0.51.0) (2019-09-17)
+
+
+### Features
+
+* Attribute forwarding on properties ([4fdb341](https://github.com/veith/FuroBaseComponents/commit/4fdb341))
+
+
+
+
+
+# [0.50.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.49.0...@furo/data-input@0.50.0) (2019-09-17)
+
+
+### Features
+
+* int type for properties ([8b59c5e](https://github.com/veith/FuroBaseComponents/commit/8b59c5e))
+* int type for properties ([73e15d6](https://github.com/veith/FuroBaseComponents/commit/73e15d6))
+
+
+
+
+
+# [0.49.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.19...@furo/data-input@0.49.0) (2019-09-17)
+
+
+### Bug Fixes
+
+* better null checking by scalar values ([ad59699](https://github.com/veith/FuroBaseComponents/commit/ad59699))
+
+
+### Features
+
+* property field init ([cb3937b](https://github.com/veith/FuroBaseComponents/commit/cb3937b))
+
+
+
+
+
+## [0.48.19](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.18...@furo/data-input@0.48.19) (2019-09-15)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.48.18](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.17...@furo/data-input@0.48.18) (2019-09-14)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.48.17](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.16...@furo/data-input@0.48.17) (2019-09-13)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.48.16](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.15...@furo/data-input@0.48.16) (2019-09-13)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.48.15](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.14...@furo/data-input@0.48.15) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed size ([9ae2795](https://github.com/veith/FuroBaseComponents/commit/9ae2795))
+* condensed size ([5d2e7b7](https://github.com/veith/FuroBaseComponents/commit/5d2e7b7))
+
+
+
+
+
+## [0.48.14](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.13...@furo/data-input@0.48.14) (2019-09-13)
+
+
+### Bug Fixes
+
+* scroll position, undefined text not shown as "undefined" ([05209b0](https://github.com/veith/FuroBaseComponents/commit/05209b0))
+
+
+
+
+
+## [0.48.13](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.12...@furo/data-input@0.48.13) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed aligning of icons ([d199942](https://github.com/veith/FuroBaseComponents/commit/d199942))
+* condensed aligning of icons ([6bc090d](https://github.com/veith/FuroBaseComponents/commit/6bc090d))
+* label ([73fc1ca](https://github.com/veith/FuroBaseComponents/commit/73fc1ca))
+* ref search ([f267c97](https://github.com/veith/FuroBaseComponents/commit/f267c97))
+
+
+
+
+
+## [0.48.12](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.11...@furo/data-input@0.48.12) (2019-09-11)
+
+
+### Bug Fixes
+
+* CollectionDropdown inject entities ([65d5401](https://github.com/veith/FuroBaseComponents/commit/65d5401))
+
+
+
+
+
+## [0.48.11](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.10...@furo/data-input@0.48.11) (2019-09-11)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [0.48.10](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.9...@furo/data-input@0.48.10) (2019-09-11)
 
 **Note:** Version bump only for package @furo/data-input

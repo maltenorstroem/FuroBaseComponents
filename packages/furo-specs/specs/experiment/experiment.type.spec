@@ -7,6 +7,7 @@
     "imports": [
       "google/protobuf/any.proto",
       "google/type/date.proto",
+      "google/type/money.proto",
       "furo/property.proto"
     ],
     "targetfile": "experiment.proto"
@@ -127,7 +128,7 @@
           "message": "to 19:00"
         },
         "step": {
-          "value":"5",
+          "value": "5",
           "message": "step 5"
         }
       },
@@ -154,9 +155,8 @@
         },
         "step": {
           "value": "2.5",
-          "message":"step 2.5"
+          "message": "step 2.5"
         }
-
       },
       "__proto": {
         "number": 8
@@ -181,7 +181,7 @@
         },
         "step": {
           "value": "3",
-          "message":"step 3"
+          "message": "step 3"
         }
       },
       "__proto": {
@@ -267,7 +267,7 @@
           "message": "The latest date to accept is 2099-12-31"
         },
         "step": {
-          "value":"5",
+          "value": "5",
           "message": "step 5"
         }
       },
@@ -350,13 +350,76 @@
           "message": "The latest date to accept is 2099-12-31"
         },
         "step": {
-          "value":"2",
+          "value": "2",
           "message": "step 2"
         }
       },
       "__proto": {
         "number": 18
       }
+    },
+    "single_type_property": {
+      "description": "field for testing property",
+      "type": "furo.Property",
+      "meta": {
+        "label": "Additional fields"
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 19
+      }
+    },
+    "repstring": {
+      "description": "repeated string",
+      "type": "string",
+      "meta": {
+        "repeated": true,
+        "label": "Description",
+        "default": "Ein text per default",
+        "hint": ""
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 20
+      }
+    },
+    "furo_data_money_input": {
+      "description": "field for testing money type",
+      "type": "google.type.Money",
+      "meta": {
+        "readonly":false,
+        "label_currency": "Currency",
+        "label_amount": "Amount",
+        "hint":"google.type.Money",
+        "options": {
+          "list": [
+              "CAD",
+              "CNY",
+              "CHF",
+              "EUR"
+          ]
+        }
+
+      },
+      "constraints": {
+        "required":true,
+        "min": {
+          "value": 0,
+          "message": "amount can not be negative"
+        },
+        "max":{
+          "value": 999999,
+          "message": "amount maximal 999999"
+        },
+        "step":{
+          "value": 0.001,
+          "message": "step 0.01"
+        }
+      },
+      "__proto": {
+        "number": 21
+      }
     }
+
   }
 }

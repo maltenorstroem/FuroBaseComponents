@@ -11,15 +11,19 @@ export class RepeaterNode extends EventTreeNode {
     this._spec = spec;
     this._name = fieldName;
 
-    if(this._spec.meta){
+    if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
-    }else{
-      this._meta = function (){return {}}();
+    } else {
+      this._meta = function () {
+        return {}
+      }();
     }
-    if(this._spec.constraints){
+    if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
-    }else{
-      this._constraints = function (){return {}}();
+    } else {
+      this._constraints = function () {
+        return {}
+      }();
     }
 
 
@@ -66,6 +70,13 @@ export class RepeaterNode extends EventTreeNode {
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed", this.repeats, false));
   }
 
+  /**
+   * infinite recursive element protection
+   * we can return false here, because a repeater node is not created automatically
+   */
+  _hasAncestorOfType(type) {
+    return false;
+  }
 
   deleteNode() {
 
@@ -76,6 +87,12 @@ export class RepeaterNode extends EventTreeNode {
     //notify
     this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
     this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
+
+    // because this is deleted, notifiy from parent
+    this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.__parentNode, true));
+    this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this.__parentNode, false));
+
+
   }
 
   set value(val) {
@@ -91,7 +108,8 @@ export class RepeaterNode extends EventTreeNode {
 
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
-
+    //TODO check the tree
+    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
   }
 
 
@@ -155,9 +173,18 @@ export class RepeaterNode extends EventTreeNode {
    */
   deleteChild(index) {
     this.repeats.splice(index, 1);
+
+    // update indexes
+    this.repeats.forEach((node,i)=>{
+      node.__index = i;
+    });
+
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
     this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed", this.repeats, false));
+
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed", this.repeats, true));
+    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
+
   }
 
   _addSilent() {
@@ -199,6 +226,7 @@ export class RepeaterNode extends EventTreeNode {
     this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added", this.repeats[index], false));
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
+    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
 
     // return field for chainabilty
     return this.repeats[index];

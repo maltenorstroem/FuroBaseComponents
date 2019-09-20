@@ -1522,6 +1522,31 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    boolean hasFuroDataDateInputGoogle();
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    google.type.DateOuterClass.Date getFuroDataDateInputGoogle();
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    google.type.DateOuterClass.DateOrBuilder getFuroDataDateInputGoogleOrBuilder();
+
+    /**
+     * <pre>
      * field for furo-data-number-input for testing
      * </pre>
      *
@@ -1657,6 +1682,66 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    java.util.List<java.lang.String>
+        getRepstringList();
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    int getRepstringCount();
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    java.lang.String getRepstring(int index);
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    com.google.protobuf.ByteString
+        getRepstringBytes(int index);
+
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    boolean hasSingleTypeProperty();
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    furo.PropertyOuterClass.Property getSingleTypeProperty();
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    furo.PropertyOuterClass.PropertyOrBuilder getSingleTypePropertyOrBuilder();
+
+    /**
+     * <pre>
      * field for testing any
      * </pre>
      *
@@ -1770,6 +1855,7 @@ public final class ExperimentOuterClass {
       furoDataTextareaInput_ = "";
       furoDataTimeInput_ = "";
       id_ = "";
+      repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       typeProperty_ = java.util.Collections.emptyList();
       typeWithOptions_ = "";
     }
@@ -1899,12 +1985,47 @@ public final class ExperimentOuterClass {
               break;
             }
             case 138: {
-              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00040000) != 0)) {
                 typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00040000;
               }
               typeProperty_.add(
                   input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry));
+              break;
+            }
+            case 146: {
+              google.type.DateOuterClass.Date.Builder subBuilder = null;
+              if (furoDataDateInputGoogle_ != null) {
+                subBuilder = furoDataDateInputGoogle_.toBuilder();
+              }
+              furoDataDateInputGoogle_ = input.readMessage(google.type.DateOuterClass.Date.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(furoDataDateInputGoogle_);
+                furoDataDateInputGoogle_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 154: {
+              furo.PropertyOuterClass.Property.Builder subBuilder = null;
+              if (singleTypeProperty_ != null) {
+                subBuilder = singleTypeProperty_.toBuilder();
+              }
+              singleTypeProperty_ = input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(singleTypeProperty_);
+                singleTypeProperty_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 162: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
+                repstring_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              repstring_.add(s);
               break;
             }
             default: {
@@ -1922,8 +2043,11 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00008000) != 0)) {
+        if (((mutable_bitField0_ & 0x00040000) != 0)) {
           typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
+        }
+        if (((mutable_bitField0_ & 0x00008000) != 0)) {
+          repstring_ = repstring_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2135,6 +2259,39 @@ public final class ExperimentOuterClass {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int FURO_DATA_DATE_INPUT_GOOGLE_FIELD_NUMBER = 18;
+    private google.type.DateOuterClass.Date furoDataDateInputGoogle_;
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    public boolean hasFuroDataDateInputGoogle() {
+      return furoDataDateInputGoogle_ != null;
+    }
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    public google.type.DateOuterClass.Date getFuroDataDateInputGoogle() {
+      return furoDataDateInputGoogle_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : furoDataDateInputGoogle_;
+    }
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    public google.type.DateOuterClass.DateOrBuilder getFuroDataDateInputGoogleOrBuilder() {
+      return getFuroDataDateInputGoogle();
     }
 
     public static final int FURO_DATA_NUMBER_INPUT_FIELD_NUMBER = 9;
@@ -2444,6 +2601,84 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int REPSTRING_FIELD_NUMBER = 20;
+    private com.google.protobuf.LazyStringList repstring_;
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRepstringList() {
+      return repstring_;
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public int getRepstringCount() {
+      return repstring_.size();
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public java.lang.String getRepstring(int index) {
+      return repstring_.get(index);
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRepstringBytes(int index) {
+      return repstring_.getByteString(index);
+    }
+
+    public static final int SINGLE_TYPE_PROPERTY_FIELD_NUMBER = 19;
+    private furo.PropertyOuterClass.Property singleTypeProperty_;
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    public boolean hasSingleTypeProperty() {
+      return singleTypeProperty_ != null;
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    public furo.PropertyOuterClass.Property getSingleTypeProperty() {
+      return singleTypeProperty_ == null ? furo.PropertyOuterClass.Property.getDefaultInstance() : singleTypeProperty_;
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    public furo.PropertyOuterClass.PropertyOrBuilder getSingleTypePropertyOrBuilder() {
+      return getSingleTypeProperty();
+    }
+
     public static final int THE_ANY_TYPE_FIELD_NUMBER = 15;
     private google.protobuf.AnyOuterClass.Any theAnyType_;
     /**
@@ -2639,6 +2874,15 @@ public final class ExperimentOuterClass {
       for (int i = 0; i < typeProperty_.size(); i++) {
         output.writeMessage(17, typeProperty_.get(i));
       }
+      if (furoDataDateInputGoogle_ != null) {
+        output.writeMessage(18, getFuroDataDateInputGoogle());
+      }
+      if (singleTypeProperty_ != null) {
+        output.writeMessage(19, getSingleTypeProperty());
+      }
+      for (int i = 0; i < repstring_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 20, repstring_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2704,6 +2948,22 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(17, typeProperty_.get(i));
       }
+      if (furoDataDateInputGoogle_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(18, getFuroDataDateInputGoogle());
+      }
+      if (singleTypeProperty_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(19, getSingleTypeProperty());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < repstring_.size(); i++) {
+          dataSize += computeStringSizeNoTag(repstring_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getRepstringList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2731,6 +2991,11 @@ public final class ExperimentOuterClass {
           .equals(other.getFuroDataColorInput())) return false;
       if (!getFuroDataDateInput()
           .equals(other.getFuroDataDateInput())) return false;
+      if (hasFuroDataDateInputGoogle() != other.hasFuroDataDateInputGoogle()) return false;
+      if (hasFuroDataDateInputGoogle()) {
+        if (!getFuroDataDateInputGoogle()
+            .equals(other.getFuroDataDateInputGoogle())) return false;
+      }
       if (java.lang.Float.floatToIntBits(getFuroDataNumberInput())
           != java.lang.Float.floatToIntBits(
               other.getFuroDataNumberInput())) return false;
@@ -2748,6 +3013,13 @@ public final class ExperimentOuterClass {
           .equals(other.getFuroDataTimeInput())) return false;
       if (!getId()
           .equals(other.getId())) return false;
+      if (!getRepstringList()
+          .equals(other.getRepstringList())) return false;
+      if (hasSingleTypeProperty() != other.hasSingleTypeProperty()) return false;
+      if (hasSingleTypeProperty()) {
+        if (!getSingleTypeProperty()
+            .equals(other.getSingleTypeProperty())) return false;
+      }
       if (hasTheAnyType() != other.hasTheAnyType()) return false;
       if (hasTheAnyType()) {
         if (!getTheAnyType()
@@ -2782,6 +3054,10 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getFuroDataColorInput().hashCode();
       hash = (37 * hash) + FURO_DATA_DATE_INPUT_FIELD_NUMBER;
       hash = (53 * hash) + getFuroDataDateInput().hashCode();
+      if (hasFuroDataDateInputGoogle()) {
+        hash = (37 * hash) + FURO_DATA_DATE_INPUT_GOOGLE_FIELD_NUMBER;
+        hash = (53 * hash) + getFuroDataDateInputGoogle().hashCode();
+      }
       hash = (37 * hash) + FURO_DATA_NUMBER_INPUT_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getFuroDataNumberInput());
@@ -2799,6 +3075,14 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getFuroDataTimeInput().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      if (getRepstringCount() > 0) {
+        hash = (37 * hash) + REPSTRING_FIELD_NUMBER;
+        hash = (53 * hash) + getRepstringList().hashCode();
+      }
+      if (hasSingleTypeProperty()) {
+        hash = (37 * hash) + SINGLE_TYPE_PROPERTY_FIELD_NUMBER;
+        hash = (53 * hash) + getSingleTypeProperty().hashCode();
+      }
       if (hasTheAnyType()) {
         hash = (37 * hash) + THE_ANY_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getTheAnyType().hashCode();
@@ -2959,6 +3243,12 @@ public final class ExperimentOuterClass {
 
         furoDataDateInput_ = "";
 
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogle_ = null;
+        } else {
+          furoDataDateInputGoogle_ = null;
+          furoDataDateInputGoogleBuilder_ = null;
+        }
         furoDataNumberInput_ = 0F;
 
         furoDataPasswordInput_ = "";
@@ -2975,6 +3265,14 @@ public final class ExperimentOuterClass {
 
         id_ = "";
 
+        repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypeProperty_ = null;
+        } else {
+          singleTypeProperty_ = null;
+          singleTypePropertyBuilder_ = null;
+        }
         if (theAnyTypeBuilder_ == null) {
           theAnyType_ = null;
         } else {
@@ -2983,7 +3281,7 @@ public final class ExperimentOuterClass {
         }
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00040000);
         } else {
           typePropertyBuilder_.clear();
         }
@@ -3023,6 +3321,11 @@ public final class ExperimentOuterClass {
         result.furoDataCheckboxInput_ = furoDataCheckboxInput_;
         result.furoDataColorInput_ = furoDataColorInput_;
         result.furoDataDateInput_ = furoDataDateInput_;
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          result.furoDataDateInputGoogle_ = furoDataDateInputGoogle_;
+        } else {
+          result.furoDataDateInputGoogle_ = furoDataDateInputGoogleBuilder_.build();
+        }
         result.furoDataNumberInput_ = furoDataNumberInput_;
         result.furoDataPasswordInput_ = furoDataPasswordInput_;
         result.furoDataRangeInput_ = furoDataRangeInput_;
@@ -3031,15 +3334,25 @@ public final class ExperimentOuterClass {
         result.furoDataTextareaInput_ = furoDataTextareaInput_;
         result.furoDataTimeInput_ = furoDataTimeInput_;
         result.id_ = id_;
+        if (((bitField0_ & 0x00008000) != 0)) {
+          repstring_ = repstring_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.repstring_ = repstring_;
+        if (singleTypePropertyBuilder_ == null) {
+          result.singleTypeProperty_ = singleTypeProperty_;
+        } else {
+          result.singleTypeProperty_ = singleTypePropertyBuilder_.build();
+        }
         if (theAnyTypeBuilder_ == null) {
           result.theAnyType_ = theAnyType_;
         } else {
           result.theAnyType_ = theAnyTypeBuilder_.build();
         }
         if (typePropertyBuilder_ == null) {
-          if (((bitField0_ & 0x00008000) != 0)) {
+          if (((bitField0_ & 0x00040000) != 0)) {
             typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
-            bitField0_ = (bitField0_ & ~0x00008000);
+            bitField0_ = (bitField0_ & ~0x00040000);
           }
           result.typeProperty_ = typeProperty_;
         } else {
@@ -3117,6 +3430,9 @@ public final class ExperimentOuterClass {
           furoDataDateInput_ = other.furoDataDateInput_;
           onChanged();
         }
+        if (other.hasFuroDataDateInputGoogle()) {
+          mergeFuroDataDateInputGoogle(other.getFuroDataDateInputGoogle());
+        }
         if (other.getFuroDataNumberInput() != 0F) {
           setFuroDataNumberInput(other.getFuroDataNumberInput());
         }
@@ -3148,6 +3464,19 @@ public final class ExperimentOuterClass {
           id_ = other.id_;
           onChanged();
         }
+        if (!other.repstring_.isEmpty()) {
+          if (repstring_.isEmpty()) {
+            repstring_ = other.repstring_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensureRepstringIsMutable();
+            repstring_.addAll(other.repstring_);
+          }
+          onChanged();
+        }
+        if (other.hasSingleTypeProperty()) {
+          mergeSingleTypeProperty(other.getSingleTypeProperty());
+        }
         if (other.hasTheAnyType()) {
           mergeTheAnyType(other.getTheAnyType());
         }
@@ -3155,7 +3484,7 @@ public final class ExperimentOuterClass {
           if (!other.typeProperty_.isEmpty()) {
             if (typeProperty_.isEmpty()) {
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00040000);
             } else {
               ensureTypePropertyIsMutable();
               typeProperty_.addAll(other.typeProperty_);
@@ -3168,7 +3497,7 @@ public final class ExperimentOuterClass {
               typePropertyBuilder_.dispose();
               typePropertyBuilder_ = null;
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00040000);
               typePropertyBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTypePropertyFieldBuilder() : null;
@@ -3641,6 +3970,159 @@ public final class ExperimentOuterClass {
         furoDataDateInput_ = value;
         onChanged();
         return this;
+      }
+
+      private google.type.DateOuterClass.Date furoDataDateInputGoogle_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> furoDataDateInputGoogleBuilder_;
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public boolean hasFuroDataDateInputGoogle() {
+        return furoDataDateInputGoogleBuilder_ != null || furoDataDateInputGoogle_ != null;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public google.type.DateOuterClass.Date getFuroDataDateInputGoogle() {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          return furoDataDateInputGoogle_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : furoDataDateInputGoogle_;
+        } else {
+          return furoDataDateInputGoogleBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder setFuroDataDateInputGoogle(google.type.DateOuterClass.Date value) {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          furoDataDateInputGoogle_ = value;
+          onChanged();
+        } else {
+          furoDataDateInputGoogleBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder setFuroDataDateInputGoogle(
+          google.type.DateOuterClass.Date.Builder builderForValue) {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogle_ = builderForValue.build();
+          onChanged();
+        } else {
+          furoDataDateInputGoogleBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder mergeFuroDataDateInputGoogle(google.type.DateOuterClass.Date value) {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          if (furoDataDateInputGoogle_ != null) {
+            furoDataDateInputGoogle_ =
+              google.type.DateOuterClass.Date.newBuilder(furoDataDateInputGoogle_).mergeFrom(value).buildPartial();
+          } else {
+            furoDataDateInputGoogle_ = value;
+          }
+          onChanged();
+        } else {
+          furoDataDateInputGoogleBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder clearFuroDataDateInputGoogle() {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogle_ = null;
+          onChanged();
+        } else {
+          furoDataDateInputGoogle_ = null;
+          furoDataDateInputGoogleBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public google.type.DateOuterClass.Date.Builder getFuroDataDateInputGoogleBuilder() {
+        
+        onChanged();
+        return getFuroDataDateInputGoogleFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public google.type.DateOuterClass.DateOrBuilder getFuroDataDateInputGoogleOrBuilder() {
+        if (furoDataDateInputGoogleBuilder_ != null) {
+          return furoDataDateInputGoogleBuilder_.getMessageOrBuilder();
+        } else {
+          return furoDataDateInputGoogle_ == null ?
+              google.type.DateOuterClass.Date.getDefaultInstance() : furoDataDateInputGoogle_;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> 
+          getFuroDataDateInputGoogleFieldBuilder() {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder>(
+                  getFuroDataDateInputGoogle(),
+                  getParentForChildren(),
+                  isClean());
+          furoDataDateInputGoogle_ = null;
+        }
+        return furoDataDateInputGoogleBuilder_;
       }
 
       private float furoDataNumberInput_ ;
@@ -4304,6 +4786,289 @@ public final class ExperimentOuterClass {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureRepstringIsMutable() {
+        if (!((bitField0_ & 0x00008000) != 0)) {
+          repstring_ = new com.google.protobuf.LazyStringArrayList(repstring_);
+          bitField0_ |= 0x00008000;
+         }
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getRepstringList() {
+        return repstring_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public int getRepstringCount() {
+        return repstring_.size();
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public java.lang.String getRepstring(int index) {
+        return repstring_.get(index);
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRepstringBytes(int index) {
+        return repstring_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder setRepstring(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRepstringIsMutable();
+        repstring_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder addRepstring(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRepstringIsMutable();
+        repstring_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder addAllRepstring(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureRepstringIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, repstring_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder clearRepstring() {
+        repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder addRepstringBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureRepstringIsMutable();
+        repstring_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private furo.PropertyOuterClass.Property singleTypeProperty_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder> singleTypePropertyBuilder_;
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public boolean hasSingleTypeProperty() {
+        return singleTypePropertyBuilder_ != null || singleTypeProperty_ != null;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public furo.PropertyOuterClass.Property getSingleTypeProperty() {
+        if (singleTypePropertyBuilder_ == null) {
+          return singleTypeProperty_ == null ? furo.PropertyOuterClass.Property.getDefaultInstance() : singleTypeProperty_;
+        } else {
+          return singleTypePropertyBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder setSingleTypeProperty(furo.PropertyOuterClass.Property value) {
+        if (singleTypePropertyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          singleTypeProperty_ = value;
+          onChanged();
+        } else {
+          singleTypePropertyBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder setSingleTypeProperty(
+          furo.PropertyOuterClass.Property.Builder builderForValue) {
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypeProperty_ = builderForValue.build();
+          onChanged();
+        } else {
+          singleTypePropertyBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder mergeSingleTypeProperty(furo.PropertyOuterClass.Property value) {
+        if (singleTypePropertyBuilder_ == null) {
+          if (singleTypeProperty_ != null) {
+            singleTypeProperty_ =
+              furo.PropertyOuterClass.Property.newBuilder(singleTypeProperty_).mergeFrom(value).buildPartial();
+          } else {
+            singleTypeProperty_ = value;
+          }
+          onChanged();
+        } else {
+          singleTypePropertyBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder clearSingleTypeProperty() {
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypeProperty_ = null;
+          onChanged();
+        } else {
+          singleTypeProperty_ = null;
+          singleTypePropertyBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public furo.PropertyOuterClass.Property.Builder getSingleTypePropertyBuilder() {
+        
+        onChanged();
+        return getSingleTypePropertyFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public furo.PropertyOuterClass.PropertyOrBuilder getSingleTypePropertyOrBuilder() {
+        if (singleTypePropertyBuilder_ != null) {
+          return singleTypePropertyBuilder_.getMessageOrBuilder();
+        } else {
+          return singleTypeProperty_ == null ?
+              furo.PropertyOuterClass.Property.getDefaultInstance() : singleTypeProperty_;
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder> 
+          getSingleTypePropertyFieldBuilder() {
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypePropertyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
+                  getSingleTypeProperty(),
+                  getParentForChildren(),
+                  isClean());
+          singleTypeProperty_ = null;
+        }
+        return singleTypePropertyBuilder_;
+      }
+
       private google.protobuf.AnyOuterClass.Any theAnyType_;
       private com.google.protobuf.SingleFieldBuilderV3<
           google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder> theAnyTypeBuilder_;
@@ -4460,9 +5225,9 @@ public final class ExperimentOuterClass {
       private java.util.List<furo.PropertyOuterClass.Property> typeProperty_ =
         java.util.Collections.emptyList();
       private void ensureTypePropertyIsMutable() {
-        if (!((bitField0_ & 0x00008000) != 0)) {
+        if (!((bitField0_ & 0x00040000) != 0)) {
           typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>(typeProperty_);
-          bitField0_ |= 0x00008000;
+          bitField0_ |= 0x00040000;
          }
       }
 
@@ -4656,7 +5421,7 @@ public final class ExperimentOuterClass {
       public Builder clearTypeProperty() {
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00040000);
           onChanged();
         } else {
           typePropertyBuilder_.clear();
@@ -4761,7 +5526,7 @@ public final class ExperimentOuterClass {
           typePropertyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
                   typeProperty_,
-                  ((bitField0_ & 0x00008000) != 0),
+                  ((bitField0_ & 0x00040000) != 0),
                   getParentForChildren(),
                   isClean());
           typeProperty_ = null;
@@ -6106,6 +6871,1026 @@ public final class ExperimentOuterClass {
 
     @java.lang.Override
     public experiment.ExperimentOuterClass.Default getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RecursiveOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:experiment.Recursive)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Localized String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    java.lang.String getDisplayName();
+    /**
+     * <pre>
+     * Localized String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDisplayNameBytes();
+
+    /**
+     * <pre>
+     * Identity
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     * Identity
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <pre>
+     * The recursion
+     * </pre>
+     *
+     * <code>.experiment.Recursive recursion = 3;</code>
+     */
+    boolean hasRecursion();
+    /**
+     * <pre>
+     * The recursion
+     * </pre>
+     *
+     * <code>.experiment.Recursive recursion = 3;</code>
+     */
+    experiment.ExperimentOuterClass.Recursive getRecursion();
+    /**
+     * <pre>
+     * The recursion
+     * </pre>
+     *
+     * <code>.experiment.Recursive recursion = 3;</code>
+     */
+    experiment.ExperimentOuterClass.RecursiveOrBuilder getRecursionOrBuilder();
+  }
+  /**
+   * <pre>
+   * recursive type for testing
+   * </pre>
+   *
+   * Protobuf type {@code experiment.Recursive}
+   */
+  public  static final class Recursive extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:experiment.Recursive)
+      RecursiveOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Recursive.newBuilder() to construct.
+    private Recursive(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Recursive() {
+      displayName_ = "";
+      id_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Recursive(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              displayName_ = s;
+              break;
+            }
+            case 26: {
+              experiment.ExperimentOuterClass.Recursive.Builder subBuilder = null;
+              if (recursion_ != null) {
+                subBuilder = recursion_.toBuilder();
+              }
+              recursion_ = input.readMessage(experiment.ExperimentOuterClass.Recursive.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(recursion_);
+                recursion_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return experiment.ExperimentOuterClass.internal_static_experiment_Recursive_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return experiment.ExperimentOuterClass.internal_static_experiment_Recursive_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              experiment.ExperimentOuterClass.Recursive.class, experiment.ExperimentOuterClass.Recursive.Builder.class);
+    }
+
+    public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object displayName_;
+    /**
+     * <pre>
+     * Localized String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    public java.lang.String getDisplayName() {
+      java.lang.Object ref = displayName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        displayName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Localized String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDisplayNameBytes() {
+      java.lang.Object ref = displayName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        displayName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <pre>
+     * Identity
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Identity
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RECURSION_FIELD_NUMBER = 3;
+    private experiment.ExperimentOuterClass.Recursive recursion_;
+    /**
+     * <pre>
+     * The recursion
+     * </pre>
+     *
+     * <code>.experiment.Recursive recursion = 3;</code>
+     */
+    public boolean hasRecursion() {
+      return recursion_ != null;
+    }
+    /**
+     * <pre>
+     * The recursion
+     * </pre>
+     *
+     * <code>.experiment.Recursive recursion = 3;</code>
+     */
+    public experiment.ExperimentOuterClass.Recursive getRecursion() {
+      return recursion_ == null ? experiment.ExperimentOuterClass.Recursive.getDefaultInstance() : recursion_;
+    }
+    /**
+     * <pre>
+     * The recursion
+     * </pre>
+     *
+     * <code>.experiment.Recursive recursion = 3;</code>
+     */
+    public experiment.ExperimentOuterClass.RecursiveOrBuilder getRecursionOrBuilder() {
+      return getRecursion();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (!getDisplayNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, displayName_);
+      }
+      if (recursion_ != null) {
+        output.writeMessage(3, getRecursion());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (!getDisplayNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, displayName_);
+      }
+      if (recursion_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getRecursion());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof experiment.ExperimentOuterClass.Recursive)) {
+        return super.equals(obj);
+      }
+      experiment.ExperimentOuterClass.Recursive other = (experiment.ExperimentOuterClass.Recursive) obj;
+
+      if (!getDisplayName()
+          .equals(other.getDisplayName())) return false;
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (hasRecursion() != other.hasRecursion()) return false;
+      if (hasRecursion()) {
+        if (!getRecursion()
+            .equals(other.getRecursion())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDisplayName().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      if (hasRecursion()) {
+        hash = (37 * hash) + RECURSION_FIELD_NUMBER;
+        hash = (53 * hash) + getRecursion().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static experiment.ExperimentOuterClass.Recursive parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(experiment.ExperimentOuterClass.Recursive prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * recursive type for testing
+     * </pre>
+     *
+     * Protobuf type {@code experiment.Recursive}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:experiment.Recursive)
+        experiment.ExperimentOuterClass.RecursiveOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return experiment.ExperimentOuterClass.internal_static_experiment_Recursive_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return experiment.ExperimentOuterClass.internal_static_experiment_Recursive_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                experiment.ExperimentOuterClass.Recursive.class, experiment.ExperimentOuterClass.Recursive.Builder.class);
+      }
+
+      // Construct using experiment.ExperimentOuterClass.Recursive.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        displayName_ = "";
+
+        id_ = "";
+
+        if (recursionBuilder_ == null) {
+          recursion_ = null;
+        } else {
+          recursion_ = null;
+          recursionBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return experiment.ExperimentOuterClass.internal_static_experiment_Recursive_descriptor;
+      }
+
+      @java.lang.Override
+      public experiment.ExperimentOuterClass.Recursive getDefaultInstanceForType() {
+        return experiment.ExperimentOuterClass.Recursive.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public experiment.ExperimentOuterClass.Recursive build() {
+        experiment.ExperimentOuterClass.Recursive result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public experiment.ExperimentOuterClass.Recursive buildPartial() {
+        experiment.ExperimentOuterClass.Recursive result = new experiment.ExperimentOuterClass.Recursive(this);
+        result.displayName_ = displayName_;
+        result.id_ = id_;
+        if (recursionBuilder_ == null) {
+          result.recursion_ = recursion_;
+        } else {
+          result.recursion_ = recursionBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof experiment.ExperimentOuterClass.Recursive) {
+          return mergeFrom((experiment.ExperimentOuterClass.Recursive)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(experiment.ExperimentOuterClass.Recursive other) {
+        if (other == experiment.ExperimentOuterClass.Recursive.getDefaultInstance()) return this;
+        if (!other.getDisplayName().isEmpty()) {
+          displayName_ = other.displayName_;
+          onChanged();
+        }
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.hasRecursion()) {
+          mergeRecursion(other.getRecursion());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        experiment.ExperimentOuterClass.Recursive parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (experiment.ExperimentOuterClass.Recursive) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object displayName_ = "";
+      /**
+       * <pre>
+       * Localized String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public java.lang.String getDisplayName() {
+        java.lang.Object ref = displayName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          displayName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Localized String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDisplayNameBytes() {
+        java.lang.Object ref = displayName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          displayName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Localized String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public Builder setDisplayName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        displayName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Localized String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public Builder clearDisplayName() {
+        
+        displayName_ = getDefaultInstance().getDisplayName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Localized String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public Builder setDisplayNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        displayName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       * Identity
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Identity
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Identity
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Identity
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Identity
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private experiment.ExperimentOuterClass.Recursive recursion_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          experiment.ExperimentOuterClass.Recursive, experiment.ExperimentOuterClass.Recursive.Builder, experiment.ExperimentOuterClass.RecursiveOrBuilder> recursionBuilder_;
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public boolean hasRecursion() {
+        return recursionBuilder_ != null || recursion_ != null;
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public experiment.ExperimentOuterClass.Recursive getRecursion() {
+        if (recursionBuilder_ == null) {
+          return recursion_ == null ? experiment.ExperimentOuterClass.Recursive.getDefaultInstance() : recursion_;
+        } else {
+          return recursionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public Builder setRecursion(experiment.ExperimentOuterClass.Recursive value) {
+        if (recursionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          recursion_ = value;
+          onChanged();
+        } else {
+          recursionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public Builder setRecursion(
+          experiment.ExperimentOuterClass.Recursive.Builder builderForValue) {
+        if (recursionBuilder_ == null) {
+          recursion_ = builderForValue.build();
+          onChanged();
+        } else {
+          recursionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public Builder mergeRecursion(experiment.ExperimentOuterClass.Recursive value) {
+        if (recursionBuilder_ == null) {
+          if (recursion_ != null) {
+            recursion_ =
+              experiment.ExperimentOuterClass.Recursive.newBuilder(recursion_).mergeFrom(value).buildPartial();
+          } else {
+            recursion_ = value;
+          }
+          onChanged();
+        } else {
+          recursionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public Builder clearRecursion() {
+        if (recursionBuilder_ == null) {
+          recursion_ = null;
+          onChanged();
+        } else {
+          recursion_ = null;
+          recursionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public experiment.ExperimentOuterClass.Recursive.Builder getRecursionBuilder() {
+        
+        onChanged();
+        return getRecursionFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      public experiment.ExperimentOuterClass.RecursiveOrBuilder getRecursionOrBuilder() {
+        if (recursionBuilder_ != null) {
+          return recursionBuilder_.getMessageOrBuilder();
+        } else {
+          return recursion_ == null ?
+              experiment.ExperimentOuterClass.Recursive.getDefaultInstance() : recursion_;
+        }
+      }
+      /**
+       * <pre>
+       * The recursion
+       * </pre>
+       *
+       * <code>.experiment.Recursive recursion = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          experiment.ExperimentOuterClass.Recursive, experiment.ExperimentOuterClass.Recursive.Builder, experiment.ExperimentOuterClass.RecursiveOrBuilder> 
+          getRecursionFieldBuilder() {
+        if (recursionBuilder_ == null) {
+          recursionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              experiment.ExperimentOuterClass.Recursive, experiment.ExperimentOuterClass.Recursive.Builder, experiment.ExperimentOuterClass.RecursiveOrBuilder>(
+                  getRecursion(),
+                  getParentForChildren(),
+                  isClean());
+          recursion_ = null;
+        }
+        return recursionBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:experiment.Recursive)
+    }
+
+    // @@protoc_insertion_point(class_scope:experiment.Recursive)
+    private static final experiment.ExperimentOuterClass.Recursive DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new experiment.ExperimentOuterClass.Recursive();
+    }
+
+    public static experiment.ExperimentOuterClass.Recursive getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Recursive>
+        PARSER = new com.google.protobuf.AbstractParser<Recursive>() {
+      @java.lang.Override
+      public Recursive parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Recursive(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Recursive> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Recursive> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public experiment.ExperimentOuterClass.Recursive getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7764,6 +9549,11 @@ public final class ExperimentOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_experiment_Default_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_experiment_Recursive_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_experiment_Recursive_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_experiment_ExperimentCollection_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7779,29 +9569,35 @@ public final class ExperimentOuterClass {
     java.lang.String[] descriptorData = {
       "\n\033experiment/experiment.proto\022\nexperimen" +
       "t\032\017furo/meta.proto\032\017furo/link.proto\032\031goo" +
-      "gle/protobuf/any.proto\032\023furo/property.pr" +
-      "oto\"m\n\020ExperimentEntity\022$\n\004data\030\001 \001(\0132\026." +
-      "experiment.Experiment\022\031\n\005links\030\002 \003(\0132\n.f" +
-      "uro.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\214\004\n\nE" +
-      "xperiment\022\023\n\013description\030\003 \001(\t\022\024\n\014displa" +
-      "y_name\030\002 \001(\t\022\033\n\023furo_data_bool_icon\030\016 \001(" +
-      "\010\022 \n\030furo_data_checkbox_input\030\004 \001(\010\022\035\n\025f" +
-      "uro_data_color_input\030\n \001(\t\022\034\n\024furo_data_" +
-      "date_input\030\r \001(\t\022\036\n\026furo_data_number_inp" +
+      "gle/protobuf/any.proto\032\026google/type/date" +
+      ".proto\032\023furo/property.proto\"m\n\020Experimen" +
+      "tEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exper" +
+      "iment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta" +
+      "\030\003 \001(\0132\n.furo.Meta\"\205\005\n\nExperiment\022\023\n\013des" +
+      "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023" +
+      "furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_c" +
+      "heckbox_input\030\004 \001(\010\022\035\n\025furo_data_color_i" +
+      "nput\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t" +
+      "\0226\n\033furo_data_date_input_google\030\022 \001(\0132\021." +
+      "google.type.Date\022\036\n\026furo_data_number_inp" +
       "ut\030\t \001(\002\022 \n\030furo_data_password_input\030\013 \001" +
       "(\t\022\035\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026fur" +
       "o_data_search_input\030\014 \001(\t\022\034\n\024furo_data_t" +
       "ext_input\030\005 \001(\t\022 \n\030furo_data_textarea_in" +
       "put\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022" +
-      "\n\n\002id\030\001 \001(\t\022*\n\014the_any_type\030\017 \001(\0132\024.goog" +
-      "le.protobuf.Any\022%\n\rtype_property\030\021 \003(\0132\016" +
-      ".furo.Property\022\031\n\021type_with_options\030\020 \001(" +
-      "\t\"S\n\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014dis" +
-      "play_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring" +
-      "\030\004 \003(\t\"{\n\024ExperimentCollection\022.\n\010entiti" +
-      "es\030\004 \003(\0132\034.experiment.ExperimentEntity\022\031" +
-      "\n\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132" +
-      "\n.furo.Metab\006proto3"
+      "\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single" +
+      "_type_property\030\023 \001(\0132\016.furo.Property\022*\n\014" +
+      "the_any_type\030\017 \001(\0132\024.google.protobuf.Any" +
+      "\022%\n\rtype_property\030\021 \003(\0132\016.furo.Property\022" +
+      "\031\n\021type_with_options\030\020 \001(\t\"S\n\007Default\022\023\n" +
+      "\013description\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t" +
+      "\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecur" +
+      "sive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(" +
+      "\n\trecursion\030\003 \001(\0132\025.experiment.Recursive" +
+      "\"{\n\024ExperimentCollection\022.\n\010entities\030\004 \003" +
+      "(\0132\034.experiment.ExperimentEntity\022\031\n\005link" +
+      "s\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo" +
+      ".Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7817,6 +9613,7 @@ public final class ExperimentOuterClass {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
           google.protobuf.AnyOuterClass.getDescriptor(),
+          google.type.DateOuterClass.getDescriptor(),
           furo.PropertyOuterClass.getDescriptor(),
         }, assigner);
     internal_static_experiment_ExperimentEntity_descriptor =
@@ -7830,15 +9627,21 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", "TypeProperty", "TypeWithOptions", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "Repstring", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Default_descriptor,
         new java.lang.String[] { "Description", "DisplayName", "Id", "Repstring", });
-    internal_static_experiment_ExperimentCollection_descriptor =
+    internal_static_experiment_Recursive_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_experiment_Recursive_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_experiment_Recursive_descriptor,
+        new java.lang.String[] { "DisplayName", "Id", "Recursion", });
+    internal_static_experiment_ExperimentCollection_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_experiment_ExperimentCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_ExperimentCollection_descriptor,
@@ -7846,6 +9649,7 @@ public final class ExperimentOuterClass {
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
+    google.type.DateOuterClass.getDescriptor();
     furo.PropertyOuterClass.getDescriptor();
   }
 

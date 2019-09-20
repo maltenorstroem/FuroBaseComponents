@@ -126,7 +126,7 @@ class FuroNumberInput extends FBP(LitElement) {
        * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
        */
       step: {
-        type: String
+        type: Number
       },
       /**
        * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
@@ -585,7 +585,7 @@ class FuroNumberInput extends FBP(LitElement) {
             color: var(--input-error-text-color, var(--error, red));
         }
         :host([condensed]) input{
-            top:8px;
+            top:12px;
             font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
@@ -600,7 +600,7 @@ class FuroNumberInput extends FBP(LitElement) {
         }  
         
         :host([condensed])  furo-icon {
-            top:6px;
+            top:10px;
         }
         
         :host([condensed]) .ripple-line {
@@ -637,6 +637,7 @@ class FuroNumberInput extends FBP(LitElement) {
            <div class="iwrap">    
                <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
                    type="number"       
+                   step="any"                  
                    ?required=${this.required} 
                    ƒ-.value="--value" 
                    @-input="--inputInput(*)"   

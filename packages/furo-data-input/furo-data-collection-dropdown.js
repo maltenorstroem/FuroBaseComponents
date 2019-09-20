@@ -10,22 +10,41 @@ import {FBP} from "@furo/fbp";
 /**
  * `furo-data-collection-dropdown`
  *
+ * This component displays a dropdown. The options can be injected with injectList.
+ *
+ * It is also possible to put a simple comma separated list of items on the `list` attribute. In this case the display
+ * and id are the same.
+ *
+ * If the bounded field haves an `options` attribute in the metas, it will use these options.
+ *
+ * The options must have a signature like this:
+ * ```json
+ * [
+ *  {
+ *   "id": 34,
+ *   "display_name":"Option 34"
+ *  }
+ * ]
+ * ```
+ * It is possible to put any other signatures (`[{}]`) by setting the attribute *display-field* and *value-field*.
+ * The value in *value-field* will be set on the bounded field and the values in *display-field* are used for the dropdown.
+ *
+ *
  * <sample-furo-data-collection-dropdown></sample-furo-data-collection-dropdown>
  *
  * Tags: input
- * @summary text input element
+ * @summary bindable dropdown
  * @customElement
- * @polymer
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FBP(LitElement) {
   /**
    * @event value-changed
-   * Fired when value has changed from inside the input field.
+   * Fired when value has changed from the component inside.
    *
-   * detail payload: {String} the text value
+   * detail payload: {*} the value from the value-field. By default the value field is "id"
    *
-   * Comes from underlying component furo-text-input. **bubbles**
+   *  **bubbles**
    */
 
   constructor() {
@@ -37,20 +56,47 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
     this._FBPAddWireHook("--valueChanged", (val) => {
 
-      // by valid input reset meta and constraints
-      CheckMetaAndOverrides.CheckAttributeOverrides(this);
 
       if (this.field) {
+        // by valid input reset meta and constraints
+        CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
         this.field.value = val;
       }
+      this._notifiySelectedItem(val);
     });
+
+
+  }
+
+
+  _notifiySelectedItem(val) {
+
+    /**
+     * @event item-selected
+     * Fired when a item from the dropdown was selected
+     *
+     * detail payload: the original item object
+     */
+    let customEvent = new Event('item-selected', {composed: true, bubbles: true});
+    // find item from list
+    let selectedItem;
+
+    for (let i = this._dropdownList.length - 1; i >= 0; i--) {
+      if (this._dropdownList[i][this.valueField] == val) {
+        selectedItem = this._dropdownList[i]._original;
+        break
+      }
+    }
+
+    customEvent.detail = selectedItem;
+    this.dispatchEvent(customEvent);
   }
 
   /**
    * Updater for the label attr
    * @param value
    */
-  set _label(value) {
+  set label(value) {
     Helper.UpdateInputAttribute(this, "label", value);
   }
 
@@ -58,7 +104,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * Updater for the hint attr
    * @param value
    */
-  set _hint(value) {
+  set hint(value) {
     Helper.UpdateInputAttribute(this, "hint", value);
   }
 
@@ -115,7 +161,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         attribute: "display-field"
       },
       /**
-       * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the binded field.
+       * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.
        */
       valueField: {
         type: String,
@@ -207,6 +253,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
+
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      this._buildListWithMetaOptions(this.field._meta.options);
+    });
   }
 
 
@@ -219,8 +271,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     }
 
     this._FBPTriggerWire('--value', this.field.value);
-
     this.requestUpdate();
+
   }
 
   /**
@@ -246,6 +298,11 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     `
   }
 
+  /**
+   *
+   * @return {TemplateResult}
+   * @private
+   */
   render() {
     // language=HTML
     return html`
@@ -262,26 +319,116 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   /**
-   * Exposes --injectCollection
-   * @param {collection} det
+   * Build the dropdown list with given options from meta
+   * @param {options} list of options with id and display_name
    */
-  injectCollection(collection) {
+  _buildListWithMetaOptions(entities) {
 
     // map
-    let arr = collection.entities.map((e) => {
+    let arr = entities.map((e) => {
       return {
-        "id": e.data[this.valueField],
-        "label": e.data[this.displayField],
-        "selected": (this.value ==  e.data[this.valueField])
+        "id": e[this.valueField],
+        "label": e[this.displayField],
+        "selected": (this.field[this.valueField].value == e[this.valueField]),
+        "_original": e
       }
     });
 
-    if (!this.value) {
+    this._dropdownList = arr;
+    if (!this.field[this.valueField].value) {
       this.field.value = arr[0].id;
+    }
+
+    if (!this.field) {
+      // notifiy first item if field is not set
+      this._notifiySelectedItem(arr[0].id);
+    } else {
+      this._notifiySelectedItem(this.field.value);
+    }
+
+    this._FBPTriggerWire("--selection", arr);
+
+  }
+
+  /**
+   * Inject the array with the selectable options.
+   *
+   * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
+   * ```json
+   * [
+   *  {
+   *   "id": 34,
+   *   "display_name":"Option A"
+   *  },
+   *  {
+   *   "id": 223,
+   *   "display_name":"Option X"
+   *  },
+   * ]
+   * ```
+   *
+   *
+   *
+   * @param {Array} Array with entities
+   */
+  injectList(list) {
+    // map
+    let arr = list.map((e) => {
+      return {
+        "id": e[this.valueField],
+        "label": e[this.displayField],
+        "selected": (this.value == e[this.valueField]),
+        "_original": e
+      }
+    });
+    this._dropdownList = arr;
+    if (this.field && !this.field.value) {
+      this.field.value = arr[0].id;
+    }
+
+    if (!this.field) {
+      // notifiy first item if field is not set
+      this._notifiySelectedItem(arr[0].id);
+    } else {
+      this._notifiySelectedItem(this.field.value);
     }
 
     this._FBPTriggerWire("--selection", arr);
   }
+
+  /**
+   * Inject the array with entities for the selectable options.
+   *
+   * @param {Array} Array with entities
+   */
+  injectEntities(entities) {
+
+    // map
+    let arr = entities.map((e) => {
+      return {
+        "id": e.data[this.valueField],
+        "label": e.data[this.displayField],
+        "selected": (this.value == e.data[this.valueField]),
+        "_original": e
+      }
+    });
+
+    this._dropdownList = arr;
+    if (this.field && !this.field.value) {
+      this.field.value = arr[0].id;
+    }
+
+    if (!this.field) {
+      // notifiy first item if field is not set
+      this._notifiySelectedItem(arr[0].id);
+    } else {
+      this._notifiySelectedItem(this.field.value);
+    }
+
+    this._FBPTriggerWire("--selection", arr);
+  }
+
+
 }
 
 customElements.define('furo-data-collection-dropdown', FuroDataCollectionDropdown);

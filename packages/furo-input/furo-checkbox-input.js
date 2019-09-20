@@ -7,7 +7,7 @@ import "./furo-checkbox";
 /**
  * `furo-checkbox-input`
  *
- * Checkbox input element which uses a native `<input type="checkbox">` tag.
+ * Checkbox input element which uses  `<furo-checkbox">` element. In addition to that it has hint, label and error message
  *
  * Checkboxes allow the user to select multiple options from a set.
  *
@@ -266,9 +266,13 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 display: inline-block;
                 position: relative;
                 box-sizing: border-box;
-                margin: 0;
+                margin: 10px 0 15px 0;
                 height: 56px;
                 width: 300px;
+            }
+
+            :host([condensed]) {
+                margin-top: 12px;
             }
 
             :host([hidden]) {
@@ -368,6 +372,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
             :host([condensed]) label, :host([condensed]) label {
                 line-height: 40px;
+                font-size: 14px;
             }
 
             :host([condensed]) input {
@@ -404,7 +409,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
             :host([condensed]) furo-checkbox {
                 top: 3px;
             }
-
         `
     }
 

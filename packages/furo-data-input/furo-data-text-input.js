@@ -37,7 +37,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     this._FBPAddWireHook("--valueChanged", (val) => {
 
       // by valid input reset meta and constraints
-      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
       if (this.field) {
         this.field.value = val;
       }
@@ -150,12 +150,9 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
 
-  /**
-  * todo , add properties for pattern.error.hint , min.error.hint and max.error.hint
-  */
+
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *

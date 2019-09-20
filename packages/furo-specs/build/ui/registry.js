@@ -2,31 +2,36 @@ import {panelRegistry} from "@furo/route/lib/panelRegistry";
 
 // import panels
 
-import "./panels/experiment-experiment-update-panel"
-import "./panels/person-person-update-panel"
-import "./panels/project-project-update-panel"
-import "./panels/task-task-update-panel"
-import "./panels/tree-tree-update-panel"
+import "./experiment/experiment-experiment-display-panel"
+import "./experiment/experiment-experiment-update-panel"
+import "./person/person-person-display-panel"
+import "./person/person-person-update-panel"
+import "./project/project-project-display-panel"
+import "./project/project-project-update-panel"
+import "./task/task-task-display-panel"
+import "./task/task-task-update-panel"
+import "./tree/tree-tree-display-panel"
+import "./tree/tree-tree-update-panel"
 
 // -- register panels
 
 panelRegistry.registerType("experiment.ExperimentEntity", {
-     "edit" : "experiment-experiment-update-panel"
+     "display" : "experiment-experiment-display-panel" ,"edit" : "experiment-experiment-update-panel"
  });
 
 panelRegistry.registerType("person.PersonEntity", {
-     "edit" : "person-person-update-panel"
+     "display" : "person-person-display-panel" ,"edit" : "person-person-update-panel"
  });
 
 panelRegistry.registerType("project.ProjectEntity", {
-     "edit" : "project-project-update-panel"
+     "display" : "project-project-display-panel" ,"edit" : "project-project-update-panel"
  });
 
 panelRegistry.registerType("task.TaskEntity", {
-     "edit" : "task-task-update-panel"
+     "display" : "task-task-display-panel" ,"edit" : "task-task-update-panel"
  });
 
 panelRegistry.registerType("tree.TreeEntity", {
-     "edit" : "tree-tree-update-panel"
+     "display" : "tree-tree-display-panel" ,"edit" : "tree-tree-update-panel"
  });
 

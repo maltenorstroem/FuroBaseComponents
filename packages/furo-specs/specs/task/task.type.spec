@@ -75,14 +75,15 @@
       "description": "Owner of a task",
       "type": "furo.Reference",
       "meta": {
+        "min_term_length": 4,
         "label": "Owner",
         "default": {
-          "display_name": "Owner",
-          "id": "",
-          "rel": "List",
-          "href": "/api/v1/persons",
-          "method": "GET",
-          "type": "person.Person"
+          "link":{
+            "rel": "list",
+            "href": "/mockdata/persons/list.json",
+            "method": "Get",
+            "type": "person.Person"
+          }
         },
         "hint": ""
       },

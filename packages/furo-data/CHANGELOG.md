@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.55.2...@furo/data@0.56.0) (2019-09-19)
+
+
+### Features
+
+* data-repeater ([c2f6d12](https://github.com/veith/FuroBaseComponents/commit/c2f6d12))
+
+
+
+
+
+## [0.55.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.55.1...@furo/data@0.55.2) (2019-09-18)
+
+
+### Bug Fixes
+
+* fix repeat field changed event for furo.property ([73428a8](https://github.com/veith/FuroBaseComponents/commit/73428a8))
+
+
+
+
+
+## [0.55.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.55.0...@furo/data@0.55.1) (2019-09-17)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.55.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.54.0...@furo/data@0.55.0) (2019-09-17)
+
+
+### Bug Fixes
+
+* better null checking by scalar values ([ad59699](https://github.com/veith/FuroBaseComponents/commit/ad59699))
+
+
+### Features
+
+* property type ([fcfdc34](https://github.com/veith/FuroBaseComponents/commit/fcfdc34))
+
+
+
+
+
+# [0.54.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.53.1...@furo/data@0.54.0) (2019-09-15)
+
+
+### Bug Fixes
+
+* ref search ([f267c97](https://github.com/veith/FuroBaseComponents/commit/f267c97))
+
+
+### Features
+
+* using recursive types is now possible ([e27354a](https://github.com/veith/FuroBaseComponents/commit/e27354a))
+
+
+
+
+
+## [0.53.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.53.0...@furo/data@0.53.1) (2019-09-11)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 # [0.53.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.52.2...@furo/data@0.53.0) (2019-09-11)
 
 

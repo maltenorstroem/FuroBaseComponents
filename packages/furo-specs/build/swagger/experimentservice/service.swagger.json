@@ -259,6 +259,17 @@
           "type": "string",
           "title": "Identity of a experiment"
         },
+        "repstring": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "repeated string"
+        },
+        "single_type_property": {
+          "$ref": "#/definitions/furoProperty",
+          "title": "field for testing property"
+        },
         "the_any_type": {
           "$ref": "#/definitions/protobufAny",
           "title": "field for testing any"
@@ -393,6 +404,10 @@
     "furoProperty": {
       "type": "object",
       "properties": {
+        "code": {
+          "type": "string",
+          "title": "property code for additional settings"
+        },
         "data": {
           "$ref": "#/definitions/protobufAny",
           "title": "data part of the property"
@@ -404,6 +419,10 @@
         "id": {
           "type": "string",
           "title": "Id of the property"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoMeta",
+          "title": "Meta for the response"
         }
       },
       "title": "Type to define property values with type information"

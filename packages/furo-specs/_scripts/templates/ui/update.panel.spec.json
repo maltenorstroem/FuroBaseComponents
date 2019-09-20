@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "TaskServiceUpdatePanel",
   "component_name": "taskservice-update-panel",
@@ -10,13 +11,15 @@
   ],
   "form": {
     "name": "task-task-form",
-    "attrs": ["flex"]
+    "flags": ["flex"],
+    "attrs": []
   },
   "action": {
     "name": "task-task-update-action",
     "listen_to": [
       "update"
     ],
+    "flags": [],
     "attrs": []
   }
 }

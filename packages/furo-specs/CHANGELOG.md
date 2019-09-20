@@ -3,6 +3,123 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.26.0...@furo/specs@0.27.0) (2019-09-19)
+
+
+### Features
+
+* new artifact 'create.widget.spec' generated. Simple widget component with required fields by default and a default create action button. Fully configurable. ([03d06a6](https://github.com/veith/FuroBaseComponents/commit/03d06a6))
+
+
+
+
+
+# [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.25.0...@furo/specs@0.26.0) (2019-09-18)
+
+
+### Features
+
+* default _FBPReady added ([69a1382](https://github.com/veith/FuroBaseComponents/commit/69a1382))
+
+
+
+
+
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.24.0...@furo/specs@0.25.0) (2019-09-17)
+
+
+### Features
+
+* int type for properties ([73e15d6](https://github.com/veith/FuroBaseComponents/commit/73e15d6))
+
+
+
+
+
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.21.0...@furo/specs@0.24.0) (2019-09-17)
+
+
+### Bug Fixes
+
+* panels with border-box ([479daaa](https://github.com/veith/FuroBaseComponents/commit/479daaa))
+
+
+### Features
+
+* group-label in tree spec ([7d7133e](https://github.com/veith/FuroBaseComponents/commit/7d7133e))
+* property type ([fcfdc34](https://github.com/veith/FuroBaseComponents/commit/fcfdc34))
+* property type ([64f150e](https://github.com/veith/FuroBaseComponents/commit/64f150e))
+* ui-specs with writeprotection ([a3dfe61](https://github.com/veith/FuroBaseComponents/commit/a3dfe61))
+* ui-specs with writeprotection ([1e62ec2](https://github.com/veith/FuroBaseComponents/commit/1e62ec2))
+
+
+
+
+
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.20.0...@furo/specs@0.21.0) (2019-09-15)
+
+
+### Features
+
+* using recursive types is now possible ([e27354a](https://github.com/veith/FuroBaseComponents/commit/e27354a))
+
+
+
+
+
+# [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.19.3...@furo/specs@0.20.0) (2019-09-14)
+
+
+### Features
+
+* build hooks ([7461615](https://github.com/veith/FuroBaseComponents/commit/7461615))
+* build hooks ([633573d](https://github.com/veith/FuroBaseComponents/commit/633573d))
+
+
+
+
+
+## [0.19.3](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.19.2...@furo/specs@0.19.3) (2019-09-13)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+## [0.19.2](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.19.0...@furo/specs@0.19.2) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed size ([9ae2795](https://github.com/veith/FuroBaseComponents/commit/9ae2795))
+
+
+
+
+
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.15.0...@furo/specs@0.19.0) (2019-09-13)
+
+
+### Bug Fixes
+
+* rename config ([78611cc](https://github.com/veith/FuroBaseComponents/commit/78611cc))
+* smaller npm package ([4a04c6e](https://github.com/veith/FuroBaseComponents/commit/4a04c6e))
+
+
+### Features
+
+* attributes added. obj with name and value (https://html.spec.whatwg.org/multipage/syntax.html#attributes-2) ([87eabda](https://github.com/veith/FuroBaseComponents/commit/87eabda)), closes [/html.spec.whatwg.org/multipage/syntax.html#attributes-2](https://github.com//html.spec.whatwg.org/multipage/syntax.html/issues/attributes-2)
+* build reference search ([9ba86df](https://github.com/veith/FuroBaseComponents/commit/9ba86df))
+* build reference search ([4d4f23b](https://github.com/veith/FuroBaseComponents/commit/4d4f23b))
+* generate display panels ([4efcf99](https://github.com/veith/FuroBaseComponents/commit/4efcf99))
+* generate display units ([84fc07d](https://github.com/veith/FuroBaseComponents/commit/84fc07d))
+* package structure ([e503236](https://github.com/veith/FuroBaseComponents/commit/e503236))
+
+
+
+
+
 # [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.11.2...@furo/specs@0.15.0) (2019-09-11)
 
 
