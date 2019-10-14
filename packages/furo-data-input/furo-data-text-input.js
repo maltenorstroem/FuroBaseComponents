@@ -36,10 +36,8 @@ class FuroDataTextInput extends FBP(LitElement) {
 
     this._FBPAddWireHook("--valueChanged", (val) => {
 
-      // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
       if (this.field) {
-        this.field.value = val;
+        this.field._value= val;
       }
     });
 
@@ -47,21 +45,29 @@ class FuroDataTextInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
       // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-        if (val) {
-          if(val.patternMismatch) {
-              this._hint = this._patternErrorMessage;
-          }
-          else if (val.tooShort) {
-              this._hint = this._minErrorMessage;
-          }
-          else if(val.tooLong)
-          {
-              this._hint = this._maxErrorMessage;
-          }
+      if (val) {
+        if (val.patternMismatch) {
+          this._hint = this._patternErrorMessage;
+        } else if (val.tooShort) {
+          this._hint = this._minErrorMessage;
+        } else if (val.tooLong) {
+          this._hint = this._maxErrorMessage;
+        }
 
-          this.requestUpdate();
+        this.requestUpdate();
       }
     });
+  }
+
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
 
 
@@ -150,7 +156,6 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
 
-
   static get properties() {
     return {
       /**
@@ -162,10 +167,10 @@ class FuroDataTextInput extends FBP(LitElement) {
         type: String,
       },
       /**
-      * Overrides the pattern from the **specs**.
-      *
-      * Use with caution, normally the specs defines this value.
-      */
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
       pattern: {
         type: String
       },
@@ -274,7 +279,7 @@ class FuroDataTextInput extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    this._FBPTriggerWire('--value', this.field.value);
+    this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
 

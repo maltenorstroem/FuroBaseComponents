@@ -35,10 +35,9 @@ class FuroDataNumberInput extends FBP(LitElement) {
 
 
     this._FBPAddWireHook("--valueChanged", (val) => {
-      // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
       if (this.field) {
-        this.field.value = val;
+        this.field._value= val;
       }
     });
 
@@ -61,6 +60,17 @@ class FuroDataNumberInput extends FBP(LitElement) {
         this.requestUpdate();
       }
     });
+  }
+
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
 
   /**
@@ -266,7 +276,7 @@ class FuroDataNumberInput extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    this._FBPTriggerWire('--value', this.field.value);
+    this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
 

@@ -18,7 +18,7 @@ import "@furo/form/furo-form-layouter"
  *      ƒ-add="--additionalDateClicked"
  *      ></furo-data-repeat>
  *
- *      <!-- Add controlled from outside, delete from inside of the item -->
+ *      <!-- Add is controlled from outside, delete from inside of the item -->
  *      <furo-data-repeat ƒ-bind-data="--data(*.repeatedcomplextype)"
  *      repeated-component="my big form"
  *      ƒ-add="--additionalDateClicked"
@@ -62,12 +62,23 @@ class FuroDataRepeat extends FBP(LitElement) {
     };
   }
 
+  /**
+   * Create a attribute for map<string,type> types
+   * create a field in a FieldNode, this is useful when using map<string,something>
+   * set the value option to init with values
+   * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
+   */
+  createAttribute(options) {
+    this.field.createField(options);
+  }
+
   set repeatedComponent(component) {
 
     // add flow repeat to parent and inject on repeated changes
     // repeated
     let container = document.createElement("furo-form-layouter");
     let r = document.createElement("flow-repeat");
+
     r.setAttribute("identity-path", "__index");
     r.setAttribute("ƒ-inject-items", "--repeatsChanged");
 
@@ -103,9 +114,9 @@ class FuroDataRepeat extends FBP(LitElement) {
     }
     let icn = "";
     if (this.deleteIcon) {
-      icn = '<data-repeat-delete icon="' + this.deleteIcon + '" ' + isCondensed + ' ƒ-bind-item="--item"></data-repeat-delete>';
+      icn = '<data-repeat-delete icon="' + this.deleteIcon + '" ' + isCondensed + ' ƒ-bind-item="--init"></data-repeat-delete>';
     }
-    r.innerHTML = '<template><furo-horizontal-flex><' + component + ' ' + attrs + ' flex ƒ-bind-data="--item"></' + component + '>' + icn + '</furo-horizontal-flex></template>';
+    r.innerHTML = '<template><furo-horizontal-flex><' + component + ' ' + attrs + ' flex ƒ-bind-data="--init"></' + component + '>' + icn + '</furo-horizontal-flex></template>';
 
 
     container.appendChild(r);
@@ -119,8 +130,26 @@ class FuroDataRepeat extends FBP(LitElement) {
     this.field = repeats;
     this.field.addEventListener("this-repeated-field-changed", (node) => {
       this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
-    })
+    });
 
+    // key value repeats
+    if (this.field.repeats) {
+      // initial trigger
+      this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
+    } else {
+      this.field.addEventListener("branch-value-changed", (node) => {
+        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      });
+
+      this.field.addEventListener("node-field-deleted", (node) => {
+        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      });
+      this.field.addEventListener("node-field-added", (node) => {
+        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      });
+      // initial trigger for fields
+      this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+    }
 
   }
 
@@ -148,13 +177,7 @@ class FuroDataRepeat extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-            width: 100%;
         }
-
-        :host([hidden]) {
-            display: none;
-        }
-
     `
   }
 

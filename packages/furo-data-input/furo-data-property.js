@@ -103,6 +103,10 @@ class FuroDataProperty extends FBP(LitElement) {
     super();
     this.typemap = {
       "google.type.Date": "furo-data-date-input",
+      "google.protobuf.StringValue": "furo-data-text-input",
+      "google.protobuf.FloatValue": "furo-data-number-input",
+      "google.protobuf.Int32Value": "furo-data-number-input",
+      "google.protobuf.UInt32Value": "furo-data-number-input",
       "furo.StringProperty": "furo-data-text-input",
       "furo.IntegerProperty": "furo-data-number-input",
       "furo.NumberProperty": "furo-data-number-input",
@@ -119,7 +123,8 @@ class FuroDataProperty extends FBP(LitElement) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
       let r = document.createElement("flow-repeat");
-      r.setAttribute("identity-path", "id.value");
+      r.setAttribute("identity-path", "id._value");
+
       let attrs = "";
       let l = this.attributes.length;
       for (let i = 0; i < l; ++i) {
@@ -129,18 +134,24 @@ class FuroDataProperty extends FBP(LitElement) {
           attrs += nodeName + '="' + nodeValue + '"';
         }
       }
-      r.innerHTML = '<template><furo-data-property ƒ-bind-data="--item" ' + attrs + '></furo-data-property></template>';
+      r.innerHTML = '<template><furo-data-property ƒ-bind-data="--init" ' + attrs + '></furo-data-property></template>';
+
 
       let repeater = this.parentNode.insertBefore(r, this);
-
+      this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
+
         repeater.injectItems(this.field.repeats);
       });
+      // inject if data is already here
+      if (this.field.repeats.length > 0) {
+        repeater.injectItems(this.field.repeats);
+      }
+
 
     } else {
       this.field.data.addEventListener('branch-value-changed', (d) => {
-
         this._createPropComponent(propertyField);
 
       }, {once: true});
@@ -148,6 +159,7 @@ class FuroDataProperty extends FBP(LitElement) {
 
       // data already in data-object
       if (this.field.data["@type"]) {
+
         this._createPropComponent(propertyField);
       }
     }
@@ -156,7 +168,7 @@ class FuroDataProperty extends FBP(LitElement) {
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let e = document.createElement(this.typemap[propertyField.data["@type"]]);
+      let e = document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//, '')]);
 
       // Grab all of the original's attributes, and pass them to the replacement
       let l = this.attributes.length;
@@ -169,24 +181,40 @@ class FuroDataProperty extends FBP(LitElement) {
       }
 
       if (e.bindData) {
-        switch (propertyField.data["@type"]) {
+        switch (propertyField.data["@type"]._value.replace(/.*\//, '')) {
             // the input elements for string and number are just working with scalar values
           case "furo.StringProperty":
           case "furo.NumberProperty":
           case "furo.IntegerProperty":
             e.bindData(propertyField.data.data);
             break;
+          case "google.protobuf.FloatValue":
+          case "google.protobuf.Int32Value":
+          case "google.protobuf.UInt32Value":
+          case "google.protobuf.StringValue":
+            e.bindData(propertyField.data.value);
+            break;
           default:
             e.bindData(propertyField.data);
         }
 
-        this.parentNode.insertBefore(e, this);
+        this._createdProp = this.parentNode.insertBefore(e, this);
         propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
         this._property_created = true;
       } else {
-        console.warn(propertyField.data["@type"], "not in map", this);
+        console.warn(propertyField.data["@type"]._value, "not in map", this);
       }
     }
+  }
+
+  disconnectedCallback() {
+    if (this._createdProp) {
+      this._createdProp.remove();
+    }
+    if (this._createdRepeater) {
+      this._createdRepeater.remove();
+    }
+
   }
 
   static get styles() {

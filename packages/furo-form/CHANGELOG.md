@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.24.12](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.11...@furo/form@0.24.12) (2019-10-10)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.24.11](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.10...@furo/form@0.24.11) (2019-10-06)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.24.10](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.9...@furo/form@0.24.10) (2019-09-30)
+
+
+### Bug Fixes
+
+* attr.value becomes attr.val ([60e7db9](https://github.com/veith/FuroBaseComponents/commit/60e7db9))
+
+
+
+
+
+## [0.24.9](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.8...@furo/form@0.24.9) (2019-09-25)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [0.24.8](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.7...@furo/form@0.24.8) (2019-09-19)
 
 **Note:** Version bump only for package @furo/form

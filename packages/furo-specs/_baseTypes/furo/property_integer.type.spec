@@ -10,15 +10,14 @@
   "fields": {
     "data": {
       "description": "Integer data part",
-      "type": "number",
+      "type": "int32",
       "constraints": {
         "step": {
-          "value": 1
+          "is": 1
         }
       },
       "__proto": {
-        "number": 1,
-        "type": "int32"
+        "number": 1
       }
     }
   }

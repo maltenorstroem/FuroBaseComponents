@@ -47,9 +47,12 @@
         "hint": ""
       },
       "constraints": {
-        "required": true,
+        "required": {
+          "is": "true",
+          "message":"is required"
+        },
         "max": {
-          "value": 180,
+          "is": 180,
           "message": "task.desc.maxlength"
         }
       },
@@ -59,7 +62,7 @@
     },
     "estimated_time": {
       "description": "Estimated time in days",
-      "type": "int",
+      "type": "int32",
       "meta": {
         "label": "Est. days",
         "default": "",
@@ -67,8 +70,7 @@
       },
       "constraints": {},
       "__proto": {
-        "number": 4,
-        "type": "int32"
+        "number": 4
       }
     },
     "owner": {

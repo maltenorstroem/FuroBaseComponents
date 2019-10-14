@@ -33,39 +33,47 @@ class FuroDataDateInput extends FBP(LitElement) {
     this.disabled = false;
 
     this._FBPAddWireHook("--valueChanged", (val) => {
-
       // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
 
       if (this.field) {
-
-        if(this.field._spec.type === "google.type.Date" || this.field["@type"] === "google.type.Date") {
-
-          val = this._convertStringToDateObj(val,  this.field.value  );
+        if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"]._value.replace(/.*\//, '') === "google.type.Date")) {
+          val = this._convertStringToDateObj(val, this.field._value);
         }
+        // store tmpval to check against loop
+        this.tmpval = val;
+        this.field._value= val;
 
-        this.field.value = val;
       }
+
     });
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
       // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
       if (val) {
-        if(val.rangeUnderflow) {
+        if (val.rangeUnderflow) {
           this._hint = this._minErrorMessage;
-        }
-        else if(val.rangeOverflow)
-        {
+        } else if (val.rangeOverflow) {
           this._hint = this._maxErrorMessage;
-        }
-        else if(val.stepMismatch) {
+        } else if (val.stepMismatch) {
           this._hint = this._stepErrorMessage;
         }
 
         this.requestUpdate();
       }
     });
+  }
+
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
 
   /**
@@ -222,21 +230,21 @@ class FuroDataDateInput extends FBP(LitElement) {
       /**
        * html input validity
        */
-      valid:{
-        type:Boolean,
-        reflect:true
+      valid: {
+        type: Boolean,
+        reflect: true
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
-      condensed:{
-        type:Boolean
+      condensed: {
+        type: Boolean
       },
       /**
        * passes always float the label
        */
-      float:{
-        type:Boolean
+      float: {
+        type: Boolean
       }
     }
   }
@@ -244,13 +252,14 @@ class FuroDataDateInput extends FBP(LitElement) {
   /**
    * Sets the field to readonly
    */
-  disable(){
+  disable() {
     this._readonly = true;
   }
+
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this._readonly = false;
   }
 
@@ -261,10 +270,18 @@ class FuroDataDateInput extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
+
+    this.field.addEventListener('branch-value-changed', (e) => {
+      this._updateFieldBranch();
+    });
   }
 
 
   _updateField() {
+
+  }
+
+  _updateFieldBranch() {
 
     //mark incomming error
     if (!this.field._isValid) {
@@ -272,39 +289,44 @@ class FuroDataDateInput extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    let dateValue = this.field.value;
+    let dateValue = this.field._value;
+
+    if (this.tmpval || JSON.stringify(this.field._value) !== JSON.stringify(this.tmpval)) {
 
 
-    // convert value when date type is google.type.Date
-    if(this.field._spec.type === "google.type.Date" || this.field["@type"] === "google.type.Date") {
-      dateValue = this._convertDateObjToString(dateValue);
+      // convert value when date type is google.type.Date
+      if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"]._value.replace(/.*\//, '') === "google.type.Date")) {
+        dateValue = this._convertDateObjToString(dateValue);
+
+      }
+
+      this._FBPTriggerWire('--value', dateValue);
+
+      this.requestUpdate();
     }
-
-    this._FBPTriggerWire('--value', dateValue);
-    this.requestUpdate();
   }
 
   // convert google date object to ISO 8601
   _convertDateObjToString(obj) {
 
-    let date ="";
+    let date = "";
 
-    if(  obj && obj.day && obj.month && obj.year)  {
+    if (obj && obj.day && obj.month && obj.year) {
       let month = String(obj.month);
       let day = String(obj.day);
       let year = String(obj.year);
 
-      if( month.length < 2 ) {
+      if (month.length < 2) {
         month = "0" + month;
       }
 
-      if( day.length < 2  ) {
+      if (day.length < 2) {
         day = "0" + day;
       }
 
-      if( year.length < 4  ) {
-        var l = 4-year.length;
-        for(var i=0;  i<l ; i++) {
+      if (year.length < 4) {
+        var l = 4 - year.length;
+        for (var i = 0; i < l; i++) {
           year = "0" + year;
         }
       }
@@ -315,9 +337,9 @@ class FuroDataDateInput extends FBP(LitElement) {
   }
 
   // convert date string ISO 8601 to object for google.type.Dates
-  _convertStringToDateObj(str, obj){
+  _convertStringToDateObj(str, obj) {
 
-    let arr = str.split("-",3);
+    let arr = str.split("-", 3);
     // only override properties: day, month, year
     if (arr.length === 3) {
       obj.day = Number(arr[2]);
@@ -343,8 +365,8 @@ class FuroDataDateInput extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        
-        furo-date-input{
+
+        furo-date-input {
             width: 100%;
         }
     `
@@ -355,7 +377,7 @@ class FuroDataDateInput extends FBP(LitElement) {
     return html` 
        <furo-date-input id="input"  
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?readonly=${this._readonly || this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"     

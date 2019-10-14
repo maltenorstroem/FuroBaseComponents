@@ -55,7 +55,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
       let r = document.createElement("flow-repeat");
-      r.setAttribute("identity-path", "id.value");
+      r.setAttribute("identity-path", "id._value");
       let attrs = "";
       let l = this.attributes.length;
       for (let i = 0; i < l; ++i) {
@@ -65,14 +65,19 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
           attrs += nodeName +'="' + nodeValue +'"';
         }
       }
-      r.innerHTML = '<template><furo-data-property-display ƒ-bind-data="--item" ' + attrs +'></furo-data-property-display></template>';
+      r.innerHTML = '<template><furo-data-property-display ƒ-bind-data="--init" ' + attrs +'></furo-data-property-display></template>';
 
       let repeater = this.parentNode.insertBefore(r, this);
-
+      this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
         repeater.injectItems(this.field.repeats);
       });
+      // inject if data is already here
+      if(this.field.repeats.length > 0){
+        repeater.injectItems(this.field.repeats);
+      }
+
 
     } else {
       this.field.data.addEventListener('branch-value-changed', (d) => {
@@ -90,8 +95,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let e = document.createElement(this.typemap[propertyField.data["@type"]]);
-
+      let e = document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//, '')]);
 
       // Grab all of the original's attributes, and pass them to the replacement
       let l = this.attributes.length;
@@ -104,7 +108,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
       }
 
       if (e.bindData) {
-        switch (propertyField.data["@type"]) {
+        switch (propertyField.data["@type"]._value.replace(/.*\//, '')) {
             // the input elements for string and number are just working with scalar values
           case "furo.StringProperty":
           case "furo.NumberProperty":
@@ -115,13 +119,23 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
             e.bindData(propertyField.data);
         }
 
-        this.parentNode.insertBefore(e, this);
+        this._created = this.parentNode.insertBefore(e, this);
         propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
         this._property_created = true;
       } else {
-        console.warn(propertyField.data["@type"], "not in map", this);
+        console.warn(propertyField.data["@type"]._value, "not in map", this);
+      }
       }
     }
+
+  disconnectedCallback() {
+    if(this._createdProp){
+      this._createdProp.remove();
+    }
+      if(this._createdRepeater){
+      this._createdRepeater.remove();
+    }
+
   }
 
   static get styles() {

@@ -3,6 +3,153 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.60.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.59.1...@furo/data@0.60.0) (2019-10-10)
+
+
+### Features
+
+* attributes can now be named with *value* ([58d5954](https://github.com/veith/FuroBaseComponents/commit/58d5954))
+
+
+
+
+
+## [0.59.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.59.0...@furo/data@0.59.1) (2019-10-06)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.59.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.6...@furo/data@0.59.0) (2019-10-04)
+
+
+### Bug Fixes
+
+* furo-data-object init ([bb65e9c](https://github.com/veith/FuroBaseComponents/commit/bb65e9c))
+
+
+### Features
+
+* clearing field nodes, respect the specified default values ([b10ea06](https://github.com/veith/FuroBaseComponents/commit/b10ea06))
+* clearing repeated nodes, respect the specified default values ([0f958f4](https://github.com/veith/FuroBaseComponents/commit/0f958f4))
+
+
+
+
+
+## [0.58.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.5...@furo/data@0.58.6) (2019-10-03)
+
+
+### Bug Fixes
+
+* **furo-data:** replace pattern after regex exec in furo-reverse-deep-link ([1b98ade](https://github.com/veith/FuroBaseComponents/commit/1b98ade))
+* clear repeated fields when unexistend data comes in ([b363986](https://github.com/veith/FuroBaseComponents/commit/b363986))
+
+
+
+
+
+## [0.58.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.4...@furo/data@0.58.5) (2019-10-03)
+
+
+### Bug Fixes
+
+* meta updates, error in furo-data-date-input without constraints ([ec7de2f](https://github.com/veith/FuroBaseComponents/commit/ec7de2f))
+
+
+
+
+
+## [0.58.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.3...@furo/data@0.58.4) (2019-10-03)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.58.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.2...@furo/data@0.58.3) (2019-10-02)
+
+
+### Bug Fixes
+
+* typo in props and repeater ([923a3fc](https://github.com/veith/FuroBaseComponents/commit/923a3fc))
+
+
+
+
+
+## [0.58.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.1...@furo/data@0.58.2) (2019-10-01)
+
+
+### Bug Fixes
+
+* duplicate entries on repeated data-property ([3c54eb7](https://github.com/veith/FuroBaseComponents/commit/3c54eb7))
+
+
+
+
+
+## [0.58.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.0...@furo/data@0.58.1) (2019-10-01)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.58.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.57.1...@furo/data@0.58.0) (2019-10-01)
+
+
+### Features
+
+* overrides on elements without data-binding ([4eb08f0](https://github.com/veith/FuroBaseComponents/commit/4eb08f0))
+
+
+
+
+
+## [0.57.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.57.0...@furo/data@0.57.1) (2019-09-30)
+
+
+### Bug Fixes
+
+* repeat should only bind once ([6f4cc27](https://github.com/veith/FuroBaseComponents/commit/6f4cc27))
+
+
+
+
+
+# [0.57.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.56.1...@furo/data@0.57.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* check for null values in vendor types ([0ce5a8e](https://github.com/veith/FuroBaseComponents/commit/0ce5a8e))
+
+
+### Features
+
+* furo-data-emmiter component added ([00e5766](https://github.com/veith/FuroBaseComponents/commit/00e5766))
+* new base types ([f8896c6](https://github.com/veith/FuroBaseComponents/commit/f8896c6))
+
+
+
+
+
+## [0.56.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.56.0...@furo/data@0.56.1) (2019-09-25)
+
+
+### Bug Fixes
+
+* type Any ([a45930d](https://github.com/veith/FuroBaseComponents/commit/a45930d))
+
+
+
+
+
 # [0.56.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.55.2...@furo/data@0.56.0) (2019-09-19)
 
 

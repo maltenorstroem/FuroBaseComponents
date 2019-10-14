@@ -28,8 +28,8 @@ const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
 
     filelist = fs.statSync(path.join(dir, file)).isDirectory()
-        ? walkSync(path.join(dir, file), filelist)
-        : filelist.concat(path.join(dir, file));
+      ? walkSync(path.join(dir, file), filelist)
+      : filelist.concat(path.join(dir, file));
 
   });
   return filelist;
@@ -83,6 +83,7 @@ typelist.forEach((pathToTypeSpec) => {
     }
     let fld = {
       "field": fieldname,
+      "component":"furo-data-text-input",
       "flags": [
         "condensed",
         "double"
@@ -90,6 +91,52 @@ typelist.forEach((pathToTypeSpec) => {
       "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
     };
 
+    let component_name = "furo-data-text-input";
+
+    // check which componet matches best with the simple types
+    switch(field.type) {
+
+      case "int":
+      case "int32":
+      case "int64":
+        component_name = "furo-data-number-input";
+        break;
+      case "google.type.Date":
+        component_name = "furo-data-date-input";
+        break;
+      case "google.type.Money":
+        component_name = "furo-data-money-input";
+        break;
+      case "furo.Property":
+        component_name = "furo-data-property";
+        break;
+    }
+
+    // use spec ui hint as component
+    if(field.__ui && field.__ui.component){
+      component_name = field.__ui.component;
+    }
+
+    let arrTmpName = field.type.split(".");
+    //  complex type has a cutom form component
+    if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+      component_name = field.type.toLowerCase().replace(".", "-") + "-form";
+      formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+    }
+
+    fld.component = component_name;
+
+    // repeated fields can use furo-data-repeat component
+    if (field.meta && field.meta.repeated && field.type != "furo.Property") {
+      let value_name = fld.component;
+      fld.component = "furo-data-repeat";
+
+      fld.attrs = [
+        {"name": "repeated-component", "val": value_name }
+      ]
+    }
+
+    // special type furo.Reference
     if (field.type === "furo.Reference") {
       if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
         let t = field.meta.default.link.type;
@@ -100,7 +147,6 @@ typelist.forEach((pathToTypeSpec) => {
     }
 
     fields.push(fld);
-
   }
 
 
@@ -119,6 +165,13 @@ typelist.forEach((pathToTypeSpec) => {
     }
   }
 
+
+  // reset imports for create spec
+  formSpec.imports = [
+    "@furo/data-input",
+    "@furo/form"
+  ];
+
   formSpec.class_name = spec.__proto.package + spec.type + "CreateForm";
   formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
   formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-form").toLowerCase();
@@ -127,14 +180,85 @@ typelist.forEach((pathToTypeSpec) => {
   for (fieldname in spec.fields) {
     let field = spec.fields[fieldname];
     if (field.constraints && field.constraints.required) {
-      createFields.push({
+
+
+      let fld = {
         "field": fieldname,
+        "component":"furo-data-text-input",
         "flags": [
           "condensed",
           "double"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-      })
+      };
+
+      let component_name = "furo-data-text-input";
+
+      // check which componet matches best with the simple types
+      switch(field.type) {
+
+        case "int":
+        case "int32":
+        case "int64":
+          component_name = "furo-data-number-input";
+          break;
+        case "google.type.Date":
+          component_name = "furo-data-date-input";
+          break;
+        case "google.type.Money":
+          component_name = "furo-data-money-input";
+          break;
+        case "furo.Property":
+          component_name = "furo-data-property";
+          break;
+      }
+      // use spec ui hint as component
+      if(field.__ui && field.__ui.component){
+        component_name = field.__ui.component;
+      }
+
+      let arrTmpName = field.type.split(".");
+      //  complex type has a cutom form component
+      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+        component_name = field.type.toLowerCase().replace(".", "-") + "-form";
+        formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+      }
+
+      fld.component = component_name;
+
+      // repeated fields can use furo-data-repeat component
+      if (field.meta && field.meta.repeated && field.type != "furo.Property") {
+        let value_name = fld.component;
+        fld.component = "furo-data-repeat";
+
+        fld.attrs = [
+          {"name": "repeated-component", "val": value_name }
+        ]
+      }
+
+      // special type furo.Reference
+      if (field.type === "furo.Reference") {
+        if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
+          let t = field.meta.default.link.type;
+          fld.component = t.toLowerCase().replace(".", "-") + "-reference-search";
+          formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component);
+
+        }
+      }
+
+      createFields.push(fld);
+
+
+
+
+
+
+
+
+
+
+
+
     } else {
       delete field;
     }
@@ -202,16 +326,66 @@ typelist.forEach((pathToTypeSpec) => {
       delete field;
       continue
     }
-    fields.push({
+
+    let component_name = "furo-data-display";
+
+    let arrTmpName = field.type.split(".");
+    //  complex type has a cutom form component
+    if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+
+      component_name = field.type.toLowerCase().replace(".", "-") + "-display";
+      displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+    }
+
+
+
+    // check which componet matches best with the simple types
+    switch(field.type) {
+
+      case "furo.Property":
+        component_name = "furo-data-property-display";
+        break;
+    }
+
+    let fld = {
       "field": fieldname,
-      "component": "furo-data-display",
+      "component": component_name,
       "flags": [
         "condensed",
         "double",
         "noborder"
       ],
       "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-    })
+    };
+
+
+    fld.component = component_name;
+
+    // repeated fields can use furo-data-repeat component
+    if (field.meta && field.meta.repeated && field.type != "furo.Property") {
+      let value_name = fld.component;
+      fld.component = "furo-data-repeat";
+
+      fld.attrs = [
+        {"name": "repeated-component", "val": value_name }
+      ]
+    }
+
+    fld.component = component_name;
+
+
+    // repeated fields can use furo-data-repeat component
+    if (field.meta && field.meta.repeated && field.type != "furo.Property") {
+
+      fld.attrs = [
+        {"name": "repeated-component", "val": component_name }
+      ];
+
+      fld.component = "furo-data-repeat";
+    }
+
+
+    fields.push(fld);
   }
 
 
@@ -365,6 +539,49 @@ refservicelist.forEach((pathToService) => {
 
   }
 });
+
+
+/**
+ * Reference-dropdown Section
+ */
+//load template structure
+let ReferencedropdownTPL = fs.readFileSync(TplDir + "/Referencedropdown.spec.json");
+
+let coldropservicelist = walkSync(SpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("service.spec") > 0)
+});
+
+coldropservicelist.forEach((pathToService) => {
+  let t = path.basename(pathToService).split(".");
+  const PKGDIR = UiSpecDir + "/" + t[0];
+  let Referencedropdownspec = JSON.parse(ReferencedropdownTPL);
+
+  let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
+  // check for param q
+  if (serviceSpec.services.List && serviceSpec.services.List.query && serviceSpec.services.List.query.q) {
+    let type = serviceSpec.services.List.data.response.replace("Collection", "");
+    Referencedropdownspec.class_name = type.replace(".", "") + "Referencedropdown";
+    Referencedropdownspec.class_name = Referencedropdownspec.class_name[0].toUpperCase() + Referencedropdownspec.class_name.substr(1);
+    Referencedropdownspec.component_name = type.toLowerCase().replace(".", "-") + "-reference-dropdown";
+    Referencedropdownspec.source = type.toLowerCase() + ".referencedropdown.spec";
+    Referencedropdownspec.service_name = serviceSpec.name;
+    Referencedropdownspec.type = type;
+    let target = PKGDIR + "/" + type.toLowerCase() + ".referencedropdown.spec";
+    if (!fs.existsSync(target)) {
+      fs.writeFileSync(target, JSON.stringify(Referencedropdownspec, null, 2));
+    } else {
+      // open file and check for "_writeprotection": false,
+      let f = JSON.parse(fs.readFileSync(target));
+      if (f._writeprotection === false) {
+        fs.writeFileSync(target, JSON.stringify(Referencedropdownspec, null, 2));
+      } else {
+        console.log("skip " + target);
+      }
+    }
+
+  }
+});
+
 
 
 /**

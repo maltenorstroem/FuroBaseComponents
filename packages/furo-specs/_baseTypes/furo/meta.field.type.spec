@@ -11,20 +11,16 @@
   "fields": {
     "meta": {
       "description": "meta information of a field",
-      "type": "map<string,string>",
+      "type": "furo.FieldMeta",
       "__proto": {
-        "number": 1,
-        "map_from": "string",
-        "map_to": "string"
+        "number": 1
       }
     },
     "constraints": {
-      "description": "constrain of a field",
+      "description": "constraints for a field",
       "type": "map<string,furo.FieldConstraint>",
       "__proto": {
-        "number": 2,
-        "map_from": "string",
-        "map_to": "furo.FieldConstraint"
+        "number": 2
       }
     }
   }

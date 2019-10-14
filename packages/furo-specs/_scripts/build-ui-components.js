@@ -267,6 +267,24 @@ referencesearchlist.forEach((datafile) => {
 
 
 /**
+ * Referencedropdown section
+ */
+
+let referencedropdownlist = walkSync(UiSpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("referencedropdown.spec") > 0)
+});
+
+// generate tmp data file for each file in list
+referencedropdownlist.forEach((datafile) => {
+  let referencedropdownspec = JSON.parse(fs.readFileSync(datafile));
+  let targetfile = BuildDir + "/" + referencedropdownspec.component_name.split("-")[0] + "/" + referencedropdownspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + referencedropdownspec.component_name.split("-")[0]]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/reference-dropdown.tmpl", ">", targetfile]);
+});
+
+
+
+/**
  * Registry
  */
 

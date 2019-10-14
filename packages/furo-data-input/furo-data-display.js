@@ -21,9 +21,9 @@ class FuroDataDisplay extends FBP(LitElement) {
     super();
 
     this._FBPAddWireHook("--valueChanged", (val) => {
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
       if (this.field) {
-        this.field.value = val;
+        this.field._value= val;
       }
     });
 
@@ -31,8 +31,19 @@ class FuroDataDisplay extends FBP(LitElement) {
 
   }
 
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
+
   _updateField() {
-    this.text = this.field.value;
+    this.text = this.field._value;
 
     if (this.displayfield && this.field[this.displayfield]) {
       this.text = this.field[this.displayfield];

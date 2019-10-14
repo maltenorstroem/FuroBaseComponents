@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.8](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.7...@furo/input@0.57.8) (2019-10-10)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.57.7](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.6...@furo/input@0.57.7) (2019-10-06)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.57.6](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.5...@furo/input@0.57.6) (2019-10-03)
+
+
+### Bug Fixes
+
+* meta updates, error in furo-data-date-input without constraints ([ec7de2f](https://github.com/veith/FuroBaseComponents/commit/ec7de2f))
+
+
+
+
+
+## [0.57.5](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.4...@furo/input@0.57.5) (2019-09-30)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.57.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.3...@furo/input@0.57.4) (2019-09-25)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
 ## [0.57.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.2...@furo/input@0.57.3) (2019-09-19)
 
 **Note:** Version bump only for package @furo/input

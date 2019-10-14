@@ -9,9 +9,7 @@ import "./empty-fbp-node"
  *
  * @summary Custom element to allow using FBPs template features in repeated template
  *
- * @polymer
  * @customElement
- * @demo demo/flow-bind.html
  * @mixes FBP
  */
 class FlowRepeat extends FBP(HTMLElement) {
@@ -121,7 +119,7 @@ class FlowRepeat extends FBP(HTMLElement) {
                 elem._FBPTriggerWire("--init", e);
             } else {
                 // wenn die identität abweicht
-                if (this._insertedItems[i].identity == undefined || this._insertedItems[i].identity !== identity) {
+                if (this._insertedItems[i].identity === false || this._insertedItems[i].identity !== identity) {
                     elem = this._buildDomNode(identity, i);
 
                     // Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten

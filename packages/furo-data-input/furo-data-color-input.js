@@ -14,7 +14,6 @@ import {Helper} from "./lib/helper";
  * Tags: input
  * @summary Binds a entityObject field to a furo-color-input field
  * @customElement
- * @polymer
  * @demo demo-furo-data-color-input Data binding
  * @mixes FBP
  * @mixes FuroInputBase
@@ -38,15 +37,24 @@ class FuroDataColorInput extends FBP(LitElement) {
 
     this._FBPAddWireHook("--valueChanged", (val) => {
 
-      // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
       if (this.field) {
-        this.field.value = val;
+        this.field._value= val;
       }
     });
 
   }
 
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
 
   /**
    * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
@@ -235,7 +243,7 @@ class FuroDataColorInput extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    this._FBPTriggerWire('--value', this.field.value);
+    this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
 

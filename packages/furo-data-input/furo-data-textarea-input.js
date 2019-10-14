@@ -35,11 +35,9 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     this.disabled = false;
 
     this._FBPAddWireHook("--valueChanged", (val) => {
-      // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
       if (this.field) {
-        this.field.value = val;
+        this.field._value= val;
       }
     });
 
@@ -60,6 +58,16 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     });
   }
 
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
 
   /**
    * Updater for the min => minlength attr
@@ -239,7 +247,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    this._FBPTriggerWire('--value', this.field.value);
+    this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
 

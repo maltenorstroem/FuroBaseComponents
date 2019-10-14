@@ -10,7 +10,6 @@ import {Helper} from "./lib/helper";
  *
  * @summary Textarea input field
  * @customElement
- * @polymer
  * @demo demo-furo-textarea-input Input samples
  * @appliesMixin FBP
  */
@@ -305,7 +304,7 @@ class FuroTextareaInput extends FBP(LitElement) {
             border: none;
             background: none;
             box-sizing: border-box;
-            
+            width: 100%;
             margin: 16px 0;
             padding: 0;
             line-height: 24px;

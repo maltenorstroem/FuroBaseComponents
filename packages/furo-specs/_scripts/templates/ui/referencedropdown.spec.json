@@ -1,0 +1,13 @@
+{
+  "_writeprotection": false,
+  "theme": "ReferenceDropdownBaseTheme",
+  "class_name": "PersonPersonReferenceDropdown",
+  "component_name": "person-person-reference-dropdown",
+  "description": "",
+  "source": "uispecdir/person.person.update.action.spec",
+  "service_name": "PersonService",
+  "type": "person.PersonEntity",
+  "value_field": "id",
+  "display_field": "display_name",
+  "imports": []
+}

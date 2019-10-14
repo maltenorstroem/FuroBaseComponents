@@ -93,10 +93,10 @@ export class DataObject extends EventTreeNode {
   init() {
 
     for(let i = this.__childNodes.length-1; i >= 0; i--){
-      this.__childNodes[i].deleteNode();
+      this.__childNodes[i].reinit();
     }
-
     this._initFieldsFromSpec(this, this._spec.fields);
+
     this._pristine = true;
     this._isValid = true;
   }
@@ -123,13 +123,14 @@ export class DataObject extends EventTreeNode {
     // nur reine Daten zurück geben
     for (let index in this.__childNodes) {
       let field = this.__childNodes[index];
-      data[field._name] = field.value
+      data[field._name] = field._value
     }
     return data;
   }
 
 
   _updateFieldValuesAndMetaFromRawEntity(node, data) {
+
     let furoMetaDetected = false;
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
@@ -154,7 +155,7 @@ export class DataObject extends EventTreeNode {
 
 
             // Werte aktualisieren
-            fieldNode.repeats[i].value = repdata;
+            fieldNode.repeats[i]._value = repdata;
             fieldNode.repeats[i]._pristine = true;
             fieldNode.repeats[i].__index = i;
 
@@ -176,13 +177,23 @@ export class DataObject extends EventTreeNode {
             fieldNode._clearInvalidity();
 
             // Werte aktualisieren
-            fieldNode.value = data[fieldName];
+            fieldNode._value = data[fieldName];
 
             fieldNode._pristine = true;
           }
         }
       }
     }
+
+    /* todo: discuss if resetting is needed on this level
+    // check for fields to reset
+    node.__childNodes.forEach((n)=>{
+      if(!data[n._name]){
+        //the field node[n._name] should be reseted
+      }
+    });
+    */
+
     if (furoMetaDetected) {
       this.__updateMetaAndConstraints(furoMetaDetected);
     }
@@ -232,7 +243,6 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   _initFieldsFromSpec(node, fieldSpec) {
-
     for (let fieldName in fieldSpec) {
       if (fieldSpec[fieldName].meta && fieldSpec[fieldName].meta.repeated) {
         node[fieldName] = new RepeaterNode(node, fieldSpec[fieldName], fieldName);
