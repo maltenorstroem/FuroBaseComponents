@@ -20,9 +20,9 @@ import {Helper} from "./lib/helper";
  *    <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
  *    Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den furo-collection-agent.
  *    Wenn furo-collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->
- *    <furo-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
+ *    <furo-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" subfield="id" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
- *    <furo-data-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
+ *    <furo-data-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref.id)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
  *</furo-horizontal-flex>
  *
@@ -42,7 +42,11 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   constructor() {
     super();
     this._minTermLength = 0;
-    this.idField = "id";
+    this.valueField = "id";
+    this.displayField = "display_name";
+
+    this._fieldNodeToUpdate = {};
+    this._fieldDisplayNodeToUpdate = {};
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
@@ -93,8 +97,13 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id._value= item.data[this.idField];
-      this.field.display_name._value= item.data.display_name;
+      this._fieldNodeToUpdate._value= item.data[this.valueField];
+
+      if(this.subfield) {
+        this._fieldDisplayNodeToUpdate._value= item.data[this.displayField];
+      }
+      this._displayName = item.data[this.displayField];
+      this._updateField();
       this._closeList();
     });
 
@@ -174,7 +183,18 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   _showList() {
     this._listIsOpen = true;
     this.setAttribute("show-list", "");
-    this._FBPTriggerWire("--listOpened", 0);
+    let arrCollection = this._collection;
+    let index = 0;
+
+    for (let i=0; i<arrCollection.length ; i++) {
+
+      if(arrCollection[i].data && arrCollection[i].data [this.valueField] == this._fieldNodeToUpdate._value) {
+        index = i;
+        break;
+      }
+    }
+    // trigger wire to select item
+    this._FBPTriggerWire("--listOpened", index);
   }
 
   _closeList() {
@@ -214,10 +234,42 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     return {
       /**
-       * the field name of reference-item which should be used to asign to id field of the the data entity object
+       * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
        */
-      idField: {type: String, attribute: 'id-field'},
-
+      valueField: {type: String, attribute: 'value-field'},
+      /**
+       * the field name of reference-item which should be used as display which will be showed in the dropdown.
+       */
+      displayField: {
+        type: String,
+        attribute: "display-field"
+      },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfield: {
+        type: String,
+      },
+      /**
+       * this property saves the value of the displayField of selected item from collection
+       */
+      _displayName: {
+        type: String
+      },
+      /**
+       * mark if the collection is already loaded
+       */
+      _hasCollection: {
+        type: Boolean
+      },
+      /**
+       * the loaded collection
+       */
+      _collection: {
+        type: Array
+      },
       /**
        * Overrides the label text from the **specs**.
        *
@@ -303,6 +355,19 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   bindData(fieldNode) {
 
     Helper.BindData(this, fieldNode);
+
+    if(this.subfield){
+      this._fieldNodeToUpdate = this.field[this.subfield];
+
+      if(this.field.display_name){
+        this._fieldDisplayNodeToUpdate = this.field.display_name;
+      }
+    }
+    else{
+      this._fieldNodeToUpdate = this.field;
+    }
+
+
     this._init();
   }
 
@@ -313,10 +378,18 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    if(this.field.display_name._value) {
 
-      this._FBPTriggerWire('--value', this.field.display_name._value);
+    // use display_name directly from display field if it exists
+    if(this.subfield) {
+
+      this._displayName = this._fieldDisplayNodeToUpdate._value;
     }
+
+    if( this._displayName){
+
+      this._FBPTriggerWire('--value', this._displayName);
+    }
+
     this.requestUpdate();
   }
 
@@ -324,6 +397,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     this._FBPTriggerWire("--listItemsIjnected", collection.entities);
     this._hasCollection = true;
+    this._collection =  collection.entities;
 
     if (this._focused) {
       this._showList();

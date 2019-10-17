@@ -35,6 +35,8 @@ import {FBP} from "@furo/fbp";
  * Tags: input
  * @summary bindable dropdown
  * @customElement
+ * @demo demo-furo-data-collection-dropdown
+ * @demo demo-furo-data-collection-reference-dropdown
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FBP(LitElement) {
@@ -54,20 +56,39 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     this.displayField = "display_name";
     this.valueField = "id";
 
+    this._fieldNodeToUpdate = {};
+    this._fieldDisplayNodeToUpdate = {};
+    this._fieldNodeToUpdate._value = null;
+
+    this._collection = [];
+
     this._FBPAddWireHook("--valueChanged", (val) => {
 
 
       if (this.field) {
         // by valid input reset meta and constraints
+        this._fieldNodeToUpdate._value = val;
 
-        this.field._value= val;
+        if(this.subfield) {
+
+          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val);
+        }
       }
       this._notifiySelectedItem(val);
     });
-
-
   }
 
+  _findDisplayNameByValue(val) {
+    let displayName = "";
+
+    for(let i = 0; i < this._dropdownList.length; i++) {
+      if(this._dropdownList[i].id == val) {
+        displayName = this._dropdownList[i].label;
+        break;
+      }
+    }
+    return displayName;
+  }
 
   /**
    * flow is ready lifecycle method
@@ -154,26 +175,39 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": item,
         "label": e,
-        "selected": (this._value== item),
+        "selected": (this._fieldNodeToUpdate._value == item),
         "_original": item
       }
     });
-    this._dropdownList = arr;
 
-    if (this.field && !this.field._value) {
-      this.field._value= arr[0].id;
-    }
-
-    if (!this.field) {
-      // notifiy first item if field is not set
-      this._notifiySelectedItem(arr[0].id);
-    } else {
-      this._notifiySelectedItem(this.field._value);
-    }
-
-    this._FBPTriggerWire("--selection", arr);
+    this._notifyAndTriggerUpdate(arr);
   }
 
+  /**
+   *
+   * @param arr
+   * @private
+   */
+  _notifyAndTriggerUpdate(arr) {
+    if(arr.length > 0) {
+      this._dropdownList = arr;
+
+      if (!this.field) {
+        // notifiy first item if field is not set
+        this._notifiySelectedItem(arr[0].id);
+      } else {
+        this._notifiySelectedItem(this._fieldNodeToUpdate._value);
+        this._fieldNodeToUpdate._value = arr[0].id;
+
+        if(this._fieldDisplayNodeToUpdate) {
+          this._fieldDisplayNodeToUpdate._value = arr[0].label;
+        }
+      }
+
+      this._FBPTriggerWire("--selection", arr);
+    }
+
+  }
 
   static get properties() {
     return {
@@ -186,6 +220,23 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       label: {
         type: String,
 
+      },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfield: {
+        type: String,
+      },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfieldDisplay: {
+        type: String,
+        attribute: "subfield-display"
       },
       /**
        * The name of the field from the injected collection that contains the label for the dropdown array.
@@ -262,6 +313,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       list: {
         type: String
+      },
+      /**
+       * the dropdown list
+       */
+      _dropdownList: {
+        type: Array
       }
     }
   }
@@ -288,6 +345,24 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
 
+    if(this.subfield){
+      this._fieldNodeToUpdate = this.field[this.subfield];
+
+      if(this.subfieldDisplay) {
+        this._fieldDisplayNodeToUpdate = this.field[this.subfieldDisplay]
+      }
+      else if(this.field["display_name"]){
+        this._fieldDisplayNodeToUpdate = this.field["display_name"];
+      }
+    }
+    else{
+      this._fieldNodeToUpdate = this.field;
+    }
+
+    // inject options from meta which is defined in spec
+    if(this.field._meta && this.field._meta.options ) {
+      this._buildListWithMetaOptions(this.field._meta.options);
+    }
 
     // update meta and constraints when they change
     this.field.addEventListener('this-metas-changed', (e) => {
@@ -304,7 +379,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    this._FBPTriggerWire('--value', this.field._value);
+    this._FBPTriggerWire('--value', this._fieldNodeToUpdate._value);
     this.requestUpdate();
 
   }
@@ -333,54 +408,29 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   /**
-   *
-   * @return {TemplateResult}
-   * @private
-   */
-  render() {
-    // language=HTML
-    return html`
-       <furo-select-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly || this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"          
-          ƒ-set-options="--selection"
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-select-input>      
-    `;
-  }
-
-  /**
    * Build the dropdown list with given options from meta
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
-    // map
-    let arr = options.list.map((e) => {
-      return {
-        "id": e[this.valueField],
-        "label": e[this.displayField],
-        "selected": (this.field._value== e[this.valueField]),
-        "_original": e
-      }
-    });
 
-    this._dropdownList = arr;
-    if (!this.field._value) {
-      this.field._value= arr[0].id;
+    let arr = this._mapDataToList(options.list);
+
+    this._notifyAndTriggerUpdate(arr);
+  }
+
+  _mapDataToList(list) {
+    let arr =[];
+    if(Array.isArray(list)) {
+      arr = list.map((e) => {
+        return {
+          "id": e[this.valueField],
+          "label": e[this.displayField],
+          "selected": (this._fieldNodeToUpdate._value == e[this.valueField]),
+          "_original": e
+        }
+      });
     }
-
-    if (!this.field) {
-      // notifiy first item if field is not set
-      this._notifiySelectedItem(arr[0].id);
-    } else {
-      this._notifiySelectedItem(this.field._value);
-    }
-
-    this._FBPTriggerWire("--selection", arr);
-
+    return arr;
   }
 
   /**
@@ -405,28 +455,10 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param {Array} Array with entities
    */
   injectList(list) {
-    // map
-    let arr = list.map((e) => {
-      return {
-        "id": e[this.valueField],
-        "label": e[this.displayField],
-        "selected": (this._value== e[this.valueField]),
-        "_original": e
-      }
-    });
-    this._dropdownList = arr;
-    if (this.field && !this.field._value) {
-      this.field._value= arr[0].id;
-    }
 
-    if (!this.field) {
-      // notifiy first item if field is not set
-      this._notifiySelectedItem(arr[0].id);
-    } else {
-      this._notifiySelectedItem(this.field._value);
-    }
+    let arr = this._mapDataToList(list);
 
-    this._FBPTriggerWire("--selection", arr);
+    this._notifyAndTriggerUpdate(arr);
   }
 
   /**
@@ -441,27 +473,33 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": e.data[this.valueField],
         "label": e.data[this.displayField],
-        "selected": (this._value== e.data[this.valueField]),
+        "selected": (this._fieldNodeToUpdate._value == e.data[this.valueField]),
         "_original": e
       }
     });
 
-    this._dropdownList = arr;
-    if (this.field && !this.field._value) {
-      this.field._value= arr[0].id;
-    }
-
-    if (!this.field) {
-      // notifiy first item if field is not set
-      this._notifiySelectedItem(arr[0].id);
-    } else {
-      this._notifiySelectedItem(this.field._value);
-    }
-
-    this._FBPTriggerWire("--selection", arr);
+    this._notifyAndTriggerUpdate(arr);
   }
 
-
+  /**
+   *
+   * @return {TemplateResult}
+   * @private
+   */
+  render() {
+    // language=HTML
+    return html`
+       <furo-select-input id="input"
+          ?autofocus=${this.autofocus} 
+          ?readonly=${this._readonly || this.disabled} 
+          ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"          
+          ƒ-set-options="--selection"
+          @-value-changed="--valueChanged"
+          ƒ-set-value="--value"></furo-select-input>      
+    `;
+  }
 }
 
 customElements.define('furo-data-collection-dropdown', FuroDataCollectionDropdown);
