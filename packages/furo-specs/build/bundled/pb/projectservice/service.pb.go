@@ -4,11 +4,11 @@
 package projectservice
 
 import (
-	protobuf "../google/protobuf"
 	project "../project"
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -67,11 +67,11 @@ func (m *CreateProjectServiceRequest) GetData() *project.Project {
 }
 
 type DeleteProjectServiceRequest struct {
-	Prj                  string          `protobuf:"bytes,1,opt,name=prj,proto3" json:"prj,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Prj                  string       `protobuf:"bytes,1,opt,name=prj,proto3" json:"prj,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteProjectServiceRequest) Reset()         { *m = DeleteProjectServiceRequest{} }
@@ -106,7 +106,7 @@ func (m *DeleteProjectServiceRequest) GetPrj() string {
 	return ""
 }
 
-func (m *DeleteProjectServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteProjectServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -357,7 +357,7 @@ type ProjectServiceClient interface {
 	// Creates a new Project
 	CreateProject(ctx context.Context, in *CreateProjectServiceRequest, opts ...grpc.CallOption) (*project.ProjectEntity, error)
 	// Delete a Project
-	DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project
 	GetProject(ctx context.Context, in *GetProjectServiceRequest, opts ...grpc.CallOption) (*project.ProjectEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.
@@ -383,8 +383,8 @@ func (c *projectServiceClient) CreateProject(ctx context.Context, in *CreateProj
 	return out, nil
 }
 
-func (c *projectServiceClient) DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *projectServiceClient) DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/projectservice.ProjectService/DeleteProject", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -424,7 +424,7 @@ type ProjectServiceServer interface {
 	// Creates a new Project
 	CreateProject(context.Context, *CreateProjectServiceRequest) (*project.ProjectEntity, error)
 	// Delete a Project
-	DeleteProject(context.Context, *DeleteProjectServiceRequest) (*protobuf.Empty, error)
+	DeleteProject(context.Context, *DeleteProjectServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project
 	GetProject(context.Context, *GetProjectServiceRequest) (*project.ProjectEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.
@@ -440,7 +440,7 @@ type UnimplementedProjectServiceServer struct {
 func (*UnimplementedProjectServiceServer) CreateProject(ctx context.Context, req *CreateProjectServiceRequest) (*project.ProjectEntity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
 }
-func (*UnimplementedProjectServiceServer) DeleteProject(ctx context.Context, req *DeleteProjectServiceRequest) (*protobuf.Empty, error) {
+func (*UnimplementedProjectServiceServer) DeleteProject(ctx context.Context, req *DeleteProjectServiceRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
 }
 func (*UnimplementedProjectServiceServer) GetProject(ctx context.Context, req *GetProjectServiceRequest) (*project.ProjectEntity, error) {

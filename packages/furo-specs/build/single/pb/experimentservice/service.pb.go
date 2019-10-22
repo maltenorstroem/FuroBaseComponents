@@ -5,10 +5,10 @@ package experimentservice
 
 import (
 	experiment "../experiment"
-	protobuf "../google/protobuf"
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -67,11 +67,11 @@ func (m *CreateExperimentServiceRequest) GetData() *experiment.Experiment {
 }
 
 type DeleteExperimentServiceRequest struct {
-	Exp                  string          `protobuf:"bytes,1,opt,name=exp,proto3" json:"exp,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Exp                  string       `protobuf:"bytes,1,opt,name=exp,proto3" json:"exp,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteExperimentServiceRequest) Reset()         { *m = DeleteExperimentServiceRequest{} }
@@ -106,7 +106,7 @@ func (m *DeleteExperimentServiceRequest) GetExp() string {
 	return ""
 }
 
-func (m *DeleteExperimentServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteExperimentServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -399,13 +399,13 @@ type ExperimentServiceClient interface {
 	// Creates a new Experiment
 	CreateExperiment(ctx context.Context, in *CreateExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentEntity, error)
 	// Delete a Experiment
-	DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment
 	GetExperiment(ctx context.Context, in *GetExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.
 	ListExperiments(ctx context.Context, in *ListExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentCollection, error)
 	// Releases experiment
-	ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// Updates a Experiment, partial updates are supported
 	UpdateExperiment(ctx context.Context, in *UpdateExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentEntity, error)
 }
@@ -427,8 +427,8 @@ func (c *experimentServiceClient) CreateExperiment(ctx context.Context, in *Crea
 	return out, nil
 }
 
-func (c *experimentServiceClient) DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *experimentServiceClient) DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/experimentservice.ExperimentService/DeleteExperiment", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -454,8 +454,8 @@ func (c *experimentServiceClient) ListExperiments(ctx context.Context, in *ListE
 	return out, nil
 }
 
-func (c *experimentServiceClient) ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *experimentServiceClient) ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/experimentservice.ExperimentService/ReleaseExperiment", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -477,13 +477,13 @@ type ExperimentServiceServer interface {
 	// Creates a new Experiment
 	CreateExperiment(context.Context, *CreateExperimentServiceRequest) (*experiment.ExperimentEntity, error)
 	// Delete a Experiment
-	DeleteExperiment(context.Context, *DeleteExperimentServiceRequest) (*protobuf.Empty, error)
+	DeleteExperiment(context.Context, *DeleteExperimentServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment
 	GetExperiment(context.Context, *GetExperimentServiceRequest) (*experiment.ExperimentEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.
 	ListExperiments(context.Context, *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error)
 	// Releases experiment
-	ReleaseExperiment(context.Context, *ReleaseExperimentServiceRequest) (*protobuf.Empty, error)
+	ReleaseExperiment(context.Context, *ReleaseExperimentServiceRequest) (*empty.Empty, error)
 	// Updates a Experiment, partial updates are supported
 	UpdateExperiment(context.Context, *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error)
 }
@@ -495,7 +495,7 @@ type UnimplementedExperimentServiceServer struct {
 func (*UnimplementedExperimentServiceServer) CreateExperiment(ctx context.Context, req *CreateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateExperiment not implemented")
 }
-func (*UnimplementedExperimentServiceServer) DeleteExperiment(ctx context.Context, req *DeleteExperimentServiceRequest) (*protobuf.Empty, error) {
+func (*UnimplementedExperimentServiceServer) DeleteExperiment(ctx context.Context, req *DeleteExperimentServiceRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteExperiment not implemented")
 }
 func (*UnimplementedExperimentServiceServer) GetExperiment(ctx context.Context, req *GetExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
@@ -504,7 +504,7 @@ func (*UnimplementedExperimentServiceServer) GetExperiment(ctx context.Context, 
 func (*UnimplementedExperimentServiceServer) ListExperiments(ctx context.Context, req *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListExperiments not implemented")
 }
-func (*UnimplementedExperimentServiceServer) ReleaseExperiment(ctx context.Context, req *ReleaseExperimentServiceRequest) (*protobuf.Empty, error) {
+func (*UnimplementedExperimentServiceServer) ReleaseExperiment(ctx context.Context, req *ReleaseExperimentServiceRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReleaseExperiment not implemented")
 }
 func (*UnimplementedExperimentServiceServer) UpdateExperiment(ctx context.Context, req *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {

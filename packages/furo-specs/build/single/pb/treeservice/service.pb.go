@@ -4,11 +4,11 @@
 package treeservice
 
 import (
-	protobuf "../google/protobuf"
 	tree "../tree"
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -67,11 +67,11 @@ func (m *CreateTreeServiceRequest) GetData() *tree.Tree {
 }
 
 type DeleteTreeServiceRequest struct {
-	Tre                  string          `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Tre                  string       `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteTreeServiceRequest) Reset()         { *m = DeleteTreeServiceRequest{} }
@@ -106,7 +106,7 @@ func (m *DeleteTreeServiceRequest) GetTre() string {
 	return ""
 }
 
-func (m *DeleteTreeServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteTreeServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -356,7 +356,7 @@ type TreeServiceClient interface {
 	// Creates a new Tree
 	CreateTree(ctx context.Context, in *CreateTreeServiceRequest, opts ...grpc.CallOption) (*tree.TreeEntity, error)
 	// Delete a Tree
-	DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree
 	GetTree(ctx context.Context, in *GetTreeServiceRequest, opts ...grpc.CallOption) (*tree.TreeEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.
@@ -382,8 +382,8 @@ func (c *treeServiceClient) CreateTree(ctx context.Context, in *CreateTreeServic
 	return out, nil
 }
 
-func (c *treeServiceClient) DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *treeServiceClient) DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/treeservice.TreeService/DeleteTree", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -423,7 +423,7 @@ type TreeServiceServer interface {
 	// Creates a new Tree
 	CreateTree(context.Context, *CreateTreeServiceRequest) (*tree.TreeEntity, error)
 	// Delete a Tree
-	DeleteTree(context.Context, *DeleteTreeServiceRequest) (*protobuf.Empty, error)
+	DeleteTree(context.Context, *DeleteTreeServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree
 	GetTree(context.Context, *GetTreeServiceRequest) (*tree.TreeEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.
@@ -439,7 +439,7 @@ type UnimplementedTreeServiceServer struct {
 func (*UnimplementedTreeServiceServer) CreateTree(ctx context.Context, req *CreateTreeServiceRequest) (*tree.TreeEntity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTree not implemented")
 }
-func (*UnimplementedTreeServiceServer) DeleteTree(ctx context.Context, req *DeleteTreeServiceRequest) (*protobuf.Empty, error) {
+func (*UnimplementedTreeServiceServer) DeleteTree(ctx context.Context, req *DeleteTreeServiceRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTree not implemented")
 }
 func (*UnimplementedTreeServiceServer) GetTree(ctx context.Context, req *GetTreeServiceRequest) (*tree.TreeEntity, error) {

@@ -4,11 +4,11 @@
 package taskservice
 
 import (
-	protobuf "../google/protobuf"
 	task "../task"
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -67,11 +67,11 @@ func (m *CreateTaskServiceRequest) GetData() *task.Task {
 }
 
 type DeleteTaskServiceRequest struct {
-	Tsk                  string          `protobuf:"bytes,1,opt,name=tsk,proto3" json:"tsk,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Tsk                  string       `protobuf:"bytes,1,opt,name=tsk,proto3" json:"tsk,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteTaskServiceRequest) Reset()         { *m = DeleteTaskServiceRequest{} }
@@ -106,7 +106,7 @@ func (m *DeleteTaskServiceRequest) GetTsk() string {
 	return ""
 }
 
-func (m *DeleteTaskServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteTaskServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -356,7 +356,7 @@ type TaskServiceClient interface {
 	// Creates a new Task
 	CreateTask(ctx context.Context, in *CreateTaskServiceRequest, opts ...grpc.CallOption) (*task.TaskEntity, error)
 	// Delete a Task
-	DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task
 	GetTask(ctx context.Context, in *GetTaskServiceRequest, opts ...grpc.CallOption) (*task.TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
@@ -382,8 +382,8 @@ func (c *taskServiceClient) CreateTask(ctx context.Context, in *CreateTaskServic
 	return out, nil
 }
 
-func (c *taskServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *taskServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/taskservice.TaskService/DeleteTask", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -423,7 +423,7 @@ type TaskServiceServer interface {
 	// Creates a new Task
 	CreateTask(context.Context, *CreateTaskServiceRequest) (*task.TaskEntity, error)
 	// Delete a Task
-	DeleteTask(context.Context, *DeleteTaskServiceRequest) (*protobuf.Empty, error)
+	DeleteTask(context.Context, *DeleteTaskServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task
 	GetTask(context.Context, *GetTaskServiceRequest) (*task.TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
@@ -439,7 +439,7 @@ type UnimplementedTaskServiceServer struct {
 func (*UnimplementedTaskServiceServer) CreateTask(ctx context.Context, req *CreateTaskServiceRequest) (*task.TaskEntity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
 }
-func (*UnimplementedTaskServiceServer) DeleteTask(ctx context.Context, req *DeleteTaskServiceRequest) (*protobuf.Empty, error) {
+func (*UnimplementedTaskServiceServer) DeleteTask(ctx context.Context, req *DeleteTaskServiceRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
 }
 func (*UnimplementedTaskServiceServer) GetTask(ctx context.Context, req *GetTaskServiceRequest) (*task.TaskEntity, error) {
