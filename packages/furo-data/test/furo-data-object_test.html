@@ -42,6 +42,21 @@
       await element.updateComplete;
     });
 
+
+    it('should set the values like injected, remove defaults,...', (done) => {
+      element.setAttribute("type", "experiment.Default");
+      assert.equal(element.data.description._value, "Ein text per default");
+      let handler = (e) => {
+        assert.equal(element.data.description._value, undefined);
+        done();
+      };
+      element.data.addEventListener("data-injected", handler, {once: true});
+
+      element.injectRaw({"id": 12, "display_name": "party"});
+
+
+    });
+
     it('should be possible to create deep recursive object from data', (done) => {
       element.setAttribute("type", "experiment.Recursive");
 
@@ -177,7 +192,7 @@
           assert.equal(EntityRoot.description._constraints.min.is, 5);
           assert.equal(EntityRoot.description._constraints.max.is, 20);
           assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
-
+          assert.equal(EntityRoot.description._meta.options.list.length, 2);
           done();
         });
       });
@@ -197,6 +212,7 @@
           assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
           assert.equal(EntityRoot.description._constraints.min.is, 5);
           assert.equal(EntityRoot.description._constraints.max.is, 20);
+          assert.equal(EntityRoot.description._meta.options.list.length, 2);
           assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
 
           done();

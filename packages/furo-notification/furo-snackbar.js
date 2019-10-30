@@ -8,16 +8,28 @@ import {FBP} from '@furo/fbp';
  *  furo-snackbar should be used together witch furo-snackbar-display. you can place those two components into different places.
  *  best place the furo-snackbar-display on the main site. then you only need one furo-snackbar-display. it can work with n furo-snackbar.
  *
+ * ### When to use
+ *
+ * Snackbars communicate messages that are minimally interruptive and don’t require user action.
+
+ * Component | Priority | User action
+ * ----------------|------------------|----------
+ * `furo-snackbar`  | Low priority |Optional: Snackbars disappear automatically
+ * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
+ * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
+ *
  * @customElement
  * @demo demo-furo-snackbar-display snackbar demo
+ * @demo demo-furo-snackbar-display-error snackbar display demo with error binding
  */
 class FuroSnackbar extends FBP(LitElement) {
 
 
   constructor(){
     super();
-    this.labelText = "label text";
-    this.actionButtonText = "Undo";
+    this.labelText = "";
+    this.actionButtonText = "";
+    this.icon = "done";
     this.isOpen = false;
   }
 
@@ -137,7 +149,7 @@ class FuroSnackbar extends FBP(LitElement) {
   /**
    * trigger the action of snackbar. event `snackbar-action-clicked` will be sent with payload
    */
-  action() {
+  _action() {
 
     /**
      * @event snackbar-action-clicked
@@ -146,13 +158,33 @@ class FuroSnackbar extends FBP(LitElement) {
      */
     let customEvent = new Event("snackbar-action-clicked",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
+
+    this._close();
   }
 
   /**
-   * snackbar closed. event `snackbar-closed` will be sent with payload
+   * Send event `snackbar-dismiss-clicked` will be sent with payload which was set with show()
    */
-  closed() {
+  _dismiss() {
+
+    /**
+     * @event snackbar-dismiss-clicked
+     * Fired when dismiss icon in snackbar-display is clicked
+     * detail payload: {Object}  payload
+     */
+    let customEvent = new Event("snackbar-dismiss-clicked",{composed: true, bubbles: true});
+    customEvent.detail = this.payload;
+    this.dispatchEvent(customEvent);
+
+    this._close();
+  }
+
+
+  /**
+   * Send event `snackbar-closed` will be sent with payload which was set with show()
+   */
+  _close() {
 
     /**
      * @event snackbar-closed
@@ -161,22 +193,9 @@ class FuroSnackbar extends FBP(LitElement) {
      */
     let customEvent = new Event("snackbar-closed",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
   }
 
-  /**
-   * snackbar opend.event `snackbar-opened` will be sent with payload
-   */
-  opened() {
-    /**
-     * @event snackbar-opened
-     * Fired when snackbar is opened
-     * detail payload: {Object}  this
-     */
-    let customEvent = new Event("snackbar-opened",{composed: true, bubbles: true});
-    customEvent.detail = this;
-    this.dispatchEvent(customEvent)
-  }
 
   /**
    * set the label text o

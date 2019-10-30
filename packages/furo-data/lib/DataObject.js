@@ -104,6 +104,16 @@ export class DataObject extends EventTreeNode {
     return this._rawEntity;
   }
 
+
+
+  /**
+   * Returns a json representation of your Data Object
+   * @return {*}
+   */
+  get _value() {
+    return this.getJson();
+  }
+
   /**
    * Returns a json representation of your Data Object
    * @return {*}
@@ -126,6 +136,7 @@ export class DataObject extends EventTreeNode {
     }
     return data;
   }
+
 
 
   _updateFieldValuesAndMetaFromRawEntity(node, data) {
@@ -192,6 +203,20 @@ export class DataObject extends EventTreeNode {
       }
     });
     */
+
+    //  clear fields if it is not in the incomming data
+    node.__childNodes.forEach((n) => {
+      if(data && !data.hasOwnProperty(n._name)){
+        if(n.__childNodes.length > 0){
+          n._value = {};
+        }else{
+          n._value = undefined;
+        }
+
+      }
+    });
+
+
 
     if (furoMetaDetected) {
       this.__updateMetaAndConstraints(furoMetaDetected);

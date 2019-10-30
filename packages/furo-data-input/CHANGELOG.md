@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.60.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.3...@furo/data-input@0.60.4) (2019-10-29)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.60.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.2...@furo/data-input@0.60.3) (2019-10-29)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.60.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.1...@furo/data-input@0.60.2) (2019-10-28)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.60.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.0...@furo/data-input@0.60.1) (2019-10-25)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [0.60.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.59.3...@furo/data-input@0.60.0) (2019-10-24)
+
+
+### Features
+
+* furo-data-reference-search with search-on-enter-only ([499c854](https://github.com/veith/FuroBaseComponents/commit/499c854))
+
+
+
+
+
+## [0.59.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.59.2...@furo/data-input@0.59.3) (2019-10-23)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [0.59.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.59.1...@furo/data-input@0.59.2) (2019-10-22)
 
 **Note:** Version bump only for package @furo/data-input

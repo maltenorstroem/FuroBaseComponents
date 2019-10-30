@@ -9,6 +9,17 @@ import "@furo/input";
  *  furo-snackbar-display should be used together witch furo-snackbar. you can place those two components into different places.
  *  best place the furo-snackbar-display on the main site. then you only need one furo-snackbar-display. it can work with n furo-snackbar.
  *
+ * ### When to use
+ *
+ * Snackbars communicate messages that are minimally interruptive and don’t require user action.
+ *
+ * Component | Priority | User action
+ * ----------------|------------------|----------
+ * `furo-snackbar`  | Low priority |Optional: Snackbars disappear automatically
+ * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
+ * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
+ *
+ *
  * ### Styling
  * The following custom properties and mixins are available for styling:
  *
@@ -17,11 +28,12 @@ import "@furo/input";
  * `--snackbar-background-color` | Color of background |`--on-primary` |  #212121
  * `--snackbar-label-color` | Color of label in snackbar| `--primary-variant,,` | #dedede
  * `--snackbar-button-text-color` | Color of button text | `--secondary` | #bb86fc
+ * `--snackbar-border-distance` | Distance to the border of the parent element | `--spacing` | 24px
 
  *
  * @customElement
  * @demo demo-furo-snackbar-display snackbar demo
- * @demo demo-furo-snackbar-display-error snackbar display error demo
+ * @demo demo-furo-snackbar-display-error snackbar display demo with error binding
  */
 class FuroSnackbarDisplay extends  FBP(LitElement) {
 
@@ -44,17 +56,16 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
 
     this._FBPAddWireHook('--actionClicked', (e) => {
 
-      if(e.snackbar) {
-        e.snackbar.action();
-        e.snackbar.closed();
+      if(this.displayObj.snackbar) {
+        this.displayObj.snackbar._action();
       }
       this._close();
     });
 
     this._FBPAddWireHook('--closeClicked', (e) => {
 
-      if(e.snackbar) {
-        e.snackbar.closed();
+      if(this.displayObj.snackbar) {
+        this.displayObj.snackbar._dismiss();
       }
       this._close();
     });
@@ -77,7 +88,6 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
 
     // when display not wired with show method, listening open event from window
     if(!this._isWiredWithShow()) {
-
       window.addEventListener("open-furo-snackbar-requested", (e)=>{
         this.show(e.detail);
       });
@@ -110,8 +120,9 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     return css`
             :host {
               position: absolute;
-              bottom: 0;
-              width: 100%;
+              bottom:var(--snackbar-border-distance, var(--spacing, 24px));
+              left:var(--snackbar-border-distance, var(--spacing, 24px));
+              right:var(--snackbar-border-distance, var(--spacing, 24px));               
             }
 
             #snackbar {
@@ -217,18 +228,15 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    * @private
    */
   show(s) {
-
     this._pushToStack(s);
-
     if( !this.displayObj.isOpen ) {
-
       this._show();
     }
   }
 
   /**
    *
-   * @param d {Object} snackbar
+   * @param s {Object} snackbar
    * @private
    */
   _pushToStack(s) {
@@ -276,6 +284,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
           self._snackbar.classList.add("hide");
 
           self._stack.shift();
+          self.displayObj.snackbar._close();
           if(self._stack.length  > 0 ) {
 
             self._show();

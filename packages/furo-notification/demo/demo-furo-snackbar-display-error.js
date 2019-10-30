@@ -58,7 +58,7 @@ class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
      */
     render(){
         return html`
-      <h2>Demo furo-checkbox</h2>
+      <h2>Demo furo-snackbar</h2>
       
       <furo-demo-snippet >
         <template>
@@ -70,7 +70,9 @@ class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
         <div>        
             <furo-snackbar timeout-in-ms=5000 icon="done"   ƒ-show="--show" action-button-text="undo" ƒ-parse-grpc-status="--error"></furo-snackbar>
         </div>
-        <furo-snackbar-display></furo-snackbar-display>
+          <!-- this furo-banner-display should be place on the main page once 
+            <furo-snackbar-display></furo-snackbar-display> 
+          -->
                 </template>
       </furo-demo-snippet>
         `;

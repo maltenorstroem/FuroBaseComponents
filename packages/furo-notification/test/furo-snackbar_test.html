@@ -88,21 +88,11 @@
       });
       snackbar.show(obj);
 
-      snackbar.action();
-    });
-
-    it('should send event `close-furo-snackbar-requested` with detail which is snackbar self when function close() is called', (done) => {
-
-      snackbar.addEventListener("close-furo-snackbar-requested", (e)=>{
-        assert.equal(e.detail.actionButtonText, "redo");
-        done();
-      });
-
-      snackbar.close();
+      snackbar._action();
     });
 
 
-    it('should send event `snackbar-closed` with detail which is the `payload`  when function closed() is called', (done) => {
+    it('should send event `snackbar-closed` with detail which is the `payload`  when function _close() is called', (done) => {
       let obj ={"payload":"test"};
       snackbar.addEventListener("snackbar-closed", (e)=>{
         assert.equal(JSON.stringify(e.detail), JSON.stringify(obj));
@@ -110,19 +100,18 @@
       });
       snackbar.show(obj);
 
-      snackbar.closed();
+      snackbar._close();
     });
 
-    it('should send event `snackbar-opened` with detail which is snackbar self when function opened() is called', (done) => {
-
-      snackbar.show();
-
-      snackbar.addEventListener("snackbar-opened", (e)=>{
-        assert.equal(e.detail.actionButtonText, "redo");
+    it('should send event `snackbar-dismiss-clicked` with detail which is the `payload`  when function _close() is called', (done) => {
+      let obj ={"payload":"test"};
+      snackbar.addEventListener("snackbar-dismiss-clicked", (e)=>{
+        assert.equal(JSON.stringify(e.detail), JSON.stringify(obj));
         done();
       });
+      snackbar.show(obj);
 
-      snackbar.opened();
+      snackbar._dismiss();
     });
 
     it('should set label via setLabelText()', (done) => {

@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.33.34](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.33...@furo/navigation@0.33.34) (2019-10-29)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.33.33](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.32...@furo/navigation@0.33.33) (2019-10-29)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.33.32](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.31...@furo/navigation@0.33.32) (2019-10-28)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.33.31](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.30...@furo/navigation@0.33.31) (2019-10-25)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.33.30](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.29...@furo/navigation@0.33.30) (2019-10-24)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.33.29](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.28...@furo/navigation@0.33.29) (2019-10-23)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 ## [0.33.28](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.27...@furo/navigation@0.33.28) (2019-10-22)
 
 **Note:** Version bump only for package @furo/navigation
