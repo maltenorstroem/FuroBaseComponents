@@ -50,7 +50,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
 
     this.field = propertyField;
 
-    if (propertyField instanceof RepeaterNode) {
+    if (propertyField._isRepeater) {
 
       // add flow repeat to parent and inject on repeated changes
       // repeated
@@ -73,6 +73,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
       this.field.addEventListener('this-repeated-field-changed', (data) => {
         repeater.injectItems(this.field.repeats);
       });
+
       // inject if data is already here
       if(this.field.repeats.length > 0){
         repeater.injectItems(this.field.repeats);

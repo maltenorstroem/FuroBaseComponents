@@ -1,9 +1,9 @@
 {
   "suites": [
     "packages/furo-data/test/*_test.html",
+    "packages/furo-data-input/test/*_test.html",
     "packages/furo-layout/test/*_test.html",
     "packages/furo-fbp/test/*_test.html",
-    "packages/furo-data-input/test/*_test.html",
     "packages/furo-config/test/*_test.html",
     "packages/furo-data-util/test/*_test.html",
     "packages/furo-form/test/*_test.html",
@@ -17,7 +17,8 @@
     "packages/furo-data-ui/test/*_test.html",
     "packages/furo-navigation/test/*_test.html",
     "packages/furo-notification/test/*_test.html",
-    "packages/furo-config/test/*_test.html"
+    "packages/furo-config/test/*_test.html",
+    "packages/furo-ui-builder/test/*_test.html"
   ],
   "npm": true,
   "moduleResolution": "node",
@@ -50,17 +51,18 @@
         "packages/furo-route/*.js",
         "packages/furo-timing/*.js",
         "packages/furo-util/*.js",
-        "packages/furo-testhelper/data-ui/*.js"
+        "packages/furo-testhelper/data-ui/*.js",
+        "packages/furo-ui-builder/build/ui/**/*.js"
       ],
       "exclude": [
         "**/furo-catalog.js"
       ],
       "thresholds": {
         "global": {
-          "statements": 70,
-          "branches": 57,
-          "functions": 76,
-          "lines": 70
+          "statements": 73,
+          "branches": 60,
+          "functions": 79,
+          "lines": 73
         }
       }
     },
