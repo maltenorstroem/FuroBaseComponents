@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout/furo-ripple";
-import  "@furo/layout/furo-icon";
+import "@furo/layout/furo-icon";
 
 /**
  * `furo-button` displays a button.
@@ -151,6 +151,7 @@ class FuroButton extends FBP(LitElement) {
             font-size: 16px;
             box-sizing: border-box;
             min-width: 64px;
+            white-space: nowrap;
         }
 
         :host([hidden]) {
@@ -215,10 +216,10 @@ class FuroButton extends FBP(LitElement) {
             background-color: var(--primary-dark);
         }
         :host([primary]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([primary]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
 
@@ -242,10 +243,10 @@ class FuroButton extends FBP(LitElement) {
             background-color: var(--accent-dark);
         }
         :host([accent]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([accent]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
 
@@ -268,10 +269,10 @@ class FuroButton extends FBP(LitElement) {
             background-color: var(--secondary-dark);
         }
         :host([secondary]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([secondary]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
         
@@ -296,17 +297,17 @@ class FuroButton extends FBP(LitElement) {
 
         :host([raised][danger]) button:focus, :host([unelevated][danger]) button:focus{
             background-color: var(--on-danger, #FFFFFF);
-            color: var(--danger, #ff0000);
+            color: var(--danger-light, #FF0000);
         }
         :host([raised][danger]) button:hover, :host([unelevated][danger]) button:hover{
             background-color: var(--danger-dark);
             color: var(--on-danger, #FFFFFF);
         }
         :host([danger]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([danger]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
 
@@ -319,12 +320,13 @@ class FuroButton extends FBP(LitElement) {
         button:active {
             box-shadow: none;
         }
-
-        button:focus{
-            background-color: var(--surface-light);
+   
+        
+        button:focus, :host([unelevated]) button:focus, :host([outline]) button:focus{
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
-        button:hover{
-            background-color: var(--surface-dark);
+        button:hover, :host([unelevated]) button:hover, :host([outline]) button:hover{
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
         :host([raised]) button:focus {

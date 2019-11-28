@@ -62,6 +62,15 @@
               "val": "furo-data-text-input"
             }
           ]
+        },
+        {
+          "field": "update_mask",
+          "component": "furo-data-text-input",
+          "flags": [
+            "condensed",
+            "double"
+          ],
+          "attrs": []
         }
       ]
     }

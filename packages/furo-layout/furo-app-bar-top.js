@@ -2,7 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 import '@furo/input/furo-icon-button';
-import '@furo/layout';
+import './furo-horizontal-flex';
+import './furo-loading-indicator-bar';
 
 /**
  * # Experimental
@@ -175,9 +176,10 @@ class FuroAppBarTop extends FBP(LitElement) {
             
         }
 
+        /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
         .extended ::slotted(*){
             position: absolute;
-            bottom: 16px;
+            bottom: 20px;
             right: 96px;
             left: 56px;
         }

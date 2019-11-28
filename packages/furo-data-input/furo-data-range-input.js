@@ -42,22 +42,8 @@ class FuroDataRangeInput extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
-      // val is a ValidityState
-      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-      if (val) {
-        if(val.rangeUnderflow) {
-          this._hint = this._minErrorMessage;
-        }
-        else if(val.rangeOverflow)
-        {
-          this._hint = this._maxErrorMessage;
-        }
-        else if(val.stepMismatch) {
-          this._hint = this._stepErrorMessage;
-        }
 
-        this.requestUpdate();
-      }
+      Helper.setInvalidMessage(this, val);
     });
   }
 
@@ -70,22 +56,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
     //this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-  /**
-   * Updater for the min => minlength attr*
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
-  }
-
-  /**
-   * Updater for the max attr*
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
   }
 
   /**
@@ -121,6 +91,22 @@ class FuroDataRangeInput extends FBP(LitElement) {
   }
 
   /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
+  /**
    * Updater for the errortext attr
    * @param value
    */
@@ -135,7 +121,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
   set _step(value) {
     Helper.UpdateInputAttribute(this, "step", value);
   }
-
 
   static get properties() {
     return {
@@ -262,13 +247,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
 
 
   _updateField() {
-
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
-
     this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
@@ -305,7 +283,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-range-input>      
     `;
   }

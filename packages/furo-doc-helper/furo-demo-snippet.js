@@ -139,7 +139,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
               height: 320px;
               box-sizing: border-box;
               overflow: hidden;
-              background-color: var(--background);
+              background-color: var(--surface);
           }
 
           :host([hidden]) {
@@ -148,12 +148,12 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
 
           :host([fullscreen]) .nav{
-              background-color: var(--surface);
+              background-color: var(--surface-light);
               padding: 16px;
           }
           
           :host([fullscreen]) .nav span {
-              border-bottom-color: var(--surface);
+              border-bottom-color: var(--surface-light);
           }
           
           :host([fullscreen]) {
@@ -162,12 +162,19 @@ class FuroDemoSnippet extends FBP(LitElement) {
           }
 
           furo-markdown {
+              background-color: var(--surface-light);
               height: 100%;
               overflow: auto;
           }
-
+          furo-show-flow{
+              background-color: var(--surface-light);
+          }
           #demo, #flow {
               height: 100%;
+          }
+          #demo{
+              padding: var(--spacing-s);
+              box-sizing: border-box;
           }
 
           :host(:not([demo])) #demo {
@@ -192,15 +199,15 @@ class FuroDemoSnippet extends FBP(LitElement) {
           }
 
           .nav {
-              background-color: var(--demo-header, white);
-              color: var(--on-primary);
-              margin-bottom: 24px;
+              background-color: var(--surface-light, white);
+              color: var(--on-surfcae);
+             
           }
 
           
           .nav span {
               display: inline-block;
-              border-bottom: 1px solid var(--demo-header, white);
+              border-bottom: 1px solid var(--surface-light, white);
               cursor: pointer;
           }
 

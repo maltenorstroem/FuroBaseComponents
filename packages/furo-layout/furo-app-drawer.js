@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/layout/furo-horizontal-flex"
+import "./furo-horizontal-flex"
 
 /**
  * # Experimental
@@ -464,7 +464,7 @@ class FuroAppDrawer extends FBP(LitElement) {
             overflow-y: auto;
         }
 
-        /* disable pointer events */
+        /* disable pointer events, z-index 15 just to be below the drawer */
         #backdrop {
             pointer-events: none;
             transition-duration: 200ms;
@@ -476,6 +476,7 @@ class FuroAppDrawer extends FBP(LitElement) {
             left: 0;
             opacity: 0;
             background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+            z-index: 15;
         }
 
 
@@ -485,6 +486,7 @@ class FuroAppDrawer extends FBP(LitElement) {
             width: 18px;
             bottom: 0;
             left: 0;
+            z-index: 16;
         }
 
         :host([reverse]) #drag {
@@ -492,10 +494,10 @@ class FuroAppDrawer extends FBP(LitElement) {
             right: 0;
         }
 
-        /* put the floating drawer outside the visible area */
+        /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
         :host([float]) #drawer {
             position: absolute;
-            z-index: 1;
+            z-index: 16;
             top: 0;
             left: 0;
             bottom: 0;

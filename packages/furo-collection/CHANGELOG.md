@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.25...@furo/collection@0.22.26) (2019-11-16)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.24...@furo/collection@0.22.25) (2019-11-16)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.23...@furo/collection@0.22.24) (2019-11-16)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.23...@furo/collection@0.22.23) (2019-11-16)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.21...@furo/collection@0.22.22) (2019-11-15)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.21](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.22.20...@furo/collection@0.22.21) (2019-11-13)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.20](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.22.19...@furo/collection@0.22.20) (2019-11-12)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.19](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.22.18...@furo/collection@0.22.19) (2019-11-12)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.18](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.22.17...@furo/collection@0.22.18) (2019-11-11)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [0.22.17](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.22.16...@furo/collection@0.22.17) (2019-11-08)
 
 **Note:** Version bump only for package @furo/collection

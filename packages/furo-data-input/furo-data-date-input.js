@@ -47,22 +47,6 @@ class FuroDataDateInput extends FBP(LitElement) {
       }
 
     });
-
-    this._FBPAddWireHook("--inputInvalid", (val) => {
-      // val is a ValidityState
-      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-      if (val) {
-        if (val.rangeUnderflow) {
-          this._hint = this._minErrorMessage;
-        } else if (val.rangeOverflow) {
-          this._hint = this._maxErrorMessage;
-        } else if (val.stepMismatch) {
-          this._hint = this._stepErrorMessage;
-        }
-
-        this.requestUpdate();
-      }
-    });
   }
 
 
@@ -74,22 +58,6 @@ class FuroDataDateInput extends FBP(LitElement) {
     //this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-  /**
-   * Updater for the min => minlength attr*
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
-  }
-
-  /**
-   * Updater for the max attr*
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
   }
 
   /**
@@ -122,6 +90,22 @@ class FuroDataDateInput extends FBP(LitElement) {
    */
   set trailingIcon(value) {
     Helper.UpdateInputAttribute(this, "trailing-icon", value);
+  }
+
+  /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
   }
 
   /**
@@ -174,7 +158,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       min: {
-        type: Date,
+        type: String,
       },
       /**
        * Overrides the max value from the **specs**.
@@ -182,7 +166,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       max: {
-        type: Date,
+        type: String,
       },
       /**
        * Overrides the step value from the **specs**.
@@ -384,7 +368,6 @@ class FuroDataDateInput extends FBP(LitElement) {
           ?condensed="${this.condensed}"     
           ?required=${this._required}     
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-date-input>      
     `;
   }

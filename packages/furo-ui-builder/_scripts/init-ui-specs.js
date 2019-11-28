@@ -419,7 +419,16 @@ let servicelist = walkSync(SpecDir).filter((filepath) => {
 
 servicelist.forEach((pathToService) => {
   let t = path.basename(pathToService).split(".");
+  t = t.map((s) => {
+    return s.toLowerCase()
+  });
+  t.pop();
   const PKGDIR = UiSpecDir + "/" + t[0];
+  if (!fs.existsSync(PKGDIR)) {
+    // create package folder
+    sh("mkdir -p", [PKGDIR]);
+  }
+
   let updatespec = JSON.parse(UpdateTPL);
   let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   if (serviceSpec.services.Update) {
@@ -619,7 +628,10 @@ servicelist.forEach((pathToService) => {
         "onclick": "-^update-req",
         "flags": [
           "primary",
-          "unelevated"
+          "unelevated",
+          "hide-no-rel",
+          "disable-not-valid",
+          "disable-pristine"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
@@ -634,7 +646,8 @@ servicelist.forEach((pathToService) => {
         "component": "furo-button",
         "onclick": "-^self-req",
         "flags": [
-          "outline"
+          "outline",
+          "hide-no-rel"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
@@ -664,6 +677,7 @@ servicelist.forEach((pathToService) => {
         "flags": [
           "unelevated",
           "danger",
+          "hide-no-rel"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })

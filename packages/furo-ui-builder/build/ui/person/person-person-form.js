@@ -81,6 +81,8 @@ export class PersonPersonForm extends FBP(LitElement) {
                 <furo-data-text-input condensed double ƒ-bind-data="--data(*.phone_nr)"></furo-data-text-input>
                 <!-- List of main skills of a person  -->
                 <furo-data-repeat condensed double  repeated-component="furo-data-text-input" ƒ-bind-data="--data(*.skills)"></furo-data-repeat>
+                <!-- Contains a field_mask which fields of the targeted resource are going to be updated  -->
+                <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input>
             </furo-form-layouter>
             
         `;
