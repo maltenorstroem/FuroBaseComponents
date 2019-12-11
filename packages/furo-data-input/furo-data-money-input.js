@@ -138,7 +138,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * Updater for the label attr for amount
    * @param value
    */
-  set _labelAmount(value) {
+  set _label(value) {
     Helper.UpdateInputAttribute(this, "label", value);
   }
 
@@ -150,23 +150,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     Helper.UpdateInputAttribute(this, "readonly", value);
   }
 
-
-  /**
-   * Updater for the label attr for currency
-   * @param value
-   */
-  set _labelCurrency(value) {
-
-    let select = this.shadowRoot.getElementById("select");
-
-    if (value !== null) {
-      select.setAttribute("label", value);
-
-    } else {
-      // remove the attribute on null value
-      select.removeAttribute("label");
-    }
-  }
 
 
   static get properties() {
@@ -206,15 +189,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       currencies: {
         type: String
       },
-
-      labelCurrency: {
-        type: String,
-        attribute: "label-currency"
-      },
-
-      labelAmount: {
-        type: String,
-        attribute: "label-amount"
+      /**
+       * amount field label
+       */
+      label: {
+        type: String
       },
       /**
        * Set this attribute to autofocus the input field.
@@ -407,7 +386,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       <furo-horizontal-flex id="wrapper">
           <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly || this.disabled} 
+          ?disabled=${this._readonly || this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
@@ -416,7 +395,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           ƒ-set-value="--valueAmount"></furo-number-input>      
           
        <furo-select-input id="select"
-          ?readonly=${this._readonly || this.disabled} 
+          ?disabled=${this._readonly || this.disabled} 
           ?float="${this.float}" 
           list="CHF"
           ?condensed="${this.condensed}"          

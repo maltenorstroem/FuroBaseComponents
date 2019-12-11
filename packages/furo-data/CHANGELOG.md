@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.64.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.64.2...@furo/data@0.64.3) (2019-12-10)
+
+
+### Bug Fixes
+
+* data objects which gets smaller clears the data ([86c6cdf](https://github.com/theNorstroem/FuroBaseComponents/commit/86c6cdf))
+
+
+
+
+
+## [0.64.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.64.0...@furo/data@0.64.2) (2019-12-02)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+
+
+
+## [0.64.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.64.0...@furo/data@0.64.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+
+
+
 # [0.64.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.63.1...@furo/data@0.64.0) (2019-11-15)
 
 

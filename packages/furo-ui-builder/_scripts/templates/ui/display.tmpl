@@ -2,8 +2,9 @@
 // source: {{.source}}
 import {html, css, LitElement} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/theme"
-import {i18n} from "@furo/framework/i18n"
+import {Theme} from "@furo/framework/theme.js"
+// eslint-disable-next-line no-unused-vars
+import {i18n} from "@furo/framework/i18n.js"
 
 {{range $import := .imports}}
 import "{{$import}}";{{end}}
@@ -21,28 +22,14 @@ export class {{.class_name}} extends FBP(LitElement) {
        return Theme.getThemeForComponent('{{.theme}}') || css`
             :host {
                 display: block;
-                padding: var(--spacing-xs, 8px);
                 overflow: hidden;
             }
             :host([hidden]) {
                 display: none;
             }
-            h1 {
-                font-size: 24px;
-                line-height: 24px;
-                letter-spacing: 0;
-                margin: 0;
-                font-weight: normal;
-                margin-bottom: 4px;
-            }
-            .secondary{
-                color: var(--secondary-color, var(--on-primary-light,#777777));
-                line-height: 22px;
-                font-size: 14px;
-                letter-spacing: 0.1px;
-            }
         `
     }
+
     /**
      * Bind here your furo-data-object event @-object-ready
      * @public
@@ -90,15 +77,14 @@ export class {{.class_name}} extends FBP(LitElement) {
         return html`
         {{if .autolabel}} ${this.display_name} ${this.secondary_text} ${this.display_caption}  {{end}}
             {{range $fieldgroup := .fieldgroups}}{{"<" | noescape}}!-- {{$fieldgroup.description}}  -->
-            {{if $fieldgroup.title}}{{"<" | noescape}}h1>${i18n.t("{{$fieldgroup.title}}")}</h1>{{end}}
-            {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">${i18n.t("{{$fieldgroup.secondary_text}}")}</span>{{end}}
+            {{"<" | noescape}}furo-form{{if $fieldgroup.title}} header-text="${i18n.t("{{$fieldgroup.title}}")}"{{if $fieldgroup.secondary_text}} secondary-text="${i18n.t("{{$fieldgroup.secondary_text}}")}"{{end}}{{end}}>
             {{"<" | noescape}}{{$fieldgroup.component}}{{range $flag := $fieldgroup.flags}} {{$flag}}{{end}}{{range $attr := $fieldgroup.attrs}} {{$attr.name}}="{{$attr.val}}"{{end}}>
                 {{- range $field := $fieldgroup.fields}}
                 {{"<" | noescape}}!-- {{$field.spec.description}}  -->
                 {{"<" | noescape}}{{$field.component}} {{range $flag := $field.flags}}{{$flag}} {{end}}{{range $attr := $field.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}
                 {{- if $field.field}}ƒ-bind-data="--data(*.{{$field.field}})"{{end}}>{{"<" | noescape}}/{{$field.component}}>{{end}}
             {{"<" | noescape}}/{{$fieldgroup.component}}>
-            {{end}}
+            {{end}}</furo-form>
         `;
     }
 }

@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.23.3...@furo/collection@0.23.4) (2019-12-10)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.23.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.23.2...@furo/collection@0.23.3) (2019-12-05)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.23.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.23.1...@furo/collection@0.23.2) (2019-12-03)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.23.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.23.0...@furo/collection@0.23.1) (2019-12-02)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+# [0.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.31...@furo/collection@0.23.0) (2019-12-02)
+
+
+### Features
+
+* add app and icon package ([e7e7627](https://github.com/theNorstroem/FuroBaseComponents/commit/e7e7627))
+
+
+
+
+
+## [0.22.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.30...@furo/collection@0.22.31) (2019-12-02)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.30](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.29...@furo/collection@0.22.30) (2019-11-29)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.28...@furo/collection@0.22.29) (2019-11-29)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.26...@furo/collection@0.22.28) (2019-11-29)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [0.22.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.27...@furo/collection@0.22.27) (2019-11-28)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [0.22.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.25...@furo/collection@0.22.26) (2019-11-16)
 
 **Note:** Version bump only for package @furo/collection

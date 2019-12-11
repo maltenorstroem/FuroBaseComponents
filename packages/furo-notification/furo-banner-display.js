@@ -7,8 +7,11 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
  * `furo-banner-display`
  * Lit element
  *
- *  furo-banner-display should be used together witch furo-banner. you can place those two components into different places.
+ *  furo-banner-display should be used together witch furo-banner. furo-banner-display listens the `open-furo-banner-requested`
+ *  event on it's parent node. Which is sent via furo-banner. you can place those two components into different places.
  *  best place the furo-banner-display on the main site. then you only need one furo-banner-display. it can work with n furo-banner.
+ *  you can also use more furo-banner-display for special needs. but You have to be sure the furo-banner-display can receive the event of the furo-banner.
+ *
  *
  * ### When to use
  *
@@ -45,6 +48,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
     this._banner = {"text": "", "dismissButtonText": "dismiss", "confirmButtonText": "", "icon": "", "banner": {}};
     this._stack = [];
     this.setAttribute("hidden", "");
+    this.setAttribute("tabindex", "-1");
   }
 
   /**
@@ -52,8 +56,8 @@ class FuroBannerDisplay extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-
-    window.addEventListener("open-furo-banner-requested", (e) => {
+    this.parentNode.addEventListener("open-furo-banner-requested", (e) => {
+      e.stopPropagation();
       this._show(e.detail);
     });
 
@@ -164,7 +168,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
       } else {
         // default banner text
         if (this._banner.text) {
-          this._bannerText =  this._parseMarkdown(this._banner.text);
+          this._bannerText = this._parseMarkdown(this._banner.text);
         }
       }
 
@@ -173,6 +177,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
       setTimeout(() => {
         this.style.height = "0px";
         this.removeAttribute("hidden");
+        this.removeAttribute("tabindex");
         let height = this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;
         this.style.height = height + "px";
         this._isOpen = true;
@@ -188,7 +193,6 @@ class FuroBannerDisplay extends FBP(LitElement) {
   }
 
 
-
   focus() {
     this._FBPTriggerWire("--focus")
   }
@@ -200,6 +204,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
     this.style.height = "0px";
     setTimeout(() => {
       this.setAttribute("hidden", "");
+      this.setAttribute("tabindex", "-1");
     }, 500);
 
     if (this._stack.length > 1) {
@@ -232,6 +237,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
             :host {
               width: 100%;
               display:block;
+              font-family: 'Roboto', 'Noto', sans-serif;        
               background-color: var(--banner-background, var(--surface,#FAFAFA));
               color: var(--banner-on-background, var(--on-surface,#333333));             
               transition: all .5s ease-in-out;
@@ -275,9 +281,25 @@ class FuroBannerDisplay extends FBP(LitElement) {
               line-height: 20px;              
             }
             
+            h1 {            
+              letter-spacing: -1.5px;
+              font-weight: 200;
+            }
+            h2 {            
+              letter-spacing: -0.5px;
+              font-weight: 400;
+            }
+                      
+            h3 {        
+              letter-spacing: 0;         
+            }
+            h4 {        
+              letter-spacing: 0.25px;         
+            }
+                
             p {
-            margin-bottom: var(--spacing-xs, 8px) ;
-            margin-top: var(--spacing-xs, 8px) ;
+              margin-bottom: var(--spacing-xs, 8px) ;
+              margin-top: var(--spacing-xs, 8px) ;
             }
 
             .md *:first-child {

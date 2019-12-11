@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.62.0...@furo/data-input@0.62.1) (2019-12-10)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [0.62.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.11...@furo/data-input@0.62.0) (2019-12-05)
+
+
+### Features
+
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca))
+
+
+
+
+
+## [0.61.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.10...@furo/data-input@0.61.11) (2019-12-02)
+
+
+### Bug Fixes
+
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f7))
+
+
+
+
+
+## [0.61.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.9...@furo/data-input@0.61.10) (2019-11-29)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.61.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.8...@furo/data-input@0.61.9) (2019-11-29)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.61.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.7...@furo/data-input@0.61.8) (2019-11-29)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+
+
+
+## [0.61.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.7...@furo/data-input@0.61.7) (2019-11-28)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+
+
+
 ## [0.61.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.5...@furo/data-input@0.61.6) (2019-11-15)
 
 **Note:** Version bump only for package @furo/data-input

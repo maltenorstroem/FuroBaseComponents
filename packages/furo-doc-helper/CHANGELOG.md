@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.0...@furo/doc-helper@0.15.1) (2019-12-10)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+# [0.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.14.8...@furo/doc-helper@0.15.0) (2019-12-05)
+
+
+### Features
+
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca))
+
+
+
+
+
+## [0.14.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.14.7...@furo/doc-helper@0.14.8) (2019-12-02)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.14.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.14.6...@furo/doc-helper@0.14.7) (2019-11-29)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.14.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.0...@furo/doc-helper@0.14.6) (2019-11-28)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [0.14.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.14.4...@furo/doc-helper@0.14.5) (2019-11-16)
 
 **Note:** Version bump only for package @furo/doc-helper

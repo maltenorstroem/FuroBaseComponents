@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.16...@furo/route@0.20.17) (2019-12-10)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.20.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.14...@furo/route@0.20.16) (2019-12-02)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+
+
+
+## [0.20.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.14...@furo/route@0.20.15) (2019-11-28)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+
+
+
 ## [0.20.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.13...@furo/route@0.20.14) (2019-11-16)
 
 

@@ -2,8 +2,9 @@
 // source: {{.source}}
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/theme"
-import {i18n} from "@furo/framework/i18n"
+import {Theme} from "@furo/framework/theme.js"
+// eslint-disable-next-line no-unused-vars
+import {i18n} from "@furo/framework/i18n.js"
 import '@furo/form';
 import '@furo/input';
 import '@furo/layout';
@@ -18,10 +19,6 @@ import "{{$import}}";{{end}}
  * @appliesMixin FBP
  */
 class {{.class_name}} extends FBP(LitElement) {
-
-    constructor() {
-        super();
-    }
 
     static get styles() {
         // language=CSS

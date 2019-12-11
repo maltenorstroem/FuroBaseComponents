@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import  "@furo/layout/furo-icon";
+import  "@furo/icon/furo-icon";
 import {Helper} from "./lib/helper";
 
 /**
@@ -269,13 +269,13 @@ class FuroTimeInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable(){
-    this.readonly = true;
+    this.disabled = true;
   }
   /**
    * Makes the field writable.
    */
   enable(){
-    this.readonly = false;
+    this.disabled = false;
   }
 
 
@@ -332,6 +332,13 @@ class FuroTimeInput extends FBP(LitElement) {
             font-size: 16px;
             font-stretch: 100%;
             font-style: normal;
+        }
+        
+        input:required {
+          box-shadow:none;
+        }
+        input:invalid {
+          box-shadow:none;
         }
 
         :host([filled]) .wrapper {
@@ -590,7 +597,7 @@ class FuroTimeInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>   
        <div class="iwrap"> 
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
            type="time"       
            ƒ-.value="--value" 
            @-input="--inputInput(*)"   

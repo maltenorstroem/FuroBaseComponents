@@ -227,7 +227,7 @@ class FuroTree extends FBP(LitElement) {
   }
 
   selectById(nodeID) {
-    for (let i = this._flatTree.length-1; i >= 0; i--) {
+    for (let i = this._flatTree.length - 1; i >= 0; i--) {
       let node = this._flatTree[i];
       if (node.id._value == nodeID) {
         node.selectItem();
@@ -362,7 +362,11 @@ class FuroTree extends FBP(LitElement) {
       /**
        * Set this flag if you do not want a header-text section.
        */
-      noheader: {type: Boolean},
+      rootAsHeader: {type: Boolean, attribute: "root-as-header"},
+      /**
+       * Set this flag if you do not want to see the root node
+       */
+      hideRootNode: {type: Boolean, attribute: "hide-root-node"},
       /**
        * Override display name from root object
        */
@@ -374,7 +378,15 @@ class FuroTree extends FBP(LitElement) {
       /**
        * indicator for searching. Maybe you want style your item depending on this attribute
        */
-      _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
+      _searchIsActive: {type: Boolean, attribute: "searching", reflect: true},
+      /**
+       * disables the background color on hover, selected, ... on header node
+       *
+       * Works only with `root-as-header` enabled
+       */
+      nobgonhead: {type: Boolean, attribute: "([no-bg-on-header])"},
+
+
     };
   }
 
@@ -391,6 +403,14 @@ class FuroTree extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     //this._FBPTraceWires();
+
+    /**
+     * Register hook on wire --headClicked to
+     * select the root node
+     */
+    this._FBPAddWireHook("--headClicked",(e)=>{
+          this._flatTree[0].selectItem();
+    });
   }
 
   /**
@@ -401,87 +421,102 @@ class FuroTree extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            box-sizing: border-box;
-            height: 100%;
-            outline: none;
-            position: relative;
-            background: var(--surface,white);
-            color: var(--on-surface,#333333);
+      :host {
+        display: block;
+        box-sizing: border-box;
+        height: 100%;
+        outline: none;
+        position: relative;
+        background: var(--surface, white);
+        color: var(--on-surface, #333333);
+      }
+
+      .tablewrapper {
+        overflow: auto;
+
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      td {
+        padding: 0;
+      }
+
+      table {
+        border-spacing: 0;
+        min-width: 100%;
+        padding: var(--spacing-xs) 8px;
+        box-sizing: border-box;
+      }
+      
+      /* remove border on first group label if it is the first element */
+      tr:first-child *[is-group-label]{
+      border-top: none;
+      }
+
+      /* hover, :host(:hover) td > *[hovered]  is for mouse navigation */
+      :host(:focus-within) td > *[hovered], :host(:hover) td > *[hovered] {
+        background-color: rgba(var(--primary-rgb), var(--state-hover));
+        color: var(--primary);
+      }
+
+
+      /* selected */
+      td > *[selected], :host(:not(:focus-within)) td > *[selected] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected));
+        color: var(--primary);
+      }
+
+      /* selected focus  */
+      :host(:focus-within) td > *[selected] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+        color: var(--primary);
+      }
+
+
+      /* selected hover */
+      :host(:focus-within) td > *[selected][hovered] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
+        color: var(--primary);
+      }
+
+      /* remove the background color on header node */
+      :host([no-bg-on-header]) td  furo-tree-item[selected][isheader], :host([no-bg-on-header]) td  furo-tree-item[selected][hovered][isheader], :host([no-bg-on-header]) td  furo-tree-item[hovered][isheader]{
+        background-color: unset;
+      }
+      
+
+
+      .srch {
+        display: none;
+        position: absolute;
+        left: var(--spacing-xs, 8px);
+        bottom: var(--spacing-xs, 8px);
+        width: inherit;
+        border: 1px solid var(--primary, #57a9ff);
+        padding: 2px;
+        font-size: 11px;
+        z-index: 2;
+        animation: border-pulsate 2s;
+      }
+
+      @keyframes border-pulsate {
+        0% {
+          border-color: var(--primary, #57a9ff);
         }
-
-        .tablewrapper {
-            overflow: auto;
-            height: 100%;
+        50% {
+          border-color: var(--surface, #999999);
         }
-
-        :host([hidden]) {
-            display: none;
+        100% {
+          border-color: var(--primary, #57a9ff);
         }
+      }
 
-        td {
-            padding: 0;
-        }
-
-        table {
-            border-spacing: 0;
-            min-width: 100%;
-        }
-
-
-        :host(:not(:focus-within)) td > *[hovered] {
-            background: unset;
-        }
-
-        :host(:focus-within) td > *[selected] {
-            background: var(--primary, #429cff);
-            color: var(--on-primary, white);
-        }
-
-        td > *[hovered] {
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
-        }
-
-        td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--primary-dark, #429cff);
-            color: var(--on-primary, #FFFFFF);
-        }
-
-
-        :host(:focus-within) td > *[selected]:hover {
-            background: var(--primary, #57a9ff);
-        }
-
-
-        .srch {
-            display: none;
-            position: absolute;
-            left: var(--spacing-xs, 8px);
-            bottom: var(--spacing-xs, 8px);
-            width: inherit;
-            border: 1px solid var(--primary, #57a9ff);
-            padding: 2px;
-            font-size: 11px;
-            z-index: 2;
-            animation: border-pulsate 2s;
-        }
-
-        @keyframes border-pulsate {
-            0% {
-                border-color: var(--primary, #57a9ff);
-            }
-            50% {
-                border-color: var(--surface, #999999);
-            }
-            100% {
-                border-color: var(--primary, #57a9ff);
-            }
-        }
-
-        :host([searching]:focus-within) .srch {
-            display: block;
-        }
+      :host([searching]:focus-within) .srch {
+        display: block;
+      }
 
       .title {
         font-size: 20px;
@@ -501,11 +536,14 @@ class FuroTree extends FBP(LitElement) {
 
       .head {
         height: 64px;
+        cursor:pointer;
       }
 
       :host([noheader]) .head {
         display: none;
       }
+      
+    
     `
   }
 
@@ -518,11 +556,8 @@ class FuroTree extends FBP(LitElement) {
     // language=HTML
     return html`
     <div class="srch">⌖ ${this._searchTerm}</div>
-     <div class="head">
-        <div class="title">${this._headerText}</div>
-        <div class="secondary">${this._secondaryText}</div>
-      </div>
-      <div class="tablewrapper">
+     <furo-vertical-flex>
+      <div class="tablewrapper" flex>
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
           <tr>
@@ -532,6 +567,7 @@ class FuroTree extends FBP(LitElement) {
           </tr>
         </template>
       </table>
+      </furo-vertical-flex>
       </div>
     `;
   }
@@ -540,24 +576,30 @@ class FuroTree extends FBP(LitElement) {
   bindData(treeNode) {
 
     if (treeNode.root === undefined) {
-      return
+      this._rootNode = treeNode;
+    }else{
+      this._rootNode = treeNode.root;
     }
 
-    this._rootNode = treeNode.root;
-
-    this._rootNode.addEventListener("this-repeated-field-changed", (e) => {
-      this._setTitle(treeNode);
+    this._rootNode.children.addEventListener("this-repeated-field-changed", (e) => {
+      this._setTitle(this._rootNode);
       this._init();
     });
-    this._setTitle(treeNode);
+
+    this._setTitle(this._rootNode);
     this._init();
 
   }
 
   _setTitle(treeNode) {
-    this._headerText = this.headerText || treeNode.display_name._value;
-    this._secondaryText = this.secondaryText || treeNode.description._value;
-    this.requestUpdate();
+    if(this.headerText  && treeNode.display_name){
+      treeNode.display_name._value = this.headerText;
+    }
+    if(this.secondaryText && treeNode.secondary_text){
+      treeNode.secondary_text._value = this.secondaryText;
+    }
+
+
   }
 
   _init() {
@@ -574,10 +616,10 @@ class FuroTree extends FBP(LitElement) {
 
 
     // initial hover on first element
-    this._hoveredField = this._flatTree[0];
-    setTimeout(() => {
+    if(this._hoveredField === undefined && this._flatTree.length>0){
+      this._hoveredField = this._flatTree[0];
       this._hoveredField.triggerHover();
-    }, 0);
+    }
 
 
     // select item if qp was set before
@@ -589,7 +631,6 @@ class FuroTree extends FBP(LitElement) {
       }, 0);
 
     }
-
   }
 
   _initHoverAndSelectEvents() {
@@ -692,9 +733,26 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _buildFlatTree(tree) {
+
     this._flatTree = [tree];
     tree.__flatTreeIndex = 0;
-    this._parseTreeRecursive(tree, 0, this.depth);
+    let startlevel = 0;
+    if(this.hideRootNode === true){
+      startlevel = -1;
+      //this._flatTree.pop();
+      this._flatTree[0]._isHidden = true;
+    }else {
+      tree._isRoot = true;
+      tree.open._value = true;
+    }
+
+    if(this.rootAsHeader === true){
+      this._flatTree[0]._rootAsHeader = true;
+      startlevel = -1;
+    }
+
+
+    this._parseTreeRecursive(tree, startlevel, this.depth);
 
 
     for (let len = this._flatTree.length; len > 0; len--) {
@@ -833,7 +891,11 @@ class FuroTree extends FBP(LitElement) {
       return
     }
     tree.depth = level;
-    level++;
+    // do not indent on group labels
+    if (!(tree.is_group_label && tree.is_group_label._value === true)) {
+      level++;
+    }
+
 
     tree.children.repeats.forEach((node) => {
       node.depth = level;

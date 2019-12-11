@@ -407,8 +407,7 @@
       "type": "google.type.Money",
       "meta": {
         "readonly":false,
-        "label_currency": "Currency",
-        "label_amount": "Amount",
+        "label": "Amount",
         "hint":"google.type.Money",
         "options": {
           "list": [

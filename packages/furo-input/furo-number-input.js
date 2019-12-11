@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import  "@furo/layout/furo-icon";
+import  "@furo/icon/furo-icon";
 import {Helper} from "./lib/helper";
 
 /**
@@ -76,8 +76,12 @@ class FuroNumberInput extends FBP(LitElement) {
   }
 
   set _value(v) {
-    this._float = !!v;
 
+    if(v === 0) {
+      this._float = true;
+    }else {
+      this._float = !!v;
+    }
     this._FBPTriggerWire("--value", v)
   }
 
@@ -272,13 +276,13 @@ class FuroNumberInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable(){
-    this.readonly = true;
+    this.disabled = true;
   }
   /**
    * Makes the field writable.
    */
   enable(){
-    this.readonly = false;
+    this.disabled = false;
   }
 
   /**
@@ -335,6 +339,14 @@ class FuroNumberInput extends FBP(LitElement) {
             font-size: 16px;
             font-stretch: 100%;
             font-style: normal;
+            outline: none;
+        }
+        
+        input:required {
+          box-shadow:none;
+        }
+        input:invalid {
+          box-shadow:none;
         }
 
         :host([filled]) .wrapper {
@@ -614,7 +626,8 @@ class FuroNumberInput extends FBP(LitElement) {
       
            <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
            <div class="iwrap">    
-               <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
+               <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
+                   ?disabled=${this.disabled} 
                    type="number"       
                    step="any"                  
                    ?required=${this.required} 

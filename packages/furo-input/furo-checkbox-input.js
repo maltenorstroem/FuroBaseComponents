@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/layout/furo-icon";
+import "@furo/icon/furo-icon";
 import "./furo-checkbox";
 
 /**
@@ -423,7 +423,8 @@ class FuroCheckboxInput extends FBP(LitElement) {
         return html` 
       <div class="wrapper">
       
-        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  ?condensed=${this.condensed}
+        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} 
+          ?disabled=${this.disabled || this.readonly}  ?condensed=${this.condensed}
           ƒ-set-value="--value" ƒ-focus="--focus"></furo-checkbox>
         <label for="input"  @-click="--toggle,--focus">${this.label}</label>
         
