@@ -39,9 +39,6 @@ class FuroNumberInput extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
 
-
-    this._value = this.value || "";
-
     this._FBPAddWireHook("--inputInput", (e) => {
 
       Helper.triggerValueChanged(this, e );
@@ -292,7 +289,7 @@ class FuroNumberInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroNumberInput') || css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;

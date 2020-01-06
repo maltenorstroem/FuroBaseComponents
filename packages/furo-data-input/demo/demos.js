@@ -12,6 +12,7 @@ import "./demo-furo-data-date-input";
 import "./demo-furo-data-search-input";
 import "./demo-furo-data-textarea-input";
 import "./demo-furo-data-reference-search";
+import "./demo-furo-data-reference-search-no-result";
 import "./sample-furo-data-number-input"
 import "./demo-furo-data-number-input"
 import "./demo-furo-data-time-input"
@@ -26,3 +27,4 @@ import "./demo-furo-data-money-input"
 import "./demo-furo-data-collection-dropdown"
 import "./demo-furo-data-collection-reference-dropdown"
 import "./demo-furo-data-collection-dropdown-bind-entity"
+import "./demo-furo-data-file-input"
