@@ -237,14 +237,14 @@ class FuroDataDateInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this._readonly = true;
+    this.disabled = true;
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this._readonly = false;
+    this.disabled = false;
   }
 
   /**
@@ -331,6 +331,12 @@ class FuroDataDateInput extends FBP(LitElement) {
       obj.month = Number(arr[1]);
       obj.year = Number(arr[0]);
     }
+    else {
+      obj.day = null;
+      obj.month = null;
+      obj.year = null;
+    }
+
     return obj;
   }
 

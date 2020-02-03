@@ -137,6 +137,11 @@ export class FieldNode extends EventTreeNode {
     }
   }
 
+  moveNode(old_index, new_index) {
+    super.moveNode(old_index, new_index);
+    this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+    this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
+  }
 
   /**
    * resets the field to the initial values from the spec
@@ -243,9 +248,9 @@ export class FieldNode extends EventTreeNode {
       if (val && !val.hasOwnProperty(n._name)) {
         // object or repeater
         if (n.__childNodes.length > 0) {
-          if(n.repeats){
+          if (n.repeats) {
             n._value = [];
-          }else{
+          } else {
             n._value = {};
           }
 
@@ -355,7 +360,6 @@ export class FieldNode extends EventTreeNode {
     }
 
 
-
     if (!validity) {
       this._isValid = false;
       this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));
@@ -377,11 +381,22 @@ export class FieldNode extends EventTreeNode {
         let field = f[0];
         for (let m in mc.meta) {
           // update the metas
-          this[field]._meta[m] = mc.meta[m];
+          if (this[field]) {
+            this[field]._meta[m] = mc.meta[m];
+          } else {
+            console.warn("invalid meta", mc, metaAndConstraints);
+            return;
+          }
         }
         for (let c in mc.constraints) {
           // update the constraints
-          this[field]._constraints[c] = mc.constraints[c];
+          if (this[field]) {
+            this[field]._constraints[c] = mc.constraints[c];
+          } else {
+            console.warn("invalid meta", mc, metaAndConstraints);
+            return;
+          }
+
         }
         /**
          * @event this-metas-changed INTERNAL Event

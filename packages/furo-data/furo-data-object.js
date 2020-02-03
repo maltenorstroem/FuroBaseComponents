@@ -32,7 +32,7 @@ import {Env} from "@furo/framework"
  * @demo demo-furo-data-object-validator object validator demo
  * @appliesMixin FBP
  */
-class FuroDataObject extends (LitElement) {
+export class FuroDataObject extends (LitElement) {
 
   constructor() {
     super();
@@ -243,6 +243,8 @@ class FuroDataObject extends (LitElement) {
       /**
        * @event data-changed
        * Fired when data in furo-data-object has changed
+       *
+       * This event fires a lot, consider using a de-bounce with the event.
        *
        *   **detail payload:** {Object|CollectionNode}
        *

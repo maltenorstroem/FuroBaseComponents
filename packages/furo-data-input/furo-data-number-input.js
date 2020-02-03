@@ -37,7 +37,8 @@ class FuroDataNumberInput extends FBP(LitElement) {
     this._FBPAddWireHook("--valueChanged", (val) => {
 
       if (this.field) {
-        this.field._value= val;
+        // convert input to number or 0 on empty string
+        this.field._value= Number(val);
       }
     });
   }
@@ -229,14 +230,14 @@ class FuroDataNumberInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this._readonly = true;
+    this.disabled = true;
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this._readonly = false;
+    this.disabled = false;
   }
 
   /**
