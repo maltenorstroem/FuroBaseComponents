@@ -30,6 +30,8 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
 
   bindData(fieldNode) {
     this.field = fieldNode;
+    this.selected = fieldNode._isSelected;
+
     this.field.addEventListener("this-node-selected", (n) => {
       this.selected = true;
     });
@@ -39,6 +41,11 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     });
     this.field.addEventListener("modified", (n) => {
       this.inedit = true;
+    });
+
+    this.field.addEventListener("cleared", (n) => {
+      this.inedit = false;
+      this.haserror = false;
     });
     this.field.addEventListener("has-error", (n) => {
       this.haserror = true;

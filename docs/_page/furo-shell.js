@@ -983,7 +983,7 @@ if(element.attributes[i].name.startsWith("@-")){let eventname=element.attributes
          */function registerEvent(eventname,type,wire,element){// find properties in wire
 element.__atf={};let match=wire.match(/([a-z0-9\-_*\.]+)/gi);// store @-ƒ-attributes existence
 for(let i=0;i<element.attributes.length;i++){element.__atf[element.attributes[i].name]=!0}let handler={// prevent default and stop propagation
-stop:function(e){e.detail.stopPropagation()},preventdefault:function(e){e.detail.preventDefault()},call:function(e){/**
+stop:function(e){e.stopPropagation()},preventdefault:function(e){e.preventDefault()},call:function(e){/**
              * Prüfe ob die Funktion mit einem Wert aus dem Host oder mit den Details des Events ausgeführt werden soll.
              * --wire(hostName) ==> wirft this.hostName in die Funktion sonst wird e.detail verwendet
              *
@@ -1446,7 +1446,7 @@ return html`
                                                                 * - the acceptLanguage, which is used by the data components
                                                                 *
                                                                 */class Env{}// default Env
-_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){e=e.substr(0,2)};return e+";q="+Math.max(.1,1-(i+1)/10)});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}let b=i18n.resbundle[Env.locale];if(b===void 0){console.warn("No resource bundle with locale "+Env.locale+" exists.");return key+"**"}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res?res:key+"**"}static n(key,num){return key+"*"+num}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
+_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){e=e.substr(0,2)};return e+";q="+Math.max(.1,1-(i+1)/10)});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}let b=i18n.resbundle[Env.locale];if(b===void 0){console.warn("No resource bundle with locale "+Env.locale+" exists.");return key+"**"}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res!==void 0?res:key+"**"}static n(key,num){return key+"*"+num}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
      *
      * @param locale
      */static translateStaticTypeMessages(locale){// read from original spec to apply locale
@@ -1499,7 +1499,7 @@ console.log("Set locale from",Env.locale);Env.locale=locale;Init.translateStatic
     */_exports.$system=system;class Iconset{// register an icon set
 static registerIconset(setName,icons){this[setName]=icons}// get icon svg via icon set name and icon name
 static get(setName,iconName){// default fallback icon `report problem`
-let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto"},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto"},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a task",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__proto:{number:7}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:"1",hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing money type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{id:{description:"Id",type:"string",meta:{label:"Id"},__proto:{number:1}},display_name:{description:"String representation",type:"string",meta:{label:"Display name"},__proto:{number:2}},selected:{description:"is the item selected",meta:{label:"Selected"},type:"bool",__proto:{number:3}}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{list:{description:"a list with options, use furo.optionitem or your own",type:"google.protobuf.Any",meta:{repeated:!0},__proto:{number:1}}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"types pecific meta"},__proto:{number:7}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
+let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto"},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto"},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a task",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:"1",hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[]}},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
     * Furo Base Icons
     * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
     *
@@ -2934,6 +2934,8 @@ return Theme.getThemeForComponent("FuroButton")||css`
             line-height: 34px;
             background-color: transparent;
             box-sizing: border-box;
+            
+          
         }
 
         :host([unelevated]) button {
@@ -3145,7 +3147,21 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
        * @event input-invalid
        * Fired when input value is invalid
        * detail payload: {Object} the validity object of input
-       */let customEvent=new Event("input-invalid",{composed:!0,bubbles:!1});customEvent.detail=input.validity;caller.dispatchEvent(customEvent)}}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroColorInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       */let customEvent=new Event("input-invalid",{composed:!0,bubbles:!1});customEvent.detail=input.validity;caller.dispatchEvent(customEvent)}}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroColorInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -3501,12 +3517,12 @@ return Theme.getThemeForComponent("FuroColorInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly}
        ?disabled=${this.disabled}              
        type="color" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -3963,7 +3979,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroDateInput extends FBP(LitElement){constructor(){super();this.valid=!0}/**
+    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroDateInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}/**
      * Updater for the min attr
      *
      * @param value
@@ -4350,7 +4380,7 @@ return Theme.getThemeForComponent("FuroDateInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
        ?disabled=${this.disabled} 
@@ -4359,7 +4389,7 @@ return html`
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -4371,7 +4401,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min attr
      *
      * @param value
@@ -4784,7 +4828,7 @@ return Theme.getThemeForComponent("FuroNumberInput")||css`
 return html` 
       <div class="wrapper">
       
-           <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+           <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>
            <div class="iwrap">    
                <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
                    ?disabled=${this.disabled} 
@@ -4795,7 +4839,7 @@ return html`
                    @-input="--inputInput(*)"   
                    ƒ-focus="--focus">
            </div>
-           <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+           <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -4807,7 +4851,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
 
-    `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroPasswordInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroPasswordInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -4883,6 +4941,8 @@ return html`
      */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
      * Sets the focus on the field.
      */focus(){this._FBPTriggerWire("--focus")}/**
+     * toggles the visibility of the password
+     */toggleVisibility(){let f=this.shadowRoot.querySelector("input"),t=f.getAttribute("type");if("text"===t){this.makeInvisible()}else{this.makeVisible()}}/**
      * Makes the password visible.
      */makeVisible(){let f=this.shadowRoot.querySelector("input");f.setAttribute("type","text")}/**
      * Makes the password invisible again (this is the default).
@@ -5222,13 +5282,13 @@ return Theme.getThemeForComponent("FuroPasswordInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
        <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
        ?disabled=${this.disabled} 
        type="password" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -5676,7 +5736,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-radio-button-input",FuroRadioButtonInput);class FuroRangeInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-radio-button-input",FuroRadioButtonInput);class FuroRangeInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min attr
      *
      * @param value
@@ -6065,7 +6139,7 @@ return Theme.getThemeForComponent("FuroRangeInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
        type="range"      
@@ -6073,7 +6147,7 @@ return html`
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -6085,7 +6159,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-range-input",FuroRangeInput);class FuroSearchInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-range-input",FuroRangeInput);class FuroSearchInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -6493,12 +6581,12 @@ return Theme.getThemeForComponent("FuroSearchInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}   
        type="search" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -6540,12 +6628,26 @@ this._insertedItems.splice(items.length);if(0<items.length){/**
        * detail payload: {Number} Number of items
        */setTimeout(()=>{let customEvent=new Event("items-in-dom",{composed:!0,bubbles:!1});customEvent.detail=items.length;this.dispatchEvent(customEvent)},0)}}_buildDomNode(identity,i){// build hidden elem
 let elem;elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);let handle={virtualElement:elem,children:[].slice.call(elem.shadowRoot.children),identity:identity};// remove old entries
-if(this._insertedItems[i]){this._insertedItems[i].children.map(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
+if(this._insertedItems[i]){this._insertedItems[i].children.map(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot.firstElementChild,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
 let t=this.querySelector("template");if(t&&t.content){this.template=t.content}/**
        * Identity path of a single item.
        * Use this if you have a field which identifies the item.
        * @type {*string}
-       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class FuroSelectInput extends FBP(LitElement){constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
+       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class FuroSelectInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -6944,16 +7046,16 @@ return Theme.getThemeForComponent("FuroSelectInput")||css`
 return html` 
       <div class="wrapper">
       
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>
        <div class="iwrap">    
-           <select ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
+           <select id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
             <template is="flow-repeat" ƒ-inject-items="--selection">
                 <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
             </template>
            </select>
         <furo-icon class="expand" icon="expand-more"></furo-icon>
        </div>     
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -6969,9 +7071,7 @@ return html`
                                                                      * (c) 2018 Szymon Nowak | Released under the MIT license
                                                                      */class Point{constructor(x,y,time){this.x=x;this.y=y;this.time=time||Date.now()}distanceTo(start){return Math.sqrt(Math.pow(this.x-start.x,2)+Math.pow(this.y-start.y,2))}equals(other){return this.x===other.x&&this.y===other.y&&this.time===other.time}velocityFrom(start){return this.time!==start.time?this.distanceTo(start)/(this.time-start.time):0}}class Bezier{constructor(startPoint,control2,control1,endPoint,startWidth,endWidth){this.startPoint=startPoint;this.control2=control2;this.control1=control1;this.endPoint=endPoint;this.startWidth=startWidth;this.endWidth=endWidth}static fromPoints(points,widths){const c2=this.calculateControlPoints(points[0],points[1],points[2]).c2,c3=this.calculateControlPoints(points[1],points[2],points[3]).c1;return new Bezier(points[1],c2,c3,points[2],widths.start,widths.end)}static calculateControlPoints(s1,s2,s3){const dx1=s1.x-s2.x,dy1=s1.y-s2.y,dx2=s2.x-s3.x,dy2=s2.y-s3.y,m1={x:(s1.x+s2.x)/2,y:(s1.y+s2.y)/2},m2={x:(s2.x+s3.x)/2,y:(s2.y+s3.y)/2},l1=Math.sqrt(dx1*dx1+dy1*dy1),l2=Math.sqrt(dx2*dx2+dy2*dy2),dxm=m1.x-m2.x,dym=m1.y-m2.y,k=l2/(l1+l2),cm={x:m2.x+dxm*k,y:m2.y+dym*k},tx=s2.x-cm.x,ty=s2.y-cm.y;return{c1:new Point(m1.x+tx,m1.y+ty),c2:new Point(m2.x+tx,m2.y+ty)}}length(){const steps=10;let length=0,px,py;for(let i=0;i<=steps;i+=1){const t=i/steps,cx=this.point(t,this.startPoint.x,this.control1.x,this.control2.x,this.endPoint.x),cy=this.point(t,this.startPoint.y,this.control1.y,this.control2.y,this.endPoint.y);if(0<i){const xdiff=cx-px,ydiff=cy-py;length+=Math.sqrt(xdiff*xdiff+ydiff*ydiff)}px=cx;py=cy}return length}point(t,start,c1,c2,end){return start*(1-t)*(1-t)*(1-t)+3*c1*(1-t)*(1-t)*t+3*c2*(1-t)*t*t+end*t*t*t}}function throttle(fn,wait=250){let previous=0,timeout=null,result,storedContext,storedArgs;const later=()=>{previous=Date.now();timeout=null;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}};return function(...args){const now=Date.now(),remaining=wait-(now-previous);storedContext=this;storedArgs=args;if(0>=remaining||remaining>wait){if(timeout){clearTimeout(timeout);timeout=null}previous=now;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}}else if(!timeout){timeout=window.setTimeout(later,remaining)}return result}}class SignaturePad{constructor(canvas,options={}){this.canvas=canvas;this.options=options;this._handleMouseDown=event=>{if(1===event.which){this._mouseButtonDown=!0;this._strokeBegin(event)}};this._handleMouseMove=event=>{if(this._mouseButtonDown){this._strokeMoveUpdate(event)}};this._handleMouseUp=event=>{if(1===event.which&&this._mouseButtonDown){this._mouseButtonDown=!1;this._strokeEnd(event)}};this._handleTouchStart=event=>{event.preventDefault();if(1===event.targetTouches.length){const touch=event.changedTouches[0];this._strokeBegin(touch)}};this._handleTouchMove=event=>{event.preventDefault();const touch=event.targetTouches[0];this._strokeMoveUpdate(touch)};this._handleTouchEnd=event=>{const wasCanvasTouched=event.target===this.canvas;if(wasCanvasTouched){event.preventDefault();const touch=event.changedTouches[0];this._strokeEnd(touch)}};this.velocityFilterWeight=options.velocityFilterWeight||.7;this.minWidth=options.minWidth||.5;this.maxWidth=options.maxWidth||2.5;this.throttle="throttle"in options?options.throttle:16;this.minDistance="minDistance"in options?options.minDistance:5;if(this.throttle){this._strokeMoveUpdate=throttle(SignaturePad.prototype._strokeUpdate,this.throttle)}else{this._strokeMoveUpdate=SignaturePad.prototype._strokeUpdate}this.dotSize=options.dotSize||function(){return(this.minWidth+this.maxWidth)/2};this.penColor=options.penColor||"black";this.backgroundColor=options.backgroundColor||"rgba(0,0,0,0)";this.onBegin=options.onBegin;this.onEnd=options.onEnd;this._ctx=canvas.getContext("2d");this.clear();this.on()}clear(){const ctx=this._ctx,canvas=this.canvas;ctx.fillStyle=this.backgroundColor;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillRect(0,0,canvas.width,canvas.height);this._data=[];this._reset();this._isEmpty=!0}fromDataURL(dataUrl,options={},callback){const image=new Image,ratio=options.ratio||window.devicePixelRatio||1,width=options.width||this.canvas.width/ratio,height=options.height||this.canvas.height/ratio;this._reset();image.onload=()=>{this._ctx.drawImage(image,0,0,width,height);if(callback){callback()}};image.onerror=error=>{if(callback){callback(error)}};image.src=dataUrl;this._isEmpty=!1}toDataURL(type="image/png",encoderOptions){switch(type){case"image/svg+xml":return this._toSVG();default:return this.canvas.toDataURL(type,encoderOptions);}}on(){this.canvas.style.touchAction="none";this.canvas.style.msTouchAction="none";if(window.PointerEvent){this._handlePointerEvents()}else{this._handleMouseEvents();if("ontouchstart"in window){this._handleTouchEvents()}}}off(){this.canvas.style.touchAction="auto";this.canvas.style.msTouchAction="auto";this.canvas.removeEventListener("pointerdown",this._handleMouseDown);this.canvas.removeEventListener("pointermove",this._handleMouseMove);document.removeEventListener("pointerup",this._handleMouseUp);this.canvas.removeEventListener("mousedown",this._handleMouseDown);this.canvas.removeEventListener("mousemove",this._handleMouseMove);document.removeEventListener("mouseup",this._handleMouseUp);this.canvas.removeEventListener("touchstart",this._handleTouchStart);this.canvas.removeEventListener("touchmove",this._handleTouchMove);this.canvas.removeEventListener("touchend",this._handleTouchEnd)}isEmpty(){return this._isEmpty}fromData(pointGroups){this.clear();this._fromData(pointGroups,({color,curve})=>this._drawCurve({color,curve}),({color,point})=>this._drawDot({color,point}));this._data=pointGroups}toData(){return this._data}_strokeBegin(event){const newPointGroup={color:this.penColor,points:[]};this._data.push(newPointGroup);this._reset();this._strokeUpdate(event);if("function"===typeof this.onBegin){this.onBegin(event)}}_strokeUpdate(event){const x=event.clientX,y=event.clientY,point=this._createPoint(x,y),lastPointGroup=this._data[this._data.length-1],lastPoints=lastPointGroup.points,lastPoint=0<lastPoints.length&&lastPoints[lastPoints.length-1],isLastPointTooClose=lastPoint?point.distanceTo(lastPoint)<=this.minDistance:!1,color=lastPointGroup.color;if(!lastPoint||!(lastPoint&&isLastPointTooClose)){const curve=this._addPoint(point);if(!lastPoint){this._drawDot({color,point})}else if(curve){this._drawCurve({color,curve})}lastPoints.push({time:point.time,x:point.x,y:point.y})}}_strokeEnd(event){this._strokeUpdate(event);if("function"===typeof this.onEnd){this.onEnd(event)}}_handlePointerEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("pointerdown",this._handleMouseDown);this.canvas.addEventListener("pointermove",this._handleMouseMove);document.addEventListener("pointerup",this._handleMouseUp)}_handleMouseEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("mousedown",this._handleMouseDown);this.canvas.addEventListener("mousemove",this._handleMouseMove);document.addEventListener("mouseup",this._handleMouseUp)}_handleTouchEvents(){this.canvas.addEventListener("touchstart",this._handleTouchStart);this.canvas.addEventListener("touchmove",this._handleTouchMove);this.canvas.addEventListener("touchend",this._handleTouchEnd)}_reset(){this._lastPoints=[];this._lastVelocity=0;this._lastWidth=(this.minWidth+this.maxWidth)/2;this._ctx.fillStyle=this.penColor}_createPoint(x,y){const rect=this.canvas.getBoundingClientRect();return new Point(x-rect.left,y-rect.top,new Date().getTime())}_addPoint(point){const{_lastPoints}=this;_lastPoints.push(point);if(2<_lastPoints.length){if(3===_lastPoints.length){_lastPoints.unshift(_lastPoints[0])}const widths=this._calculateCurveWidths(_lastPoints[1],_lastPoints[2]),curve=Bezier.fromPoints(_lastPoints,widths);_lastPoints.shift();return curve}return null}_calculateCurveWidths(startPoint,endPoint){const velocity=this.velocityFilterWeight*endPoint.velocityFrom(startPoint)+(1-this.velocityFilterWeight)*this._lastVelocity,newWidth=this._strokeWidth(velocity),widths={end:newWidth,start:this._lastWidth};this._lastVelocity=velocity;this._lastWidth=newWidth;return widths}_strokeWidth(velocity){return Math.max(this.maxWidth/(velocity+1),this.minWidth)}_drawCurveSegment(x,y,width){const ctx=this._ctx;ctx.moveTo(x,y);ctx.arc(x,y,width,0,2*Math.PI,!1);this._isEmpty=!1}_drawCurve({color,curve}){const ctx=this._ctx,widthDelta=curve.endWidth-curve.startWidth,drawSteps=2*Math.floor(curve.length());ctx.beginPath();ctx.fillStyle=color;for(let i=0;i<drawSteps;i+=1){const t=i/drawSteps,tt=t*t,ttt=tt*t,u=1-t,uu=u*u,uuu=uu*u;let x=uuu*curve.startPoint.x;x+=3*uu*t*curve.control1.x;x+=3*u*tt*curve.control2.x;x+=ttt*curve.endPoint.x;let y=uuu*curve.startPoint.y;y+=3*uu*t*curve.control1.y;y+=3*u*tt*curve.control2.y;y+=ttt*curve.endPoint.y;const width=curve.startWidth+ttt*widthDelta;this._drawCurveSegment(x,y,width)}ctx.closePath();ctx.fill()}_drawDot({color,point}){const ctx=this._ctx,width="function"===typeof this.dotSize?this.dotSize():this.dotSize;ctx.beginPath();this._drawCurveSegment(point.x,point.y,width);ctx.closePath();ctx.fillStyle=color;ctx.fill()}_fromData(pointGroups,drawCurve,drawDot){for(const group of pointGroups){const{color,points}=group;if(1<points.length){for(let j=0;j<points.length;j+=1){const basicPoint=points[j],point=new Point(basicPoint.x,basicPoint.y,basicPoint.time);this.penColor=color;if(0===j){this._reset()}const curve=this._addPoint(point);if(curve){drawCurve({color,curve})}}}else{this._reset();drawDot({color,point:points[0]})}}}_toSVG(){const pointGroups=this._data,ratio=Math.max(window.devicePixelRatio||1,1),minX=0,minY=0,maxX=this.canvas.width/ratio,maxY=this.canvas.height/ratio,svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",this.canvas.width.toString());svg.setAttribute("height",this.canvas.height.toString());this._fromData(pointGroups,({color,curve})=>{const path=document.createElement("path");if(!isNaN(curve.control1.x)&&!isNaN(curve.control1.y)&&!isNaN(curve.control2.x)&&!isNaN(curve.control2.y)){const attr=`M ${curve.startPoint.x.toFixed(3)},${curve.startPoint.y.toFixed(3)} `+`C ${curve.control1.x.toFixed(3)},${curve.control1.y.toFixed(3)} `+`${curve.control2.x.toFixed(3)},${curve.control2.y.toFixed(3)} `+`${curve.endPoint.x.toFixed(3)},${curve.endPoint.y.toFixed(3)}`;path.setAttribute("d",attr);path.setAttribute("stroke-width",(2.25*curve.endWidth).toFixed(3));path.setAttribute("stroke",color);path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");svg.appendChild(path)}},({color,point})=>{const circle=document.createElement("circle"),dotSize="function"===typeof this.dotSize?this.dotSize():this.dotSize;circle.setAttribute("r",dotSize.toString());circle.setAttribute("cx",point.x.toString());circle.setAttribute("cy",point.y.toString());circle.setAttribute("fill",color);svg.appendChild(circle)});const prefix="data:image/svg+xml;base64,",header="<svg"+" xmlns=\"http://www.w3.org/2000/svg\""+" xmlns:xlink=\"http://www.w3.org/1999/xlink\""+` viewBox="${minX} ${minY} ${maxX} ${maxY}"`+` width="${maxX}"`+` height="${maxY}"`+">";let body=svg.innerHTML;if(body===void 0){const dummy=document.createElement("dummy"),nodes=svg.childNodes;dummy.innerHTML="";for(let i=0;i<nodes.length;i+=1){dummy.appendChild(nodes[i].cloneNode(!0))}body=dummy.innerHTML}const footer="</svg>",data=header+body+footer;return prefix+btoa(data)}}_exports.$signaturePadMDefault=SignaturePad;var signature_pad_m={default:SignaturePad};_exports.$signaturePadM=signature_pad_m;class FuroSignPad extends FBP(LitElement){/**
    * flow is ready lifecycle method
-   */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});if(this.image){this.signaturePad.fromDataURL(this.image)}setTimeout(()=>{this.resize()},1);this.signaturePad.clear()}/**
-     * clears the pad
-     */clear(){this.signaturePad.clear()}resize(){if(this.canvas){var ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
+   */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});setTimeout(()=>{this.resize();if(this.getAttribute("image")){this.setImage(this.getAttribute("image"))}},1);this.signaturePad.clear()}resize(){if(this.canvas){var ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
      *
      * @private
      * @return {CSSResult}
@@ -7009,7 +7109,14 @@ return html`
       <canvas></canvas>
       <div class="dots"></div>
 
-    `}attached(){this.signaturePad.on()}detached(){this.signaturePad.off()}_setEmpty(b){this.empty=b}_setActive(b){this.active=b}/**
+    `}/**
+    unlock() {
+      this.signaturePad.on();
+    }
+     lock() {
+      this.signaturePad.off();
+    }
+    */_setEmpty(b){this.empty=b}_setActive(b){this.active=b}/**
      * Clears the image
      */clear(){this.signaturePad.clear();this.encodeImage()}setImage(encodedImage){var img=new Image;img.src=encodedImage;let ctx=this.canvas.getContext("2d");img.onload=function(){ctx.drawImage(img,0,0);// Or at whatever offset you like
 };img.src=encodedImage}/**
@@ -7020,7 +7127,21 @@ return html`
                                                   * Fired when sign gets new painting
                                                   *
                                                   * detail payload: base encoded image
-                                                  */let customEvent=new Event("sign-updated",{composed:!0,bubbles:!0});customEvent.detail=this.image;this.dispatchEvent(customEvent)}_onBegin(event){this._setActive(!0)}_onEnd(event){this._setActive(!1);this.encodeImage()}_dotSizeChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.dotSize=newValue}_minWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.minWidth=newValue}_maxWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.maxWidth=newValue}_backgroundColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.backgroundColor=newValue}_penColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.penColor=newValue}_velocityFilterWeightChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.velocityFilterWeight=newValue}_onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()}}}_exports.FuroSignPad=FuroSignPad;window.customElements.define("furo-sign-pad",FuroSignPad);var furoSignPad={FuroSignPad:FuroSignPad};_exports.$furoSignPad=furoSignPad;class FuroTextInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+                                                  */let customEvent=new Event("sign-updated",{composed:!0,bubbles:!0});customEvent.detail=this.image;this.dispatchEvent(customEvent);return this.image}_onBegin(event){this._setActive(!0)}_onEnd(event){this._setActive(!1);this.encodeImage()}_dotSizeChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.dotSize=newValue}_minWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.minWidth=newValue}_maxWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.maxWidth=newValue}_backgroundColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.backgroundColor=newValue}_penColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.penColor=newValue}_velocityFilterWeightChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.velocityFilterWeight=newValue}_onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()}}}_exports.FuroSignPad=FuroSignPad;window.customElements.define("furo-sign-pad",FuroSignPad);var furoSignPad={FuroSignPad:FuroSignPad};_exports.$furoSignPad=furoSignPad;class FuroTextInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -7106,329 +7227,330 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroTextInput")||css`
-        /* https://material.io/design/components/text-fields.html#theming */
-        :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-
-        .iwrap {
-            position: relative;
-        }
-
-
-        input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-        
-        input:required {
-          box-shadow:none;
-        }
-        input:invalid {
-          box-shadow:none;
-        }
-
-        :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
-        }
-
-        :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
-        }
-
-        :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
-        }
-
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
-        }
-
-
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-        :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
-        }
-
-        :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
-        }
-
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
-        }
-
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left: 0;
-            position: relative;
-        }
-
-
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-
-
-        .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        }
-
-        :host([filled]) .ripple-line {
-            display: block;
-        }
-
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
-        }
-
-        :host([filled]) label {
-            border: none;
-        }
-
-
-        :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-        }
-
-        :host([filled]) label span {
-            position: relative;
-            top: 0;
-        }
-
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
-        }
-
-
-        * {
-            transition: all 200ms ease-out;
-        }
-
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
-        }
-
-
-        :host([error]) .errortext {
-            display: block;
-        }
-
-        .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
-        }
-
-
-        label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
-        }
-
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        }
-
-
-        :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-        :host([error]:focus-within) .hint {
-            display: none;
-        }
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
-        }
-
-        furo-icon {
-            display: none;
-            top: 16px;
-        }
-
-        furo-icon.lead {
-            position: absolute;
-
-            left: 8px;
-        }
-
-        furo-icon.trail {
-            position: absolute;
-            right: 8px;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-            left: 24px;
-        }
-
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
-            left: 0;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
-        }
-
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
-        }
-
-        :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-
-        :host([condensed]) input {
-            top: 12px;
-            font-size: 14px;
-        }
-
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
-            font-size: 14px;
-        }
-
-        :host([condensed][filled]) input {
-            top: 12px;
-        }
-        
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
-        }
-
-        :host([condensed]) furo-icon {
-            top: 10px;
-        }
-
-        :host([condensed]) .ripple-line {
-            top: 38px;
-        }
-
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-
-        }
-
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top: -20px;
-        }
-
-        :host([condensed]) {
-            height: 40px;
-        }
+      /* https://material.io/design/components/text-fields.html#theming */
+      :host {
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        margin: 10px 0 15px 0;
+        height: 56px;
+        width: 190px;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      .wrapper {
+        position: relative;
+        padding: 0 12px;
+        box-sizing: border-box;
+        height: 56px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+
+      .iwrap {
+        position: relative;
+      }
+
+
+      input {
+        position: absolute;
+        top: 16px;
+        border: none;
+        background: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        line-height: 24px;
+        color: inherit;
+        outline: none;
+        font-family: "Roboto", "Noto", sans-serif;
+        font-kerning: auto;
+        font-size: 16px;
+        font-stretch: 100%;
+        font-style: normal;
+      }
+
+      input:required {
+        box-shadow: none;
+      }
+
+      input:invalid {
+        box-shadow: none;
+      }
+
+      :host([filled]) .wrapper {
+        background-color: var(--surface-light, #FEFEFE);
+      }
+
+      :host([filled]) .wrapper:hover {
+        background-color: var(--surface, #FCFCFC);
+      }
+
+      :host([filled]:focus-within) .wrapper {
+        background-color: var(--surface-dark, #FEA222);
+      }
+
+      :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+        border-color: var(--input-hover-color, #333333);
+      }
+
+
+      .borderlabel {
+        pointer-events: none;
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 56px;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .left-border {
+        width: 8px;
+        box-sizing: border-box;
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-right: none;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      :host(:not([filled])) label span {
+        top: 0;
+        position: relative;
+      }
+
+      :host(:not([filled])) label {
+        padding: 0 4px;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-right: none;
+        line-height: 56px;
+      }
+
+      :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+        border-top: none;
+      }
+
+      :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+        font-size: 12px;
+        top: -28px;
+        left: 0;
+        position: relative;
+      }
+
+
+      .right-border {
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px;
+      }
+
+
+      .ripple-line {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 54px;
+        border: none;
+        border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+      }
+
+      :host([filled]) .ripple-line {
+        display: block;
+      }
+
+      :host([filled]) .right-border, :host([filled]) .left-border {
+        display: none;
+      }
+
+      :host([filled]) label {
+        border: none;
+      }
+
+
+      :host([filled]) label {
+        padding: 0 12px;
+        line-height: 56px;
+      }
+
+      :host([filled]) label span {
+        position: relative;
+        top: 0;
+      }
+
+      :host([filled]) label[float] span, :host(:focus-within) label span {
+        font-size: 12px;
+        font-weight: 400;
+        top: -20px;
+        position: relative;
+      }
+
+
+      * {
+        transition: all 200ms ease-out;
+      }
+
+      .hint, .errortext {
+        position: absolute;
+        bottom: -19px;
+        font-size: 12px;
+        color: transparent;
+        padding-left: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      :host(:focus-within) .hint {
+        color: var(--input-hint-color, #999999);
+        transition: all 550ms ease-in;
+      }
+
+
+      :host([error]) .errortext {
+        display: block;
+      }
+
+      .errortext {
+        color: var(--input-error-text-color, var(--error, red));
+        display: none;
+      }
+
+
+      label {
+        color: var(--input-hint-color, var(--disabled, #DEDEDE));
+      }
+
+      :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+        color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+      }
+
+
+      :host(:focus-within) .ripple-line {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+        border-color: var(--input-error-text-color, var(--error, red));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+      :host([error]:focus-within) .hint {
+        display: none;
+      }
+
+      :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+        border-color: var(--input-error-activation-indicator-color, var(--error, red));
+      }
+
+      furo-icon {
+        display: none;
+        top: 16px;
+      }
+
+      furo-icon.lead {
+        position: absolute;
+
+        left: 8px;
+      }
+
+      furo-icon.trail {
+        position: absolute;
+        right: 8px;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+        display: block;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+        left: 24px;
+      }
+
+      :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
+        left: 0;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+        padding-left: 36px;
+      }
+
+      :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+        padding-right: 36px;
+      }
+
+      :host(:focus-within:not([valid])) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+
+      :host([condensed]) input {
+        top: 12px;
+        font-size: 14px;
+      }
+
+      :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+        line-height: 40px;
+        font-size: 14px;
+      }
+
+      :host([condensed][filled]) input {
+        top: 12px;
+      }
+
+      :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+        height: 40px;
+      }
+
+      :host([condensed]) furo-icon {
+        top: 10px;
+      }
+
+      :host([condensed]) .ripple-line {
+        top: 38px;
+      }
+
+      :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+        top: -12px;
+
+      }
+
+      :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+        top: -20px;
+      }
+
+      :host([condensed]) {
+        height: 40px;
+      }
 
     `}/**
      * toto add option to hide `*` when the field is required
@@ -7437,12 +7559,12 @@ return Theme.getThemeForComponent("FuroTextInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled} ?required=${this.required} 
         type="text" ƒ-.value="--value" @-input="--inputInput(*)" ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -7790,7 +7912,21 @@ return html`
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-textarea-input",FuroTextareaInput);class FuroTimeInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-textarea-input",FuroTextareaInput);class FuroTimeInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min attr
      *
      * @param value
@@ -8179,7 +8315,7 @@ return Theme.getThemeForComponent("FuroTimeInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>   
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>   
        <div class="iwrap"> 
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
            type="time"       
@@ -8187,7 +8323,7 @@ return html`
            @-input="--inputInput(*)"   
            ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -8200,11 +8336,8 @@ return html`
       <div class="errortext">${this.errortext}</div>
  
     `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroFileInput extends FBP(LitElement){/**
-   * @event input
-   * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
-   * The input event is fired every time the value of the element changes.
-   *
-   * Comes from underlying component input. **bubbles**
+   * @event input-changed
+   * This event is fired in place of the native input event. The payload detail contains the original target.
    */ /**
        * flow is ready lifecycle method
        */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
@@ -8227,7 +8360,12 @@ this._FBPAddWireHook("--inputInput",e=>{/**
      * Fetch local file
      * @private
      */_fetchLocalFile(file){return new Promise((resolve,reject)=>{// Create a new FileReader instance
-const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.readAsDataURL(file)})}static get properties(){return{/**
+const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.addEventListener("progress",e=>{if(e.lengthComputable){/**
+           * @event progress
+           * is triggered while reading a Blob content.
+           * detail payload: {Array} all selected files base64 encoded
+           */const customEvent=new Event("progress",{composed:!0,bubbles:!0});customEvent.detail=e;this.dispatchEvent(customEvent);// e.g. progress percentage: Math.round((e.loaded / e.total) * 100);
+}});reader.readAsDataURL(file)})}static get properties(){return{/**
        * The required attribute, the value true means this field must be filled in
        *
        */required:{type:Boolean},/**
@@ -8285,7 +8423,6 @@ return Theme.getThemeForComponent("FuroFileInput")||css`
 
             .inputfile + label {
                 display: inline-block;
-                font-family: "Roboto", "Noto", sans-serif;
                 border-radius: 4px;
                 border: 1px solid transparent;
                 width: 100%;
@@ -8489,9 +8626,212 @@ return html`
              ?multiple=${this.multiple} 
              ?capture="${this.capture}"
              id="input" name="input"
-             @-input="--inputInput(*)">
+             @-input=":STOP,^^inputChanged(*.target),--inputInput(*)">
       <label for="input" ƒ-focus="--focus" ?autofocus=${this.autofocus}><span>${this.label} ${this.required?html`*`:html``}</span></label>
-    `}}window.customElements.define("furo-file-input",FuroFileInput);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
+    `}}window.customElements.define("furo-file-input",FuroFileInput);class FuroChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+     * Sets the focus on the chip.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * select the chip
+     */select(){this.selected=!0;this.value=!0}/**
+     * deselect the chip
+     */deselect(){this.selected=!1;this.value=!1}/**
+     * toggle the chip
+     */toggle(){this.shadowRoot.getElementById("input").click()}/**
+     * Sets the value for the chip
+     * The value of chip with true (selected) or false (unselected). Changes will be notified with the `@-value-changed` event
+     * This is different from the native attribute `value` of the input chip
+     * @param {boolean} v
+     */setValue(v){this.selected=!!v;this.value=!!v}set value(v){this._value=!!v;/**
+                        * @event value-changed
+                        * Fired when value has changed from inside the component
+                        * detail payload: {String} the text value
+                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.selected){/**
+       * @event selected
+       * Fired when the chip is selected
+       * detail payload: {String} the text value
+       */let customEvent=new Event("selected",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       * @event unselected
+       * Fired when the chip is unselected
+       * detail payload: {String} the text value
+       */let customEvent=new Event("unselected",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       * The value of chip with true (selected) or false (unselected). Changes will be notified with the `@-value-changed` event
+       * This is different from the native attribute `value` of the input chip
+       */value:{type:Boolean},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this chip is selected.
+       */selected:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this is focused.
+       */focused:{type:Boolean,reflect:!0},/**
+       * Text in chip.
+       */text:{type:String},/**
+       * A Boolean attribute which, if present, means the chip is outlined.
+       */outlined:{type:Boolean},/**
+       * the leading icon of the chip.
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * the trailing icon of the chip.
+       */trailingIcon:{type:String,attribute:"trailing-icon"}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent("FuroChoiceChip")||css`
+            /* https://material.io/components/chips/#choice-chips*/
+            
+            :host([hidden]) {
+                display: none;
+            }
+
+            /* The wrapper */
+            :host {
+                width: auto;
+                position: relative;
+                box-sizing: border-box;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                height: 40px;
+                border-radius: 20px;
+                background-color: var(--input-chip-unselected--bg-color, var(--background, #eeeeee));
+                padding: 8px;
+                display: inline-block;
+
+            }
+            /* input chip*/
+            :host input {
+                z-index: -1;
+                position: absolute;
+                height: 0;
+                width: 0;
+            }
+
+            :host([outlined]){
+                background-color: var(--input-chip-outlined-unselected--bg-color, #ffffff);
+                border: solid 1px;
+            }
+
+            /* selected choice chip  */
+            :host([selected]){
+                background-color: var(--input-chip-selected-bg-color, var(--primary, #4caf4f));
+                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+            }
+
+            :host([outlined][selected]){
+                background-color: rgba( var(--input-chip-outlined-selected-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
+                color: var(--input-chip-outlined-selected-text-color, var(--primary, #4caf50));
+                border: solid 1px;
+                border-color: var(--input-chip-outlined-selected-border-color, var(--on-background, #000000))
+            }
+            
+            :host([outlined][selected]:hover) {
+                background-color: rgba( var(--input-chip-outlined-selected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+            }
+            
+            /* outlined selected choice chip when hovering */
+            :host([selected]:hover) {
+                background-color: var(--input-chip-selected-hover-bg-color, var(--primary, #4caf4f));
+            }
+            
+            /* hover */
+            :host(:hover){
+                background-color: rgba( var(--input-chip-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+            }
+
+            /* unselected chip when pressing */
+            :host:active {
+                background-color: rgba( var(--input-chip-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
+            }
+
+            /* unselected chip when focusing */
+            :host([focused]) {
+                background-color: rgba( var(--input-chip-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-focus, 0.12) ) ;
+            }
+
+            /* unselected chip when pressing */
+            :host([selected]):active {
+                background-color: rgba( var(--input-chip-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
+            }
+
+            /* selected chip when focusing */
+            :host([selected][focused]) {
+                background-color: rgba( var(--input-chip-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-focus, 0.12) ) ;
+            }
+            
+            /* disabled chip selected */
+            :host([selected][disabled]){
+                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+
+            /* disabled chip selected */
+            :host([outlined][selected][disabled]){
+                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+                background-color: rgba( var(--input-chip-outlined-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+
+
+            :host([disabled]) {
+                cursor: default;
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+            /* disabled chip should have no ripple effect */
+            :host([disabled]) furo-ripple{
+               display: none;
+            }
+
+            /* disabled chip should have no hover effect */
+            :host([selected][disabled]:hover){
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+            
+            
+            /* disabled chip should have no hover effect */
+            :host([disabled]:hover){
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+
+            
+            :host([condensed]) {
+                height: 32px;
+                padding: 4px;
+                border-radius: 16px;
+
+            }
+            furo-ripple{
+                border-radius: 20px;
+            }
+      
+            span {
+                margin: 0 8px;
+                line-height: 24px;
+            }
+      
+            furo-icon {
+                margin-top:  -4px ;
+            }
+      
+            .lead {
+                margin-right: -4px;
+            }
+
+            .trail {
+                margin-left: -4px;
+            }
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return html`
+          ${this.leadingIcon?html` <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon> `:html``}
+          <input id="input" type="checkbox" ?checked=${this.selected}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
+                 ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
+          <span>${this.text}</span>
+          ${this.trailingIcon?html` <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>`:html``}
+          <furo-ripple></furo-ripple>
+        `}}customElements.define("furo-chip",FuroChip);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._action()}this._close()});this._FBPAddWireHook("--closeClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._dismiss()}this._close()});/**
          * listen to keyboard events
@@ -8811,11 +9151,14 @@ window.addEventListener("connect-to-drawer-requested",e=>{if(e.detail.name===thi
      * @return {Object}
      */static get properties(){return{/**
        * Use method floatDrawer or set this attribute to enable float mode
+       * @private
        */_isFloating:{type:Boolean,reflect:!0,attribute:"float"},/**
        * Enable this to put the drawer on the right side
        */isReverse:{type:Boolean,reflect:!0,attribute:"reverse"},/**
        * disables automatic floating mode
-       */noauto:{type:Boolean},/**
+       */permanent:{type:Boolean},/**
+       * let the menu float (hidden).
+       */float:{type:Boolean},/**
        * Min width of the app-drawer to switch to floating mode
        */floatBreakpoint:{type:Number,attribute:"float-breakpoint"},/**
        * name of this drawer, needed if you want to connect to this drawer
@@ -8866,8 +9209,8 @@ this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventList
      * Register hook on wire --backdropClicked to
      * close the menu
      */this._FBPAddWireHook("--backdropClicked",e=>{this.close()});// register resize listener
-if(!this.noauto){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
-let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),backdrop=this.shadowRoot.getElementById("backdrop");this._FBPAddWireHook("--trackstart",e=>{// unregister
+if(!this.permanent){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
+let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
 this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.__isFloating){let start_x=this._getScreenX(e),start_y=this._getScreenY(e),start_time=performance.now(),width=drawer.getBoundingClientRect().width,trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
 let animationframetimeout;// register move
 this.moveHandler=e=>{// If there's a timer, cancel it
@@ -8883,90 +9226,92 @@ if(100<delta){delta=100;distance=width}if(-100>delta){delta=-100;distance=-width
 drawer.style.right=-(width+distance)+"px"}else{//drawer.style.transform = "translate3d(" + (delta - 100) + "%, 0, 0)";
 drawer.style.left=distance-width+"px"}// backdrop darkness
 backdrop.style.opacity=Math.abs(delta/100)}})};// register move
-this.addEventListener("mousemove",this.moveHandler,!0);this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
+this.addEventListener("mousemove",this.moveHandler,!0);//todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
+// https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
 if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}let end_time=performance.now(),distance=this._getScreenX(e)-start_x,duration=end_time-start_time;// quick movement
 if(30<Math.abs(distance)&&200>duration){if(this.isOpen){if(!this.isReverse&&0>distance||this.isReverse&&0<distance){this.close()}}else{this.open()}}else{if(!trackingEnabled){return}// complete the movement, slow
 let delta=100*distance/width;if(-40<delta&&40>delta){// restore initial pos
 if(this.isOpen){this.open()}else{this.close()}}else{if(this.isOpen){this.close()}else{this.open()}}}// unregister
 this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0)};// unregister movement tracker
-this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}})}pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
+this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}};drawer.addEventListener("trackstart",trackhandler,{passive:!0});drawer.addEventListener("mousedown",trackhandler);drag.addEventListener("trackstart",trackhandler,{passive:!0});drag.addEventListener("mousedown",trackhandler)}pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroAppDrawer")||css`
-        :host {
-            display: block;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
+      :host {
+        display: block;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        furo-horizontal-flex {
-            height: 100%;
-        }
-
-
-        #drawer {
-            border-right: 1px solid var(--separator, rgb(228, 228, 228));
-            transition-duration: 200ms;
-            background: var(--surface-light);
-        }
-        
-        ::slotted([scroll]){
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        /* disable pointer events, z-index 15 just to be below the drawer */
-        #backdrop {
-            pointer-events: none;
-            transition-duration: 200ms;
-            transition-property: opacity;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            opacity: 0;
-            background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
-            z-index: 15;
-        }
+      furo-horizontal-flex {
+        height: 100%;
+      }
 
 
-        #drag {
-            position: absolute;
-            top: 0;
-            width: 18px;
-            bottom: 0;
-            left: 0;
-            z-index: 16;
-        }
+      #drawer {
+        border-right: 1px solid var(--separator, rgb(228, 228, 228));
+        transition-duration: 200ms;
+        background: var(--surface-light);
+      }
 
-        :host([reverse]) #drag {
-            left: unset;
-            right: 0;
-        }
+      ::slotted([scroll]) {
+        height: 100%;
+        overflow-y: auto;
+      }
 
-        /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
-        :host([float]) #drawer {
-            position: absolute;
-            z-index: 16;
-            top: 0;
-            left: 0;
-            bottom: 0;
-        }
+      /* disable pointer events, z-index 15 just to be below the drawer */
+      #backdrop {
+        pointer-events: none;
+        transition-duration: 200ms;
+        transition-property: opacity;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+        z-index: 15;
+      }
 
-        /* put drawer to the right side on reverse mode */
-        :host([float][reverse]) #drawer {
-            left: unset;
-            right: 0;
 
-        }
+      #drag {
+        position: absolute;
+        top: 0;
+        width: 18px;
+        bottom: 0;
+        left: 0;
+        z-index: 16;
+      }
+
+      :host([reverse]) #drag {
+        left: unset;
+        right: 0;
+      }
+
+      /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
+      :host([float]) #drawer {
+        position: absolute;
+        z-index: 16;
+        top: 0;
+        left: 0;
+        bottom: 0;
+      }
+
+      /* put drawer to the right side on reverse mode */
+      :host([float][reverse]) #drawer {
+        left: unset;
+        right: 0;
+
+      }
 
 
 
@@ -8978,7 +9323,7 @@ return Theme.getThemeForComponent("FuroAppDrawer")||css`
 return html`
 
       <furo-horizontal-flex ?reverse="${this.isReverse}">
-        <div id="drawer" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)">
+        <div id="drawer">
           <slot name="drawer"></slot>
         </div>
         <div flex>
@@ -8986,7 +9331,7 @@ return html`
         </div>
       </furo-horizontal-flex>
       <div id="backdrop" @-click="--backdropClicked"></div>
-      <div id="drag" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)"></div>
+      <div id="drag"></div>
     `}}window.customElements.define("furo-app-drawer",FuroAppDrawer);/*! markdown-it 9.1.0 https://github.com//markdown-it/markdown-it @license MIT */(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
 //
 'use strict';/*eslint quotes:0*/module.exports=require("entities/maps/entities.json")},{"entities/maps/entities.json":52}],2:[function(require,module,exports){// List of valid html blocks names, accorting to commonmark spec
@@ -18003,4 +18348,14 @@ return html`
         <furo-icon-with-label icon="social:whatshot"></furo-icon-with-label>
       </div>
      
-    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList)});
+    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList);class FuroIntervalPulse extends LitElement{constructor(){super();this.interval=200;this.takt=4;if(this.auto){this.start()}}static get properties(){return{interval:{type:Number},takt:{type:Number},/**
+       * Starts interval automatically
+       */auto:Boolean}}start(){let cnt=0;clearInterval(this._intervalObject);this._intervalObject=setInterval(()=>{let pos=cnt++%this.takt,customEvent=new Event("tick",{bubbles:!0});/**
+                                    * Fired when interval is
+                                    * detail payload: position
+                                    * @event tick
+                                    */customEvent.detail=pos;this.dispatchEvent(customEvent);if(0==pos){/**
+         * Fired when tock
+         * detail payload: position
+         * @event tick
+         */let customEvent=new Event("tock",{bubbles:!0});customEvent.detail=pos;this.dispatchEvent(customEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("furo-interval-pulse",FuroIntervalPulse)});

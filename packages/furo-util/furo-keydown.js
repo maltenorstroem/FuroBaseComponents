@@ -30,7 +30,11 @@ class FuroKeydown extends FBP(LitElement) {
             global: {type: Boolean},
             alt: {type: Boolean},
             ctrl: {type: Boolean},
-            meta: {type: Boolean}
+            meta: {type: Boolean},
+            shift: {type: Boolean},
+          preventDefault: {type: Boolean, attribute: "prevent-default"},
+          stopPropagation: {type: Boolean, attribute: "stop-propagation"}
+
         };
     }
 
@@ -46,7 +50,25 @@ class FuroKeydown extends FBP(LitElement) {
       target = this.parentNode;
     }
     target.addEventListener("keydown", (keyevent) => {
+      if(this.meta && !keyevent.metaKey){
+        return
+      }
+      if(this.ctrl && !keyevent.ctrlKey){
+        return
+      }
+      if(this.option && !keyevent.altKey){
+        return
+      }
+      if(this.shift && !keyevent.shiftKey){
+        return
+      }
       if (keyevent.key === this.key) {
+        if(this.preventDefault){
+          keyevent.preventDefault();
+        }
+        if(this.stopPropagation){
+          keyevent.stopPropagation();
+        }
         /**
         * @event key
         * Fired when key was catched on target

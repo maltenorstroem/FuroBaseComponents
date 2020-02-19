@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.4...@furo/route@0.23.5) (2020-02-18)
+
+
+### Bug Fixes
+
+* change the reference of loaded panels from navigation-nodes to panel-names in panel coordinator ([a0c7676](https://github.com/theNorstroem/FuroBaseComponents/commit/a0c7676))
+
+
+
+
+
+## [0.23.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.3...@furo/route@0.23.4) (2020-02-18)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.23.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.2...@furo/route@0.23.3) (2020-02-17)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.23.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.1...@furo/route@0.23.2) (2020-02-17)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.23.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.0...@furo/route@0.23.1) (2020-02-12)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.22.0...@furo/route@0.23.0) (2020-02-11)
+
+
+### Features
+
+* furo-app-flow-router open external links in new window ([bec5418](https://github.com/theNorstroem/FuroBaseComponents/commit/bec5418))
+
+
+
+
+
+# [0.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.4...@furo/route@0.22.0) (2020-02-10)
+
+
+### Features
+
+* furo-app-flow-router can link external addresses ([649ffc6](https://github.com/theNorstroem/FuroBaseComponents/commit/649ffc6))
+
+
+
+
+
+## [0.21.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.2...@furo/route@0.21.4) (2020-02-09)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.21.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.2...@furo/route@0.21.3) (2020-02-09)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.21.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.1...@furo/route@0.21.2) (2020-02-07)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.0...@furo/route@0.21.1) (2020-02-04)
+
+
+### Bug Fixes
+
+* Register EventListeners only once ([a8cb4d1](https://github.com/theNorstroem/FuroBaseComponents/commit/a8cb4d1))
+
+
+
+
+
 # [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.20...@furo/route@0.21.0) (2020-01-15)
 
 

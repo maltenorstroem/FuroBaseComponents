@@ -157,6 +157,12 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener("modified", (n) => {
       this.inedit = true;
     });
+
+    this.fieldNode.addEventListener("cleared", (n) => {
+      this.inedit = false;
+      this.haserror = false;
+    });
+
     this.fieldNode.addEventListener("has-error", (n) => {
       this.haserror = true;
     });
@@ -368,7 +374,8 @@ export class FuroTreeItem extends FBP(LitElement) {
         white-space: nowrap;
         overflow: hidden;
         width: 100%;
-        top: 32px
+        top: 32px;
+        box-sizing: border-box;
       }
 
       :host([isheader]) .label {

@@ -1,7 +1,7 @@
 /**
  * `furo-api-fetch`
  *
- * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
+ * furo-api-fetch can be used for network requests via FETCH API
  *
  * ```html
  * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
@@ -73,11 +73,6 @@ class FuroApiFetch extends HTMLElement {
          * @type boolean
          */
         this.isLoading = false;
-        /**
-         * True if fetch API is not available
-         * @type {boolean}
-         */
-        this.xhrFallback = !(window.hasOwnProperty('fetch'));
     }
 
     /**
@@ -126,114 +121,28 @@ class FuroApiFetch extends HTMLElement {
         };
 
         /**
-         * Fallback, if Fetch API ist not available
+         * Default API fetch
+         * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
          */
-        if (this.xhrFallback) {
-            this._invokeXHR(request).then(response => {
-                this._reworkRequest(response);
-            }, function (error) {
-                fatal(error);
-            });
-        } else {
-            /**
-             * Default API fetch
-             * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-             */
-            this.isLoading = true;
-
-            this.dispatchEvent(new CustomEvent('request-started', {
-                detail: request, bubbles: true, composed: true
-            }));
-
-            fetch(request)
-                .then(response => {
-                    this._reworkRequest(response);
-                })
-                .catch(err => {
-                    if (err.name === 'AbortError') {
-                        this.dispatchEvent(new CustomEvent('request-aborted', {
-                            detail: request, bubbles: true, composed: true
-                        }));
-
-                        console.error('RequestService fetch aborted: ', err)
-                    } else {
-                        console.error('RequestService fatal error', err)
-                    }
-                    fatal(request);
-                })
-        }
-    }
-
-    /**
-     * Requests are made via fallback XMLHttpRequest
-     * @param request
-     * @private
-     */
-    _invokeXHR(request) {
-
-        console.info('Fetch API not available, fallback to XMLHttpRequest');
         this.isLoading = true;
 
-        return new Promise(function (resolve, reject) {
-            /**
-             * map Request to XHR
-             */
-            let req = new XMLHttpRequest();
-            req.open(request.method, request.url, true);
-            if (request.headers.get('content-type').includes('json')) {
-                req.responseType = 'json';
-            } else {
-                switch (request.headers.get('content-type')) {
-                    case 'application/octet-stream':
-                        req.responseType = 'arraybuffer';
-                        break;
-                    case 'application/pdf':
-                        req.responseType = 'arraybuffer';
-                        break;
-                    case 'image/jpeg':
-                        req.responseType = 'arraybuffer';
-                        break;
-                    case 'text/plain':
-                        req.responseType = 'text';
-                        break;
-                    default:
-                        req.responseType = 'arraybuffer';
-                }
+        this.dispatchEvent(new CustomEvent('request-started', {
+            detail: request, bubbles: true, composed: true
+        }));
 
-
-            }
-            /**
-             * Append headers from request object to XHR
-             */
-            for (var pair of request.headers.entries()) {
-                if (/[A-Z]/.test(pair[0])) {
-                    console.error('Headers must be lower case, got', pair[0]);
-                } else {
-                    req.setRequestHeader(pair[0], pair[1]);
+        fetch(request)
+            .then(response => {
+                this._reworkRequest(response);
+            })
+            .catch(err => {
+                if (err.name === 'AbortError') {
+                    this.dispatchEvent(new CustomEvent('request-aborted', {
+                        detail: request, bubbles: true, composed: true
+                    }));
+                    console.error('RequestService fetch aborted: ', err)
                 }
-            }
-            /**
-             * XHR event handlers
-             */
-            req.onloadstart = () => {
-                this.dispatchEvent(new CustomEvent('request-started', {
-                    detail: req, bubbles: true, composed: true
-                }));
-            };
-            req.onload = () => {
-                resolve(req);
-            };
-            req.onerror = (err) => {
-                console.error('XMLHttpRequest network error', err);
-                reject(req);
-            };
-            req.ontimeout = (err) => {
-                console.warn('XMLHttpRequest timeout', err);
-                reject(req);
-            };
-            // Do request
-            req.send();
-        }.bind(this));
+                fatal(request);
+            })
     }
 
     /**
@@ -276,7 +185,15 @@ class FuroApiFetch extends HTMLElement {
              * parses response object according to response heaader informationen `content-type`
              * you will find the supported content-types in the declaration area
              */
-            this._parseResponse(response);
+            this._parseResponse(response).then((r) => {
+                this.dispatchEvent(new CustomEvent('response', {
+                    detail: r, bubbles: true, composed: true
+                }));
+            }).catch((error) => {
+                this.dispatchEvent(new CustomEvent('parse-error', {
+                    detail: error, bubbles: true, composed: true
+                }));
+            });
 
         } else {
 
@@ -289,33 +206,23 @@ class FuroApiFetch extends HTMLElement {
                 detail: response, bubbles: true, composed: true
             }));
 
-
-            response.json().then((error) => {
-                if (error) {
-
-
-                    response.error = error.error;
-
-                    this.dispatchEvent(new CustomEvent('response-error-' + response.status, {
-                        detail: error, bubbles: true, composed: true
-                    }));
-
-                    this.dispatchEvent(new CustomEvent('response-error', {
-                        detail: error, bubbles: true, composed: true
-                    }));
-
-                    //console.error('Looks like there was a problem. Status Code: ', response.status);
-                }
-            }).catch(() => {
-
-                this.dispatchEvent(new CustomEvent('parse-error', {
-                    detail: response, bubbles: true, composed: true
+            /**
+             * parses response object according to response heaader informationen `content-type`
+             * you will find the supported content-types in the declaration area
+             */
+            this._parseResponse(response).then((r) => {
+                this.dispatchEvent(new CustomEvent('response-error', {
+                    detail: r, bubbles: true, composed: true
                 }));
-
-
+                this.dispatchEvent(new CustomEvent('response-error-' + response.status, {
+                    detail: r, bubbles: true, composed: true
+                }));
+            }).catch((error) => {
+                this.dispatchEvent(new CustomEvent('parse-error', {
+                    detail: error, bubbles: true, composed: true
+                }));
             });
         }
-
     }
 
     /**
@@ -327,107 +234,70 @@ class FuroApiFetch extends HTMLElement {
      */
     _parseResponse(response) {
 
-        let _self = this;
-        if (response) {
+        return new Promise((resolve, reject) => {
 
-            let contentType = this.lastRequest.headers.get('content-type');
-            let responseHandler = {
-                'text/plain': (r) => {
-                    if (this.xhrFallback) {
-                        this.dispatchEvent(new CustomEvent('response', {
-                            detail: r.response, bubbles: true, composed: true
-                        }));
-                    } else {
-                        r.text().then(function (text) {
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: text, bubbles: true, composed: true
-                            }));
+            if (response) {
+                let responseHandler = {
+                    'text/plain': (r) => {
+                        r.text().then((text) => {
+                            resolve(text)
+                        }).catch((err) => {
+                            reject(err);
                         });
-                    }
-                },
-                'application/json': (r) => {
-                    if (this.xhrFallback) {
-                        this.dispatchEvent(new CustomEvent('response', {
-                            detail: r.response, bubbles: true, composed: true
-                        }));
-                    } else {
+                    },
+                    'text/html': (r) => {
+                        r.text().then((text) => {
+                            resolve(text)
+                        }).catch((err) => {
+                            reject(err);
+                        });
+                    },
+                    'application/json': (r) => {
                         r.json().then(function (json) {
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: json, bubbles: true, composed: true
-                            }));
+                            resolve(json);
+                        }).catch((err) => {
+                            reject(err);
                         });
-                    }
-                },
-                'application/octet-stream': (r) => {
-                    if (this.xhrFallback) {
-                        this.dispatchEvent(new CustomEvent('response', {
-                            detail: r.response, bubbles: true, composed: true
-                        }));
-                    } else {
+                    },
+                    'application/octet-stream': (r) => {
                         r.arrayBuffer().then(function (buffer) {
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: buffer, bubbles: true, composed: true
-                            }));
+                            resolve(buffer);
+                        }).catch((err) => {
+                            reject(err);
                         });
-                    }
-                },
-                'application/pdf': (r) => {
-                    if (this.xhrFallback) {
-                        let blob = new Blob([r.response], {type: 'image/jpeg'});
-                        let fileReader = new FileReader();
-                        fileReader.onload = function (evt) {
-                            var result = evt.target.result;
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: result, bubbles: true, composed: true
-                            }));
-                        };
-                        fileReader.readAsDataURL(blob);
-
-                    } else {
+                    },
+                    'application/pdf': (r) => {
                         r.blob().then(function (blob) {
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: URL.createObjectURL(blob), bubbles: true, composed: true
-                            }));
+                            resolve(blob);
+                        }).catch((err) => {
+                            reject(err);
                         });
-                    }
-                },
-                'image/jpeg': (r) => {
-                    if (this.xhrFallback) {
-                        let blob = new Blob([r.response], {type: 'image/jpeg'});
-                        let fileReader = new FileReader();
-                        fileReader.onload = function (evt) {
-                            var result = evt.target.result;
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: result, bubbles: true, composed: true
-                            }));
-                        };
-                        fileReader.readAsDataURL(blob);
-
-                    } else {
+                    },
+                    'image/jpeg': (r) => {
                         r.blob().then(function (blob) {
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: URL.createObjectURL(blob), bubbles: true, composed: true
-                            }));
+                            resolve(blob);
+                        }).catch((err) => {
+                            reject(err);
                         });
-                    }
-                },
-                'default': (r) => {
-                    if (this.xhrFallback) {
-                        this.dispatchEvent(new CustomEvent('response', {
-                            detail: JSON.parse(r.response), bubbles: true, composed: true
-                        }));
-                    } else {
+                    },
+                    'default': (r) => {
                         r.json().then(function (json) {
-                            _self.dispatchEvent(new CustomEvent('response', {
-                                detail: json, bubbles: true, composed: true
-                            }));
+                            resolve(json);
+                        }).catch((err) => {
+                            reject(err);
                         });
-                    }
-                },
-            };
-            let typeHandler = responseHandler[contentType] || responseHandler['default'];
-            typeHandler(response);
-        }
+                    },
+                };
+                let contentType = response.headers.get('content-type');
+                let typeHandler = responseHandler[contentType.split(";")[0].trim()] || responseHandler['default'];
+                typeHandler(response);
+            } else {
+                reject(undefined);
+            }
+
+        });
+
+
     }
 
 }
