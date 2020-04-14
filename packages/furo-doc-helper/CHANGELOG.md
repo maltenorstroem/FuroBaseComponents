@@ -3,6 +3,219 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.19.2...@furo/doc-helper@0.19.3) (2020-04-03)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.19.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.19.1...@furo/doc-helper@0.19.2) (2020-04-03)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.19.0...@furo/doc-helper@0.19.1) (2020-04-03)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+# [0.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.18.2...@furo/doc-helper@0.19.0) (2020-03-31)
+
+
+### Features
+
+* buildTree uses furo-catalog.js as a starting point. ([76e80b1](https://github.com/theNorstroem/FuroBaseComponents/commit/76e80b1))
+* install notification ([f226b86](https://github.com/theNorstroem/FuroBaseComponents/commit/f226b86))
+
+
+
+
+
+## [0.18.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.18.1...@furo/doc-helper@0.18.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* paths and typo ([12b4a56](https://github.com/theNorstroem/FuroBaseComponents/commit/12b4a56))
+
+
+
+
+
+## [0.18.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.18.0...@furo/doc-helper@0.18.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* wrong import in main stage ([0431fdb](https://github.com/theNorstroem/FuroBaseComponents/commit/0431fdb))
+
+
+
+
+
+# [0.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.17.0...@furo/doc-helper@0.18.0) (2020-03-30)
+
+
+### Features
+
+* ghpages publish script for component template ([f069107](https://github.com/theNorstroem/FuroBaseComponents/commit/f069107))
+
+
+
+
+
+# [0.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.16.4...@furo/doc-helper@0.17.0) (2020-03-30)
+
+
+### Bug Fixes
+
+* demo title ([ee32214](https://github.com/theNorstroem/FuroBaseComponents/commit/ee32214))
+
+
+### Features
+
+* component documentation stuff ([67a94f1](https://github.com/theNorstroem/FuroBaseComponents/commit/67a94f1))
+
+
+
+
+
+## [0.16.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.16.3...@furo/doc-helper@0.16.4) (2020-03-29)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.16.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.16.2...@furo/doc-helper@0.16.3) (2020-03-27)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.16.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.16.1...@furo/doc-helper@0.16.2) (2020-03-26)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.16.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.16.0...@furo/doc-helper@0.16.1) (2020-03-16)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+# [0.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.26...@furo/doc-helper@0.16.0) (2020-03-14)
+
+
+### Features
+
+* doc-helpers updated ([05b5efd](https://github.com/theNorstroem/FuroBaseComponents/commit/05b5efd))
+
+
+
+
+
+## [0.15.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.25...@furo/doc-helper@0.15.26) (2020-03-14)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.24...@furo/doc-helper@0.15.25) (2020-03-12)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.23...@furo/doc-helper@0.15.24) (2020-03-11)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.22...@furo/doc-helper@0.15.23) (2020-03-10)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.21...@furo/doc-helper@0.15.22) (2020-03-07)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.20...@furo/doc-helper@0.15.21) (2020-03-07)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.19...@furo/doc-helper@0.15.20) (2020-03-04)
+
+
+### Bug Fixes
+
+* compatibility ([6674c97](https://github.com/theNorstroem/FuroBaseComponents/commit/6674c97))
+* graph mouseover events to tooltip ([dbfbd6d](https://github.com/theNorstroem/FuroBaseComponents/commit/dbfbd6d))
+* svgjs panzoom import structure ([7f0ee54](https://github.com/theNorstroem/FuroBaseComponents/commit/7f0ee54))
+
+
+
+
+
+## [0.15.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.18...@furo/doc-helper@0.15.19) (2020-02-27)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.17...@furo/doc-helper@0.15.18) (2020-02-26)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [0.15.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.16...@furo/doc-helper@0.15.17) (2020-02-19)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [0.15.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.15...@furo/doc-helper@0.15.16) (2020-02-18)
 
 **Note:** Version bump only for package @furo/doc-helper

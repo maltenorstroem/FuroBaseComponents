@@ -87,6 +87,12 @@
     "furoFieldoption": {
       "type": "object",
       "properties": {
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "list": {
           "type": "array",
           "items": {

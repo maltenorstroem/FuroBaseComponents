@@ -1918,6 +1918,25 @@ public final class MetaOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>repeated string flags = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getFlagsList();
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    int getFlagsCount();
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    java.lang.String getFlags(int index);
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getFlagsBytes(int index);
+
+    /**
      * <pre>
      * a list with options, use furo.optionitem or your own
      * </pre>
@@ -1978,6 +1997,7 @@ public final class MetaOuterClass {
       super(builder);
     }
     private Fieldoption() {
+      flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       list_ = java.util.Collections.emptyList();
     }
 
@@ -2006,12 +2026,21 @@ public final class MetaOuterClass {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 list_ = new java.util.ArrayList<google.protobuf.AnyOuterClass.Any>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               list_.add(
                   input.readMessage(google.protobuf.AnyOuterClass.Any.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                flags_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              flags_.add(s);
               break;
             }
             default: {
@@ -2029,8 +2058,11 @@ public final class MetaOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           list_ = java.util.Collections.unmodifiableList(list_);
+        }
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          flags_ = flags_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2047,6 +2079,35 @@ public final class MetaOuterClass {
       return furo.MetaOuterClass.internal_static_furo_Fieldoption_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               furo.MetaOuterClass.Fieldoption.class, furo.MetaOuterClass.Fieldoption.Builder.class);
+    }
+
+    public static final int FLAGS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList flags_;
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFlagsList() {
+      return flags_;
+    }
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    public int getFlagsCount() {
+      return flags_.size();
+    }
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    public java.lang.String getFlags(int index) {
+      return flags_.get(index);
+    }
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFlagsBytes(int index) {
+      return flags_.getByteString(index);
     }
 
     public static final int LIST_FIELD_NUMBER = 1;
@@ -2121,6 +2182,9 @@ public final class MetaOuterClass {
       for (int i = 0; i < list_.size(); i++) {
         output.writeMessage(1, list_.get(i));
       }
+      for (int i = 0; i < flags_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, flags_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2133,6 +2197,14 @@ public final class MetaOuterClass {
       for (int i = 0; i < list_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, list_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < flags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(flags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFlagsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2149,6 +2221,8 @@ public final class MetaOuterClass {
       }
       furo.MetaOuterClass.Fieldoption other = (furo.MetaOuterClass.Fieldoption) obj;
 
+      if (!getFlagsList()
+          .equals(other.getFlagsList())) return false;
       if (!getListList()
           .equals(other.getListList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -2162,6 +2236,10 @@ public final class MetaOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (getFlagsCount() > 0) {
+        hash = (37 * hash) + FLAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getFlagsList().hashCode();
+      }
       if (getListCount() > 0) {
         hash = (37 * hash) + LIST_FIELD_NUMBER;
         hash = (53 * hash) + getListList().hashCode();
@@ -2304,9 +2382,11 @@ public final class MetaOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (listBuilder_ == null) {
           list_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           listBuilder_.clear();
         }
@@ -2337,10 +2417,15 @@ public final class MetaOuterClass {
       public furo.MetaOuterClass.Fieldoption buildPartial() {
         furo.MetaOuterClass.Fieldoption result = new furo.MetaOuterClass.Fieldoption(this);
         int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          flags_ = flags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.flags_ = flags_;
         if (listBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             list_ = java.util.Collections.unmodifiableList(list_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.list_ = list_;
         } else {
@@ -2394,11 +2479,21 @@ public final class MetaOuterClass {
 
       public Builder mergeFrom(furo.MetaOuterClass.Fieldoption other) {
         if (other == furo.MetaOuterClass.Fieldoption.getDefaultInstance()) return this;
+        if (!other.flags_.isEmpty()) {
+          if (flags_.isEmpty()) {
+            flags_ = other.flags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureFlagsIsMutable();
+            flags_.addAll(other.flags_);
+          }
+          onChanged();
+        }
         if (listBuilder_ == null) {
           if (!other.list_.isEmpty()) {
             if (list_.isEmpty()) {
               list_ = other.list_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureListIsMutable();
               list_.addAll(other.list_);
@@ -2411,7 +2506,7 @@ public final class MetaOuterClass {
               listBuilder_.dispose();
               listBuilder_ = null;
               list_ = other.list_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               listBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getListFieldBuilder() : null;
@@ -2450,12 +2545,106 @@ public final class MetaOuterClass {
       }
       private int bitField0_;
 
+      private com.google.protobuf.LazyStringList flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFlagsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          flags_ = new com.google.protobuf.LazyStringArrayList(flags_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFlagsList() {
+        return flags_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public int getFlagsCount() {
+        return flags_.size();
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public java.lang.String getFlags(int index) {
+        return flags_.get(index);
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFlagsBytes(int index) {
+        return flags_.getByteString(index);
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public Builder setFlags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagsIsMutable();
+        flags_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public Builder addFlags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagsIsMutable();
+        flags_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public Builder addAllFlags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFlagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, flags_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public Builder clearFlags() {
+        flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public Builder addFlagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFlagsIsMutable();
+        flags_.add(value);
+        onChanged();
+        return this;
+      }
+
       private java.util.List<google.protobuf.AnyOuterClass.Any> list_ =
         java.util.Collections.emptyList();
       private void ensureListIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           list_ = new java.util.ArrayList<google.protobuf.AnyOuterClass.Any>(list_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -2649,7 +2838,7 @@ public final class MetaOuterClass {
       public Builder clearList() {
         if (listBuilder_ == null) {
           list_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           listBuilder_.clear();
@@ -2754,7 +2943,7 @@ public final class MetaOuterClass {
           listBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder>(
                   list_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           list_ = null;
@@ -6042,17 +6231,17 @@ public final class MetaOuterClass {
       "aintsEntry\022\013\n\003key\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025" +
       ".furo.FieldConstraint:\0028\001\"@\n\nOptionitem\022" +
       "\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\020\n\010sel" +
-      "ected\030\003 \001(\010\"1\n\013Fieldoption\022\"\n\004list\030\001 \003(\013" +
-      "2\024.google.protobuf.Any\"n\n\004Meta\022&\n\006fields" +
-      "\030\001 \003(\0132\026.furo.Meta.FieldsEntry\032>\n\013Fields" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.furo" +
-      ".MetaField:\0028\001\"\255\001\n\tFieldMeta\022\017\n\007default\030" +
-      "\003 \001(\t\022\014\n\004hint\030\002 \001(\t\022\r\n\005label\030\001 \001(\t\022\"\n\007op" +
-      "tions\030\006 \001(\0132\021.furo.Fieldoption\022\020\n\010readon" +
-      "ly\030\004 \001(\010\022\020\n\010repeated\030\005 \001(\010\022*\n\014typespecif" +
-      "ic\030\007 \001(\0132\024.google.protobuf.Any\".\n\017FieldC" +
-      "onstraint\022\n\n\002is\030\001 \001(\t\022\017\n\007message\030\002 \001(\tb\006" +
-      "proto3"
+      "ected\030\003 \001(\010\"@\n\013Fieldoption\022\r\n\005flags\030\002 \003(" +
+      "\t\022\"\n\004list\030\001 \003(\0132\024.google.protobuf.Any\"n\n" +
+      "\004Meta\022&\n\006fields\030\001 \003(\0132\026.furo.Meta.Fields" +
+      "Entry\032>\n\013FieldsEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005val" +
+      "ue\030\002 \001(\0132\017.furo.MetaField:\0028\001\"\255\001\n\tFieldM" +
+      "eta\022\017\n\007default\030\003 \001(\t\022\014\n\004hint\030\002 \001(\t\022\r\n\005la" +
+      "bel\030\001 \001(\t\022\"\n\007options\030\006 \001(\0132\021.furo.Fieldo" +
+      "ption\022\020\n\010readonly\030\004 \001(\010\022\020\n\010repeated\030\005 \001(" +
+      "\010\022*\n\014typespecific\030\007 \001(\0132\024.google.protobu" +
+      "f.Any\".\n\017FieldConstraint\022\n\n\002is\030\001 \001(\t\022\017\n\007" +
+      "message\030\002 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6090,7 +6279,7 @@ public final class MetaOuterClass {
     internal_static_furo_Fieldoption_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Fieldoption_descriptor,
-        new java.lang.String[] { "List", });
+        new java.lang.String[] { "Flags", "List", });
     internal_static_furo_Meta_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_furo_Meta_fieldAccessorTable = new

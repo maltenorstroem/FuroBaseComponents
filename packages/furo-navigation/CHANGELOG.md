@@ -3,6 +3,193 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.46.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.46.2...@furo/navigation@0.46.3) (2020-04-03)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.46.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.46.1...@furo/navigation@0.46.2) (2020-04-03)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.46.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.46.0...@furo/navigation@0.46.1) (2020-04-03)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+# [0.46.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.45.0...@furo/navigation@0.46.0) (2020-03-30)
+
+
+### Features
+
+* installable specs and signatures for package navigation ([fbf529c](https://github.com/theNorstroem/FuroBaseComponents/commit/fbf529c))
+
+
+
+
+
+# [0.45.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.44.5...@furo/navigation@0.45.0) (2020-03-29)
+
+
+### Features
+
+* installable specs and signatures for package navigation ([65005b9](https://github.com/theNorstroem/FuroBaseComponents/commit/65005b9))
+
+
+
+
+
+## [0.44.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.44.4...@furo/navigation@0.44.5) (2020-03-27)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.44.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.44.3...@furo/navigation@0.44.4) (2020-03-26)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.44.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.44.2...@furo/navigation@0.44.3) (2020-03-16)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.44.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.44.1...@furo/navigation@0.44.2) (2020-03-14)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.44.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.44.0...@furo/navigation@0.44.1) (2020-03-14)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+# [0.44.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.43.4...@furo/navigation@0.44.0) (2020-03-12)
+
+
+### Features
+
+* furo-tree extendable ([e0aad5c](https://github.com/theNorstroem/FuroBaseComponents/commit/e0aad5c))
+
+
+
+
+
+## [0.43.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.43.3...@furo/navigation@0.43.4) (2020-03-11)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.43.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.43.2...@furo/navigation@0.43.3) (2020-03-10)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.43.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.43.1...@furo/navigation@0.43.2) (2020-03-07)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.43.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.43.0...@furo/navigation@0.43.1) (2020-03-07)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+# [0.43.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.42.0...@furo/navigation@0.43.0) (2020-03-04)
+
+
+### Bug Fixes
+
+* close tab fixed ([bd5d4eb](https://github.com/theNorstroem/FuroBaseComponents/commit/bd5d4eb))
+* close tab fixed ([e8e0372](https://github.com/theNorstroem/FuroBaseComponents/commit/e8e0372))
+* compatibility ([f06b658](https://github.com/theNorstroem/FuroBaseComponents/commit/f06b658))
+* compatibility ([6674c97](https://github.com/theNorstroem/FuroBaseComponents/commit/6674c97))
+
+
+### Features
+
+* app-bar-top with "small" tag for the title ([550d7f4](https://github.com/theNorstroem/FuroBaseComponents/commit/550d7f4))
+* spec are installable, basetype component ([be52471](https://github.com/theNorstroem/FuroBaseComponents/commit/be52471))
+
+
+
+
+
+# [0.42.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.41.0...@furo/navigation@0.42.0) (2020-02-27)
+
+
+### Features
+
+* furo-data-table extended with default slot to place e.g. pagination controls ([7308acc](https://github.com/theNorstroem/FuroBaseComponents/commit/7308acc))
+
+
+
+
+
+# [0.41.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.40.3...@furo/navigation@0.41.0) (2020-02-26)
+
+
+### Bug Fixes
+
+* css transition deduplicated ([8d8b346](https://github.com/theNorstroem/FuroBaseComponents/commit/8d8b346))
+
+
+### Features
+
+* navigation-pad ([e29dccd](https://github.com/theNorstroem/FuroBaseComponents/commit/e29dccd))
+* ripple effect on tree item click ([a369c0f](https://github.com/theNorstroem/FuroBaseComponents/commit/a369c0f))
+* state-vars from styling and pseudohover ([9a78dfe](https://github.com/theNorstroem/FuroBaseComponents/commit/9a78dfe))
+* tree with external api for navigation ([3218c76](https://github.com/theNorstroem/FuroBaseComponents/commit/3218c76))
+
+
+
+
+
+## [0.40.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.40.2...@furo/navigation@0.40.3) (2020-02-19)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 ## [0.40.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.40.1...@furo/navigation@0.40.2) (2020-02-18)
 
 **Note:** Version bump only for package @furo/navigation

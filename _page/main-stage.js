@@ -9,10 +9,11 @@ import "./components/header-toolbar";
 import "@furo/notification/furo-snackbar-display";
 
 import '@furo/layout/furo-vertical-flex';
-import '@furo/route/furo-location';
-import '@furo/route/furo-pages';
-import '@furo/route/furo-app-flow';
+import '@furo/route/src/furo-location';
+import '@furo/route/src/furo-pages';
+import '@furo/route/src/furo-app-flow';
 import '@furo/fbp/flow-bind';
+import '@furo/app/furo-tooltip-display';
 
 
 /**
@@ -35,9 +36,6 @@ class MainStage extends FBP(LitElement) {
      */
     this._FBPAddWireHook("--locationChanged", (e) => {
       switch (e.pathSegments[0]) {
-        case "api":
-          import("./api/view-api");
-          break;
         case "guide":
           import ("./guide/view-guide");
           break;
@@ -102,6 +100,7 @@ class MainStage extends FBP(LitElement) {
        
       <furo-location @-location-changed="--locationChanged"></furo-location>
         <furo-snackbar-display></furo-snackbar-display>
+        <furo-tooltip-display></furo-tooltip-display>
     `;
   }
 

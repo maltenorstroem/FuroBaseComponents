@@ -40,8 +40,11 @@ function sh(command, arguments) {
   execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
 }
 
+
 // Build up the file list
-sh(__dirname + "/createSpecList.sh", [config.spec_dir, __dirname + "/../_baseTypes"]);
+sh(__dirname + "/createSpecList.sh", [config.spec_dir, ...config.import_spec_dirs]);
+
+
 
 // read the list with the filenames and build the main structure
 
@@ -178,6 +181,19 @@ let t = {};
 
 
 ClientEnv.types.forEach((type) => {
+  for (let f in type.fields) {
+    let field = type.fields[f];
+    if (field.meta && !(field.meta.default === null || field.meta.default === undefined)) {
+
+      // convert to Object Literal when Json string was given
+      try {
+        field.meta.default =   JSON.parse(field.meta.default);
+      } catch (e) {
+
+      }
+
+    }
+  }
   t[type.__proto.package + "." + type.type] = type
 });
 

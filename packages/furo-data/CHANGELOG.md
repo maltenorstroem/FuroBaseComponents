@@ -3,6 +3,115 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.72.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.72.4...@furo/data@0.72.5) (2020-04-03)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.72.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.72.3...@furo/data@0.72.4) (2020-04-03)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.72.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.72.2...@furo/data@0.72.3) (2020-04-03)
+
+
+### Bug Fixes
+
+* method PATCH should transmit required fields inside of deep repeated structure ([5a9f87a](https://github.com/theNorstroem/FuroBaseComponents/commit/5a9f87a))
+
+
+
+
+
+## [0.72.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.72.1...@furo/data@0.72.2) (2020-03-29)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.72.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.72.0...@furo/data@0.72.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* meta information from response should be applied before meta information from api spec ([1a42fac](https://github.com/theNorstroem/FuroBaseComponents/commit/1a42fac))
+
+
+
+
+
+# [0.72.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.71.0...@furo/data@0.72.0) (2020-03-26)
+
+
+### Features
+
+* furo-data-context-menu tests are working again ([8448896](https://github.com/theNorstroem/FuroBaseComponents/commit/8448896))
+
+
+
+
+
+# [0.71.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.8...@furo/data@0.71.0) (2020-03-11)
+
+
+### Bug Fixes
+
+* deleting map types ([8132a48](https://github.com/theNorstroem/FuroBaseComponents/commit/8132a48))
+
+
+### Features
+
+* api prefixes for apis which are relative to the apps directory ([c861499](https://github.com/theNorstroem/FuroBaseComponents/commit/c861499))
+* prefixes for apis ([3036882](https://github.com/theNorstroem/FuroBaseComponents/commit/3036882))
+
+
+
+
+
+## [0.70.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.7...@furo/data@0.70.8) (2020-03-10)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.70.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.6...@furo/data@0.70.7) (2020-03-07)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [0.70.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.5...@furo/data@0.70.6) (2020-03-07)
+
+
+### Bug Fixes
+
+* query params are now fully describable in the service api specification. ([975f542](https://github.com/theNorstroem/FuroBaseComponents/commit/975f542))
+
+
+
+
+
+## [0.70.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.4...@furo/data@0.70.5) (2020-02-19)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [0.70.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.3...@furo/data@0.70.4) (2020-02-18)
 
 **Note:** Version bump only for package @furo/data

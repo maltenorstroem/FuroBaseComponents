@@ -3,6 +3,156 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.69.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.12...@furo/data-input@0.69.13) (2020-04-03)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.11...@furo/data-input@0.69.12) (2020-04-03)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.10...@furo/data-input@0.69.11) (2020-04-03)
+
+
+### Bug Fixes
+
+* method PATCH should transmit required fields inside of deep repeated structure ([5a9f87a](https://github.com/theNorstroem/FuroBaseComponents/commit/5a9f87a))
+
+
+
+
+
+## [0.69.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.9...@furo/data-input@0.69.10) (2020-03-29)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.8...@furo/data-input@0.69.9) (2020-03-27)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.7...@furo/data-input@0.69.8) (2020-03-26)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.6...@furo/data-input@0.69.7) (2020-03-16)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.5...@furo/data-input@0.69.6) (2020-03-14)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.4...@furo/data-input@0.69.5) (2020-03-14)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.3...@furo/data-input@0.69.4) (2020-03-12)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.2...@furo/data-input@0.69.3) (2020-03-11)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.1...@furo/data-input@0.69.2) (2020-03-10)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.69.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.69.0...@furo/data-input@0.69.1) (2020-03-07)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [0.69.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.7...@furo/data-input@0.69.0) (2020-03-07)
+
+
+### Features
+
+* repeated items can have css :host(.in-repeater) to define a border or margins when it is in a data-repeat ([b8824f6](https://github.com/theNorstroem/FuroBaseComponents/commit/b8824f6))
+
+
+
+
+
+## [0.68.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.6...@furo/data-input@0.68.7) (2020-03-04)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.68.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.5...@furo/data-input@0.68.6) (2020-02-27)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.68.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.4...@furo/data-input@0.68.5) (2020-02-26)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.68.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.3...@furo/data-input@0.68.4) (2020-02-19)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [0.68.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.2...@furo/data-input@0.68.3) (2020-02-18)
 
 

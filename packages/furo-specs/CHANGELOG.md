@@ -3,6 +3,117 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.1.2...@furo/specs@1.2.4) (2020-04-09)
+
+
+### Bug Fixes
+
+* prepare for v1 final steps ([71827bb](https://github.com/theNorstroem/FuroBaseComponents/commit/71827bb))
+
+
+
+
+
+## [1.1.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.0.2...@furo/specs@1.1.2) (2020-04-09)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+## [1.0.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.0.1...@furo/specs@1.0.2) (2020-04-09)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+## [1.0.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.52.0...@furo/specs@1.0.1) (2020-04-09)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+# [0.52.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.51.1...@furo/specs@0.52.0) (2020-03-29)
+
+
+### Features
+
+* creator for importable specs ([2650ade](https://github.com/theNorstroem/FuroBaseComponents/commit/2650ade))
+
+
+
+
+
+## [0.51.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.51.0...@furo/specs@0.51.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* meta information from response should be applied before meta information from api spec ([1a42fac](https://github.com/theNorstroem/FuroBaseComponents/commit/1a42fac))
+
+
+
+
+
+# [0.51.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.50.2...@furo/specs@0.51.0) (2020-03-26)
+
+
+### Features
+
+* furo-data-context-menu tests are working again ([39474b8](https://github.com/theNorstroem/FuroBaseComponents/commit/39474b8))
+* furo-data-context-menu tests are working again ([8448896](https://github.com/theNorstroem/FuroBaseComponents/commit/8448896))
+
+
+
+
+
+## [0.50.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.50.1...@furo/specs@0.50.2) (2020-03-10)
+
+
+### Bug Fixes
+
+* parse root dir spec projects ([d54727e](https://github.com/theNorstroem/FuroBaseComponents/commit/d54727e))
+
+
+
+
+
+## [0.50.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.50.0...@furo/specs@0.50.1) (2020-03-07)
+
+
+### Bug Fixes
+
+* query params are now fully describable in the service api specification. ([975f542](https://github.com/theNorstroem/FuroBaseComponents/commit/975f542))
+
+
+
+
+
+# [0.50.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.49.1...@furo/specs@0.50.0) (2020-03-04)
+
+
+### Features
+
+* app-bar-top with "small" tag for the title ([550d7f4](https://github.com/theNorstroem/FuroBaseComponents/commit/550d7f4))
+* spec are installable, basetype component ([be52471](https://github.com/theNorstroem/FuroBaseComponents/commit/be52471))
+
+
+
+
+
+## [0.49.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.49.0...@furo/specs@0.49.1) (2020-02-26)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
 # [0.49.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.48.0...@furo/specs@0.49.0) (2020-02-10)
 
 

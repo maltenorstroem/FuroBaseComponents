@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.10...@furo/form@0.27.11) (2020-04-03)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.9...@furo/form@0.27.10) (2020-04-03)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.8...@furo/form@0.27.9) (2020-03-29)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.7...@furo/form@0.27.8) (2020-03-26)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.6...@furo/form@0.27.7) (2020-03-16)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.5...@furo/form@0.27.6) (2020-03-14)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.4...@furo/form@0.27.5) (2020-03-14)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.3...@furo/form@0.27.4) (2020-03-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.2...@furo/form@0.27.3) (2020-03-11)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.1...@furo/form@0.27.2) (2020-03-10)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.27.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.27.0...@furo/form@0.27.1) (2020-03-07)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [0.27.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.26.9...@furo/form@0.27.0) (2020-03-07)
+
+
+### Features
+
+* furo-form-layouter now supports `newline` attribute on slotted elements ([f8a9711](https://github.com/theNorstroem/FuroBaseComponents/commit/f8a9711))
+
+
+
+
+
 ## [0.26.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.26.8...@furo/form@0.26.9) (2020-02-07)
 
 **Note:** Version bump only for package @furo/form

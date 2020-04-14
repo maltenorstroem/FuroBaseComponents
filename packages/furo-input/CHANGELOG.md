@@ -3,6 +3,146 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.67.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.12...@furo/input@0.67.13) (2020-04-03)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.11...@furo/input@0.67.12) (2020-04-03)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.10...@furo/input@0.67.11) (2020-03-29)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.9...@furo/input@0.67.10) (2020-03-26)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.8...@furo/input@0.67.9) (2020-03-16)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.7...@furo/input@0.67.8) (2020-03-14)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.6...@furo/input@0.67.7) (2020-03-14)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.5...@furo/input@0.67.6) (2020-03-12)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.4...@furo/input@0.67.5) (2020-03-11)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.3...@furo/input@0.67.4) (2020-03-10)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.2...@furo/input@0.67.3) (2020-03-07)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.67.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.1...@furo/input@0.67.2) (2020-03-07)
+
+
+### Bug Fixes
+
+* input field should initially be valid ([a271ba3](https://github.com/theNorstroem/FuroBaseComponents/commit/a271ba3))
+
+
+
+
+
+## [0.67.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.0...@furo/input@0.67.1) (2020-03-04)
+
+
+### Bug Fixes
+
+* safari input type search css fix ([cddcdc4](https://github.com/theNorstroem/FuroBaseComponents/commit/cddcdc4))
+
+
+
+
+
+# [0.67.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.3...@furo/input@0.67.0) (2020-02-27)
+
+
+### Features
+
+* furo-data-table extended with default slot to place e.g. pagination controls ([7308acc](https://github.com/theNorstroem/FuroBaseComponents/commit/7308acc))
+
+
+
+
+
+## [0.66.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.2...@furo/input@0.66.3) (2020-02-26)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [0.66.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.1...@furo/input@0.66.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* furo-file-dialog tabindex-1 ([12765a0](https://github.com/theNorstroem/FuroBaseComponents/commit/12765a0))
+
+
+
+
+
 ## [0.66.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.0...@furo/input@0.66.1) (2020-02-18)
 
 **Note:** Version bump only for package @furo/input

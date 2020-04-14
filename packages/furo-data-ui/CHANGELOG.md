@@ -3,6 +3,149 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.14.2...@furo/data-ui@0.14.3) (2020-04-03)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.14.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.14.1...@furo/data-ui@0.14.2) (2020-04-03)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.14.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.14.0...@furo/data-ui@0.14.1) (2020-04-03)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+# [0.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.13.1...@furo/data-ui@0.14.0) (2020-03-29)
+
+
+### Features
+
+* installable specs and signatures for package navigation ([65005b9](https://github.com/theNorstroem/FuroBaseComponents/commit/65005b9))
+* menu type signature and importable spec ([c68e4ba](https://github.com/theNorstroem/FuroBaseComponents/commit/c68e4ba))
+
+
+
+
+
+## [0.13.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.13.0...@furo/data-ui@0.13.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* scrolling behaviour ([4ea03fb](https://github.com/theNorstroem/FuroBaseComponents/commit/4ea03fb))
+
+
+
+
+
+# [0.13.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.5...@furo/data-ui@0.13.0) (2020-03-26)
+
+
+### Features
+
+* furo-data-context-menu ([70028cd](https://github.com/theNorstroem/FuroBaseComponents/commit/70028cd))
+* furo-data-context-menu ([29e5da3](https://github.com/theNorstroem/FuroBaseComponents/commit/29e5da3))
+* furo-data-context-menu condensed mode ([e3bd9cb](https://github.com/theNorstroem/FuroBaseComponents/commit/e3bd9cb))
+* furo-data-context-menu first layer working ([49e0fac](https://github.com/theNorstroem/FuroBaseComponents/commit/49e0fac))
+* furo-data-context-menu first visible result ([c6ed44b](https://github.com/theNorstroem/FuroBaseComponents/commit/c6ed44b))
+* furo-data-context-menu groups with no icons ([493c0fe](https://github.com/theNorstroem/FuroBaseComponents/commit/493c0fe))
+* furo-data-context-menu open with keyboard focuses the first element ([7520ede](https://github.com/theNorstroem/FuroBaseComponents/commit/7520ede))
+* furo-data-context-menu submenus keyboard and mouse ([502af77](https://github.com/theNorstroem/FuroBaseComponents/commit/502af77))
+* furo-data-context-menu submenus opnable ([0ec7f9f](https://github.com/theNorstroem/FuroBaseComponents/commit/0ec7f9f))
+* furo-data-context-menu tests ([e879c25](https://github.com/theNorstroem/FuroBaseComponents/commit/e879c25))
+* furo-data-context-menu tests are working again ([efdc41f](https://github.com/theNorstroem/FuroBaseComponents/commit/efdc41f))
+* furo-data-context-menu tests are working again ([39474b8](https://github.com/theNorstroem/FuroBaseComponents/commit/39474b8))
+* furo-data-context-menu tests are working again ([8448896](https://github.com/theNorstroem/FuroBaseComponents/commit/8448896))
+
+
+
+
+
+## [0.12.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.4...@furo/data-ui@0.12.5) (2020-03-11)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.12.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.3...@furo/data-ui@0.12.4) (2020-03-10)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.12.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.2...@furo/data-ui@0.12.3) (2020-03-07)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.12.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.1...@furo/data-ui@0.12.2) (2020-03-07)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.12.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.0...@furo/data-ui@0.12.1) (2020-03-04)
+
+
+### Bug Fixes
+
+* styling updates, fix values removed ([dbfeaf2](https://github.com/theNorstroem/FuroBaseComponents/commit/dbfeaf2))
+
+
+
+
+
+# [0.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.15...@furo/data-ui@0.12.0) (2020-02-27)
+
+
+### Features
+
+* furo-data-table extended with default slot to place e.g. pagination controls ([7308acc](https://github.com/theNorstroem/FuroBaseComponents/commit/7308acc))
+
+
+
+
+
+## [0.11.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.14...@furo/data-ui@0.11.15) (2020-02-26)
+
+
+### Bug Fixes
+
+* single selection delivered wrong object ([5753f21](https://github.com/theNorstroem/FuroBaseComponents/commit/5753f21))
+
+
+
+
+
+## [0.11.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.13...@furo/data-ui@0.11.14) (2020-02-19)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
 ## [0.11.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.12...@furo/data-ui@0.11.13) (2020-02-18)
 
 **Note:** Version bump only for package @furo/data-ui

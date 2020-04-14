@@ -3,6 +3,128 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.25.4...@furo/route@0.25.5) (2020-04-03)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.25.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.25.3...@furo/route@0.25.4) (2020-04-03)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.25.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.25.2...@furo/route@0.25.3) (2020-04-03)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.25.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.25.1...@furo/route@0.25.2) (2020-03-29)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.25.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.25.0...@furo/route@0.25.1) (2020-03-27)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.25.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.24.1...@furo/route@0.25.0) (2020-03-26)
+
+
+### Features
+
+* furo-data-context-menu tests are working again ([8448896](https://github.com/theNorstroem/FuroBaseComponents/commit/8448896))
+
+
+
+
+
+## [0.24.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.24.0...@furo/route@0.24.1) (2020-03-11)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+# [0.24.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.11...@furo/route@0.24.0) (2020-03-10)
+
+
+### Features
+
+* app support in sub directory ([c1c0a92](https://github.com/theNorstroem/FuroBaseComponents/commit/c1c0a92))
+* app support in sub directory ([d1ea586](https://github.com/theNorstroem/FuroBaseComponents/commit/d1ea586))
+
+
+
+
+
+## [0.23.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.10...@furo/route@0.23.11) (2020-03-07)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.23.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.9...@furo/route@0.23.10) (2020-03-07)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.23.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.8...@furo/route@0.23.9) (2020-03-04)
+
+
+### Bug Fixes
+
+* close tab fixed ([e8e0372](https://github.com/theNorstroem/FuroBaseComponents/commit/e8e0372))
+
+
+
+
+
+## [0.23.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.7...@furo/route@0.23.8) (2020-02-27)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.23.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.6...@furo/route@0.23.7) (2020-02-26)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.23.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.5...@furo/route@0.23.6) (2020-02-19)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
 ## [0.23.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.4...@furo/route@0.23.5) (2020-02-18)
 
 
