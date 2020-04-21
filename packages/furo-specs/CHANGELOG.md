@@ -3,6 +3,109 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.9.0...@furo/specs@1.9.1) (2020-04-21)
+
+
+### Bug Fixes
+
+* multiline descriptions ([d7cb90e](https://github.com/theNorstroem/FuroBaseComponents/commit/d7cb90e38e8c93b2a43a6b4dca6dbe6ac8aa9635))
+
+
+
+
+
+# [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.8.1...@furo/specs@1.9.0) (2020-04-20)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.6.0...@furo/specs@1.8.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c4))
+
+
+
+
+
+# [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.6.0...@furo/specs@1.7.0) (2020-04-20)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.5.0...@furo/specs@1.6.0) (2020-04-19)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.4.0...@furo/specs@1.5.0) (2020-04-19)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.3.0...@furo/specs@1.4.0) (2020-04-15)
+
+
+### Bug Fixes
+
+* add type of query to proto template ([39d1b96](https://github.com/theNorstroem/FuroBaseComponents/commit/39d1b96))
+
+
+### Features
+
+* create addable specs with optional directory argument ([901f740](https://github.com/theNorstroem/FuroBaseComponents/commit/901f740))
+
+
+
+
+
+# [1.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.7...@furo/specs@1.3.0) (2020-04-14)
+
+
+### Features
+
+* accept all orgs for packages ([41c6071](https://github.com/theNorstroem/FuroBaseComponents/commit/41c6071))
+
+
+
+
+
+## [1.2.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.6...@furo/specs@1.2.7) (2020-04-14)
+
+
+### Bug Fixes
+
+* protobuf/proto-gen-go flag update ([aa4bf99](https://github.com/theNorstroem/FuroBaseComponents/commit/aa4bf99))
+
+
+
+
+
+## [1.2.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.4...@furo/specs@1.2.6) (2020-04-14)
+
+
+### Bug Fixes
+
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86e))
+
+
+
+
+
 ## [1.2.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.1.2...@furo/specs@1.2.4) (2020-04-09)
 
 
