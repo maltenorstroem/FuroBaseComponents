@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.9...@furo/app@1.3.10) (2020-05-12)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.8...@furo/app@1.3.9) (2020-05-01)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.7...@furo/app@1.3.8) (2020-04-29)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.6...@furo/app@1.3.7) (2020-04-29)
+
+
+### Bug Fixes
+
+* app drawer stays open on init ([7ece167](https://github.com/theNorstroem/FuroBaseComponents/commit/7ece167975a5e20ec817a7c706d7feb32d15826b))
+* initial render of a floating drawer without short flickering ([15a2149](https://github.com/theNorstroem/FuroBaseComponents/commit/15a2149bec13aa7609b6b8e15ea53e42b92a82e6))
+
+
+
+
+
+## [1.3.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.5...@furo/app@1.3.6) (2020-04-24)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.4...@furo/app@1.3.5) (2020-04-22)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
 ## [1.3.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.3...@furo/app@1.3.4) (2020-04-21)
 
 **Note:** Version bump only for package @furo/app

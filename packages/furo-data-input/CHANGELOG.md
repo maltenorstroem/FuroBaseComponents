@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.3...@furo/data-input@1.4.4) (2020-05-15)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.2...@furo/data-input@1.4.3) (2020-05-13)
+
+
+### Bug Fixes
+
+* meta changes should be notified to all subfields ([5e0de87](https://github.com/theNorstroem/FuroBaseComponents/commit/5e0de875efe4858b988616fcfd8a2217097b1716))
+
+
+
+
+
+## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.1...@furo/data-input@1.4.2) (2020-05-12)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.0...@furo/data-input@1.4.1) (2020-05-01)
+
+
+### Bug Fixes
+
+* date-input fixed. prettier furo-data-money-input ([620e82b](https://github.com/theNorstroem/FuroBaseComponents/commit/620e82b3ad4fbdef492293ecfd871e6e3ffbc181))
+
+
+
+
+
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.7...@furo/data-input@1.4.0) (2020-04-29)
+
+
+### Features
+
+* Big texts in furo-data-display shows an ellipsis now. If you hover the shortened text, the full text is shown. ([821a860](https://github.com/theNorstroem/FuroBaseComponents/commit/821a86075ad28f4af75caf0a201a28bee0c072f2))
+
+
+
+
+
+## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.6...@furo/data-input@1.3.7) (2020-04-29)
+
+
+### Bug Fixes
+
+* required field in furo-data-collection-dropdown should be marked with * ([ff8cc7d](https://github.com/theNorstroem/FuroBaseComponents/commit/ff8cc7d3fe94e2fecfde8ce98c41b7d7bbe6c9c7))
+
+
+
+
+
+## [1.3.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.5...@furo/data-input@1.3.6) (2020-04-24)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.3.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.4...@furo/data-input@1.3.5) (2020-04-22)
+
+
+### Bug Fixes
+
+* required furo-date-input and furo-reference-search marked as required with * ([26ae4e0](https://github.com/theNorstroem/FuroBaseComponents/commit/26ae4e0e886d827e1769c605efb0466badc01abb))
+
+
+
+
+
 ## [1.3.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.3...@furo/data-input@1.3.4) (2020-04-21)
 
 **Note:** Version bump only for package @furo/data-input

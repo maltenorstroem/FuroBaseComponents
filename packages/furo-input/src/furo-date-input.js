@@ -90,6 +90,18 @@ class FuroDateInput extends FBP(LitElement) {
     this._value = this.value || '';
 
     this._FBPAddWireHook('--inputInput', e => {
+      // fix for e.g. by date "01.01.2000" you just want to modify the day and begin to tap 0.
+      // at this moment the value of input in wire `--inputInput` is empty.(a bug in date input?)
+      // this value has to be prevented to be send to object. because this empty value will be set to input again via `--value`.
+      // then the hole date is cleared.
+      if (e.composedPath()[0].value) {
+        Helper.triggerValueChanged(this, e);
+      }
+    });
+
+    // update value by focusout. This can guarantee that the clear-button works.
+    // because by `--inputInput` the empty data was not sent to value. see the code obove
+    this._FBPAddWireHook('--focusOutReceived', e => {
       Helper.triggerValueChanged(this, e);
     });
   }
@@ -142,6 +154,13 @@ class FuroDateInput extends FBP(LitElement) {
        */
       min: {
         type: String,
+      },
+      /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean,
       },
       /**
        * The latest date to accept, in the syntax described under Date value format
@@ -627,6 +646,7 @@ class FuroDateInput extends FBP(LitElement) {
             type="date"
             ƒ-.value="--value"
             @-input="--inputInput(*)"
+            @-focusout="--focusOutReceived(*)"
             ƒ-focus="--focus"
           />
         </div>
@@ -638,7 +658,15 @@ class FuroDateInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
         <div class="left-border"></div>
-        <label ?float="${this._float || this.float}" for="input"><span>${this.label}</span></label>
+        <label ?float="${this._float || this.float}" for="input"
+          ><span
+            >${this.label}${this.required
+              ? html`
+                  *
+                `
+              : html``}</span
+          ></label
+        >
         <div class="right-border"></div>
       </div>
 

@@ -200,7 +200,6 @@ class FuroAppDrawer extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-
     // this._FBPTraceWires()
     /**
      * Register hook on wire --backdropClicked to
@@ -241,7 +240,18 @@ class FuroAppDrawer extends FBP(LitElement) {
       }
     }
 
+    // initial size
+    const cr = this.getBoundingClientRect();
+    this.__isFloating = cr.width <= this.floatBreakpoint;
+
     const drawer = this.shadowRoot.getElementById('drawer');
+    /**
+     * Set the transition effect after the first render. Otherwise we get a flickering effect
+     */
+    setTimeout(() => {
+      drawer.style.transitionDuration = '200ms';
+    }, 201);
+
     const drag = this.shadowRoot.getElementById('drag');
     const backdrop = this.shadowRoot.getElementById('backdrop');
 
@@ -468,7 +478,7 @@ class FuroAppDrawer extends FBP(LitElement) {
 
         #drawer {
           border-right: 1px solid var(--separator, rgb(228, 228, 228));
-          transition-duration: 200ms;
+          /*transition-duration: 200ms; is set in fbpReady */
           background: var(--surface-light);
         }
 

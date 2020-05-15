@@ -2,6 +2,10 @@ import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 // eslint-disable-next-line import/no-cycle
 import { RepeaterNode } from './RepeaterNode.js';
 import { Helper } from './Helper.js';
+import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
+import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
+import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
+import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 
 export class FieldNode extends EventTreeNode {
   constructor(parentNode, fieldSpec, fieldName) {
@@ -221,7 +225,7 @@ export class FieldNode extends EventTreeNode {
        * if we have meta on this layer, we should update the siblings
        */
       if (furoMetaDetected) {
-        this.__updateMetaAndConstraints(furoMetaDetected);
+        this.__updateMetaAndConstraints(furoMetaDetected,0);
       }
     } else {
       // update the primitive type
@@ -285,98 +289,48 @@ export class FieldNode extends EventTreeNode {
 
   // check the validity against spec and meta
   _checkConstraints() {
-    let validity = true;
-    // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
-    // validate only if they are constraints
-    // eslint-disable-next-line guard-for-in,no-restricted-syntax
-    for (const constraintName in this._constraints) {
-      const constraint = this._constraints[constraintName];
-      const numericType = Helper.isNumericType(this._spec.type);
-      switch (constraintName.toLowerCase()) {
-        /**
-         * the min constraint
-         */
-        case 'min':
-          if (numericType) {
-            if (validity && this._value < parseFloat(constraint.is)) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-          } else if (validity && this._value.length < constraint.is) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
-          }
-          break;
-        /**
-         * the max constraint
-         */
-        case 'max':
-          if (numericType) {
-            if (validity && this._value > parseFloat(constraint.is)) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-          } else if (validity && this._value.length > constraint.is) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
-          }
-          break;
-        /**
-         * step
-         */
-        case 'step':
-          if (numericType) {
-            // step check is (value - min)%is == 0
-            const modulo = parseFloat(constraint.is);
-            let min = 0;
-            if (this._constraints.min && this._constraints.min.is) {
-              min = parseFloat(this._constraints.min.is);
-            }
+    const validity = true;
 
-            if (validity && (min - this._value) % modulo !== 0) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-          }
-          break;
-        /**
-         * the pattern constraint
-         */
-        case 'pattern':
-          if (validity && (this._value == null || !this._value.match(new RegExp(constraint.is)))) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
-          }
-          break;
+    const success = field => {
+      field._clearInvalidity();
+    };
 
-        /**
-         * the min constraint
-         */
-        case 'required':
-          if (numericType) {
-            if (validity && this._value == null) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-          } else if (validity && (this._value == null || this._value.length === 0)) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
-          }
-          break;
-        default:
+    const failure = error => {
+      const field = error.node;
+      field._isValid = false;
+      field._validity = { constraint: error.name, description: error.message };
+      field.dispatchNodeEvent(new NodeEvent('field-became-invalid', field));
+    };
+
+    // DO NOT validate readonly fields
+    if (!(this._meta && this._meta.readonly && this._meta.readonly === true)) {
+      const isNumericType = Helper.isNumericType(this._spec.type);
+      const isScalarType = Helper.isScalarType(this._spec.type);
+
+      if (isScalarType) {
+        if (isNumericType) {
+          ValidatorNumericTypes.validateConstraints(this).then(success, failure);
+        } else {
+          ValidatorDefaultTypes.validateConstraints(this).then(success, failure);
+        }
+      } else {
+        // complex special type path
+        switch (this._spec.type) {
+          case 'google.type.Date':
+            ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
+            break;
+          case 'google.type.Money':
+            ValidatorGoogleTypeMoney.validateConstraints(this).then(success, failure);
+            break;
+          default:
+            break;
+        }
       }
-    }
-
-    if (!validity) {
-      this._isValid = false;
-      this.dispatchNodeEvent(new NodeEvent('field-became-invalid', this));
-    } else {
-      this._clearInvalidity();
     }
     return validity;
   }
 
-  __updateMetaAndConstraints(metaAndConstraints) {
+  __updateMetaAndConstraints(metaAndConstraints, level) {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
     // a field which is targeted we delegate the sub request to  this field
@@ -389,8 +343,15 @@ export class FieldNode extends EventTreeNode {
         const field = f[0];
         // eslint-disable-next-line no-restricted-syntax
         for (const m in mc.meta) {
-          // update the metas
-          if (this[field]) {
+          // update the metas, the level should be checked. because the field can be data.data
+          if (this._name === field && !level){
+            this._meta[m] = mc.meta[m];
+            // broadcast readonly changes for all ancestors
+            if (m === 'readonly') {
+              this.broadcastEvent(new NodeEvent('parent-readonly-meta-set', this, true));
+            }
+          }
+          else if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
@@ -405,7 +366,10 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const c in mc.constraints) {
           // update the constraints
-          if (this[field]) {
+          if (this._name === field && !level){
+            this._constraints[c] = mc.constraints[c];
+          }
+          else if (this[field]) {
             this[field]._constraints[c] = mc.constraints[c];
           } else {
             // eslint-disable-next-line no-console
@@ -419,7 +383,12 @@ export class FieldNode extends EventTreeNode {
          * Fired when field metas, constraints or options changed
          * detail payload:
          */
-        this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
+        if (this._name === field && !level) {
+          // eslint-disable-next-line no-plusplus
+          this._triggerDeepNodeEvent('this-metas-changed');
+        }else if (this[field]) {
+          this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
+        }
 
         // exit here, it does not go deeper
         return;
@@ -427,8 +396,28 @@ export class FieldNode extends EventTreeNode {
       const target = f[0];
       const subMetaAndConstraints = { fields: {} };
       subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
+      // eslint-disable-next-line no-param-reassign
+      level +=1;
+      this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
+    }
+  }
 
-      this[target].__updateMetaAndConstraints(subMetaAndConstraints);
+  /**
+   * fires a NodeEvent recursively
+   * starting point is caller
+   * @param event
+   * @private
+   */
+  _triggerDeepNodeEvent(event){
+    if (this.__childNodes.length > 0) {
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const index in this.__childNodes) {
+        const field = this.__childNodes[index];
+        field._triggerDeepNodeEvent(event);
+      }
+    }
+    if (event && event.length){
+      this.dispatchNodeEvent(new NodeEvent(event, this, false));
     }
   }
 

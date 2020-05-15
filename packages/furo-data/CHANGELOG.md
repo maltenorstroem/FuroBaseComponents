@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.11...@furo/data@1.3.12) (2020-05-15)
+
+
+### Bug Fixes
+
+* field node should also work with the meta with `data.data` in repeated field ([6c0930b](https://github.com/theNorstroem/FuroBaseComponents/commit/6c0930b94b5183385cf6a2a89547f3086d0176c9))
+
+
+
+
+
+## [1.3.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.10...@furo/data@1.3.11) (2020-05-13)
+
+
+### Bug Fixes
+
+* meta changes should be notified to all subfields ([5e0de87](https://github.com/theNorstroem/FuroBaseComponents/commit/5e0de875efe4858b988616fcfd8a2217097b1716))
+
+
+
+
+
+## [1.3.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.9...@furo/data@1.3.10) (2020-05-12)
+
+
+### Bug Fixes
+
+* it's possible to set meta from response on top level. E.g. meta on field data ([8dfcf24](https://github.com/theNorstroem/FuroBaseComponents/commit/8dfcf243dca3cf44eb9e8d007e2cccf2d911d7e5))
+
+
+
+
+
+## [1.3.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.8...@furo/data@1.3.9) (2020-05-01)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.3.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.7...@furo/data@1.3.8) (2020-04-29)
+
+
+### Bug Fixes
+
+* FieldNode required constraint validator should not be triggered if FieldNode has readonly-is-true flag ([b428ccb](https://github.com/theNorstroem/FuroBaseComponents/commit/b428ccb1f8062fdc87135eb8c966d1ee071e47e4))
+* No readonly fields are validated. ([c9b01e9](https://github.com/theNorstroem/FuroBaseComponents/commit/c9b01e9a76b58d8819748558d531c96a682dd812))
+
+
+
+
+
+## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.6...@furo/data@1.3.7) (2020-04-29)
+
+
+### Bug Fixes
+
+* charset utf-8 added to all agents ([dd8fc85](https://github.com/theNorstroem/FuroBaseComponents/commit/dd8fc85aa5f86f6aed6ba27cd84ea489238ac9cf))
+* content-type should one once applied according to https://tools.ietf.org/html/rfc7231#section-3.1.1.5 ([0b0a01c](https://github.com/theNorstroem/FuroBaseComponents/commit/0b0a01cdcd91946a41b4472af505a899fc9c9c6b)), closes [/tools.ietf.org/html/rfc7231#section-3](https://github.com//tools.ietf.org/html/rfc7231/issues/section-3)
+* custom-method should have the same behaviour ([9c7cfad](https://github.com/theNorstroem/FuroBaseComponents/commit/9c7cfadd5715472f2a70fddd7d1be1f1ca234adc))
+
+
+
+
+
+## [1.3.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.5...@furo/data@1.3.6) (2020-04-24)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.3.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.4...@furo/data@1.3.5) (2020-04-22)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [1.3.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.3...@furo/data@1.3.4) (2020-04-21)
 
 **Note:** Version bump only for package @furo/data

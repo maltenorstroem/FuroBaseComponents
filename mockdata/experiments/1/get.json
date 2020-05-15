@@ -4,7 +4,7 @@
     "display_name": "display_name",
     "id": "1",
     "furo_data_checkbox_input": true,
-    "furo_data_text_input": "hallo test",
+    "furo_data_text_input": "hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.",
     "furo_data_number_input": 12.55,
     "furo_data_time_input": "17:34",
     "furo_data_color_input": "#e318ed",
@@ -25,6 +25,7 @@
           "@type": "type.googleapis.com/furo.StringProperty",
           "data": "01032020"
         },
+        "flags": ["is-overwritable", "my-prop"],
         "display_name": "Vertragsbeginn",
         "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
         "meta": {
