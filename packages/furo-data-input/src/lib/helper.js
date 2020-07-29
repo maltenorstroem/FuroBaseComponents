@@ -55,29 +55,46 @@ export class Helper {
     CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
     caller._updateField();
 
-    caller.field.addEventListener('field-value-changed', () => {
-      caller._updateField();
-      if (caller.field._meta && caller.field._meta.hint) {
-        // eslint-disable-next-line no-param-reassign
-        caller._hint = caller.field._meta.hint;
-      }
-      if (caller.hint) {
-        // eslint-disable-next-line no-param-reassign
-        caller._hint = caller.hint;
-      }
-    });
+    if (caller.field._meta && caller.field._meta.repeated) {
+      caller.field.addEventListener('this-repeated-field-changed', () => {
+        caller._updateField();
+        if (caller.field._meta && caller.field._meta.hint) {
+          // eslint-disable-next-line no-param-reassign
+          caller._hint = caller.field._meta.hint;
+        }
+        if (caller.hint) {
+          // eslint-disable-next-line no-param-reassign
+          caller._hint = caller.hint;
+        }
+      });
+    } else {
+      caller.field.addEventListener('field-value-changed', () => {
+        caller._updateField();
+        if (caller.field._meta && caller.field._meta.hint) {
+          // eslint-disable-next-line no-param-reassign
+          caller._hint = caller.field._meta.hint;
+        }
+        if (caller.hint) {
+          // eslint-disable-next-line no-param-reassign
+          caller._hint = caller.hint;
+        }
+      });
+    }
 
     // update meta and constraints when they change
     caller.field.addEventListener('this-metas-changed', () => {
       CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
+      caller.requestUpdate();
     });
 
     caller.field.addEventListener('field-became-invalid', () => {
       // updates wieder einspielen
       // eslint-disable-next-line no-param-reassign
       caller.error = true;
-      // eslint-disable-next-line no-param-reassign
-      caller.errortext = caller.field._validity.description;
+      if (caller.field._validity && caller.field._validity.description) {
+        // eslint-disable-next-line no-param-reassign
+        caller.errortext = caller.field._validity.description;
+      }
       caller.requestUpdate();
     });
 

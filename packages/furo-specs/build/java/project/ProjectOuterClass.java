@@ -112,6 +112,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -120,6 +121,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -138,7 +140,7 @@ public final class ProjectOuterClass {
    *
    * Protobuf type {@code project.ProjectCollection}
    */
-  public  static final class ProjectCollection extends
+  public static final class ProjectCollection extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:project.ProjectCollection)
       ProjectCollectionOrBuilder {
@@ -150,6 +152,13 @@ public final class ProjectOuterClass {
     private ProjectCollection() {
       entities_ = java.util.Collections.emptyList();
       links_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ProjectCollection();
     }
 
     @java.lang.Override
@@ -245,7 +254,6 @@ public final class ProjectOuterClass {
               project.ProjectOuterClass.ProjectCollection.class, project.ProjectOuterClass.ProjectCollection.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ENTITIES_FIELD_NUMBER = 4;
     private java.util.List<project.ProjectOuterClass.ProjectEntity> entities_;
     /**
@@ -255,6 +263,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .project.ProjectEntity entities = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<project.ProjectOuterClass.ProjectEntity> getEntitiesList() {
       return entities_;
     }
@@ -265,6 +274,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .project.ProjectEntity entities = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends project.ProjectOuterClass.ProjectEntityOrBuilder> 
         getEntitiesOrBuilderList() {
       return entities_;
@@ -276,6 +286,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .project.ProjectEntity entities = 4;</code>
      */
+    @java.lang.Override
     public int getEntitiesCount() {
       return entities_.size();
     }
@@ -286,6 +297,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .project.ProjectEntity entities = 4;</code>
      */
+    @java.lang.Override
     public project.ProjectOuterClass.ProjectEntity getEntities(int index) {
       return entities_.get(index);
     }
@@ -296,6 +308,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .project.ProjectEntity entities = 4;</code>
      */
+    @java.lang.Override
     public project.ProjectOuterClass.ProjectEntityOrBuilder getEntitiesOrBuilder(
         int index) {
       return entities_.get(index);
@@ -310,6 +323,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -320,6 +334,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -331,6 +346,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -341,6 +357,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -351,6 +368,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -364,7 +382,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return Whether the meta field is set.
      */
+    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -374,7 +394,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return The meta.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -385,6 +407,7 @@ public final class ProjectOuterClass {
      *
      * <code>.furo.Meta meta = 2;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -664,7 +687,6 @@ public final class ProjectOuterClass {
       public project.ProjectOuterClass.ProjectCollection buildPartial() {
         project.ProjectOuterClass.ProjectCollection result = new project.ProjectOuterClass.ProjectCollection(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (entitiesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             entities_ = java.util.Collections.unmodifiableList(entities_);
@@ -688,7 +710,6 @@ public final class ProjectOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1455,6 +1476,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
+       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -1465,6 +1487,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
+       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -1661,6 +1684,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.project.Project data = 1;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
@@ -1669,6 +1693,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.project.Project data = 1;</code>
+     * @return The data.
      */
     project.ProjectOuterClass.Project getData();
     /**
@@ -1730,6 +1755,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -1738,6 +1764,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -1756,7 +1783,7 @@ public final class ProjectOuterClass {
    *
    * Protobuf type {@code project.ProjectEntity}
    */
-  public  static final class ProjectEntity extends
+  public static final class ProjectEntity extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:project.ProjectEntity)
       ProjectEntityOrBuilder {
@@ -1767,6 +1794,13 @@ public final class ProjectOuterClass {
     }
     private ProjectEntity() {
       links_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ProjectEntity();
     }
 
     @java.lang.Override
@@ -1807,9 +1841,9 @@ public final class ProjectOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               links_.add(
                   input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry));
@@ -1843,7 +1877,7 @@ public final class ProjectOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           links_ = java.util.Collections.unmodifiableList(links_);
         }
         this.unknownFields = unknownFields.build();
@@ -1863,7 +1897,6 @@ public final class ProjectOuterClass {
               project.ProjectOuterClass.ProjectEntity.class, project.ProjectOuterClass.ProjectEntity.Builder.class);
     }
 
-    private int bitField0_;
     public static final int DATA_FIELD_NUMBER = 1;
     private project.ProjectOuterClass.Project data_;
     /**
@@ -1872,7 +1905,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.project.Project data = 1;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
@@ -1882,7 +1917,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.project.Project data = 1;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public project.ProjectOuterClass.Project getData() {
       return data_ == null ? project.ProjectOuterClass.Project.getDefaultInstance() : data_;
     }
@@ -1893,6 +1930,7 @@ public final class ProjectOuterClass {
      *
      * <code>.project.Project data = 1;</code>
      */
+    @java.lang.Override
     public project.ProjectOuterClass.ProjectOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1906,6 +1944,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -1916,6 +1955,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -1927,6 +1967,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -1937,6 +1978,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -1947,6 +1989,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -1960,7 +2003,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
      */
+    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -1970,7 +2015,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -1981,6 +2028,7 @@ public final class ProjectOuterClass {
      *
      * <code>.furo.Meta meta = 3;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -2225,7 +2273,7 @@ public final class ProjectOuterClass {
         }
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           linksBuilder_.clear();
         }
@@ -2262,16 +2310,15 @@ public final class ProjectOuterClass {
       public project.ProjectOuterClass.ProjectEntity buildPartial() {
         project.ProjectOuterClass.ProjectEntity result = new project.ProjectOuterClass.ProjectEntity(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (dataBuilder_ == null) {
           result.data_ = data_;
         } else {
           result.data_ = dataBuilder_.build();
         }
         if (linksBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             links_ = java.util.Collections.unmodifiableList(links_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.links_ = links_;
         } else {
@@ -2282,7 +2329,6 @@ public final class ProjectOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2338,7 +2384,7 @@ public final class ProjectOuterClass {
           if (!other.links_.isEmpty()) {
             if (links_.isEmpty()) {
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureLinksIsMutable();
               links_.addAll(other.links_);
@@ -2351,7 +2397,7 @@ public final class ProjectOuterClass {
               linksBuilder_.dispose();
               linksBuilder_ = null;
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               linksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLinksFieldBuilder() : null;
@@ -2402,6 +2448,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.project.Project data = 1;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
@@ -2412,6 +2459,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.project.Project data = 1;</code>
+       * @return The data.
        */
       public project.ProjectOuterClass.Project getData() {
         if (dataBuilder_ == null) {
@@ -2549,9 +2597,9 @@ public final class ProjectOuterClass {
       private java.util.List<furo.LinkOuterClass.Link> links_ =
         java.util.Collections.emptyList();
       private void ensureLinksIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>(links_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2745,7 +2793,7 @@ public final class ProjectOuterClass {
       public Builder clearLinks() {
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           linksBuilder_.clear();
@@ -2850,7 +2898,7 @@ public final class ProjectOuterClass {
           linksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
                   links_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           links_ = null;
@@ -2867,6 +2915,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
+       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -2877,6 +2926,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
+       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -3073,6 +3123,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 7;</code>
+     * @return Whether the costLimit field is set.
      */
     boolean hasCostLimit();
     /**
@@ -3081,6 +3132,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 7;</code>
+     * @return The costLimit.
      */
     google.type.MoneyOuterClass.Money getCostLimit();
     /**
@@ -3098,6 +3150,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string description = 5;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
@@ -3106,6 +3159,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string description = 5;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -3116,6 +3170,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -3124,6 +3179,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -3134,6 +3190,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 4;</code>
+     * @return Whether the end field is set.
      */
     boolean hasEnd();
     /**
@@ -3142,6 +3199,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 4;</code>
+     * @return The end.
      */
     google.type.DateOuterClass.Date getEnd();
     /**
@@ -3159,6 +3217,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -3167,6 +3226,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -3221,6 +3281,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 3;</code>
+     * @return Whether the start field is set.
      */
     boolean hasStart();
     /**
@@ -3229,6 +3290,7 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 3;</code>
+     * @return The start.
      */
     google.type.DateOuterClass.Date getStart();
     /**
@@ -3245,7 +3307,8 @@ public final class ProjectOuterClass {
      * Contains a field_mask which fields of the targeted resource are going to be updated
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
+     * @return Whether the updateMask field is set.
      */
     boolean hasUpdateMask();
     /**
@@ -3253,17 +3316,18 @@ public final class ProjectOuterClass {
      * Contains a field_mask which fields of the targeted resource are going to be updated
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
+     * @return The updateMask.
      */
-    google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask();
+    google.protobuf.types.known.FieldMaskOuterClass.FieldMask getUpdateMask();
     /**
      * <pre>
      * Contains a field_mask which fields of the targeted resource are going to be updated
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
      */
-    google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
+    google.protobuf.types.known.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
   }
   /**
    * <pre>
@@ -3272,7 +3336,7 @@ public final class ProjectOuterClass {
    *
    * Protobuf type {@code project.Project}
    */
-  public  static final class Project extends
+  public static final class Project extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:project.Project)
       ProjectOrBuilder {
@@ -3286,6 +3350,13 @@ public final class ProjectOuterClass {
       displayName_ = "";
       id_ = "";
       members_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Project();
     }
 
     @java.lang.Override
@@ -3357,9 +3428,9 @@ public final class ProjectOuterClass {
               break;
             }
             case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 members_ = new java.util.ArrayList<person.PersonOuterClass.Person>();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000001;
               }
               members_.add(
                   input.readMessage(person.PersonOuterClass.Person.parser(), extensionRegistry));
@@ -3379,11 +3450,11 @@ public final class ProjectOuterClass {
               break;
             }
             case 66: {
-              google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
+              google.protobuf.types.known.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
               if (updateMask_ != null) {
                 subBuilder = updateMask_.toBuilder();
               }
-              updateMask_ = input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
+              updateMask_ = input.readMessage(google.protobuf.types.known.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(updateMask_);
                 updateMask_ = subBuilder.buildPartial();
@@ -3406,7 +3477,7 @@ public final class ProjectOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000020) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           members_ = java.util.Collections.unmodifiableList(members_);
         }
         this.unknownFields = unknownFields.build();
@@ -3426,7 +3497,6 @@ public final class ProjectOuterClass {
               project.ProjectOuterClass.Project.class, project.ProjectOuterClass.Project.Builder.class);
     }
 
-    private int bitField0_;
     public static final int COST_LIMIT_FIELD_NUMBER = 7;
     private google.type.MoneyOuterClass.Money costLimit_;
     /**
@@ -3435,7 +3505,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 7;</code>
+     * @return Whether the costLimit field is set.
      */
+    @java.lang.Override
     public boolean hasCostLimit() {
       return costLimit_ != null;
     }
@@ -3445,7 +3517,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 7;</code>
+     * @return The costLimit.
      */
+    @java.lang.Override
     public google.type.MoneyOuterClass.Money getCostLimit() {
       return costLimit_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : costLimit_;
     }
@@ -3456,6 +3530,7 @@ public final class ProjectOuterClass {
      *
      * <code>.google.type.Money cost_limit = 7;</code>
      */
+    @java.lang.Override
     public google.type.MoneyOuterClass.MoneyOrBuilder getCostLimitOrBuilder() {
       return getCostLimit();
     }
@@ -3468,7 +3543,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string description = 5;</code>
+     * @return The description.
      */
+    @java.lang.Override
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
@@ -3487,7 +3564,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string description = 5;</code>
+     * @return The bytes for description.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
       java.lang.Object ref = description_;
@@ -3510,7 +3589,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
+    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -3529,7 +3610,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -3552,7 +3635,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 4;</code>
+     * @return Whether the end field is set.
      */
+    @java.lang.Override
     public boolean hasEnd() {
       return end_ != null;
     }
@@ -3562,7 +3647,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 4;</code>
+     * @return The end.
      */
+    @java.lang.Override
     public google.type.DateOuterClass.Date getEnd() {
       return end_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : end_;
     }
@@ -3573,6 +3660,7 @@ public final class ProjectOuterClass {
      *
      * <code>.google.type.Date end = 4;</code>
      */
+    @java.lang.Override
     public google.type.DateOuterClass.DateOrBuilder getEndOrBuilder() {
       return getEnd();
     }
@@ -3585,7 +3673,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -3604,7 +3694,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -3628,6 +3720,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .person.Person members = 6;</code>
      */
+    @java.lang.Override
     public java.util.List<person.PersonOuterClass.Person> getMembersList() {
       return members_;
     }
@@ -3638,6 +3731,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .person.Person members = 6;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends person.PersonOuterClass.PersonOrBuilder> 
         getMembersOrBuilderList() {
       return members_;
@@ -3649,6 +3743,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .person.Person members = 6;</code>
      */
+    @java.lang.Override
     public int getMembersCount() {
       return members_.size();
     }
@@ -3659,6 +3754,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .person.Person members = 6;</code>
      */
+    @java.lang.Override
     public person.PersonOuterClass.Person getMembers(int index) {
       return members_.get(index);
     }
@@ -3669,6 +3765,7 @@ public final class ProjectOuterClass {
      *
      * <code>repeated .person.Person members = 6;</code>
      */
+    @java.lang.Override
     public person.PersonOuterClass.PersonOrBuilder getMembersOrBuilder(
         int index) {
       return members_.get(index);
@@ -3682,7 +3779,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 3;</code>
+     * @return Whether the start field is set.
      */
+    @java.lang.Override
     public boolean hasStart() {
       return start_ != null;
     }
@@ -3692,7 +3791,9 @@ public final class ProjectOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 3;</code>
+     * @return The start.
      */
+    @java.lang.Override
     public google.type.DateOuterClass.Date getStart() {
       return start_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : start_;
     }
@@ -3703,19 +3804,22 @@ public final class ProjectOuterClass {
      *
      * <code>.google.type.Date start = 3;</code>
      */
+    @java.lang.Override
     public google.type.DateOuterClass.DateOrBuilder getStartOrBuilder() {
       return getStart();
     }
 
     public static final int UPDATE_MASK_FIELD_NUMBER = 8;
-    private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
+    private google.protobuf.types.known.FieldMaskOuterClass.FieldMask updateMask_;
     /**
      * <pre>
      * Contains a field_mask which fields of the targeted resource are going to be updated
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
+     * @return Whether the updateMask field is set.
      */
+    @java.lang.Override
     public boolean hasUpdateMask() {
       return updateMask_ != null;
     }
@@ -3724,19 +3828,22 @@ public final class ProjectOuterClass {
      * Contains a field_mask which fields of the targeted resource are going to be updated
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
+     * @return The updateMask.
      */
-    public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
-      return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+    @java.lang.Override
+    public google.protobuf.types.known.FieldMaskOuterClass.FieldMask getUpdateMask() {
+      return updateMask_ == null ? google.protobuf.types.known.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
     }
     /**
      * <pre>
      * Contains a field_mask which fields of the targeted resource are going to be updated
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
      */
-    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+    @java.lang.Override
+    public google.protobuf.types.known.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
       return getUpdateMask();
     }
 
@@ -4054,7 +4161,7 @@ public final class ProjectOuterClass {
 
         if (membersBuilder_ == null) {
           members_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           membersBuilder_.clear();
         }
@@ -4097,7 +4204,6 @@ public final class ProjectOuterClass {
       public project.ProjectOuterClass.Project buildPartial() {
         project.ProjectOuterClass.Project result = new project.ProjectOuterClass.Project(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (costLimitBuilder_ == null) {
           result.costLimit_ = costLimit_;
         } else {
@@ -4112,9 +4218,9 @@ public final class ProjectOuterClass {
         }
         result.id_ = id_;
         if (membersBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             members_ = java.util.Collections.unmodifiableList(members_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.members_ = members_;
         } else {
@@ -4130,7 +4236,6 @@ public final class ProjectOuterClass {
         } else {
           result.updateMask_ = updateMaskBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4201,7 +4306,7 @@ public final class ProjectOuterClass {
           if (!other.members_.isEmpty()) {
             if (members_.isEmpty()) {
               members_ = other.members_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureMembersIsMutable();
               members_.addAll(other.members_);
@@ -4214,7 +4319,7 @@ public final class ProjectOuterClass {
               membersBuilder_.dispose();
               membersBuilder_ = null;
               members_ = other.members_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000001);
               membersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getMembersFieldBuilder() : null;
@@ -4268,6 +4373,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.google.type.Money cost_limit = 7;</code>
+       * @return Whether the costLimit field is set.
        */
       public boolean hasCostLimit() {
         return costLimitBuilder_ != null || costLimit_ != null;
@@ -4278,6 +4384,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.google.type.Money cost_limit = 7;</code>
+       * @return The costLimit.
        */
       public google.type.MoneyOuterClass.Money getCostLimit() {
         if (costLimitBuilder_ == null) {
@@ -4419,6 +4526,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string description = 5;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -4438,6 +4546,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string description = 5;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -4458,6 +4567,8 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string description = 5;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -4475,6 +4586,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string description = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -4488,6 +4600,8 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string description = 5;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -4508,6 +4622,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -4527,6 +4642,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -4547,6 +4663,8 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -4564,6 +4682,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -4577,6 +4696,8 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The bytes for displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4599,6 +4720,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.google.type.Date end = 4;</code>
+       * @return Whether the end field is set.
        */
       public boolean hasEnd() {
         return endBuilder_ != null || end_ != null;
@@ -4609,6 +4731,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.google.type.Date end = 4;</code>
+       * @return The end.
        */
       public google.type.DateOuterClass.Date getEnd() {
         if (endBuilder_ == null) {
@@ -4750,6 +4873,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -4769,6 +4893,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -4789,6 +4914,8 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -4806,6 +4933,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -4819,6 +4947,8 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -4835,9 +4965,9 @@ public final class ProjectOuterClass {
       private java.util.List<person.PersonOuterClass.Person> members_ =
         java.util.Collections.emptyList();
       private void ensureMembersIsMutable() {
-        if (!((bitField0_ & 0x00000020) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           members_ = new java.util.ArrayList<person.PersonOuterClass.Person>(members_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -5031,7 +5161,7 @@ public final class ProjectOuterClass {
       public Builder clearMembers() {
         if (membersBuilder_ == null) {
           members_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           membersBuilder_.clear();
@@ -5136,7 +5266,7 @@ public final class ProjectOuterClass {
           membersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               person.PersonOuterClass.Person, person.PersonOuterClass.Person.Builder, person.PersonOuterClass.PersonOrBuilder>(
                   members_,
-                  ((bitField0_ & 0x00000020) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           members_ = null;
@@ -5153,6 +5283,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.google.type.Date start = 3;</code>
+       * @return Whether the start field is set.
        */
       public boolean hasStart() {
         return startBuilder_ != null || start_ != null;
@@ -5163,6 +5294,7 @@ public final class ProjectOuterClass {
        * </pre>
        *
        * <code>.google.type.Date start = 3;</code>
+       * @return The start.
        */
       public google.type.DateOuterClass.Date getStart() {
         if (startBuilder_ == null) {
@@ -5297,15 +5429,16 @@ public final class ProjectOuterClass {
         return startBuilder_;
       }
 
-      private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
+      private google.protobuf.types.known.FieldMaskOuterClass.FieldMask updateMask_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
+          google.protobuf.types.known.FieldMaskOuterClass.FieldMask, google.protobuf.types.known.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.types.known.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
       /**
        * <pre>
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
+       * @return Whether the updateMask field is set.
        */
       public boolean hasUpdateMask() {
         return updateMaskBuilder_ != null || updateMask_ != null;
@@ -5315,11 +5448,12 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
+       * @return The updateMask.
        */
-      public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+      public google.protobuf.types.known.FieldMaskOuterClass.FieldMask getUpdateMask() {
         if (updateMaskBuilder_ == null) {
-          return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+          return updateMask_ == null ? google.protobuf.types.known.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
         } else {
           return updateMaskBuilder_.getMessage();
         }
@@ -5329,9 +5463,9 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
        */
-      public Builder setUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+      public Builder setUpdateMask(google.protobuf.types.known.FieldMaskOuterClass.FieldMask value) {
         if (updateMaskBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5349,10 +5483,10 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
        */
       public Builder setUpdateMask(
-          google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
+          google.protobuf.types.known.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
         if (updateMaskBuilder_ == null) {
           updateMask_ = builderForValue.build();
           onChanged();
@@ -5367,13 +5501,13 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
        */
-      public Builder mergeUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+      public Builder mergeUpdateMask(google.protobuf.types.known.FieldMaskOuterClass.FieldMask value) {
         if (updateMaskBuilder_ == null) {
           if (updateMask_ != null) {
             updateMask_ =
-              google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+              google.protobuf.types.known.FieldMaskOuterClass.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
           } else {
             updateMask_ = value;
           }
@@ -5389,7 +5523,7 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
        */
       public Builder clearUpdateMask() {
         if (updateMaskBuilder_ == null) {
@@ -5407,9 +5541,9 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
        */
-      public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getUpdateMaskBuilder() {
+      public google.protobuf.types.known.FieldMaskOuterClass.FieldMask.Builder getUpdateMaskBuilder() {
         
         onChanged();
         return getUpdateMaskFieldBuilder().getBuilder();
@@ -5419,14 +5553,14 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
        */
-      public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+      public google.protobuf.types.known.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
         if (updateMaskBuilder_ != null) {
           return updateMaskBuilder_.getMessageOrBuilder();
         } else {
           return updateMask_ == null ?
-              google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+              google.protobuf.types.known.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
         }
       }
       /**
@@ -5434,14 +5568,14 @@ public final class ProjectOuterClass {
        * Contains a field_mask which fields of the targeted resource are going to be updated
        * </pre>
        *
-       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       * <code>.google.protobuf.types.known.FieldMask update_mask = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
+          google.protobuf.types.known.FieldMaskOuterClass.FieldMask, google.protobuf.types.known.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.types.known.FieldMaskOuterClass.FieldMaskOrBuilder> 
           getUpdateMaskFieldBuilder() {
         if (updateMaskBuilder_ == null) {
           updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
+              google.protobuf.types.known.FieldMaskOuterClass.FieldMask, google.protobuf.types.known.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.types.known.FieldMaskOuterClass.FieldMaskOrBuilder>(
                   getUpdateMask(),
                   getParentForChildren(),
                   isClean());
@@ -5527,41 +5661,33 @@ public final class ProjectOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\025project/project.proto\022\007project\032\017furo/m" +
-      "eta.proto\032\017furo/link.proto\032 google/proto" +
-      "buf/field_mask.proto\032\027google/type/money." +
-      "proto\032\026google/type/date.proto\032\023person/pe" +
-      "rson.proto\"r\n\021ProjectCollection\022(\n\010entit" +
-      "ies\030\004 \003(\0132\026.project.ProjectEntity\022\031\n\005lin" +
-      "ks\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.fur" +
-      "o.Meta\"d\n\rProjectEntity\022\036\n\004data\030\001 \001(\0132\020." +
-      "project.Project\022\031\n\005links\030\002 \003(\0132\n.furo.Li" +
-      "nk\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\374\001\n\007Project" +
-      "\022&\n\ncost_limit\030\007 \001(\0132\022.google.type.Money" +
-      "\022\023\n\013description\030\005 \001(\t\022\024\n\014display_name\030\002 " +
-      "\001(\t\022\036\n\003end\030\004 \001(\0132\021.google.type.Date\022\n\n\002i" +
-      "d\030\001 \001(\t\022\037\n\007members\030\006 \003(\0132\016.person.Person" +
-      "\022 \n\005start\030\003 \001(\0132\021.google.type.Date\022/\n\013up" +
-      "date_mask\030\010 \001(\0132\032.google.protobuf.FieldM" +
-      "askb\006proto3"
+      "eta.proto\032\017furo/link.proto\032,google/proto" +
+      "buf/types/known/field_mask.proto\032\027google" +
+      "/type/money.proto\032\026google/type/date.prot" +
+      "o\032\023person/person.proto\"r\n\021ProjectCollect" +
+      "ion\022(\n\010entities\030\004 \003(\0132\026.project.ProjectE" +
+      "ntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta" +
+      "\030\002 \001(\0132\n.furo.Meta\"d\n\rProjectEntity\022\036\n\004d" +
+      "ata\030\001 \001(\0132\020.project.Project\022\031\n\005links\030\002 \003" +
+      "(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta" +
+      "\"\210\002\n\007Project\022&\n\ncost_limit\030\007 \001(\0132\022.googl" +
+      "e.type.Money\022\023\n\013description\030\005 \001(\t\022\024\n\014dis" +
+      "play_name\030\002 \001(\t\022\036\n\003end\030\004 \001(\0132\021.google.ty" +
+      "pe.Date\022\n\n\002id\030\001 \001(\t\022\037\n\007members\030\006 \003(\0132\016.p" +
+      "erson.Person\022 \n\005start\030\003 \001(\0132\021.google.typ" +
+      "e.Date\022;\n\013update_mask\030\010 \001(\0132&.google.pro" +
+      "tobuf.types.known.FieldMaskb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
-          google.protobuf.FieldMaskOuterClass.getDescriptor(),
+          google.protobuf.types.known.FieldMaskOuterClass.getDescriptor(),
           google.type.MoneyOuterClass.getDescriptor(),
           google.type.DateOuterClass.getDescriptor(),
           person.PersonOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_project_ProjectCollection_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_project_ProjectCollection_fieldAccessorTable = new
@@ -5582,7 +5708,7 @@ public final class ProjectOuterClass {
         new java.lang.String[] { "CostLimit", "Description", "DisplayName", "End", "Id", "Members", "Start", "UpdateMask", });
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
-    google.protobuf.FieldMaskOuterClass.getDescriptor();
+    google.protobuf.types.known.FieldMaskOuterClass.getDescriptor();
     google.type.MoneyOuterClass.getDescriptor();
     google.type.DateOuterClass.getDescriptor();
     person.PersonOuterClass.getDescriptor();

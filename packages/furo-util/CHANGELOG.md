@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.18](https://github.com/veith/template-component-package/compare/@furo/util@1.3.17...@furo/util@1.3.18) (2020-06-29)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+## [1.3.17](https://github.com/veith/template-component-package/compare/@furo/util@1.3.16...@furo/util@1.3.17) (2020-06-29)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+## [1.3.16](https://github.com/veith/template-component-package/compare/@furo/util@1.3.15...@furo/util@1.3.16) (2020-06-22)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+## [1.3.15](https://github.com/veith/template-component-package/compare/@furo/util@1.3.14...@furo/util@1.3.15) (2020-06-16)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+## [1.3.14](https://github.com/veith/template-component-package/compare/@furo/util@1.3.13...@furo/util@1.3.14) (2020-06-08)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
+## [1.3.13](https://github.com/veith/template-component-package/compare/@furo/util@1.3.12...@furo/util@1.3.13) (2020-06-04)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
 ## [1.3.12](https://github.com/veith/template-component-package/compare/@furo/util@1.3.11...@furo/util@1.3.12) (2020-05-15)
 
 **Note:** Version bump only for package @furo/util

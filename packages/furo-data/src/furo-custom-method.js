@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import './furo-api-fetch.js';
 import { Env } from '@furo/framework';
+import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
  * `furo-custom-method`
@@ -33,6 +34,9 @@ class FuroCustomMethod extends FBP(LitElement) {
     this._FBPAddWireHook('--requestFinished', () => {
       this._pendingRequests.pop();
     });
+
+    this._queryParams = {};
+    this._specDefinedQPs = {};
   }
 
   static get properties() {
@@ -73,14 +77,36 @@ class FuroCustomMethod extends FBP(LitElement) {
     }
   }
 
+  /**
+   * Update query params
+   * a qp like {"active":true} will just update the qp *active*
+   *
+   * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
+   * @param {Object} key value pairs
+   */
+  updateQp(qp) {
+    AgentHelper.updateQp(this, qp);
+  }
+
   bindRequestData(dataObject) {
     this._requestDataObject = dataObject;
+  }
+
+  /**
+   * clear the query params that you have setted before
+   */
+  clearQp() {
+    this._queryParams = {};
   }
 
   _makeRequest(link, dataObject) {
     this._FBPTriggerWire('--beforeRequestStart');
     let data;
     const body = {};
+
+    // create Request object with headers and body
+    const headers = new Headers(this._ApiEnvironment.headers);
+
     // check if dataObject is set and create body object
     if (dataObject) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
@@ -92,7 +118,30 @@ class FuroCustomMethod extends FBP(LitElement) {
         }
       }
       data = JSON.stringify(body);
+      headers.append('Content-Type', 'application/json; charset=utf-8');
     }
+
+    const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
+
+    // generate accept field for header
+    const ACCEPT = AgentHelper.generateHeaderAccept(
+      this,
+      this._ApiEnvironment.services[link.service].services,
+      REL_NAME,
+    );
+
+    if (ACCEPT) {
+      headers.append('Accept', `${ACCEPT}`);
+    }
+
+    // get existing params from href and append query params
+    const params = AgentHelper.getParams(this, link);
+
+    // rebuild qp
+    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    // generate req
+    const req = AgentHelper.generateReq(link, qp);
+
     /**
      * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
      * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
@@ -102,12 +151,7 @@ class FuroCustomMethod extends FBP(LitElement) {
     this._abortController = new AbortController();
     const { signal } = this._abortController;
 
-    // Daten
-    const headers = new Headers(this._ApiEnvironment.headers);
-    const TYPE = link.type ? `application/${link.type}+json` : 'application/json';
-    headers.append('Content-Type', `${TYPE}; charset=utf-8`);
-
-    return new Request(link.href, {
+    return new Request(req, {
       signal,
       method: link.method,
       headers,

@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.16...@furo/doc-helper@1.5.17) (2020-06-29)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.5.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.15...@furo/doc-helper@1.5.16) (2020-06-29)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.5.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.14...@furo/doc-helper@1.5.15) (2020-06-22)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.5.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.13...@furo/doc-helper@1.5.14) (2020-06-16)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.5.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.12...@furo/doc-helper@1.5.13) (2020-06-08)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
+## [1.5.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.11...@furo/doc-helper@1.5.12) (2020-06-04)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [1.5.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.10...@furo/doc-helper@1.5.11) (2020-05-15)
 
 **Note:** Version bump only for package @furo/doc-helper

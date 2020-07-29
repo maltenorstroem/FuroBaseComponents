@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.16...@furo/form@1.3.17) (2020-06-29)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.15...@furo/form@1.3.16) (2020-06-22)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.14...@furo/form@1.3.15) (2020-06-16)
+
+
+### Bug Fixes
+
+* the status of buttons in button bar should be changed according to valid and invalid status of enttiy when the buttons have disabled-not-valid or hide-not-valid attributes ([aaaa693](https://github.com/theNorstroem/FuroBaseComponents/commit/aaaa6935012f0f709d402ed006d25687f0caa44e))
+
+
+
+
+
+## [1.3.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.13...@furo/form@1.3.14) (2020-06-08)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.12...@furo/form@1.3.13) (2020-06-04)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [1.3.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.11...@furo/form@1.3.12) (2020-05-15)
 
 **Note:** Version bump only for package @furo/form

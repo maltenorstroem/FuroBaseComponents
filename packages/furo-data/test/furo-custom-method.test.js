@@ -83,7 +83,7 @@ describe('furo-custom-method', () => {
     dataObject.addEventListener('object-ready', () => {
       dataObject.data.data.description._value = 'updated desc';
 
-      customMethod.triggerWithBody(dataObject.data.value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
     });
   });
 
@@ -146,12 +146,12 @@ describe('furo-custom-method', () => {
     dataObject.addEventListener('object-ready', () => {
       dataObject.data.data.description._value = 'updated desc';
 
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
     });
   });
 
@@ -174,6 +174,167 @@ describe('furo-custom-method', () => {
         href: 'https://httpbin.org/anything',
         method: 'Post',
         rel: 'cancel',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+    ]);
+
+    customMethod.trigger();
+  });
+
+  it('Accept header should be set ', done => {
+    customMethod.setAttribute('service', 'ExperimentService');
+    customMethod.setAttribute('method', 'createtemplate');
+    dataObject.setAttribute('type', 'experiment.ExperimentEntity');
+
+    customMethod.addEventListener('hts-updated', () => {
+      const request = customMethod._makeRequest({
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'createtemplate',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      });
+      assert.equal(
+        request.headers.get('Accept'),
+        'application/experiment.Experiment+json, application/json;q=0.9',
+      );
+      done();
+    });
+
+    customMethod.htsIn([
+      {
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'createtemplate',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+    ]);
+  });
+
+  it('should accept QueryParams Object via updateQp method', done => {
+    customMethod.setAttribute('service', 'ExperimentService');
+    customMethod.setAttribute('method', 'createtemplate');
+
+    customMethod.updateQp({ compact: true });
+    customMethod.updateQp({ variant: '5' });
+
+    dataObject.setAttribute('type', 'experiment.ExperimentEntity');
+
+    /**
+     * Register hook on wire --triggerLoad to
+     *
+     */
+    customMethod._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('compact=true') > 0, true);
+      assert.equal(req.url.indexOf('variant=5') > 0, true);
+      done();
+    });
+
+    customMethod.htsIn([
+      {
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'createtemplate',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+    ]);
+
+    customMethod.trigger();
+  });
+
+  it('should accept QueryParams Object via updateQp method', done => {
+    customMethod.setAttribute('service', 'ExperimentService');
+    customMethod.setAttribute('method', 'createtemplate');
+
+    customMethod.updateQp({ compact: true });
+    customMethod.updateQp({ variant: '5' });
+
+    dataObject.setAttribute('type', 'experiment.ExperimentEntity');
+
+    /**
+     * Register hook on wire --triggerLoad to
+     *
+     */
+    customMethod._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('compact=true') > 0, true);
+      assert.equal(req.url.indexOf('variant=5') > 0, true);
+      done();
+    });
+
+    customMethod.htsIn([
+      {
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'createtemplate',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+    ]);
+
+    customMethod.trigger();
+  });
+
+  it('should accept clear params via clearQp method', done => {
+    customMethod.setAttribute('service', 'ExperimentService');
+    customMethod.setAttribute('method', 'createtemplate');
+
+    customMethod.updateQp({ compact: true });
+    customMethod.updateQp({ variant: '5' });
+    customMethod.clearQp();
+
+    dataObject.setAttribute('type', 'experiment.ExperimentEntity');
+
+    /**
+     * Register hook on wire --triggerLoad to
+     *
+     */
+    customMethod._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('compact=true') > 0, false);
+      assert.equal(req.url.indexOf('variant=5') > 0, false);
+      done();
+    });
+
+    customMethod.htsIn([
+      {
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'createtemplate',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+    ]);
+
+    customMethod.trigger();
+  });
+
+  it('should rebuild request url with via updateQp setted qp and the previously existed qp together in url ', done => {
+    customMethod.setAttribute('service', 'ExperimentService');
+    customMethod.setAttribute('method', 'createtemplate');
+
+    customMethod.updateQp({ compact: true });
+    customMethod.updateQp({ variant: '5' });
+
+    dataObject.setAttribute('type', 'experiment.ExperimentEntity');
+
+    /**
+     * Register hook on wire --triggerLoad to
+     *
+     */
+    customMethod._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('compact=true') > 0, true);
+      assert.equal(req.url.indexOf('variant=5') > 0, true);
+      assert.equal(req.url.indexOf('previousqp=xyz') > 0, true);
+      done();
+    });
+
+    customMethod.htsIn([
+      {
+        href: 'https://httpbin.org/anything?previousqp=xyz',
+        method: 'Post',
+        rel: 'createtemplate',
         type: 'experiment.ExperimentEntity',
         service: 'ExperimentService',
       },

@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.4.2...@furo/data@1.4.3) (2020-06-29)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.4.1...@furo/data@1.4.2) (2020-06-29)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.4.0...@furo/data@1.4.1) (2020-06-22)
+
+
+### Bug Fixes
+
+* fields named "value" on root objects ([bc68ba6](https://github.com/theNorstroem/FuroBaseComponents/commit/bc68ba6915757a0f6ec7882940445786a814353c))
+* test flow changed ([ce96835](https://github.com/theNorstroem/FuroBaseComponents/commit/ce96835cb76250424e58cbb66a9a8d45d7f62c01))
+
+
+
+
+
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.14...@furo/data@1.4.0) (2020-06-16)
+
+
+### Features
+
+* complex objects ([14307ca](https://github.com/theNorstroem/FuroBaseComponents/commit/14307ca1151293374c4bc9d98103bab6e7ef6bcd))
+* data-object with oneof support ([f6cf2cb](https://github.com/theNorstroem/FuroBaseComponents/commit/f6cf2cb87b7dee77737f6a81a0a6b2c280a8c678))
+* do not send values from oneof group ([18463c2](https://github.com/theNorstroem/FuroBaseComponents/commit/18463c246ebc4af95d55f931b9255724b7f92776))
+* do not send values from oneof group ([391de4e](https://github.com/theNorstroem/FuroBaseComponents/commit/391de4e3b43323470fe96fe50fa3ba621cc2e094))
+
+
+
+
+
+## [1.3.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.13...@furo/data@1.3.14) (2020-06-08)
+
+
+### Bug Fixes
+
+* agents and custom method should work with camel-case method name ([67779b6](https://github.com/theNorstroem/FuroBaseComponents/commit/67779b695caadf57dfccd31768bb16b8097ccfe6))
+* mapping pre, next, last, firs list method to get in collection agent ([cd80278](https://github.com/theNorstroem/FuroBaseComponents/commit/cd80278ecfa37e3010ef096c9fb13745a640fbba))
+* remove self mapping in collection agent. ([89beec3](https://github.com/theNorstroem/FuroBaseComponents/commit/89beec3c34b29d1d46ef192841586831edfd0925))
+
+
+
+
+
+## [1.3.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.12...@furo/data@1.3.13) (2020-06-04)
+
+
+### Bug Fixes
+
+* correct handling of request headers accept and content-type ([14ede22](https://github.com/theNorstroem/FuroBaseComponents/commit/14ede22e96bf3a00cc56c002011c0434aae6937d))
+* request header content-type should be provided, if a body is sent ([3090a0a](https://github.com/theNorstroem/FuroBaseComponents/commit/3090a0aed4491239d6a0635c28ee14afc2f35721))
+
+
+
+
+
 ## [1.3.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.11...@furo/data@1.3.12) (2020-05-15)
 
 

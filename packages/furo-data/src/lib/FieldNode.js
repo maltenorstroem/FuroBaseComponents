@@ -7,6 +7,29 @@ import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
 import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
 import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 
+/**
+ *
+ * ## internal events
+ * - *this-field-became-invalid*, when a field gets invalid
+ * - *field-became-invalid* **bubbles**, when a field gets invalid
+ * - *this-field-became-valid*, when a field gets valid
+ * - *field-became-valid* **bubbles**, when a field gets valid
+ * - *this-field-value-changed*, when the value of a field changed
+ * - *field-value-changed* **bubbles**, when the value of a field changed
+ * - *this-metas-changed*, when the metas of a field changed
+ * - *metas-changed* **bubbles**, when the meta of a field changed
+ * - *oneof-field-cleared*, when a field in a oneof group was cleared
+ * - *oneof-field-changed*, when a field in a oneof group was changed
+ * - *this-node-field-added*, when a sub field was added to a field
+ * - *node-field-added* **bubbles**, when a sub field was added to a field
+ * - *this-node-field-deleted*, when a sub field was added to a field
+ * - *node-field-deleted* **bubbles**, when a sub field was added to a field
+
+ *
+ * ## internal broadcasted events
+ * - *parent-readonly-meta-set*, when readonly was set on a parent field
+ *
+ */
 export class FieldNode extends EventTreeNode {
   constructor(parentNode, fieldSpec, fieldName) {
     super(parentNode);
@@ -193,7 +216,7 @@ export class FieldNode extends EventTreeNode {
   }
 
   set _value(val) {
-    // create vendor type if this field is a recusion an was not generated
+    // create vendor type if this field is a recursion an was not generated
     if (this._isRecursion && val) {
       this._createVendorType(this._spec.type);
     }
@@ -225,7 +248,7 @@ export class FieldNode extends EventTreeNode {
        * if we have meta on this layer, we should update the siblings
        */
       if (furoMetaDetected) {
-        this.__updateMetaAndConstraints(furoMetaDetected,0);
+        this.__updateMetaAndConstraints(furoMetaDetected, 0);
       }
     } else {
       // update the primitive type
@@ -273,16 +296,51 @@ export class FieldNode extends EventTreeNode {
             // eslint-disable-next-line no-param-reassign
             n._value = [];
           } else {
+            // todo:  maybe set to undefined if no spec default is given
             // eslint-disable-next-line no-param-reassign
             n._value = {};
           }
         } else {
           // skalar value
+          // todo:  maybe set to undefined if no spec default is given
           // eslint-disable-next-line no-param-reassign
           n._value = Helper.defaultForType(n._spec.type);
         }
       }
     });
+
+    if (this && this._spec && this._spec.__proto && this._spec.__proto.oneof) {
+      // clear oneof siblings
+      const oneofGorup = this._spec.__proto.oneof;
+      // avoid recursion with __oneofrecusion
+      if (oneofGorup !== '' && !this.__oneofrecusion) {
+        this.__parentNode.__childNodes.forEach(sibling => {
+          if (sibling !== this && sibling._spec.__proto.oneof === oneofGorup) {
+            // eslint-disable-next-line no-param-reassign
+            sibling.__oneofrecusion = true;
+            // eslint-disable-next-line no-param-reassign
+            sibling._oldvalue = this._value;
+            // eslint-disable-next-line no-param-reassign
+            sibling.__value = undefined;
+            // eslint-disable-next-line no-param-reassign
+            sibling._value = undefined;
+            if (sibling.__childNodes.length > 0) {
+              // eslint-disable-next-line no-param-reassign
+              sibling.__childNodes = [];
+            }
+            // eslint-disable-next-line no-param-reassign
+            sibling._pristine = false;
+            // eslint-disable-next-line no-param-reassign
+            sibling.__oneofrecusion = false;
+
+            // send an event to notify that this field was cleared
+            // eslint-disable-next-line no-param-reassign
+            sibling.dispatchNodeEvent(new NodeEvent('oneof-field-cleared', sibling, false));
+          }
+        });
+        this.dispatchNodeEvent(new NodeEvent('oneof-field-changed', this, false));
+      }
+    }
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
   }
@@ -344,14 +402,13 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const m in mc.meta) {
           // update the metas, the level should be checked. because the field can be data.data
-          if (this._name === field && !level){
+          if (this._name === field && !level) {
             this._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
               this.broadcastEvent(new NodeEvent('parent-readonly-meta-set', this, true));
             }
-          }
-          else if (this[field]) {
+          } else if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
@@ -366,10 +423,9 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const c in mc.constraints) {
           // update the constraints
-          if (this._name === field && !level){
+          if (this._name === field && !level) {
             this._constraints[c] = mc.constraints[c];
-          }
-          else if (this[field]) {
+          } else if (this[field]) {
             this[field]._constraints[c] = mc.constraints[c];
           } else {
             // eslint-disable-next-line no-console
@@ -386,7 +442,7 @@ export class FieldNode extends EventTreeNode {
         if (this._name === field && !level) {
           // eslint-disable-next-line no-plusplus
           this._triggerDeepNodeEvent('this-metas-changed');
-        }else if (this[field]) {
+        } else if (this[field]) {
           this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
         }
 
@@ -397,7 +453,7 @@ export class FieldNode extends EventTreeNode {
       const subMetaAndConstraints = { fields: {} };
       subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
       // eslint-disable-next-line no-param-reassign
-      level +=1;
+      level += 1;
       this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
     }
   }
@@ -408,7 +464,7 @@ export class FieldNode extends EventTreeNode {
    * @param event
    * @private
    */
-  _triggerDeepNodeEvent(event){
+  _triggerDeepNodeEvent(event) {
     if (this.__childNodes.length > 0) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
@@ -416,7 +472,7 @@ export class FieldNode extends EventTreeNode {
         field._triggerDeepNodeEvent(event);
       }
     }
-    if (event && event.length){
+    if (event && event.length) {
       this.dispatchNodeEvent(new NodeEvent(event, this, false));
     }
   }

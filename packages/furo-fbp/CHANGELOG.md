@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.11...@furo/fbp@5.1.12) (2020-06-29)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.1.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.10...@furo/fbp@5.1.11) (2020-06-22)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.1.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.9...@furo/fbp@5.1.10) (2020-06-16)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.1.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.8...@furo/fbp@5.1.9) (2020-06-08)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.1.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.7...@furo/fbp@5.1.8) (2020-06-04)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
 ## [5.1.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.6...@furo/fbp@5.1.7) (2020-05-01)
 
 **Note:** Version bump only for package @furo/fbp

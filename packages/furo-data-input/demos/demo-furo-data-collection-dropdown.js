@@ -84,12 +84,29 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 display-field="display_name"
                 ƒ-inject-entities="--response(*.entities)"
                 @-item-selected="--itemSelected"
+                hint="adsfasdf"
+              ></furo-data-collection-dropdown>
+
+              <furo-data-collection-dropdown
+                value-field="id"
+                display-field="display_name"
+                subfield="data.id"
+                ƒ-inject-entities="--response(*.entities)"
+                @-item-selected="--itemSelected"
+                ƒ-bind-data="--collection(*.entities)"
+                size="4"
+                hint="Holding down the Ctrl to select"
               ></furo-data-collection-dropdown>
             </furo-form-layouter>
 
             <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
             <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+            <furo-data-object
+              type="task.TaskCollection"
+              @-object-ready="--collection"
+              ƒ-inject-raw="--response"
+            ></furo-data-object>
 
             <furo-collection-agent
               service="TaskService"
