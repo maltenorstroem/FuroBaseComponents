@@ -29,7 +29,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-color-input Input samples
  * @appliesMixin FBP
  */
-class FuroColorInput extends FBP(LitElement) {
+export class FuroColorInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -85,7 +85,7 @@ class FuroColorInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
 
       /**
@@ -93,6 +93,7 @@ class FuroColorInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -119,18 +120,21 @@ class FuroColorInput extends FBP(LitElement) {
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * The hint text for the field.
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -158,12 +162,14 @@ class FuroColorInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */
       filled: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * error text
@@ -338,6 +344,12 @@ class FuroColorInput extends FBP(LitElement) {
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label {
           padding: 0 4px;
           border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
@@ -365,6 +377,7 @@ class FuroColorInput extends FBP(LitElement) {
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -510,6 +523,13 @@ class FuroColorInput extends FBP(LitElement) {
           top: 10px;
           font-size: 14px;
         }
+
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;

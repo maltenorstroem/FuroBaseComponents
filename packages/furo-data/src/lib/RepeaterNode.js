@@ -75,6 +75,9 @@ export class RepeaterNode extends EventTreeNode {
     this.addEventListener('field-value-changed', () => {
       this._pristine = false;
     });
+    this.addEventListener('repeated-fields-changed', () => {
+      this._pristine = false;
+    });
 
     this.addEventListener('disable-validation', () => {
       this._validationDisabled = true;
@@ -268,14 +271,10 @@ export class RepeaterNode extends EventTreeNode {
    * @private
    */
   get _deltaValue() {
-    const n = [];
-    this.__childNodes.forEach(f => {
-      const val = f._deltaValue;
-      if (val !== undefined) {
-        n.push(val);
-      }
-    });
-    return n.length ? n : undefined;
+    if (!this._pristine) {
+      return this._value;
+    }
+    return undefined;
   }
 
   /**
@@ -365,7 +364,6 @@ export class RepeaterNode extends EventTreeNode {
     this.dispatchNodeEvent(new NodeEvent('repeated-fields-changed', this, true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
     this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
-
     // return field for chainabilty
     return this.repeats[index];
   }

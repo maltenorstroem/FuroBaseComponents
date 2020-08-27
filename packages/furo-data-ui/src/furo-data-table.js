@@ -384,7 +384,7 @@ class FuroDataTable extends FBP(LitElement) {
     }
     this._type = type;
     // if we have a field list in the queue, we work through it
-    if (this._fieldQueue && this._fieldQueue.length){
+    if (this._fieldQueue && this._fieldQueue.length) {
       this._fieldQueue.forEach(c => {
         this._internalAddColumn(c);
       });
@@ -443,12 +443,11 @@ class FuroDataTable extends FBP(LitElement) {
       const cols = fields.replace(/ /g, '').split(',');
       if (cols.length > 0) {
         this.cols = [];
-        if (this._type === undefined || !this._type.length){
+        if (this._type === undefined || !this._type.length) {
           // queue fields
           cols.forEach(c => {
             this._fieldQueue.push(c);
           });
-
         } else {
           cols.forEach(c => {
             this._internalAddColumn(c);
@@ -465,15 +464,18 @@ class FuroDataTable extends FBP(LitElement) {
    * @private
    */
   _applySortableFields(fields) {
-    if (fields && fields.length) {
-      const sortableCols = fields.replace(/ /g, '').split(',');
-      sortableCols.forEach(f => {
-        const column = this.cols.filter(obj => obj.id === f);
-        if (column.length) {
-          column[0].sortable = true;
-        }
-      });
-    }
+    setTimeout(()=>{
+      if (fields && fields.length) {
+        const sortableCols = fields.replace(/ /g, '').split(',');
+        sortableCols.forEach(f => {
+          const column = this.cols.filter(obj => obj.id === f);
+          if (column.length) {
+            column[0].sortable = true;
+          }
+        });
+      }
+      this.requestUpdate();
+    },16)
   }
 
   /**

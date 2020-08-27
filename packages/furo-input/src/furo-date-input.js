@@ -33,7 +33,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
-class FuroDateInput extends FBP(LitElement) {
+export class FuroDateInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -108,7 +108,41 @@ class FuroDateInput extends FBP(LitElement) {
 
   set _value(v) {
     this._float = !!v;
-    this._FBPTriggerWire('--value', v);
+
+    if (typeof v === 'object') {
+      this._FBPTriggerWire('--value', this._convertDateObjToString(v));
+    } else {
+      this._FBPTriggerWire('--value', v);
+    }
+  }
+
+  // convert google date object to ISO 8601
+  // eslint-disable-next-line class-methods-use-this
+  _convertDateObjToString(obj) {
+    let date = '';
+
+    if (obj && obj.day && obj.month && obj.year) {
+      let month = String(obj.month);
+      let day = String(obj.day);
+      let year = String(obj.year);
+
+      if (month.length < 2) {
+        month = `0${month}`;
+      }
+
+      if (day.length < 2) {
+        day = `0${day}`;
+      }
+
+      if (year.length < 4) {
+        const l = 4 - year.length;
+        for (let i = 0; i < l; i += 1) {
+          year = `0${year}`;
+        }
+      }
+      date = `${year}-${month}-${day}`;
+    }
+    return date;
   }
 
   static get properties() {
@@ -416,6 +450,12 @@ class FuroDateInput extends FBP(LitElement) {
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label {
           padding: 0 4px;
           border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
@@ -443,6 +483,7 @@ class FuroDateInput extends FBP(LitElement) {
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -587,6 +628,12 @@ class FuroDateInput extends FBP(LitElement) {
         :host([condensed]) input {
           top: 11px;
           font-size: 14px;
+        }
+
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
         }
 
         :host([condensed]:not([filled])) label,
