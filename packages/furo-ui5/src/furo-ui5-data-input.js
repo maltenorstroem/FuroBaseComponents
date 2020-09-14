@@ -12,19 +12,19 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  * @customElement
  */
 export class FuroUi5DataInput extends Input.default {
-  constructor(props) {
-    super(props);
-    this._initBinder();
-  }
-
   /**
-   * init properties
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    */
   connectedCallback() {
     // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
+    setTimeout(() => {
+      super.connectedCallback();
+    }, 0);
+
     this.showSuggestions = true;
     this.highlight = true;
+    this._initBinder();
   }
 
   /**
@@ -91,7 +91,6 @@ export class FuroUi5DataInput extends Input.default {
 
     // update the value on input changes
     this.addEventListener('input', val => {
-
       this.binder.fieldValue = val.target.value;
 
       // set flag empty on empty strings (for fat types)
