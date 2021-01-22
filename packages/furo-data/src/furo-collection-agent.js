@@ -76,7 +76,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
     this._singleElementQueue = []; // queue for calls, before hts is set
     this._queryParams = {};
-    this._specDefinedQPs = {};
   }
 
   /**
@@ -169,10 +168,9 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
+  // if you throw in an object or array, it will get encoded when the request is fired
   setFilter(filterstring) {
-    if (Array.isArray(filterstring)) {
-      this.filter = filterstring;
-    }
+    this.filter = filterstring;
   }
 
   set filter(f) {
@@ -244,6 +242,17 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
+   * Set query params
+   * All existing query params are replaced by the transferred parameters
+   * If the transferred object is empty, all the values will be removed!
+   * The AgentHelper fires a qp-set event after the query params are replaced.
+   * @param {Object} key value pairs
+   */
+  setQp(qp) {
+    AgentHelper.setQp(this, qp);
+  }
+
+  /**
    * clear the query params that you have setted before
    */
   clearQp() {
@@ -302,7 +311,11 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * The response message will be filtered by the fields before being sent back to the client.
      */
     if (this._filter) {
-      params.filter = JSON.stringify(this._filter);
+      if (typeof this._filter !== 'string') {
+        params.filter = JSON.stringify(this._filter);
+      } else {
+        params.filter = this._filter;
+      }
     }
 
     /**
@@ -316,7 +329,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     }
 
     // rebuild qp
-    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    const qp = AgentHelper.rebuildQPFromParams(params);
     // generate req
     const req = AgentHelper.generateReq(link, qp);
 
@@ -369,13 +382,16 @@ class FuroCollectionAgent extends FBP(LitElement) {
     return this.list();
   }
 
+  /**
+   * search for a term.
+   *
+   * This will set the query param q and triggers a list()
+   *
+   * @param term
+   */
   search(term) {
-    if (term !== '') {
-      this._queryParams.q = term;
-      this.list();
-    } else {
-      delete this._queryParams.q;
-    }
+    this._queryParams.q = term;
+    this.list();
   }
 
   /**

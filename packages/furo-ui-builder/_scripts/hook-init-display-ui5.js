@@ -1,3 +1,8 @@
+/**
+ * UI Builder Hook: HookInitDisplayUi5
+ * is a ui Builder hook for message types. The hook creates a form with read only input fields per attribute.
+ * @type {U33eBuilder}
+ */
 const U33eBuilder = require("./u33eBuilder");
 
 class HookInitDisplayUi5 {
@@ -5,7 +10,7 @@ class HookInitDisplayUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -23,13 +28,14 @@ class HookInitDisplayUi5 {
     })();
 
     u33e.setTheme("DisplayBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
     u33e.addImportWithMember("Theme", "@furo/framework/src/theme.js");
     u33e.addImportWithMember("FBP", "@furo/fbp");
+    u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
     u33e.addImport("@furo/ui5/src/furo-catalog.js");
     u33e.addImport("@furo/form/src/furo-form.js");
@@ -47,7 +53,9 @@ class HookInitDisplayUi5 {
 
     // styling
     u33e.addStyle(":host")
-        .addCSSAttribute("display", "block");
+        .addCSSAttribute("display", "block")
+        .addCSSAttribute("--furo-form-layouter-row-gap", "var(--spacing-xs)");
+
 
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
@@ -82,7 +90,7 @@ class HookInitDisplayUi5 {
       }
 
       // let component = U33eBuilder.getBestMatchingComponent(field);
-      let component = "furo-ui5-data-display-labeled";
+      let component = "furo-ui5-data-ro-labeled";
 
       let fld = form.appendChild(component);
 
@@ -185,7 +193,7 @@ class HookInitDisplayUi5 {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search-ui5";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
 
           // exclude self import
           let importComponent = ctx.getImportPathForComponent(fld.component);

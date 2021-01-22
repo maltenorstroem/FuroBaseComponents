@@ -3,6 +3,185 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.3...@furo/data-ui@1.4.4) (2021-01-18)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.2...@furo/data-ui@1.4.3) (2021-01-12)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.1...@furo/data-ui@1.4.2) (2021-01-12)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.0...@furo/data-ui@1.4.1) (2021-01-05)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.39...@furo/data-ui@1.4.0) (2020-12-24)
+
+
+### Features
+
+* initial filters ([129cfac](https://github.com/theNorstroem/FuroBaseComponents/commit/129cfac9dc2bc04191e7e182ffe4b2cf60dcf074))
+
+
+
+
+
+## [1.3.39](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.38...@furo/data-ui@1.3.39) (2020-12-17)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.38](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.37...@furo/data-ui@1.3.38) (2020-12-10)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.37](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.36...@furo/data-ui@1.3.37) (2020-12-01)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.36](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.35...@furo/data-ui@1.3.36) (2020-11-27)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.35](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.34...@furo/data-ui@1.3.35) (2020-11-24)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.34](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.33...@furo/data-ui@1.3.34) (2020-11-20)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.33](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.32...@furo/data-ui@1.3.33) (2020-11-14)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.32](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.31...@furo/data-ui@1.3.32) (2020-11-14)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.30...@furo/data-ui@1.3.31) (2020-11-12)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.30](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.29...@furo/data-ui@1.3.30) (2020-11-05)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.28...@furo/data-ui@1.3.29) (2020-11-04)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.27...@furo/data-ui@1.3.28) (2020-10-30)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.26...@furo/data-ui@1.3.27) (2020-10-28)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.25...@furo/data-ui@1.3.26) (2020-10-27)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.24...@furo/data-ui@1.3.25) (2020-10-20)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.23...@furo/data-ui@1.3.24) (2020-10-08)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.3.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.22...@furo/data-ui@1.3.23) (2020-09-14)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
 ## [1.3.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.21...@furo/data-ui@1.3.22) (2020-09-03)
 
 **Note:** Version bump only for package @furo/data-ui

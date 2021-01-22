@@ -29,6 +29,12 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
    */
 
   /**
+   * Fired when the checkbox value changed.
+   * the event detail is the value of the checkbox
+   * @event value-changed
+   */
+
+  /**
    *
    * @param props
    */
@@ -57,7 +63,8 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'text', // map label to placeholder
+      text: 'text', // text of checkbox
+      label: 'text', // map label to text
       placeholder: 'placeholder', // map placeholder to placeholder
       'value-state': '_valueState',
       errortext: '_errorMsg', // name errortext is for compatibility with spec
@@ -95,6 +102,14 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       // update the value
       this.binder.fieldValue = val.target.checked;
 
+      /**
+       * Fired when value changed
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = val.target.checked;
+      this.dispatchEvent(customEvent);
+
       // set flag empty on empty strings (for fat types)
       if (val.target.checked) {
         this.binder.deleteLabel('empty');
@@ -103,6 +118,8 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       }
       // if something was entered the field is not empty
       this.binder.deleteLabel('pristine');
+
+      this._requestUpdate();
     });
   }
 
@@ -127,8 +144,16 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
         this.binder.addLabel('pristine');
+        this._requestUpdate();
       });
     }
+  }
+
+  /**
+   * @private
+   */
+  _requestUpdate() {
+    this._updateSlots();
   }
 }
 window.customElements.define('furo-ui5-data-checkbox-input', FuroUi5DataCheckboxInput);

@@ -107,6 +107,17 @@ class FuroButtonBar extends LitElement {
   }
 
   /**
+   * Enables all elements inside
+   * IMPORTANT: all checks are disabled
+   */
+  enableAllNoChecks() {
+    const elems = this.querySelectorAll('*');
+    elems.forEach(item => {
+      item.removeAttribute('disabled');
+    });
+  }
+
+  /**
    * Set the default value if any hide/disable attribute  or
    * rel="" attribute is set
    * @param changedProperties

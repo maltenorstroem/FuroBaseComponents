@@ -6,13 +6,13 @@ class HookInitCreateWidgetUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     u33e.setTheme("CreateWidgetBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -23,8 +23,8 @@ class HookInitCreateWidgetUi5 {
 
     u33e.addImport("@furo/form/src/furo-form-layouter.js");
     u33e.addImport("@furo/form/src/furo-button-bar.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-button.js");
     u33e.addImport("@ui5/webcomponents/dist/Card.js");
-    u33e.addImport("@ui5/webcomponents/dist/Button.js");
 
     // header-text and secondary-text property
     u33e.addProperty("headerText", "String", "Header text to label the form", null, false, false, "header-text");
@@ -43,7 +43,15 @@ class HookInitCreateWidgetUi5 {
     u33e.addStyle(":host([hidden])")
       .addCSSAttribute("display", "none");
 
+    u33e.addStyle("ui5-card")
+      .addCSSAttribute("position", "relative");
+
     u33e.addStyle(".content")
+      .addCSSAttribute("position", "absolute")
+      .addCSSAttribute("left", "0px")
+      .addCSSAttribute("right", "0px")
+      .addCSSAttribute("background", "var(--sapTile_Background)")
+      .addCSSAttribute("box-shadow", "var(--sapContent_Shadow0)")
       .addCSSAttribute("padding", "var(--spacing-s, 16px) var(--spacing, 24px)");
 
     let card = u33e.addDomNode("ui5-card");
@@ -60,7 +68,7 @@ class HookInitCreateWidgetUi5 {
 
     let action = cardContent.appendChild("furo-button-bar");
 
-    let button = action.appendChild("ui5-button");
+    let button = action.appendChild("furo-ui5-button");
     button.addAttribute("rel","create")
       .addInnerText("${i18n.t('create')}")
       .addEventListener("click","-^create-requested", "fired when the create button was pressed");
@@ -83,7 +91,7 @@ class HookInitCreateWidgetUi5 {
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-        component = field.type.toLowerCase().split(".").join("-") + "-form-ui5";
+        component = field.type.toLowerCase().split(".").join("-") + "-form";
         // exclude self import
         let importComponent = ctx.getImportPathForComponent(component);
         if (importComponent) {
@@ -110,7 +118,7 @@ class HookInitCreateWidgetUi5 {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search-ui5";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
 
           let folder = f.split(".")[0];
           // exclude self import

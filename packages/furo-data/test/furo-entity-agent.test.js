@@ -291,7 +291,8 @@ describe('furo-entity-agent', () => {
     done();
   });
 
-  it('Required fields must always be fully transmitted.', done => {
+  // this is not true anymore, patch just send the delta
+  xit('Required fields must always be fully transmitted.', done => {
     entityAgent.loadOnHtsIn = true;
     entityAgent.setAttribute('service', 'ExperimentService');
     dataObject.setAttribute('type', 'experiment.ExperimentEntity');
@@ -341,7 +342,8 @@ describe('furo-entity-agent', () => {
     ]);
   });
 
-  it('request payload should only have modified or required fields', done => {
+  // this is not true anymore, patch just send the delta
+  xit('request payload should only have modified or required fields', done => {
     entityAgent.loadOnHtsIn = true;
     entityAgent.setAttribute('service', 'ExperimentService');
     dataObject.setAttribute('type', 'experiment.ExperimentEntity');
@@ -412,7 +414,7 @@ describe('furo-entity-agent', () => {
       expect(r.detail.json.owner.hasOwnProperty('id')).to.be.false;
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.hasOwnProperty('display_name')).to.be.false;
-      assert(r.detail.json.owner.link.href, '/mockdata/persons/list.json');
+
       done();
     });
 

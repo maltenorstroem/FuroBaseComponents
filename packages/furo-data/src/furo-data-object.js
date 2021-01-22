@@ -84,6 +84,13 @@ export class FuroDataObject extends LitElement {
   }
 
   /**
+   * Clears all errors on children without any validation!
+   */
+  clearAllErrors() {
+    this.data.clearAllErrors();
+  }
+
+  /**
    * Triggers the validation of all fields in the data object.
    *
    * Use this before you submit some data to a server.
@@ -141,13 +148,24 @@ export class FuroDataObject extends LitElement {
   }
 
   /**
+   * @event init-completed
+   * Fired when the object init was done
+   *
+   * **detail payload:** A EntityNode object
+   *
+   * **bubbles**
+   */
+  /**
    * Sets the model to an initial state according to the given type.
+   *
+   * fires *init-completed*
    *
    * To reset changed data to the last injected state, please use reset();
    */
   init() {
-    this.data.init();
-    const customEvent = new Event('object-ready', { composed: true, bubbles: true });
+    // inject the initial value created below without breaking any bindings
+    this.data.injectRaw(this._initial);
+    const customEvent = new Event('init-completed', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
@@ -282,6 +300,8 @@ export class FuroDataObject extends LitElement {
       valueChangedEvent.detail = e.detail;
       this.dispatchEvent(valueChangedEvent);
     });
+    // store the initial value for a later init call
+    this._initial = this.data._value;
 
     return true;
   }

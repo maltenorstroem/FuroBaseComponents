@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.4...@furo/framework@1.5.5) (2021-01-05)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.3...@furo/framework@1.5.4) (2020-12-24)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.2...@furo/framework@1.5.3) (2020-12-17)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.1...@furo/framework@1.5.2) (2020-12-10)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.0...@furo/framework@1.5.1) (2020-11-27)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.4.1...@furo/framework@1.5.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* furo-data-collection-dropdown should update bounded data ([136b833](https://github.com/theNorstroem/FuroBaseComponents/commit/136b833e64b12ad04dcfabbf0fb70802348dd1e6))
+
+
+### Features
+
+* default set on furo.Link types will prefix with api-base-url when it is not hard coded in the specs ([8dc9cd2](https://github.com/theNorstroem/FuroBaseComponents/commit/8dc9cd29557353473c10e725c9e9716374d201fc))
+
+
+
+
+
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.4.0...@furo/framework@1.4.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* trivial fixes ([702f726](https://github.com/theNorstroem/FuroBaseComponents/commit/702f726dd87f68d8ce5eb6940fa9ae3c21ba5af7))
+
+
+
+
+
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.18...@furo/framework@1.4.0) (2020-11-05)
+
+
+### Features
+
+* support furo.type.Date ([3d8847b](https://github.com/theNorstroem/FuroBaseComponents/commit/3d8847b9b98c5322621f04ccedd220bb132a7147))
+
+
+
+
+
+## [1.3.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.17...@furo/framework@1.3.18) (2020-11-04)
+
+
+### Bug Fixes
+
+* add api prefix for the links in the meta of the types ([bd7e702](https://github.com/theNorstroem/FuroBaseComponents/commit/bd7e702570c621695199a4cf75af8b75aac341ab))
+
+
+
+
+
+## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.16...@furo/framework@1.3.17) (2020-10-27)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.3.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.15...@furo/framework@1.3.16) (2020-10-08)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
 ## [1.3.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.14...@furo/framework@1.3.15) (2020-09-03)
 
 **Note:** Version bump only for package @furo/framework

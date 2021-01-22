@@ -11,12 +11,12 @@ class HookInitUpdateActionUi5 {
     }
 
     let basename = (SPEC.services.Update.data.request.split(".").join("-"));
-    return PKGDIR + "/" + (basename + "-update-action-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (basename + "-update-action").toLowerCase() + ".u33e";
   }
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     ctx.basename = (SPEC.services.Update.data.request.split(".").join("-"));
-    u33e.model.component_name = (ctx.basename + "-update-action-ui5").toLowerCase();
+    u33e.model.component_name = (ctx.basename + "-update-action").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -26,7 +26,8 @@ class HookInitUpdateActionUi5 {
     u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
     u33e.addImport("@furo/form/src/furo-button-bar.js");
-    u33e.addImport("@ui5/webcomponents/dist/Button.js");
+    u33e.addImport("@furo/layout/src/furo-empty-spacer.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-button.js");
 
     // styling
     u33e.addStyle(":host")
@@ -46,12 +47,14 @@ class HookInitUpdateActionUi5 {
         .addMethod("disable-all", "--disableAllReq")
         .addMethod("enable-all", "--enableAllReq");
 
+    bar.appendChild("furo-empty-spacer");
+
     for (let service in SPEC.services) {
 
       switch (service) {
 
         case "Update":
-          let updatebtn = bar.appendChild("ui5-button");
+          let updatebtn = bar.appendChild("furo-ui5-button");
           updatebtn.addFlag("hide-no-rel")
               .addFlag("disable-not-valid")
               .addFlag("disable-pristine")
@@ -62,7 +65,7 @@ class HookInitUpdateActionUi5 {
           break;
 
         case "Delete":
-          let deletebtn = bar.appendChild("ui5-button");
+          let deletebtn = bar.appendChild("furo-ui5-button");
           deletebtn.addFlag("hide-no-rel")
               .addAttribute("design", "Negative")
               .addAttribute("rel", SPEC.services[service].deeplink.rel)

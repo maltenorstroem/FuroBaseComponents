@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.25...@furo/layout@1.3.26) (2021-01-05)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.24...@furo/layout@1.3.25) (2020-12-24)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.23...@furo/layout@1.3.24) (2020-12-17)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.22...@furo/layout@1.3.23) (2020-12-10)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.21...@furo/layout@1.3.22) (2020-11-27)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.20...@furo/layout@1.3.21) (2020-11-20)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.19...@furo/layout@1.3.20) (2020-11-12)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.18...@furo/layout@1.3.19) (2020-11-05)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.17...@furo/layout@1.3.18) (2020-11-04)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.16...@furo/layout@1.3.17) (2020-10-27)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
+## [1.3.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.15...@furo/layout@1.3.16) (2020-10-08)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
 ## [1.3.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.14...@furo/layout@1.3.15) (2020-09-03)
 
 **Note:** Version bump only for package @furo/layout

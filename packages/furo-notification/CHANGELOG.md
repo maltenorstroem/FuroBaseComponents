@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.14...@furo/notification@1.4.15) (2021-01-05)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.13...@furo/notification@1.4.14) (2020-12-24)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.12...@furo/notification@1.4.13) (2020-12-17)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.11...@furo/notification@1.4.12) (2020-12-10)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.10...@furo/notification@1.4.11) (2020-11-27)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.9...@furo/notification@1.4.10) (2020-11-20)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.8...@furo/notification@1.4.9) (2020-11-12)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.7...@furo/notification@1.4.8) (2020-11-05)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.6...@furo/notification@1.4.7) (2020-11-04)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.5...@furo/notification@1.4.6) (2020-10-30)
+
+
+### Bug Fixes
+
+* banner should also work if no field violation was set ([2ebe753](https://github.com/theNorstroem/FuroBaseComponents/commit/2ebe753ed8a124de3240f27d4a7278c08b9e1afd))
+
+
+
+
+
+## [1.4.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.4...@furo/notification@1.4.5) (2020-10-28)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.3...@furo/notification@1.4.4) (2020-10-27)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.2...@furo/notification@1.4.3) (2020-10-20)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.1...@furo/notification@1.4.2) (2020-10-08)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
 ## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.0...@furo/notification@1.4.1) (2020-09-03)
 
 **Note:** Version bump only for package @furo/notification

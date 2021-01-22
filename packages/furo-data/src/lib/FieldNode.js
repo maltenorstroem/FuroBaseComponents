@@ -77,7 +77,21 @@ export class FieldNode extends EventTreeNode {
     this._validationDisabled = this.__parentNode._validationDisabled;
 
     // Build custom type if a spec exists
-    if (this.__specdefinitions[this._spec.type] !== undefined) {
+    if (
+      this.__specdefinitions[this._spec.type] !== undefined &&
+      this._spec.type !== 'google.protobuf.StringValue' &&
+      this._spec.type !== 'google.protobuf.BoolValue' &&
+      this._spec.type !== 'google.protobuf.FloatValue' &&
+      this._spec.type !== 'google.protobuf.Int32Value' &&
+      this._spec.type !== 'google.protobuf.Int64Value' &&
+      this._spec.type !== 'google.protobuf.DoubleValue' &&
+      this._spec.type !== 'google.protobuf.Duration' &&
+      this._spec.type !== 'google.protobuf.Timestamp' &&
+      this._spec.type !== 'google.protobuf.FieldMask' &&
+      this._spec.type !== 'google.protobuf.BytesValue' &&
+      this._spec.type !== 'google.protobuf.UInt32Value' &&
+      this._spec.type !== 'google.protobuf.UInt64Value'
+    ) {
       // check for recursion
 
       if (!this.__parentNode._hasAncestorOfType(this._spec.type)) {
@@ -90,8 +104,12 @@ export class FieldNode extends EventTreeNode {
     }
 
     // set default value from meta
-    if (this._meta && this._meta.default) {
-      this.defaultvalue = this._meta.default;
+    if (this._meta && this._meta.default !== null) {
+      if (this._spec.type === 'string') {
+        this.defaultvalue = this._meta.default;
+      } else if (this._meta.default) {
+        this.defaultvalue = this._meta.default;
+      }
     }
 
     /**
@@ -130,6 +148,11 @@ export class FieldNode extends EventTreeNode {
 
     this.addEventListener('validation-requested', () => {
       this._checkConstraints();
+    });
+
+    // clear the errors
+    this.addEventListener('clear-all-errors-requested', () => {
+      this._clearInvalidity();
     });
 
     this.addEventListener('parent-readonly-meta-set', () => {
@@ -252,6 +275,10 @@ export class FieldNode extends EventTreeNode {
         if (val && val.hasOwnProperty(field._name)) {
           field._value = val[field._name];
         }
+        // e.g. wrapper_int32: null -> wrapper_in32{"value":null}. otherwise the old wrapper object value will not be updated by null
+        else if (val === null) {
+          field._value = null;
+        }
       }
 
       /**
@@ -331,10 +358,18 @@ export class FieldNode extends EventTreeNode {
             sibling.__oneofrecusion = true;
             // eslint-disable-next-line no-param-reassign
             sibling._oldvalue = this._value;
-            // eslint-disable-next-line no-param-reassign
-            sibling.__value = undefined;
-            // eslint-disable-next-line no-param-reassign
-            sibling._value = undefined;
+            if (sibling._spec.type === 'string') {
+              // eslint-disable-next-line no-param-reassign
+              sibling.__value = '';
+              // eslint-disable-next-line no-param-reassign
+              sibling._value = '';
+            } else {
+              // eslint-disable-next-line no-param-reassign
+              sibling.__value = undefined;
+              // eslint-disable-next-line no-param-reassign
+              sibling._value = undefined;
+            }
+
             if (sibling.__childNodes.length > 0) {
               // eslint-disable-next-line no-param-reassign
               sibling.__childNodes = [];
@@ -386,6 +421,9 @@ export class FieldNode extends EventTreeNode {
         // complex special type path
         switch (this._spec.type) {
           case 'google.type.Date':
+            ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
+            break;
+          case 'furo.type.Date':
             ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
             break;
           case 'google.type.Money':
@@ -566,11 +604,13 @@ export class FieldNode extends EventTreeNode {
     // type any
     this._createAnyType(val);
 
-    if (this.__childNodes.length > 0 && val) {
+    if (this.__childNodes.length > 0 && (val !== undefined || val !== null)) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
         const field = this.__childNodes[index];
-        field.defaultvalue = val[field._name];
+        if (val[field._name] !== undefined) {
+          field.defaultvalue = val[field._name];
+        }
       }
     } else if (this._spec.type.startsWith('map<')) {
       this._updateKeyValueMap(val, this._spec.type);
@@ -581,6 +621,11 @@ export class FieldNode extends EventTreeNode {
     }
   }
 
+  /**
+   * returns the raw value of the field node
+   * @return {null}
+   * @private
+   */
   get _value() {
     if (this.__childNodes.length > 0 || this._fieldIsMap) {
       this.__value = {};
@@ -592,6 +637,24 @@ export class FieldNode extends EventTreeNode {
       }
     }
     return this.__value;
+  }
+
+  /**
+   * returns the value of the data object as a base64 encoded string
+   * @return {string}
+   * @private
+   */
+  get _base64() {
+    return btoa(JSON.stringify(this._value));
+  }
+
+  /**
+   * Set the value of the data object with a base64 encoded string
+   * @param encodedData
+   * @private
+   */
+  set _base64(encodedData) {
+    this.injectRaw(JSON.parse(atob(encodedData)));
   }
 
   /**
@@ -643,32 +706,15 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   get _deltaValue() {
-    // a required field needs a special treatment --> required path
-    if (
-      this._constraints &&
-      this._constraints.required &&
-      this._constraints.required.is === 'true'
-    ) {
-      return this._requiredValue;
-    }
     if (this.__childNodes.length > 0) {
       this.__value = {};
       // nur reine Daten zurück geben
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
         const field = this.__childNodes[index];
-        let val;
-        if (
-          field._constraints !== undefined &&
-          field._constraints.required !== undefined &&
-          field._constraints.required.is === 'true'
-        ) {
-          val = field._requiredValue;
-        } else {
-          val = field._deltaValue;
-        }
-        if (val !== undefined) {
-          this.__value[field._name] = val;
+
+        if (field._deltaValue !== undefined) {
+          this.__value[field._name] = field._deltaValue;
         }
       }
     }

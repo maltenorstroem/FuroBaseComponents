@@ -11,9 +11,38 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
+ * ### following labels of the furo.fat.String are supported:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of the furo.fat.String are supported:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ * - 'pattern': the input regex pattern.
+ * - 'min': minimum number of characters available in the input field
+ * - 'max': maximum number of characters available in the input field
+ * - 'rows': number of rows in the input field
+ * - 'cols': number of cols in the input field
+ *
+ * ### following constrains are mapped into the attributes of the furo.fat.String :
+ *
+ * - 'max': is mapped to 'max' attribute
+ * - 'min': is mapped to 'min' attribute
+ * - 'required': is mapped to 'required' attribute
+ *
  * <sample-furo-data-textarea-input></sample-furo-data-textarea-input>
  *
- * Tags: input
+ * ## Attributes & Properties
+ * see the Attributes & Properties of [furo-textarea-input](/furo-input?t=FuroTextareaInput)
+ *
  * @summary Bind a entityObject.field to a textarea input
  * @customElement
  * @demo demo-furo-data-textarea-input Data binding
@@ -82,6 +111,7 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -114,8 +144,6 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
       } else {
         this.binder.addLabel('empty');
       }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
 
       // update the value
       this.binder.fieldValue = val.detail;
@@ -137,135 +165,6 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-    }
-  }
-
-  // because we defined the property max, the setter from the parent needs to be updated
-  set max(val) {
-    super.max = val;
-  }
-
-  // because we defined the property min, the setter from the parent needs to be updated
-  set min(val) {
-    super.min = val;
-  }
-
-  // because we defined the property cols, the setter from the parent needs to be updated
-  set cols(val) {
-    super.cols = val;
-  }
-
-  // because we defined the property rows, the setter from the parent needs to be updated
-  set rows(val) {
-    super.rows = val;
-  }
-
-  /**
-   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
-   */
-  static get properties() {
-    return {
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * passes always float the label
-       */
-      float: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The number of visible text lines for the control.
-       */
-      rows: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * The visible width of the text control
-       */
-      cols: {
-        type: Number,
-        reflect: true,
-      },
-    };
   }
 }
 

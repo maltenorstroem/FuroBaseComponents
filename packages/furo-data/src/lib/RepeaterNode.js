@@ -322,6 +322,13 @@ export class RepeaterNode extends EventTreeNode {
 
   _addSilent() {
     const fieldNode = new FieldNode(this, this._spec, this._name);
+    /**
+     * by adding a repeated node, which is itself repeated, the child node can not be repeated
+     * So set this to false in the meta should be correct
+     *
+     */
+    fieldNode._meta.repeated = false;
+
     // if this field has disabled Validation, pass to new attributes. Because they do not have to validate too.
     if (this._validationDisabled || this.__parentNode._validationDisabled) {
       fieldNode._validationDisabled = true;
@@ -342,18 +349,22 @@ export class RepeaterNode extends EventTreeNode {
     this._isValid = false;
     const path = error.field.split('.');
     if (path.length > 0) {
-      // rest wieder in error reinwerfen
+      // den rest wieder in error reinwerfen
       // eslint-disable-next-line no-param-reassign
       error.field = path.slice(1).join('.');
     }
-    this.repeats[path[0]]._setInvalid(error);
+
+    if (this.repeats[path[0]]) {
+      this.repeats[path[0]]._setInvalid(error);
+    }
   }
 
   add(data) {
     const index = this._addSilent();
     this._pristine = false;
+
     // set data if given
-    if (data) {
+    if (data !== undefined) {
       const child = this.repeats[index];
       child._value = data;
     }

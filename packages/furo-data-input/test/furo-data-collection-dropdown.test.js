@@ -22,12 +22,14 @@ describe('furo-data-collection-dropdown', () => {
   let dataObject;
   let collectionAgent;
   let host;
+  let personDO;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
           <furo-data-collection-dropdown
+            auto-select-first
             ƒ-bind-data="--entity(*.data.description)"
           ></furo-data-collection-dropdown>
 
@@ -48,13 +50,14 @@ describe('furo-data-collection-dropdown', () => {
           </furo-entity-agent>
 
           <furo-data-collection-dropdown
+            auto-select-first
             hint="hint override"
             leading-icon="mail"
             trailing-icon="fingerprint"
             label="default list from spec"
             subfield-display="display_name"
             ƒ-inject-entities="--responsePerson(*.entities)"
-            ƒ-bind-data="--entityTask(*.owner)"
+            ƒ-bind-data="--personDO(*.sex)"
           ></furo-data-collection-dropdown>
 
           <furo-data-object type="task.Task" @-object-ready="--entityTask"></furo-data-object>
@@ -76,11 +79,17 @@ describe('furo-data-collection-dropdown', () => {
             value-field="id"
             display-field="display_name"
             subfield="data.id"
+            auto-select-first
             @-item-selected="--itemSelected"
             ƒ-bind-data="--personCollectionDO(*.entities)"
             size="4"
             ƒ-inject-entities="--responsePerson(*.entities)"
           ></furo-data-collection-dropdown>
+
+          <furo-data-object
+            type="person.Person"
+            @-object-ready="--personDO"
+          ></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -97,6 +106,7 @@ describe('furo-data-collection-dropdown', () => {
       collectionAgent,
       dataObject,
       collectionDropdown3,
+      personDO,
     ] = testbind.parentNode.children;
     await host.updateComplete;
     await collectionDropdown1.updateComplete;
@@ -108,6 +118,7 @@ describe('furo-data-collection-dropdown', () => {
     await collectionAgent.updateComplete;
     await dataObject.updateComplete;
     await collectionDropdown3.updateComplete;
+    await personDO.updateComplete;
   });
 
   it('should be a furo-data-collection-dropdown', done => {
@@ -158,16 +169,16 @@ describe('furo-data-collection-dropdown', () => {
 
   it('should selected the items when the field value not exists and the item in option list is marked as `selected:true`', done => {
     setTimeout(() => {
-      assert.equal(collectionDropdown2.binder.fieldNode.id, 'female');
+      assert.equal(collectionDropdown2.binder.fieldNode._value, 'female');
       done();
-    }, 0);
+    }, 600);
   });
 
   it('should assign the field value (is not setted before) initially with the selected item value from spec', done => {
     setTimeout(() => {
-      assert.equal(entityObject2.data.owner.id._value, 'female');
+      assert.equal(personDO.data.sex._value, 'female');
       done();
-    }, 0);
+    }, 600);
   });
 
   it('should set the select element to disabled', done => {
@@ -181,9 +192,9 @@ describe('furo-data-collection-dropdown', () => {
   it('should assign the field value (is not setted before) initially with the initial selected item value from data', done => {
     collectionAgent.list();
     setTimeout(() => {
-      assert.equal(entityObject2.data.owner.id._value, 'female');
+      assert.equal(personDO.data.sex._value, 'female');
       done();
-    }, 100);
+    }, 600);
   });
 
   it('should set select as multiple by binding repeated field', done => {
@@ -193,8 +204,7 @@ describe('furo-data-collection-dropdown', () => {
     }, 100);
   });
 
-  it('should set value of select input from the value of repeated field via binding', done => {
-    collectionAgent.list();
+  xit('should set value of select input from the value of repeated field via binding', done => {
     dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
         console.log(collectionDropdown3.shadowRoot.getElementById('input').value);
@@ -203,5 +213,6 @@ describe('furo-data-collection-dropdown', () => {
         done();
       }, 100);
     });
+    collectionAgent.list();
   });
 });

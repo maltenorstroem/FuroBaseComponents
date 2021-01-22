@@ -3,6 +3,188 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.26...@furo/navigation@1.6.27) (2021-01-18)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.25...@furo/navigation@1.6.26) (2021-01-12)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.24...@furo/navigation@1.6.25) (2021-01-12)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.23...@furo/navigation@1.6.24) (2021-01-05)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.22...@furo/navigation@1.6.23) (2020-12-24)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.21...@furo/navigation@1.6.22) (2020-12-17)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.20...@furo/navigation@1.6.21) (2020-12-10)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.19...@furo/navigation@1.6.20) (2020-12-01)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.18...@furo/navigation@1.6.19) (2020-11-27)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.17...@furo/navigation@1.6.18) (2020-11-24)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.16...@furo/navigation@1.6.17) (2020-11-20)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.15...@furo/navigation@1.6.16) (2020-11-14)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.14...@furo/navigation@1.6.15) (2020-11-14)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.13...@furo/navigation@1.6.14) (2020-11-12)
+
+
+### Bug Fixes
+
+* trivial fixes ([702f726](https://github.com/theNorstroem/FuroBaseComponents/commit/702f726dd87f68d8ce5eb6940fa9ae3c21ba5af7))
+
+
+
+
+
+## [1.6.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.12...@furo/navigation@1.6.13) (2020-11-05)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.11...@furo/navigation@1.6.12) (2020-11-04)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.10...@furo/navigation@1.6.11) (2020-10-30)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.9...@furo/navigation@1.6.10) (2020-10-28)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.8...@furo/navigation@1.6.9) (2020-10-27)
+
+
+### Bug Fixes
+
+* covert type number of id to string for comparing. ([a598ad2](https://github.com/theNorstroem/FuroBaseComponents/commit/a598ad238a4af67200ec0be2b32dd2b77e04c910))
+
+
+
+
+
+## [1.6.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.7...@furo/navigation@1.6.8) (2020-10-20)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.6...@furo/navigation@1.6.7) (2020-10-08)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [1.6.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.5...@furo/navigation@1.6.6) (2020-09-14)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 ## [1.6.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.4...@furo/navigation@1.6.5) (2020-09-03)
 
 **Note:** Version bump only for package @furo/navigation

@@ -130,7 +130,6 @@ describe('furo-ui5-data-display', () => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
       assert.equal(display.value, '2019-02-22');
-      assert.equal(display._state.placeholder, 'date-input**');
       done();
     }, 16);
   });

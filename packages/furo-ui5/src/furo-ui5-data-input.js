@@ -10,21 +10,56 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  *
  * @summary data text input base
  * @customElement
+ * @demo demo-furo-fat-type furo fat type
  */
 export class FuroUi5DataInput extends Input.default {
   /**
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
+  /**
+   * constructor
+   */
+  constructor() {
+    super();
+    // default type is text
+    this.type = 'text';
+    this._initBinder();
+  }
+
+  /**
+   * rewrite get accInfo function
+   * initiate _inputAccInfo in order to avoid error
+   * @private
+   * @returns {*}
+   */
+  get accInfo() {
+    if (this._inputAccInfo === undefined) {
+      this._inputAccInfo = [];
+    }
+    return super.accInfo;
+  }
+
+  /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
+   * @private
    */
   connectedCallback() {
+    // initiate icon slot when it is undefined to avoid error in InputTemplate.lit.js
+    if (this.icon === undefined) {
+      this.icon = [];
+    }
+    if (this.valueStateMessage === undefined) {
+      this.valueStateMessage = '';
+    }
+    if (this.suggestionItems === undefined) {
+      this.suggestionItems = [];
+    }
     // eslint-disable-next-line wc/guard-super-call
-    setTimeout(() => {
-      super.connectedCallback();
-    }, 0);
-
-    this.showSuggestions = true;
-    this.highlight = true;
-    this._initBinder();
+    super.connectedCallback();
   }
 
   /**
@@ -39,12 +74,47 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
-   * apply the binding set to the universal field node binder
+   * apply the binding set to the universal field node binder.
+   *
+   * ### following labels of fat types are supported by binding:
+
+   * - 'error': valueState of ui5 component is set as error
+   * - 'readonly': ui5 component is disabled
+   * - 'required': input is required
+   * - 'disabled': ui5 component is disabled
+   * - 'pristine': data is not changed. it is pristine
+   * - 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.
+   *
+   * ### following attributes of fat types are supported by binding:
+   *
+   * - 'label': label will be used as the placeholder of the ui5 input
+   * - 'placeholder': placeholder of the ui5 input
+   * - 'hint': title of the ui5 input
+   * - 'icon': ui5 icon in the ui5 input
+   * - 'leading-icon': the same as 'icon'
+   * - 'value-state': Defines the state of the info.Available options are: "None" (by default), "Success", "Warning" and "Erorr".
+   * - 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.
+   * - 'error-msg': the same as 'errortext'
+   * - 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.
+   * - 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.
+   * - 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.
+   * - 'pattern': Defines the pattern of the ui5-input.
+   * - 'name': Defines the name of the ui5-input.
+   * - 'maxlength': Sets the maximum number of characters available in the input field.
+   * - 'suggestions': Defines the suggestion items. e.g. [{"text":"Spain","icon":"world","type":"Active","infoState":"None","group":false,"key":0},
+   *
+   * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+
+   * - 'max': is mapped to 'maxlength' attribute
+   * - 'min': is mapped to 'minlength' attribute
+   * - 'pattern': is mapped to 'pattern' attribute
+   * - 'required': is mapped to 'required' attribute
+   *
    */
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'placeholder', // map label to placeholder
+      label: 'label', // map label to placeholder
       placeholder: 'placeholder', // map placeholder to placeholder
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same
@@ -93,6 +163,14 @@ export class FuroUi5DataInput extends Input.default {
     this.addEventListener('input', val => {
       this.binder.fieldValue = val.target.value;
 
+      /**
+       * Fired when value changed
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = val.target.value;
+      this.dispatchEvent(customEvent);
+
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {
         this.binder.deleteLabel('empty');
@@ -132,7 +210,11 @@ export class FuroUi5DataInput extends Input.default {
       }
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
+        this._requestUpdate();
+      });
+
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
+        this._requestUpdate();
       });
     }
   }
@@ -151,6 +233,13 @@ export class FuroUi5DataInput extends Input.default {
       this._icon.name = icon;
       this.appendChild(this._icon);
     }
+  }
+
+  /**
+   * @private
+   */
+  _requestUpdate() {
+    this._updateSlots();
   }
 
   /**
@@ -293,6 +382,9 @@ export class FuroUi5DataInput extends Input.default {
     });
 
     if (Array.isArray(arr) && arr.length > 0) {
+      this.showSuggestions = true;
+      this.highlight = true;
+
       // add current suggestion items
       arr.forEach(e => {
         const suggestion = document.createElement('ui5-suggestion-item');

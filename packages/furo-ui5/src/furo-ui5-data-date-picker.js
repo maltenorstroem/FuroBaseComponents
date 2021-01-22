@@ -25,20 +25,29 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    */
 
   /**
-   * Fired when the value of the ui5-date-picker is changed at each key stroke.
-   * @event input
+   * Fired when the input operation has finished by pressing Enter or on focusout.
+   * the event detail is the date in IOS 8601 format
+   * @event value-changed
    */
+
+  constructor() {
+    super();
+    this._initBinder();
+  }
 
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
    */
   connectedCallback() {
+    // initiate valueStateMessage to avoid error in InputTemplate.lit.js
+    if (this.valueStateMessage === undefined) {
+      this.valueStateMessage = '';
+    }
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-    this._initBinder();
-    // this.formatPattern="dd.MM.yyyy";
+    this.placeholder = 'dd.MM.yyyy';
   }
 
   /**
@@ -58,7 +67,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'placeholder', // map label to placeholder
+      label: 'label', // map label to placeholder
       placeholder: 'placeholder', // map placeholder to placeholder
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same
@@ -107,18 +116,22 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     // update the value on input changes
     this.addEventListener('change', val => {
       let dateValue = this.value;
+      const dateIOS8601 = FuroUi5DataDatePicker._convertDateToString(new Date(this.dateValue));
       if (this.binder.fieldNode) {
         if (
           this.binder.fieldNode._spec.type === 'google.type.Date' ||
+          this.binder.fieldNode._spec.type === 'furo.type.Date' ||
           (this.binder.fieldNode['@type'] &&
-            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
+          (this.binder.fieldNode['@type'] &&
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
         ) {
           dateValue = FuroUi5DataDatePicker._convertDateToGoogleDateObj(
             new Date(this.dateValue),
             this.binder.fieldNode._value,
           );
         } else if (this.binder.fieldNode._spec.type === 'string') {
-          dateValue = FuroUi5DataDatePicker._convertDateToString(new Date(this.dateValue));
+          dateValue = dateIOS8601;
         }
 
         if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
@@ -126,6 +139,15 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
           this.binder.fieldValue = dateValue;
         }
       }
+
+      /**
+       * Fired when datepicker value changed
+       * the event detail is the date in IOS 8601 format
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = dateIOS8601;
+      this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {
@@ -222,8 +244,11 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     // google.type.Date
     if (
       this.binder.fieldNode._spec.type === 'google.type.Date' ||
+      this.binder.fieldNode._spec.type === 'furo.type.Date' ||
       (this.binder.fieldNode['@type'] &&
-        this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+        this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
+      (this.binder.fieldNode['@type'] &&
+        this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
     ) {
       // date string with format ISO 8601 yyyy-MM-dd
       const dateString = FuroUi5DataDatePicker._convertGoogleDateObjToString(
@@ -237,6 +262,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
         if (localDateString && localDateString !== this.value) {
           this.value = localDateString;
         }
+      } else if (this.value) {
+        this.value = '';
       }
     }
     // scalar string type
@@ -256,25 +283,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     let date = '';
 
     if (obj && obj.day && obj.month && obj.year) {
-      let month = String(obj.month);
-      let day = String(obj.day);
-      let year = String(obj.year);
-
-      if (month.length < 2) {
-        month = `0${month}`;
-      }
-
-      if (day.length < 2) {
-        day = `0${day}`;
-      }
-
-      if (year.length < 4) {
-        const l = 4 - year.length;
-        for (let i = 0; i < l; i += 1) {
-          year = `0${year}`;
-        }
-      }
-      date = `${year}-${month}-${day}`;
+      date = FuroUi5DataDatePicker._converToIso8601(obj.year, obj.month, obj.day);
     }
     return date;
   }
@@ -289,9 +298,44 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     let str = '';
 
     if (date) {
-      str = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+      str = FuroUi5DataDatePicker._converToIso8601(
+        date.getFullYear(),
+        date.getMonth() + 1,
+        date.getDate(),
+      );
     }
     return str;
   }
+
+  /**
+   * convert to date with format IOS 8601 (e.g. 2020-12-31)
+   * @param year
+   * @param month
+   * @param day
+   * @returns {string}
+   * @private
+   */
+  static _converToIso8601(y, m, d) {
+    let year = y.toString();
+    let month = m.toString();
+    let day = d.toString();
+
+    if (month.length < 2) {
+      month = `0${month}`;
+    }
+
+    if (day.length < 2) {
+      day = `0${day}`;
+    }
+
+    if (year.length < 4) {
+      const l = 4 - year.length;
+      for (let i = 0; i < l; i += 1) {
+        year = `0${year}`;
+      }
+    }
+    return `${year}-${month}-${day}`;
+  }
 }
+
 window.customElements.define('furo-ui5-data-date-picker', FuroUi5DataDatePicker);

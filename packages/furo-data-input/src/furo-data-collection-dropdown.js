@@ -23,10 +23,37 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * It is possible to put any other signatures (`[{}]`) by setting the attribute *display-field* and *value-field*.
  * The value in *value-field* will be set on the bounded field and the values in *display-field* are used for the dropdown.
  *
+ *  ### following labels of fat types are supported:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of fat types are supported:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'leading-icon': furo leading icon of the input
+ * - 'trailing-icon': furo trailing icon of the input
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ * ### following constrains are mapped into the attributes of the fat types :
+ *
+ * - 'required': is mapped to 'required' attribute
  *
  * <sample-furo-data-collection-dropdown></sample-furo-data-collection-dropdown>
  *
- * Tags: input
+ * ## Attributes & Properties
+ * Please refer to furo-select-input
+ *
+ * ### auto-select-first
+ * set this attribute to autoselect the first item in the list, if no item is set in the bounded fieldNode
+ *
+ *
  * @summary bindable dropdown
  * @customElement
  * @demo demo-furo-data-collection-dropdown inject collection demo
@@ -62,7 +89,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
           this._fieldNodeToUpdate._value = val.detail;
 
           if (this.subfield) {
-            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val);
+            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val.detail);
           }
         } else {
           const data = [];
@@ -112,10 +139,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
       'leading-icon': 'leadingIcon',
       'trailing-icon': 'trailingIcon',
       errortext: 'errortext',
-      'error-msg': 'errortext',
-      pattern: 'pattern',
-      min: 'min',
-      max: 'max',
     };
 
     // set the label mappings
@@ -125,21 +148,16 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
-      max: 'value._constraints.max.is', // for the fieldnode constraint
-      min: 'value._constraints.min.is', // for the fieldnode constraint
-      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
       required: 'value._constraints.required.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
     this.binder.constraintsTofatAttributesMappings = {
-      min: 'min',
-      max: 'max',
-      pattern: 'pattern',
       required: 'required',
     };
 
@@ -150,17 +168,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
-
-    // update the value on input changes
-    this.addEventListener('value-changed', val => {
-      if (this.binder.fieldNode) {
-        // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine');
-
-        // update the value
-        this.binder.fieldValue = val.detail;
-      }
-    });
   }
 
   _findDisplayNameByValue(val) {
@@ -232,28 +239,51 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
       this._dropdownList = arr;
+      super.setOptions(arr);
+      this._updateField();
+    }
+  }
 
+  _autoselectFirstItem() {
+    if (this._dropdownList) {
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notifiy first item if field is not set
         let selectedItem = null;
-        for (let i = 0; i < arr.length; i += 1) {
-          if (arr[i].selected) {
-            selectedItem = arr[i].id;
+        for (let i = 0; i < this._dropdownList.length; i += 1) {
+          if (this._dropdownList[i].selected) {
+            selectedItem = this._dropdownList[i].id;
             break;
           }
         }
-        selectedItem = selectedItem || arr[0].id;
+        selectedItem = selectedItem || this._dropdownList[0].id;
         this._notifiySelectedItem(selectedItem);
         if (this._fieldNodeToUpdate) {
-          this._fieldNodeToUpdate._value = selectedItem;
+          // give a little delay with the autoselected field, so the user can
+          // realize that something was set
+          setTimeout(() => {
+            this._fieldNodeToUpdate._value = selectedItem;
+          }, 350);
         }
       } else if (this.multiple) {
         this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
-      super.setOptions(arr);
     }
+  }
+
+  /**
+   * Sets the field to readonly
+   */
+  disable() {
+    super.disable();
+  }
+
+  /**
+   * Makes the field writable.
+   */
+  enable() {
+    super.enable();
   }
 
   static get properties() {
@@ -398,20 +428,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   }
 
   /**
-   * Sets the field to readonly
-   */
-  disable() {
-    super.disable();
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    super.enable();
-  }
-
-  /**
    * Bind a entity field to the range-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
@@ -419,21 +435,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-
       // use multiple select for repeated node
       if (fieldNode._meta && fieldNode._meta.repeated) {
         this.multiple = true;
@@ -471,11 +472,11 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
         }
       });
 
-      this.binder.fieldNode.addEventListener('this-field-value-changed', () => {
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateField();
       });
 
-      this.binder.fieldNode.addEventListener('this-repeated-field-changed', () => {
+      this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
         this._updateField();
       });
 
@@ -514,6 +515,10 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
       }
     } else {
       super.setValue(this._fieldNodeToUpdate._value);
+    }
+
+    if (this.hasAttribute('auto-select-first')) {
+      this._autoselectFirstItem();
     }
     this.requestUpdate();
   }

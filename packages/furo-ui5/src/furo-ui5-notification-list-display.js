@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
-import '@ui5/webcomponents-fiori/dist/NotificationOverflowAction.js';
+import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
 import { Theme } from '@furo/framework';
 
@@ -159,37 +159,46 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * @param text
    */
   _show() {
-    const md = window.markdownit({
-      html: false,
-      linkify: true,
-      typographer: true,
-    });
-
-    const notification = document.createElement('ui5-li-notification');
-    notification.setAttribute('show-close', true);
-    notification.setAttribute('heading', this.heading);
-    notification.setAttribute('priority', this.priority);
-    notification.target = this.target;
-    notification.innerHTML = md.render(this.text);
-    // save the initial message for the later usage
-    notification.message = this.message;
-
-    /**
-     * add actions
-     */
-    if (this.actions && Array.isArray(this.actions)) {
-      this.actions.forEach(a => {
-        const action = document.createElement('ui5-notification-overflow-action');
-        action.setAttribute('icon', a.icon);
-        action.setAttribute('text', a.text);
-        action.setAttribute('action', a.command);
-        action.setAttribute('slot', 'actions');
-        action.notification = notification;
-        notification.appendChild(action);
+    if (this.text) {
+      const md = window.markdownit({
+        html: false,
+        linkify: true,
+        typographer: true,
       });
-    }
 
-    this.shadowRoot.getElementById('ui5-list').appendChild(notification);
+      const notification = document.createElement('ui5-li-notification');
+      notification.setAttribute('show-close', true);
+      notification.setAttribute('heading', this.heading);
+      notification.setAttribute('priority', this.priority);
+      notification.target = this.target;
+      notification.innerHTML = md.render(this.text);
+      // save the initial message for the later usage
+      notification.message = this.message;
+
+      /**
+       * add actions
+       */
+      if (this.actions && Array.isArray(this.actions)) {
+        this.actions.forEach(a => {
+          const action = document.createElement('ui5-notification-overflow-action');
+          action.setAttribute('icon', a.icon);
+          action.setAttribute('text', a.text);
+          action.setAttribute('action', a.command);
+          action.setAttribute('slot', 'actions');
+          action.notification = notification;
+          notification.appendChild(action);
+        });
+      }
+
+      this.shadowRoot.getElementById('ui5-list').appendChild(notification);
+    }
+  }
+
+  /**
+   * clear all notifications
+   */
+  clearAll() {
+    this.shadowRoot.getElementById('ui5-list').innerHTML = '';
   }
 
   /**

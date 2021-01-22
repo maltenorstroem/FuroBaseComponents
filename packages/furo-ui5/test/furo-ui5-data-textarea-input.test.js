@@ -134,11 +134,11 @@ describe('furo-ui5-data-textarea-input', () => {
       assert.equal(input._state.disabled, false, 'check disabled');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.growing, false, 'check growing');
-      assert.equal(input._state.placeholder, 'textarea_input**', 'check placeholder');
+      assert.equal(input._state.placeholder, '', 'check placeholder');
       assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.valueStateMessage.length, 0, 'check valueStateMessage');
       assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.ariaLabel, undefined, 'check ariaLabel');
+      assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       done();
     }, 0);
   });
@@ -149,7 +149,7 @@ describe('furo-ui5-data-textarea-input', () => {
     setTimeout(() => {
       assert.equal(dao.data.data.furo_data_textarea_input._value, 'new text set', 'check dao');
       done();
-    }, 0);
+    }, 16);
   });
 
   it('should update value after inject response', done => {

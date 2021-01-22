@@ -43,6 +43,35 @@ class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
+   * Select item by its identity.
+   *
+   * Using this method only makes sense when you have set the identity-path.
+   * If you already work with indexes, use select(index).
+   *
+   * TODO: consider to return a promise
+   *
+   * @param identifier
+   */
+  selectIdentity(identifier) {
+    if (this._insertedItems.length === 0) {
+      this._selIdentityQueue = identifier;
+    } else {
+      this._selIdentityQueue = undefined;
+
+      // eslint-disable-next-line no-restricted-syntax
+      const arrayLength = this._insertedItems.length;
+      let i = 0;
+      do {
+        if (this._insertedItems[i].identity === identifier) {
+          this.select(i);
+          break;
+        }
+        i += 1;
+      } while (i < arrayLength);
+    }
+  }
+
+  /**
    * select Next index
    *
    */
@@ -83,6 +112,16 @@ class FlowRepeat extends FBP(HTMLElement) {
       this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire('--itemDeSelected');
       this.selectedIndex = undefined;
     }
+  }
+
+  /**
+   * Triggers the wire --itemDeSelected on all items
+   */
+  deselectAll() {
+    this._insertedItems.forEach(item => {
+      item.virtualElement._FBPTriggerWire('--itemDeSelected');
+      this.selectedIndex = undefined;
+    });
   }
 
   _findFirstHost(parent) {
@@ -176,6 +215,11 @@ class FlowRepeat extends FBP(HTMLElement) {
         customEvent.detail = items.length;
         this.dispatchEvent(customEvent);
       }, 0);
+    }
+
+    // selectByIdentity queue
+    if (this._selIdentityQueue) {
+      this.selectIdentity(this._selIdentityQueue);
     }
   }
 

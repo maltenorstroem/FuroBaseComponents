@@ -11,9 +11,39 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
+ *  * ### following labels of fat types are supported:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of fat types are supported:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'leading-icon': furo leading icon of the input
+ * - 'trailing-icon': furo trailing icon of the input
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ * - 'min': The minimum permitted value
+ * - 'max': The maximum permitted value
+ * - 'step': The stepping interval, used both for user interface and validation purposes
+ *
+ * ### following constrains are mapped into the attributes of the fat types :
+ *
+ * - 'max': is mapped to 'max' attribute
+ * - 'min': is mapped to 'min' attribute
+ * - 'step': is mapped to 'step' attribute
+ * - 'required': is mapped to 'required' attribute
+ *
  * <sample-furo-data-range-input></sample-furo-data-range-input>
  *
- * Tags: input
+ * ## Attributes & Properties
+ * see the Attributes & Properties of [furo-range-input](/furo-input?t=FuroRangeInput)
+ *
  * @summary Bind a entityObject.field to a range input
  * @customElement
  * @demo demo-furo-data-range-input Data binding
@@ -84,6 +114,7 @@ export class FuroDataRangeInput extends FuroRangeInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -118,8 +149,6 @@ export class FuroDataRangeInput extends FuroRangeInput {
       } else {
         this.binder.addLabel('empty');
       }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
 
       // update the value
       this.binder.fieldValue = val.detail;
@@ -142,160 +171,6 @@ export class FuroDataRangeInput extends FuroRangeInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-    }
-  }
-
-  // because we defined the property max, the setter from the parent needs to be updated
-  set max(val) {
-    super.max = val;
-  }
-
-  // because we defined the property min, the setter from the parent needs to be updated
-  set min(val) {
-    super.min = val;
-  }
-
-  // because we defined the property pattern, the setter from the parent needs to be updated
-  set pattern(val) {
-    super.pattern = val;
-  }
-
-  static get properties() {
-    return {
-      /**
-       * set this to true to indicate errors
-       */
-      error: { type: Boolean, reflect: true },
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      pattern: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      min: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      max: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: 'leading-icon',
-        reflect: true,
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: 'trailing-icon',
-        reflect: true,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Lets the placeholder always float
-       */
-      float: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
   }
 }
 

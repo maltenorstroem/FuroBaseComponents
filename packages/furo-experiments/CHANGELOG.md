@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.4.1...@furo/experiments@1.4.2) (2021-01-05)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.21...@furo/experiments@1.4.1) (2020-12-24)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.3.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.20...@furo/experiments@1.3.21) (2020-12-17)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.3.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.19...@furo/experiments@1.3.20) (2020-12-10)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.3.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.18...@furo/experiments@1.3.19) (2020-11-27)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.3.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.17...@furo/experiments@1.3.18) (2020-11-20)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.16...@furo/experiments@1.3.17) (2020-11-04)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.3.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.15...@furo/experiments@1.3.16) (2020-10-27)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
+## [1.3.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.14...@furo/experiments@1.3.15) (2020-10-08)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
 ## [1.3.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.3.13...@furo/experiments@1.3.14) (2020-09-03)
 
 **Note:** Version bump only for package @furo/experiments

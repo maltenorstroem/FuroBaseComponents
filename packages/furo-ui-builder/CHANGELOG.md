@@ -3,6 +3,99 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.9.0...@furo/ui-builder@1.9.1) (2021-01-18)
+
+
+### Bug Fixes
+
+* avoid triggering reference search many times. update cldr files. ([4f516ea](https://github.com/theNorstroem/FuroBaseComponents/commit/4f516eabd654ac99b97266deb7a43fd289a0c8a6))
+
+
+
+
+
+# [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.8.1...@furo/ui-builder@1.9.0) (2021-01-12)
+
+
+### Bug Fixes
+
+* add wire must not transmit values ([cdb45b1](https://github.com/theNorstroem/FuroBaseComponents/commit/cdb45b19214f371fe5a8aa0ea0014dead657ec6b))
+
+
+### Features
+
+* semi-finished repeater tmpl according to SAP Fiori ([cf58e4f](https://github.com/theNorstroem/FuroBaseComponents/commit/cf58e4f587f304fa578a7e253a442df40fbb590c))
+
+
+
+
+
+## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.8.0...@furo/ui-builder@1.8.1) (2020-11-20)
+
+
+### Bug Fixes
+
+* missing imports ([f6abcb9](https://github.com/theNorstroem/FuroBaseComponents/commit/f6abcb9d51d235b94a36fb66b4c6d5c945c910fe))
+
+
+
+
+
+# [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.4...@furo/ui-builder@1.8.0) (2020-11-05)
+
+
+### Features
+
+* support furo.type.Date ([3d8847b](https://github.com/theNorstroem/FuroBaseComponents/commit/3d8847b9b98c5322621f04ccedd220bb132a7147))
+
+
+
+
+
+## [1.7.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.3...@furo/ui-builder@1.7.4) (2020-11-04)
+
+
+### Bug Fixes
+
+* configurable yaml support ([44928ff](https://github.com/theNorstroem/FuroBaseComponents/commit/44928ff691088d9e0fc82945d802bcbf01acb752))
+* modify widget template to make ui5-card working with ui5-data-reference-search. ([fd6c229](https://github.com/theNorstroem/FuroBaseComponents/commit/fd6c2291457eb0589069540b37e156077a8e5ed5))
+
+
+
+
+
+## [1.7.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.2...@furo/ui-builder@1.7.3) (2020-10-13)
+
+**Note:** Version bump only for package @furo/ui-builder
+
+
+
+
+
+## [1.7.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.1...@furo/ui-builder@1.7.2) (2020-10-08)
+
+
+### Bug Fixes
+
+* according to SAP Fiori ([12e4341](https://github.com/theNorstroem/FuroBaseComponents/commit/12e4341d9cdabbefc0feff41c069ec1dd88d7ac2))
+* new method in furo-button-bar added. enableAllNoChecks ([33ffc78](https://github.com/theNorstroem/FuroBaseComponents/commit/33ffc78b6ea0d682f315c338ed3ae3d264e22eaf))
+
+
+
+
+
+## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.0...@furo/ui-builder@1.7.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* fix reference search and hooks ([5bc130c](https://github.com/theNorstroem/FuroBaseComponents/commit/5bc130c90e816b77f6ac0228907450d3452d184c))
+* ui5 hooks generate the same component names ([9f95e45](https://github.com/theNorstroem/FuroBaseComponents/commit/9f95e45292a65d605f8d0712f5cdb5d3e03a5bec))
+
+
+
+
+
 # [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.6.1...@furo/ui-builder@1.7.0) (2020-09-03)
 
 

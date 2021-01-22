@@ -15,6 +15,20 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ----------------|-------------|----------|----------
  * `--ellipsis-hover-background` | background color of the hovered text | white | white
  *
+ * * ### following labels of fat types are supported:
+ *
+ * - 'error': state of input is error
+ * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of fat types are supported:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'leading-icon': furo leading icon of the input
+ * - 'trailing-icon': furo trailing icon of the input
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
  *
  * @summary Displays a data field
  * @customElement
@@ -64,6 +78,7 @@ class FuroDataDisplay extends FBP(LitElement) {
     this.binder.labelMappings = {
       error: 'error',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {};

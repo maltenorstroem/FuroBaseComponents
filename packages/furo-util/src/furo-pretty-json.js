@@ -25,11 +25,9 @@ class FuroPrettyJson extends FBP(LitElement) {
           font-family: 'Benton Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
           margin: var(--spacing);
           line-height: 1.5;
-        }
-
-        pre {
           background-color: var(--surface);
           padding: 0;
+          white-space: pre;
         }
 
         .string {
@@ -63,10 +61,10 @@ class FuroPrettyJson extends FBP(LitElement) {
     if (json) {
       this.markedText = JSON.stringify(json, null, 2);
       this.markedText = FuroPrettyJson._syntaxHighlight(this.markedText);
-      this.shadowRoot.querySelector('#content').innerHTML = this.markedText;
+      this.shadowRoot.innerHTML = this.markedText;
     } else {
       // clear innerHTML content
-      this.shadowRoot.querySelector('#content').innerHTML = '';
+      this.shadowRoot.innerHTML = '';
     }
   }
 

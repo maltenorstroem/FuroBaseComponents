@@ -25,14 +25,14 @@ class HookInitRepeatUi5 {
       }
     }
 
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
 
     u33e.setTheme("RepeatBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -42,7 +42,8 @@ class HookInitRepeatUi5 {
     u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
 
-    u33e.addImport("@ui5/webcomponents/dist/Button.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-button.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-data-repeat.js");
     u33e.addImport("@furo/form");
 
     u33e.addMethod("bindData", "data",
@@ -67,11 +68,8 @@ class HookInitRepeatUi5 {
         .addCSSAttribute("margin-bottom", "6px");
 
 
-    u33e.addStyle("ui5-button")
+    u33e.addStyle("furo-ui5-button")
         .addCSSAttribute("margin", "12px 0 0 6px");
-
-    u33e.addDomNode("hr")
-
 
 
     // add a form to place header text
@@ -80,7 +78,7 @@ class HookInitRepeatUi5 {
     head.addAttribute("secondary-text", "${this.secondaryText}");
 
     // all field will be added to this node
-    let repeater = u33e.addDomNode("furo-data-repeat");
+    let repeater = u33e.addDomNode("furo-ui5-data-repeat");
 
 
     let component = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type).toLowerCase() + "-form";
@@ -95,14 +93,14 @@ class HookInitRepeatUi5 {
 
     let flexer = u33e.addDomNode("furo-horizontal-flex");
     let span = flexer.appendChild("span");
-    let btn = flexer.appendChild("ui5-button");
+    let btn = flexer.appendChild("furo-ui5-button");
 
 
     span.addFlag("flex");
 
     btn.addInnerText("Add " + SPEC.type);
-    btn.addAttribute("design", "Positive");
-    btn.addEventListener("click", "--adderTriggered");
+    btn.addAttribute("icon", "add");
+    btn.addEventListener("click", "--adderTriggered(park)");
     return u33e;
   }
 }

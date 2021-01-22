@@ -3,6 +3,192 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.43](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.42...@furo/form@1.3.43) (2021-01-18)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.42](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.41...@furo/form@1.3.42) (2021-01-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.41](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.40...@furo/form@1.3.41) (2021-01-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.40](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.39...@furo/form@1.3.40) (2021-01-05)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.39](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.38...@furo/form@1.3.39) (2020-12-24)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.38](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.37...@furo/form@1.3.38) (2020-12-17)
+
+
+### Bug Fixes
+
+* four col layout narrow switches to 2 not to 1. Narrower switches to 1 ([6870dd7](https://github.com/theNorstroem/FuroBaseComponents/commit/6870dd7ff090a2d8158d24b477191da78e82898e))
+
+
+
+
+
+## [1.3.37](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.36...@furo/form@1.3.37) (2020-12-10)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.36](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.35...@furo/form@1.3.36) (2020-12-01)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.35](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.34...@furo/form@1.3.35) (2020-11-27)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.34](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.33...@furo/form@1.3.34) (2020-11-24)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.33](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.32...@furo/form@1.3.33) (2020-11-20)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.32](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.31...@furo/form@1.3.32) (2020-11-14)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.30...@furo/form@1.3.31) (2020-11-14)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.30](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.29...@furo/form@1.3.30) (2020-11-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.28...@furo/form@1.3.29) (2020-11-05)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.27...@furo/form@1.3.28) (2020-11-04)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.26...@furo/form@1.3.27) (2020-10-30)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.25...@furo/form@1.3.26) (2020-10-28)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.24...@furo/form@1.3.25) (2020-10-27)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.23...@furo/form@1.3.24) (2020-10-20)
+
+
+### Bug Fixes
+
+* fix ios8601 format. fix ui5-reference-search in order to show display_name initially when there is no collection-injection ([a2b51e6](https://github.com/theNorstroem/FuroBaseComponents/commit/a2b51e60fba206f0826385bf8ddaf7fd69253ef2))
+
+
+
+
+
+## [1.3.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.22...@furo/form@1.3.23) (2020-10-08)
+
+
+### Bug Fixes
+
+* enableAll should act like disableAll, without inclusion of the entity ([11da882](https://github.com/theNorstroem/FuroBaseComponents/commit/11da882b2c4fb1ac5d1397f95412068b736dbc65))
+* new method in furo-button-bar added. enableAllNoChecks ([33ffc78](https://github.com/theNorstroem/FuroBaseComponents/commit/33ffc78b6ea0d682f315c338ed3ae3d264e22eaf))
+
+
+
+
+
+## [1.3.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.21...@furo/form@1.3.22) (2020-09-14)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [1.3.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.20...@furo/form@1.3.21) (2020-09-03)
 
 **Note:** Version bump only for package @furo/form

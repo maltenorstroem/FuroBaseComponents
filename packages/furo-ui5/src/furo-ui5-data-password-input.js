@@ -47,13 +47,22 @@ export class FuroUi5DataPasswordInput extends FuroUi5DataInput {
    */
 
   /**
-   * init properties
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    */
   connectedCallback() {
-    // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
     this.type = 'Password';
     this.ui5Icon = 'shield';
+
+    setTimeout(() => {
+      super.connectedCallback();
+    }, 0);
   }
 
   /**

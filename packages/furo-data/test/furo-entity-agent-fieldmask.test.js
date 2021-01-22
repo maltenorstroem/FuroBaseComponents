@@ -34,48 +34,14 @@ describe('furo-entity-agent fieldmask', () => {
     done();
   });
 
-  it('update method with patch should provide a field_mask', done => {
-    entityAgent.setAttribute('service', 'ProjectService');
-    dataObject.setAttribute('type', 'project.ProjectEntity');
-
-    entityAgent.addEventListener('save-success', r => {
-      expect(r.detail.json.update_mask).to.not.be.undefined;
-      // eslint-disable-next-line no-prototype-builtins
-      expect(r.detail.json.hasOwnProperty('members')).to.be.false;
-      assert.equal(
-        JSON.stringify(r.detail.json.update_mask),
-        '{"paths":["description","cost_limit.currency_code"]}',
-      );
-      // eslint-disable-next-line no-prototype-builtins
-      expect(r.detail.json.update_mask.hasOwnProperty('members')).to.be.false;
-      done();
-    });
-    entityAgent.htsIn([
-      {
-        href: 'https://httpbin.org/anything',
-        method: 'PATCH',
-        rel: 'update',
-        type: 'project.ProjectEntity',
-        service: 'ProjectService',
-      },
-    ]);
-
-    dataObject.addEventListener('object-ready', () => {
-      dataObject.data.data.description._value = 'updated description';
-      dataObject.data.data.cost_limit.currency_code._value = 'DKK';
-
-      entityAgent.save();
-    });
-  });
-
   it('update method with patch should have required fields in payload', done => {
     entityAgent.setAttribute('service', 'PersonService');
     dataObject.setAttribute('type', 'person.PersonEntity');
 
     entityAgent.addEventListener('save-success', r => {
-      expect(r.detail.json.update_mask).to.not.be.undefined;
+      expect(r.detail.url).to.not.be.undefined;
       expect(r.detail.json.first_name).to.be.undefined;
-      assert.equal(JSON.stringify(r.detail.json.update_mask), '{"paths":["name","phone_nr"]}');
+
       assert.equal(r.detail.json.name, 'Doe');
       done();
     });

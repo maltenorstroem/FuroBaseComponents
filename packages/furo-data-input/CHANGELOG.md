@@ -3,6 +3,225 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.9...@furo/data-input@1.10.10) (2021-01-18)
+
+
+### Bug Fixes
+
+* task.owner has no options any more in new spec. therefore the tests are also modified according to new specs. ([189404e](https://github.com/theNorstroem/FuroBaseComponents/commit/189404ed46601b4a77ace0ebf1fc2b6411445ac3))
+
+
+
+
+
+## [1.10.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.8...@furo/data-input@1.10.9) (2021-01-12)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.10.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.7...@furo/data-input@1.10.8) (2021-01-12)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.10.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.6...@furo/data-input@1.10.7) (2021-01-05)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.10.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.5...@furo/data-input@1.10.6) (2020-12-24)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.10.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.4...@furo/data-input@1.10.5) (2020-12-17)
+
+
+### Bug Fixes
+
+* non default collection dropdown ([73a425f](https://github.com/theNorstroem/FuroBaseComponents/commit/73a425f3ea27676a6f384079c0b520cf56986656))
+
+
+
+
+
+## [1.10.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.3...@furo/data-input@1.10.4) (2020-12-10)
+
+
+### Bug Fixes
+
+* auto-select-first on collection dropdown ([4a416d1](https://github.com/theNorstroem/FuroBaseComponents/commit/4a416d11f91691acfd9395c633ce0f0ad41d671b))
+* fix [#120](https://github.com/theNorstroem/FuroBaseComponents/issues/120) remove properties-override in data-input component ([bc7693d](https://github.com/theNorstroem/FuroBaseComponents/commit/bc7693dc2aa667aa320b595bc622d489897251fe))
+* remove pristine label ([f9dc1fe](https://github.com/theNorstroem/FuroBaseComponents/commit/f9dc1fe0fc2946d45b4727737efa3fffaac3a771))
+
+
+
+
+
+## [1.10.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.2...@furo/data-input@1.10.3) (2020-12-01)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.10.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.1...@furo/data-input@1.10.2) (2020-11-27)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.10.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.0...@furo/data-input@1.10.1) (2020-11-24)
+
+
+### Bug Fixes
+
+* furo-data-collection-dropdown should also update the display_name of the reference data ([78ec989](https://github.com/theNorstroem/FuroBaseComponents/commit/78ec989563b5fefb3d25ce5034602f9ab9c9d5ad))
+
+
+
+
+
+# [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.3...@furo/data-input@1.10.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* firefox event problem. ([7e962e8](https://github.com/theNorstroem/FuroBaseComponents/commit/7e962e8990ed1c5fff571c4076022de2f0d3da7b))
+* furo-data-collection-dropdown should update bounded data ([136b833](https://github.com/theNorstroem/FuroBaseComponents/commit/136b833e64b12ad04dcfabbf0fb70802348dd1e6))
+
+
+### Features
+
+* furo-data-repeat.js focus-on-create focuses the newly created element ([ddd9918](https://github.com/theNorstroem/FuroBaseComponents/commit/ddd99188790877c0660068ad57882cf2cd369912))
+
+
+
+
+
+## [1.9.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.2...@furo/data-input@1.9.3) (2020-11-14)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.9.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.1...@furo/data-input@1.9.2) (2020-11-14)
+
+
+### Bug Fixes
+
+* furo reference search ([4d6b5de](https://github.com/theNorstroem/FuroBaseComponents/commit/4d6b5de49953d57f6b4c8e44ed912c4003728b58))
+
+
+
+
+
+## [1.9.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.0...@furo/data-input@1.9.1) (2020-11-12)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.8.0...@furo/data-input@1.9.0) (2020-11-05)
+
+
+### Features
+
+* support furo.type.Date ([3d8847b](https://github.com/theNorstroem/FuroBaseComponents/commit/3d8847b9b98c5322621f04ccedd220bb132a7147))
+
+
+
+
+
+# [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.7.1...@furo/data-input@1.8.0) (2020-11-04)
+
+
+### Bug Fixes
+
+* timing of commands ([95840c8](https://github.com/theNorstroem/FuroBaseComponents/commit/95840c8ce8252f83af03c96601748e9335fb25dc))
+
+
+### Features
+
+* custom ui5-data-reference-search ([ea9a42e](https://github.com/theNorstroem/FuroBaseComponents/commit/ea9a42e137c67eacbb226adc088bb46eaf692dd9))
+
+
+
+
+
+## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.7.0...@furo/data-input@1.7.1) (2020-10-30)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.6.2...@furo/data-input@1.7.0) (2020-10-28)
+
+
+### Features
+
+* furo-data-time-input with google.type.TimeOfDay ([c9e3be1](https://github.com/theNorstroem/FuroBaseComponents/commit/c9e3be12515d4c1a7cc66ab566e9900b3b39b806))
+
+
+
+
+
+## [1.6.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.6.1...@furo/data-input@1.6.2) (2020-10-27)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.6.0...@furo/data-input@1.6.1) (2020-10-20)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.5.2...@furo/data-input@1.6.0) (2020-10-08)
+
+
+### Features
+
+* furo-data-number-input supports google wrapper int type with null value and furo fat int type with empty label. ([009c944](https://github.com/theNorstroem/FuroBaseComponents/commit/009c944dd6bc9c61c9a4cca7fa4eaefbd13b116e))
+
+
+
+
+
+## [1.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.5.1...@furo/data-input@1.5.2) (2020-09-14)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [1.5.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.5.0...@furo/data-input@1.5.1) (2020-09-03)
 
 **Note:** Version bump only for package @furo/data-input

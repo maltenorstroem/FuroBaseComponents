@@ -3,6 +3,265 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.3...@furo/data@1.16.4) (2021-01-18)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.16.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.2...@furo/data@1.16.3) (2021-01-12)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.16.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.1...@furo/data@1.16.2) (2021-01-12)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.16.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.0...@furo/data@1.16.1) (2021-01-05)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [1.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.15.0...@furo/data@1.16.0) (2020-12-24)
+
+
+### Bug Fixes
+
+* four col layout narrow switches to 2 not to 1. Narrower switches to 1 ([edf3bef](https://github.com/theNorstroem/FuroBaseComponents/commit/edf3befb7638b9f58bc288948781ce19eb2ace35))
+
+
+### Features
+
+* initial filters ([129cfac](https://github.com/theNorstroem/FuroBaseComponents/commit/129cfac9dc2bc04191e7e182ffe4b2cf60dcf074))
+
+
+
+
+
+# [1.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.14.0...@furo/data@1.15.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* remove the check for an array on expected input string ([f341694](https://github.com/theNorstroem/FuroBaseComponents/commit/f341694fe9437f5e5911260a89b5024685116131))
+* work with data fields which has no binded fields ([ec3faf6](https://github.com/theNorstroem/FuroBaseComponents/commit/ec3faf635d02ec086cba533ab205886e0cc76a1b))
+
+
+### Features
+
+* base64 encoded data object getter and setter ([397cd7e](https://github.com/theNorstroem/FuroBaseComponents/commit/397cd7e0b2bae3d7e7bd72b5183cf7aed8e5cf33))
+
+
+
+
+
+# [1.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.3...@furo/data@1.14.0) (2020-12-10)
+
+
+### Bug Fixes
+
+* auto-select-first on collection dropdown ([4a416d1](https://github.com/theNorstroem/FuroBaseComponents/commit/4a416d11f91691acfd9395c633ce0f0ad41d671b))
+* UniversalFieldNodeBinder.js with mapped labels ([23193a5](https://github.com/theNorstroem/FuroBaseComponents/commit/23193a537cd6196c879991d97eea326309e24e79))
+
+
+### Features
+
+* new method to inject key value query param object. All existing query params are replaced by the transferred parameters. If the transferred object is empty or undefined, all the values will be removed! ([b21c219](https://github.com/theNorstroem/FuroBaseComponents/commit/b21c219d3243bfbc10826f65a79f86f5f10b7655))
+
+
+
+
+
+## [1.13.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.2...@furo/data@1.13.3) (2020-12-01)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.13.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.1...@furo/data@1.13.2) (2020-11-27)
+
+
+### Bug Fixes
+
+* adding repeater node with an empty string should not set null ([40bfe69](https://github.com/theNorstroem/FuroBaseComponents/commit/40bfe69326746f470a3a56c19c56394a056b81ea))
+* search() on collection agent must even search on empty strings ([c17f251](https://github.com/theNorstroem/FuroBaseComponents/commit/c17f251cc6298f46e52eb464195acdf42b4e328f))
+* this._updateVirtualNode(field); was to late ([9db4e41](https://github.com/theNorstroem/FuroBaseComponents/commit/9db4e41eac4f493be0c6b9d435f73454d24a6b7d))
+
+
+
+
+
+## [1.13.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.0...@furo/data@1.13.1) (2020-11-24)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [1.13.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.3...@furo/data@1.13.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* search on collection MUST also search for empty query, when requested ([84a65e8](https://github.com/theNorstroem/FuroBaseComponents/commit/84a65e8771c628b9c5818086b0323dd7ef73601b))
+* When a repeated node is added, because the meta says it is a RepeaterNode the children should not be repeated. Set the _meta.repeated on children to false. ([57be9b6](https://github.com/theNorstroem/FuroBaseComponents/commit/57be9b61352bc30309a167e54d02fd5d7436e083))
+
+
+### Features
+
+* default set on furo.Link types will prefix with api-base-url when it is not hard coded in the specs ([8dc9cd2](https://github.com/theNorstroem/FuroBaseComponents/commit/8dc9cd29557353473c10e725c9e9716374d201fc))
+
+
+
+
+
+## [1.12.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.2...@furo/data@1.12.3) (2020-11-14)
+
+
+### Bug Fixes
+
+* steps smaller 1 caused always a constraint violation, because of floating point modulo calculations. ([e29823a](https://github.com/theNorstroem/FuroBaseComponents/commit/e29823acf8cddfa77a347acd97fcb3eb77f4b2fd))
+
+
+
+
+
+## [1.12.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.1...@furo/data@1.12.2) (2020-11-14)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.12.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.0...@furo/data@1.12.1) (2020-11-12)
+
+
+### Bug Fixes
+
+* Handling google wrapper types as scalar values, because all (most) servers send them so and expects them so. ([163c20b](https://github.com/theNorstroem/FuroBaseComponents/commit/163c20b6db6ab034fccd76c4337ec457591c6ffc))
+* Handling google wrapper types as scalar values, because all (most) servers send them so and expects them so. ([00a9ae3](https://github.com/theNorstroem/FuroBaseComponents/commit/00a9ae33177c27c4dc2fd1ca775554a81b9c0970))
+
+
+
+
+
+# [1.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.11.3...@furo/data@1.12.0) (2020-11-05)
+
+
+### Features
+
+* support furo.type.Date ([3d8847b](https://github.com/theNorstroem/FuroBaseComponents/commit/3d8847b9b98c5322621f04ccedd220bb132a7147))
+
+
+
+
+
+## [1.11.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.11.2...@furo/data@1.11.3) (2020-11-04)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.11.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.11.1...@furo/data@1.11.2) (2020-10-30)
+
+
+### Bug Fixes
+
+* agent should handle errors from gateway v2 ([7ed5052](https://github.com/theNorstroem/FuroBaseComponents/commit/7ed50522295d1253d0ce7976ee1f7a65f999cc9c))
+* clear all errors on new data ([86029d7](https://github.com/theNorstroem/FuroBaseComponents/commit/86029d7cc98f6e9c6c50594560802dd84c79c8f9))
+* clear all errors on new data ([697f607](https://github.com/theNorstroem/FuroBaseComponents/commit/697f607a6b56e8b634d000ddcf8f638f34c47ebd))
+* fire init-completed when init on data-object is finished ([fc8e90e](https://github.com/theNorstroem/FuroBaseComponents/commit/fc8e90ec60872f7586e0d7a89d9de598785bb0f7))
+
+
+
+
+
+## [1.11.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.11.0...@furo/data@1.11.1) (2020-10-28)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [1.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.10.1...@furo/data@1.11.0) (2020-10-27)
+
+
+### Features
+
+* entity-agent with optional update_mask query param. Use the attribute with-update-mask to enable ([cae6ce1](https://github.com/theNorstroem/FuroBaseComponents/commit/cae6ce1c87a0fc2993286be7a805a890c3631be8))
+* entity-agent with optional update_mask query param. Use the attribute with-update-mask to enable ([4836687](https://github.com/theNorstroem/FuroBaseComponents/commit/48366874ce29418b1d028c8a08e51421f1e278bd))
+* entity-agent with optional update_mask query param. Use the attribute with-update-mask to enable ([843a37d](https://github.com/theNorstroem/FuroBaseComponents/commit/843a37d1144259cbf724073186fb36084a32f744))
+* entity-agent with optional update_mask query param. Use the attribute with-update-mask to enable ([8741476](https://github.com/theNorstroem/FuroBaseComponents/commit/8741476bed39ce1e4b61f7c2823c969c6ed45bff))
+
+
+
+
+
+## [1.10.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.10.0...@furo/data@1.10.1) (2020-10-20)
+
+
+### Bug Fixes
+
+* fix ios8601 format. fix ui5-reference-search in order to show display_name initially when there is no collection-injection ([a2b51e6](https://github.com/theNorstroem/FuroBaseComponents/commit/a2b51e60fba206f0826385bf8ddaf7fd69253ef2))
+* fix tests ([20a287f](https://github.com/theNorstroem/FuroBaseComponents/commit/20a287f755c347b28bba2a873b8e5401696bdfe8))
+
+
+
+
+
+# [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.9.0...@furo/data@1.10.0) (2020-10-08)
+
+
+### Bug Fixes
+
+* modify incorrect subfield ([c972081](https://github.com/theNorstroem/FuroBaseComponents/commit/c972081687cb7594dc21a8d7657f90e5ee5d31fd))
+
+
+### Features
+
+* furo-data-number-input supports google wrapper int type with null value and furo fat int type with empty label. ([009c944](https://github.com/theNorstroem/FuroBaseComponents/commit/009c944dd6bc9c61c9a4cca7fa4eaefbd13b116e))
+
+
+
+
+
+# [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.8.0...@furo/data@1.9.0) (2020-09-14)
+
+
+### Bug Fixes
+
+* fieldoptions.list are not always available ([a94447c](https://github.com/theNorstroem/FuroBaseComponents/commit/a94447cb9ddc7f39adb84998f11dec25fb8c80db))
+* furo-filter-field can now handle bindData to set new value ([d3973bc](https://github.com/theNorstroem/FuroBaseComponents/commit/d3973bc8879a02798bf47cf78c068401be59c4ac))
+
+
+### Features
+
+* furo-filter-field can now handle bindData to set new value ([73f45e4](https://github.com/theNorstroem/FuroBaseComponents/commit/73f45e457311662a56c36e699649c74576fda9fc))
+
+
+
+
+
 # [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.7.0...@furo/data@1.8.0) (2020-09-03)
 
 

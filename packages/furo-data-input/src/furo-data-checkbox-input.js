@@ -10,9 +10,31 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
+ * ### following labels of the furo.fat.Bool are supported:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of the furo.fat.Bool are supported:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ * ### following constrains are mapped into the attributes of the furo.fat.Bool :
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
  * <sample-furo-data-checkbox-input></sample-furo-data-checkbox-input>
  *
- * Tags: input
+ * ## Attributes & Properties
+ * see the Attributes & Properties of [furo-checkbox-input](/furo-input?t=FuroCheckboxInput)
+ *
  * @summary Bind a entityObject.field to a checkbox input
  * @customElement
  * @demo demo-furo-data-checkbox-input Data binding
@@ -59,6 +81,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -75,7 +98,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
     this.binder.checkLabelandAttributeOverrrides();
 
     // the extended furo-checkbox-input component uses _value
-    this.binder.targetValueField = '_value';
+    this.binder.targetValueField = '__value';
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
@@ -86,15 +109,10 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
         } else if (val.detail !== false) {
           this.binder.addLabel('empty');
         }
-
-        // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine');
       }
 
-      if (this.binder.fieldValue !== val.detail) {
-        // update the value
-        this.binder.fieldValue = val.detail;
-      }
+      // update the value
+      this.setValue(val.detail);
     });
   }
 
@@ -103,7 +121,26 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
    * @param val
    */
   setValue(val) {
-    this.binder.fieldValue = val;
+    if (this.binder.fieldNode) {
+      // update only if field is bound
+      if (this.binder.fieldNode._spec.type === 'string') {
+        const v = val ? 'true' : 'false';
+        if (this.binder.fieldValue !== v) {
+          this.binder.fieldValue = v;
+        }
+      } else if (this.binder.fieldValue !== val) {
+        this.binder.fieldValue = val;
+      }
+    }
+  }
+
+  // pass the value to the underlieying component always as boolean
+  set __value(v) {
+    if (typeof v === 'string') {
+      this._value = v.toLowerCase() === 'true';
+    } else {
+      this._value = v;
+    }
   }
 
   /**
@@ -113,95 +150,6 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-    }
-  }
-
-  static get properties() {
-    return {
-      /**
-       * set this to true to indicate errors
-       */
-      error: { type: Boolean, reflect: true },
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
   }
 }
 

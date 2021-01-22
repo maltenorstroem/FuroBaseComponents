@@ -13,6 +13,15 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroQpChanger extends FBP(LitElement) {
+  static get properties() {
+    return {
+      /**
+       * Comma separated list of qp to clear if they are not explizitly set with `setQp`
+       */
+      clear: { type: String },
+    };
+  }
+
   setQp(newQP) {
     // read current qp and update incomming qp
 
@@ -25,6 +34,15 @@ class FuroQpChanger extends FBP(LitElement) {
         queryObject[p[0]] = p[1];
       });
     }
+
+    // clear qps
+    if (this.clear) {
+      this.clear.split(',').forEach(ps => {
+        delete queryObject[ps.trim()];
+      });
+    }
+
+    // append qps
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const param in newQP) {
       queryObject[param] = newQP[param];
@@ -39,20 +57,14 @@ class FuroQpChanger extends FBP(LitElement) {
       }
     }
     const location = `${window.location.pathname}?${qp.join('&')}${window.location.hash}`;
-    if( this._lastLocation !== location){
+    if (this._lastLocation !== location) {
+      // notify furo location
+      window.history.pushState({}, '', location);
 
-
-    // notify furo location
-    window.history.pushState(
-      {},
-      '',
-      location,
-    );
-
-    const now = window.performance.now();
-    const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
-    customEvent.detail = now;
-    this.dispatchEvent(customEvent);
+      const now = window.performance.now();
+      const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
+      customEvent.detail = now;
+      this.dispatchEvent(customEvent);
       this._lastLocation = location;
     }
   }

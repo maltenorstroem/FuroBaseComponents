@@ -2,12 +2,12 @@
   "data": {
     "id": "1",
     "scalar_string": "this is a scalar string",
-    "wrapper_string": {
-      "value": "this is a google wrapper string"
-    },
+    "wrapper_string": "this is a google wrapper string",
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["before"],
+      "labels": {
+        "before": true
+      },
       "attributes": {
         "value-state": "Error",
         "min": "6",
@@ -19,9 +19,7 @@
       }
     },
     "scalar_int32": 14,
-    "wrapper_int32": {
-      "value": 14
-    },
+    "wrapper_int32": 14,
     "fat_int32": {
       "value": 14
     },
@@ -32,13 +30,13 @@
         "label": "override"
       }
     },
-    "wrapper_bool": {
-      "value": true
-    },
+    "wrapper_bool":  true,
     "fat_string_repeated": [
       {
         "value": "this is a furo fat string",
-        "labels": ["before"],
+        "labels": {
+          "before": true
+        },
         "attributes": {
           "value-state": "Error",
           "min": "6",
@@ -51,7 +49,9 @@
       },
       {
         "value": "this is a furo fat string 2",
-        "labels": ["before"],
+        "labels": {
+          "before": true
+        },
         "attributes": {
           "value-state": "Error",
           "min": "6",

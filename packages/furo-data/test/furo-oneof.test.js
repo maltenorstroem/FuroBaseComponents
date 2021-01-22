@@ -44,13 +44,13 @@ describe('furo data oneof', () => {
   it('should clear the siblings when setting one of the oneof fields in a group', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
-    assert.equal(EntityRoot.display_name._value, null);
+    assert.equal(EntityRoot.display_name._value, '');
     assert.equal(EntityRoot.furo_data_checkbox_input._value, null);
 
     EntityRoot.furo_data_checkbox_input._value = true;
     EntityRoot.display_name._value = 'Some Text';
     EntityRoot.furo_data_checkbox_input._value = false;
-    assert.equal(EntityRoot.display_name._value, null);
+    assert.equal(EntityRoot.display_name._value, '');
     assert.equal(EntityRoot.furo_data_checkbox_input._value, false);
 
     done();
@@ -59,7 +59,7 @@ describe('furo data oneof', () => {
   it('should handle complex types for oneof', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
-    assert.equal(EntityRoot.update_mask._value.paths.length, 0);
+
     EntityRoot.other_mask._value = { paths: [2] };
     assert.equal(EntityRoot.other_mask._value.paths.length, 1);
     assert.equal(element.json.other_mask.paths.length, 1);
@@ -77,7 +77,7 @@ describe('furo data oneof', () => {
   it('should be possible to set a complex in a group and then another', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
-    assert.equal(EntityRoot.update_mask._value.paths.length, 0);
+
     EntityRoot.other_mask._value = { paths: [2] };
     assert.equal(EntityRoot.other_mask._value.paths.length, 1);
     assert.equal(element.json.update_mask, null);

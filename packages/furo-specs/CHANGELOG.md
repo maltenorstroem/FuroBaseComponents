@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.17.0...@furo/specs@1.18.0) (2021-01-05)
+
+
+### Features
+
+*  auto select first attribute for ui5-data-collection-dropdown ([c215cf7](https://github.com/theNorstroem/FuroBaseComponents/commit/c215cf7451a49d39c73587d7381b127a0099e691))
+
+
+
+
+
+# [1.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.16.2...@furo/specs@1.17.0) (2020-12-24)
+
+
+### Features
+
+*  timestamp datepicker ([ba6ca80](https://github.com/theNorstroem/FuroBaseComponents/commit/ba6ca80444173bdd0eec7bd86d28d6b285ef81a4))
+
+
+
+
+
+## [1.16.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.16.1...@furo/specs@1.16.2) (2020-12-17)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+## [1.16.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.16.0...@furo/specs@1.16.1) (2020-12-10)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+# [1.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.15.0...@furo/specs@1.16.0) (2020-10-27)
+
+
+### Features
+
+* entity-agent with optional update_mask query param. Use the attribute with-update-mask to enable ([8741476](https://github.com/theNorstroem/FuroBaseComponents/commit/8741476bed39ce1e4b61f7c2823c969c6ed45bff))
+
+
+
+
+
+# [1.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.14.0...@furo/specs@1.15.0) (2020-10-08)
+
+
+### Features
+
+* furo-data-number-input supports google wrapper int type with null value and furo fat int type with empty label. ([009c944](https://github.com/theNorstroem/FuroBaseComponents/commit/009c944dd6bc9c61c9a4cca7fa4eaefbd13b116e))
+
+
+
+
+
 # [1.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.13.0...@furo/specs@1.14.0) (2020-09-03)
 
 

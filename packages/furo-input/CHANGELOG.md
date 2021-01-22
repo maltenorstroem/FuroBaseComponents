@@ -3,6 +3,125 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.8...@furo/input@1.5.9) (2021-01-05)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.5.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.7...@furo/input@1.5.8) (2020-12-24)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.5.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.6...@furo/input@1.5.7) (2020-12-17)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.5.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.5...@furo/input@1.5.6) (2020-12-10)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.5.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.4...@furo/input@1.5.5) (2020-11-27)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.5.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.3...@furo/input@1.5.4) (2020-11-20)
+
+
+### Bug Fixes
+
+* furo-data-collection-dropdown should update bounded data ([136b833](https://github.com/theNorstroem/FuroBaseComponents/commit/136b833e64b12ad04dcfabbf0fb70802348dd1e6))
+
+
+
+
+
+## [1.5.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.2...@furo/input@1.5.3) (2020-11-12)
+
+
+### Bug Fixes
+
+* fixes of number input. Fixes [#105](https://github.com/theNorstroem/FuroBaseComponents/issues/105) ([29a9083](https://github.com/theNorstroem/FuroBaseComponents/commit/29a9083f28b83623fb5a21197874beb49f804c6c))
+
+
+
+
+
+## [1.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.1...@furo/input@1.5.2) (2020-11-05)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.5.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.0...@furo/input@1.5.1) (2020-11-04)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.4...@furo/input@1.5.0) (2020-10-28)
+
+
+### Features
+
+* furo-data-time-input with google.type.TimeOfDay ([c9e3be1](https://github.com/theNorstroem/FuroBaseComponents/commit/c9e3be12515d4c1a7cc66ab566e9900b3b39b806))
+
+
+
+
+
+## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.3...@furo/input@1.4.4) (2020-10-27)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.2...@furo/input@1.4.3) (2020-10-20)
+
+
+### Bug Fixes
+
+* fix ios8601 format. fix ui5-reference-search in order to show display_name initially when there is no collection-injection ([a2b51e6](https://github.com/theNorstroem/FuroBaseComponents/commit/a2b51e60fba206f0826385bf8ddaf7fd69253ef2))
+
+
+
+
+
+## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.1...@furo/input@1.4.2) (2020-10-08)
+
+
+### Bug Fixes
+
+* wrong import ([c294a25](https://github.com/theNorstroem/FuroBaseComponents/commit/c294a25f93955f06e7f9185b9baeaa26c939ca69))
+
+
+
+
+
 ## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.0...@furo/input@1.4.1) (2020-09-03)
 
 **Note:** Version bump only for package @furo/input

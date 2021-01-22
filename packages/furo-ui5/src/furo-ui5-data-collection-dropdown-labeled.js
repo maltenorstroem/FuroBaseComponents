@@ -18,6 +18,15 @@ import './furo-ui5-data-collection-dropdown.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
+  /**
+   * @event value-changed
+   * Fired when value has changed from the component inside.
+   *
+   * detail payload: {*} the value from the value-field. By default the value field is "id"
+   *
+   *  **bubbles**
+   */
+
   constructor(props) {
     super(props);
     this.label = '';
@@ -27,6 +36,7 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
     this.valueField = 'id';
     this.valueSubField = null;
     this.displaySubField = 'display_name';
+    this.autoSelectFirst = false;
   }
 
   /**
@@ -39,6 +49,22 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
 
   static get properties() {
     return {
+      /**
+       * the label for the data-collection-dropdown
+       */
+      label: { type: String },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is required and marked with *.
+       */
+      required: {
+        type: Boolean,
+      },
       /**
        * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
        *
@@ -71,6 +97,11 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
        * @property display-sub-field
        */
       displaySubField: { type: String, attribute: 'display-sub-field', reflect: true },
+      /**
+       * set this attribute to autoSelectFirst the first item in the list, if no item is set in the bounded fieldNode
+       * @type {boolean}
+       */
+      autoSelectFirst: { type: Boolean, attribute: 'auto-select-first', reflect: true },
     };
   }
 
@@ -105,6 +136,14 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
   }
 
   /**
+   * Inject the array of a collection
+   * @param entities
+   */
+  injectEntities(entities) {
+    this._FBPTriggerWire('--injectList', entities);
+  }
+
+  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
@@ -112,10 +151,14 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
+          >${this.label}</ui5-label
+        >
         <furo-ui5-data-collection-dropdown
           content
           id="Input"
+          ?disabled=${this.disabled}
+          auto-select-first=${this.autoSelectFirst}
           sub-field="${this.subField}"
           display-field="${this.displayField}"
           value-field="${this.valueField}"

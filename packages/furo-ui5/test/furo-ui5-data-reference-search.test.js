@@ -191,7 +191,7 @@ describe('furo-ui5-data-reference-search', () => {
   it('should set placeholder  ', done => {
     setTimeout(() => {
       assert.equal(
-        referenceSearch._state.placeholder,
+        referenceSearch.shadowRoot.getElementById('input')._state.placeholder,
         'this is a placeholder',
         'placeholder check',
       );
@@ -201,22 +201,18 @@ describe('furo-ui5-data-reference-search', () => {
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(
-        referenceSearch.binder.fieldNode._meta.label,
-        'person.type.sex.label**',
-        'binding check',
-      );
+      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.label**', 'binding check');
       done();
     }, 15);
   });
 
   it('should inject collections', done => {
     referenceSearch.collectionIn(testCollection);
-
     setTimeout(() => {
-      assert.equal(referenceSearch._state.items.length, 4, 'collection injection check');
+      assert.equal(referenceSearch._collection.length, 4, 'collection injection check');
       done();
-    }, 0);
+    }, 10);
+    entityObject.addEventListener('object-ready', () => {});
   });
 
   it('should show collections according to maxItemsToDisplay', done => {
@@ -224,17 +220,32 @@ describe('furo-ui5-data-reference-search', () => {
     referenceSearch.collectionIn(testCollection);
 
     setTimeout(() => {
-      assert.equal(referenceSearch._state.items.length, 2, 'maxItemsToDisplay check');
+      assert.equal(referenceSearch._collection.length, 2, 'maxItemsToDisplay check');
       done();
-    }, 0);
+    }, 10);
   });
 
   it('should trigger search event ', done => {
     referenceSearch.addEventListener('search', () => {
       done();
     });
-    referenceSearch.filterValue = 'xxx';
-    const customEvent = new Event('input', { bubbles: true, composed: true });
-    referenceSearch.dispatchEvent(customEvent);
+    referenceSearch._searchTerm = 'xxx';
+    referenceSearch._fireSearchEvent();
+  });
+
+  it('should show no result hint by empty response', done => {
+    referenceSearch.collectionIn({});
+    assert.equal(referenceSearch.noResultHint, 'no result found');
+    done();
+  });
+
+  it('should show list', done => {
+    referenceSearch.maxItemsToDisplay = 2;
+    referenceSearch.collectionIn(testCollection);
+    referenceSearch._showList();
+    setTimeout(() => {
+      assert.equal(referenceSearch._listIsOpen, true, '_showList check');
+      done();
+    }, 10);
   });
 });

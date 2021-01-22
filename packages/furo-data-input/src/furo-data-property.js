@@ -2,6 +2,7 @@ import { LitElement, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
+
 // import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode.js';
 
 /**
@@ -102,6 +103,7 @@ class FuroDataProperty extends FBP(LitElement) {
     super();
     this.typemap = {
       'google.type.Date': 'furo-data-date-input',
+      'furo.type.Date': 'furo-data-date-input',
       'google.protobuf.StringValue': 'furo-data-text-input',
       'google.protobuf.FloatValue': 'furo-data-number-input',
       'google.protobuf.Int32Value': 'furo-data-number-input',

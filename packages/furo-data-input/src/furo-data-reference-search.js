@@ -31,6 +31,29 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * ```
  *
+ *  * ### following labels of fat types are supported:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of fat types are supported:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'min_term_length': the minimum number of characters that use should to input to trigger the search
+ * - 'no_result_hint': hint text when result not found by search
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ *
+ * ### following constrains are mapped into the attributes of the fat types :
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
  * ### Styling
  * The following custom properties and mixins are available for styling:
  *
@@ -86,6 +109,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -104,24 +128,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
-
-    // update the value on input changes
-    this.addEventListener('field-value-changed', val => {
-      // set flag empty on empty strings (for fat types)
-      if (val.detail) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
-
-      // update the value
-      this.binder.fieldValue = val.detail;
-
-      this._updateField();
-    });
-    // set flag empty on emptfuroy strings (for fat types)
   }
 
   /**
@@ -282,8 +288,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   _clear() {
     this._clearNoResultHint();
-    this.binder.fieldNode.display_name._value = '';
-
     this.binder.fieldNode.reinit();
     this._updateField();
     this._closeList();
@@ -469,19 +473,15 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this.binder.bindField(fieldNode);
 
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
+      // update the value on input changes
+      this.binder.fieldNode.addEventListener('field-value-changed', val => {
+        // set flag empty on empty strings (for fat types)
+        if (val.detail) {
+          this.binder.deleteLabel('empty');
+        } else {
+          this.binder.addLabel('empty');
+        }
+        this._updateField();
       });
     }
 
@@ -512,7 +512,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         this.removeAttribute('showmaxhint', '');
       }
 
-      this._FBPTriggerWire('--listItemsIjnected', this._collection);
+      this._FBPTriggerWire('--listItemsInjected', this._collection);
 
       if (this._focused) {
         this._showList();
@@ -592,6 +592,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         :host([showmaxhint]) .maxresulthint {
           display: block;
         }
+
         .maxresulthint {
           display: none;
           border-top: 1px solid var(--separator);
@@ -627,7 +628,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       <div class="list" @-item-selected="--itemSelected">
         <template
           is="flow-repeat"
-          ƒ-inject-items="--listItemsIjnected"
+          ƒ-inject-items="--listItemsInjected"
           ƒ-select="--listOpened"
           ƒ-select-next-index="--arrowDownPressed"
           ƒ-select-previous-index="--arrowUpPressed"

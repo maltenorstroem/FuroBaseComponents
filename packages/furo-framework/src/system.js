@@ -105,15 +105,49 @@ export class Init {
     for (const t in Env.api.specs) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const field in Env.api.specs[t].fields) {
+        if (Env.api.specs[t].fields[field].type === 'furo.type.Date') {
+          // re-enable warning until furo.fat.Date is actually supported in furo.
+          /*          console.warn(
+            'furo.type.Date is a deprecated type. Please replace with furo.fat.Date or google.type.Date as soon as possible',
+          ); */
+        }
+
         // Apply the prefix for the default links in furo.Reference types
         if (
           Env.api.specs[t].fields[field].type === 'furo.Reference' &&
           Env.api.specs[t].fields[field].meta &&
           Env.api.specs[t].fields[field].meta.default
         ) {
+          if (typeof Env.api.specs[t].fields[field].meta.default === 'string') {
+            Env.api.specs[t].fields[field].meta.default = JSON.parse(
+              Env.api.specs[t].fields[field].meta.default,
+            );
+          }
           const deeplink = Env.api.specs[t].fields[field].meta.default.link;
-          if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
-            deeplink.href = Env.api.prefix + deeplink.href;
+          if (deeplink && deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
+            Env.api.specs[t].fields[field].meta.default.link.href = Env.api.prefix + deeplink.href;
+          }
+        }
+
+        // Apply the prefix for the default links in furo.Link types
+        if (
+          Env.api.specs[t].fields[field].type === 'furo.Link' &&
+          Env.api.specs[t].fields[field].meta &&
+          Env.api.specs[t].fields[field].meta.default
+        ) {
+          Env.api.specs[t].fields[field].meta.default = JSON.parse(
+            Env.api.specs[t].fields[field].meta.default,
+          );
+          // Apply only when the prefix is not hard coded in the specs
+          const deeplink = Env.api.specs[t].fields[field].meta.default;
+          if (
+            deeplink &&
+            deeplink.href &&
+            deeplink.href.length &&
+            deeplink.href.startsWith('/') &&
+            !deeplink.href.startsWith(`${Env.api.prefix}/`)
+          ) {
+            Env.api.specs[t].fields[field].meta.default.href = Env.api.prefix + deeplink.href;
           }
         }
       }

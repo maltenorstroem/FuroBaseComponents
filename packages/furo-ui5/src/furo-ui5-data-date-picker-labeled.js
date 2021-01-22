@@ -17,6 +17,12 @@ import './furo-ui5-form-field-container.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
+  /**
+   * Fired when the input operation has finished by pressing Enter or on focusout.
+   * the event detail is the date in IOS 8601 format
+   * @event value-changed
+   */
+
   constructor(props) {
     super(props);
     this.label = '';
@@ -31,7 +37,24 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      /**
+       * the label for the data-date-picker
+       */
+      label: { type: String },
+      /**
+       * A Boolean attribute which, if present, means this field is required and marked with *.
+       */
+      required: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
+    };
   }
 
   static get styles() {
@@ -64,10 +87,15 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
+          >${this.label}</ui5-label
+        >
         <furo-ui5-data-date-picker
           content
           id="Input"
+          min-date="0001-01-01"
+          max-date="9999-12-31"
+          ?disabled=${this.disabled}
           ƒ-bind-data="--data"
         ></furo-ui5-data-date-picker>
       </furo-ui5-form-field-container>

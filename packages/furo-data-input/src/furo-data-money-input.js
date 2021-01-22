@@ -17,7 +17,26 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
  *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="chf,eur,usd"></furo-data-money-input>
  *
- * Tags: money input
+ * ### following labels of fat types are supported:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of fat types are supported:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ * ### following constrains are mapped into the attributes of the fat types :
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
  * @summary  Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields
  * @customElement
  * @demo demo-furo-data-money-input Data binding
@@ -57,6 +76,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -83,8 +103,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       } else {
         this.binder.addLabel('empty');
       }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
 
       // update the value
       this.binder.fieldValue = val.detail;
@@ -96,8 +114,8 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     this.shadowRoot.getElementById('wrapper').addEventListener('value-changed', e => {
       e.stopPropagation();
 
-      if (e.path[0]) {
-        if (e.path[0].nodeName === 'FURO-SELECT-INPUT') {
+      if (e.composedPath()[0]) {
+        if (e.composedPath()[0].nodeName === 'FURO-SELECT-INPUT') {
           this.binder.fieldValue = this._convertDataToMoneyObj(
             e.detail,
             '',
@@ -105,7 +123,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           );
         }
 
-        if (e.path[0].nodeName === 'FURO-NUMBER-INPUT') {
+        if (e.composedPath()[0].nodeName === 'FURO-NUMBER-INPUT') {
           this.binder.fieldValue = this._convertDataToMoneyObj(
             '',
             e.detail,
@@ -162,21 +180,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateField();
       });
@@ -413,9 +416,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           width: 90px;
           margin-left: var(--spacing-xs);
         }
+
         furo-number-input {
           width: calc(100% - var(--spacing-xs) - 90px);
         }
+
         :host {
           width: 190px;
         }

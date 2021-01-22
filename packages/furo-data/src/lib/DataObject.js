@@ -57,6 +57,14 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
+   * clears all errors on every fieldnode
+   */
+  clearAllErrors() {
+    // broadcast clearAllErrors request to all fields
+    this.broadcastEvent(new NodeEvent('clear-all-errors-requested', this));
+  }
+
+  /**
    * Injecten eines raw models wie bspw body oder entity einer collection
    * @param rawEntity
    */
@@ -103,20 +111,6 @@ export class DataObject extends EventTreeNode {
     return this._type === type;
   }
 
-  /**
-   * Inits the EntityNode
-   */
-  init() {
-    this.broadcastEvent(new NodeEvent('disable-validation', this));
-    for (let i = this.__childNodes.length - 1; i >= 0; i -= 1) {
-      this.__childNodes[i].reinit();
-    }
-    this._initFieldsFromSpec(this, this._spec.fields);
-    this._pristine = true;
-    this._isValid = true;
-    this.broadcastEvent(new NodeEvent('enable-validation', this));
-  }
-
   get rawEntity() {
     return this._rawEntity;
   }
@@ -127,6 +121,24 @@ export class DataObject extends EventTreeNode {
    */
   get _value() {
     return this.getJson();
+  }
+
+  /**
+   * returns the value of the data object as a base64 encoded string
+   * @return {string}
+   * @private
+   */
+  get _base64() {
+    return btoa(JSON.stringify(this._value));
+  }
+
+  /**
+   * Set the value of the data object with a base64 encoded string
+   * @param encodedData
+   * @private
+   */
+  set _base64(encodedData) {
+    this.injectRaw(JSON.parse(atob(encodedData)));
   }
 
   /**

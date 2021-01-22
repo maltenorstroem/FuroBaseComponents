@@ -3,6 +3,161 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.40](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.39...@furo/config@1.3.40) (2021-01-18)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.39](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.38...@furo/config@1.3.39) (2021-01-12)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.38](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.37...@furo/config@1.3.38) (2021-01-12)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.37](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.36...@furo/config@1.3.37) (2021-01-05)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.36](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.35...@furo/config@1.3.36) (2020-12-24)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.35](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.34...@furo/config@1.3.35) (2020-12-17)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.34](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.33...@furo/config@1.3.34) (2020-12-10)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.33](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.32...@furo/config@1.3.33) (2020-12-01)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.32](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.31...@furo/config@1.3.32) (2020-11-27)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.30...@furo/config@1.3.31) (2020-11-24)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.30](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.29...@furo/config@1.3.30) (2020-11-20)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.28...@furo/config@1.3.29) (2020-11-14)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.27...@furo/config@1.3.28) (2020-11-12)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.26...@furo/config@1.3.27) (2020-11-05)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.25...@furo/config@1.3.26) (2020-11-04)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.24...@furo/config@1.3.25) (2020-10-28)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.23...@furo/config@1.3.24) (2020-10-27)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.22...@furo/config@1.3.23) (2020-10-20)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [1.3.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.21...@furo/config@1.3.22) (2020-10-08)
+
+
+### Bug Fixes
+
+* notify changes on parent config node ([1e1a7a7](https://github.com/theNorstroem/FuroBaseComponents/commit/1e1a7a7cba0c9eb2990e093911876939775b9a36))
+
+
+
+
+
 ## [1.3.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.20...@furo/config@1.3.21) (2020-09-03)
 
 **Note:** Version bump only for package @furo/config

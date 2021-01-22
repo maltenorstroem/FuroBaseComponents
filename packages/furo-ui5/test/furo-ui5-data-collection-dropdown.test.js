@@ -132,6 +132,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
         <template>
           <furo-ui5-data-collection-dropdown
             ƒ-bind-data="--entity(*.owner)"
+            value-sub-field="id"
           ></furo-ui5-data-collection-dropdown>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
@@ -156,43 +157,23 @@ describe('furo-ui5-data-collection-dropdown', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(input));
 
-  it('should have options from API SPEC', done => {
-    setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3);
-      done();
-    }, 16);
-  });
-
   it('should have the basic attribute values', done => {
     setTimeout(() => {
       assert.equal(dropdown._state.valueState, 'None', 'value-state');
       assert.equal(dropdown._state.disabled, false, 'disabled');
-      assert.equal(dropdown._text, 'person.type.sex.unknown.label**', '_text');
-      assert.equal(dropdown.options.length, 3, 'option count');
+      assert.equal(dropdown._text, '', '_text');
+      assert.equal(dropdown.options.length, 0, 'option count');
       assert.equal(dropdown.subField, 'data', 'subField');
       assert.equal(dropdown.displayField, 'display_name', 'displayField');
       assert.equal(dropdown.displaySubField, 'display_name', 'displaySubField');
       assert.equal(dropdown.valueField, 'id', 'valueField');
-      assert.equal(dropdown.valueSubField, null, 'valueSubField');
+      assert.equal(dropdown.valueSubField, 'id', 'valueSubField');
       assert.equal(dropdown.binder.targetValueField, '_value', 'targetValueField');
       done();
     }, 16);
   });
 
-  it('should activate the correct item', done => {
-    dropdown.valueSubField = 'id';
-    setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
-      input.setValue('male');
-      setTimeout(() => {
-        assert.equal(dropdown._dropdownList[2].selected, true, '', 'check selected item');
-        done();
-      }, 16);
-    }, 16);
-  });
-
   it('should activate the correct item from the bound field', done => {
-    dropdown.valueSubField = 'id';
     dropdown.addEventListener(
       'options-injected',
       () => {
@@ -202,7 +183,25 @@ describe('furo-ui5-data-collection-dropdown', () => {
             assert.equal(dropdown._dropdownList[1].selected, true);
             assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
             done();
-          }, 24);
+          }, 240);
+        }
+      },
+      { once: true },
+    );
+    dropdown.injectEntities(testData.entities);
+  });
+
+  it('should auto select the first element', done => {
+    dropdown.autoSelectFirst = true;
+    dropdown.addEventListener(
+      'item-selected',
+      () => {
+        if (dropdown._dropdownList.length === 4) {
+          setTimeout(() => {
+            assert.equal(dropdown._dropdownList[0].selected, true);
+            assert.equal(dropdown._state._text, 'John Doe, +41783332244');
+            done();
+          }, 16);
         }
       },
       { once: true },

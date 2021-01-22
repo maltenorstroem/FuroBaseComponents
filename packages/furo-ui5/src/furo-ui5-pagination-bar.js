@@ -4,10 +4,10 @@ import { FBP } from '@furo/fbp';
 
 import '@furo/layout';
 import '@ui5/webcomponents/dist/Button.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-first-page.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-last-page.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-next-page.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-prev-page.js';
+import '@ui5/webcomponents-icons/dist/sys-first-page.js';
+import '@ui5/webcomponents-icons/dist/sys-last-page.js';
+import '@ui5/webcomponents-icons/dist/sys-next-page.js';
+import '@ui5/webcomponents-icons/dist/sys-prev-page.js';
 
 // eslint-disable-next-line no-unused-vars
 import { i18n } from '@furo/framework/src/i18n.js';
@@ -57,7 +57,8 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
         :host {
           width: 100%;
           display: block;
-          padding: var(--spacing-xs) 0 var(--spacing-xs) 0;
+          padding: var(--spacing-xs) var(--furo-ui5-pagination-bar-padding-right,var(--spacing, 24px)) var(--spacing-xs) 0;
+          box-sizing: border-box;
           background-color: var(
             --furo-ui5-pagination-bar-background-color,
             var(--surface-light, #fff)

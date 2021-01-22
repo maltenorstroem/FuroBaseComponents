@@ -16,6 +16,12 @@ import './furo-ui5-data-money-input.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
+  /**
+   * Fired when the input value changed.
+   * the event detail is the value of google.type.Money object
+   * @event value-changed
+   */
+
   constructor(props) {
     super(props);
     this.label = '';
@@ -31,8 +37,21 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
 
   static get properties() {
     return {
-      label: {
-        type: String,
+      /**
+       * the label for the data-money-input
+       */
+      label: { type: String },
+      /**
+       * A Boolean attribute which, if present, means this field is required and marked with *.
+       */
+      required: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
       },
     };
   }
@@ -67,10 +86,13 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
+          >${this.label}</ui5-label
+        >
         <furo-ui5-data-money-input
           content
           id="Input"
+          ?disabled=${this.disabled}
           ƒ-bind-data="--data"
         ></furo-ui5-data-money-input>
       </furo-ui5-form-field-container>

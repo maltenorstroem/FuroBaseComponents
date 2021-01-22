@@ -5,7 +5,23 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * `furo-data-file-input`
  * Binds a entityObject field to a furo-file-input field
  *
- * Tags: input
+ *  * ### following labels of fat types are supported:
+ *
+ * - 'error': state of input is error
+ * - 'multiple': indicates that the user may choose more than one file
+ * - 'hidden': input is hidden
+ *
+ * ### following attributes of fat types are supported:
+ *
+ * - 'label': input label
+ * - 'accept': One or more unique file type specifiers describing file types to allow
+ * - 'multiple': furo leading icon of the input
+ * - 'capture': What source to use for capturing image or video data
+ *
+ * ### following constrains are mapped into the attributes of the fat types :
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
  * @summary Binds a entityObject field to a furo-file-input field
  * @customElement
  * @demo demo-furo-data-file-input Data binding
@@ -55,6 +71,7 @@ class FuroDataFileInput extends FuroFileDialog {
     this.binder.labelMappings = {
       error: 'error',
       multiple: 'multiple',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -124,8 +141,6 @@ class FuroDataFileInput extends FuroFileDialog {
           } else {
             this.binder.addLabel('empty');
           }
-
-          this.binder.deleteLabel('pristine');
         }
       });
     });
@@ -216,22 +231,6 @@ class FuroDataFileInput extends FuroFileDialog {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-    }
   }
 }
 

@@ -1,6 +1,6 @@
 const U33eBuilder = require("./u33eBuilder");
 
-class HookInitForm {
+class HookInitRepeat {
   static getPath(ctx) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
@@ -102,9 +102,9 @@ class HookInitForm {
 
     btn.addAttribute("label", "Add " + SPEC.type);
     btn.addFlag("outline");
-    btn.addEventListener("click", "--adderTriggered");
+    btn.addEventListener("click", "--adderTriggered(park)");
     return u33e;
   }
 }
 
-module.exports = HookInitForm;
+module.exports = HookInitRepeat;

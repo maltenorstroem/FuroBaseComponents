@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListGroupItem.js';
-import '@ui5/webcomponents-fiori/dist/NotificationOverflowAction.js';
+import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
 import { Theme } from '@furo/framework';
 
@@ -160,13 +160,20 @@ class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
       notificationGroup.setAttribute('heading', key);
       notificationGroup.showClose = this.showClose;
       notificationGroup.showCounter = this.showCounter;
-      notificationGroup.collapsed = this.collapsed;
+      notificationGroup.collapsed = this.collapsed || true;
       notificationGroup.target = this.target;
       // save the initial message for the later usage
       notificationGroup.message = groups[key];
 
       this.shadowRoot.getElementById('ui5-list').appendChild(notificationGroup);
     });
+  }
+
+  /**
+   * clear all notifications
+   */
+  clearAll() {
+    this.shadowRoot.getElementById('ui5-list').innerHTML = '';
   }
 
   /**

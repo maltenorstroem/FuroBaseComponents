@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.32](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.31...@furo/app@1.3.32) (2021-01-05)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.30...@furo/app@1.3.31) (2020-12-24)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.30](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.29...@furo/app@1.3.30) (2020-12-17)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.28...@furo/app@1.3.29) (2020-12-10)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.27...@furo/app@1.3.28) (2020-11-27)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.26...@furo/app@1.3.27) (2020-11-20)
+
+
+### Bug Fixes
+
+* firefox event problem. ([7e962e8](https://github.com/theNorstroem/FuroBaseComponents/commit/7e962e8990ed1c5fff571c4076022de2f0d3da7b))
+
+
+
+
+
+## [1.3.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.25...@furo/app@1.3.26) (2020-11-12)
+
+
+### Bug Fixes
+
+* Handling google wrapper types as scalar values, because all (most) servers send them so and expects them so. ([00a9ae3](https://github.com/theNorstroem/FuroBaseComponents/commit/00a9ae33177c27c4dc2fd1ca775554a81b9c0970))
+
+
+
+
+
+## [1.3.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.24...@furo/app@1.3.25) (2020-11-05)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.23...@furo/app@1.3.24) (2020-11-04)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.22...@furo/app@1.3.23) (2020-10-28)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.21...@furo/app@1.3.22) (2020-10-27)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.20...@furo/app@1.3.21) (2020-10-20)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.19...@furo/app@1.3.20) (2020-10-08)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
 ## [1.3.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.18...@furo/app@1.3.19) (2020-09-03)
 
 **Note:** Version bump only for package @furo/app
