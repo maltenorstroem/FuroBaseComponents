@@ -3,6 +3,124 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.10...@furo/data-input@1.11.11) (2021-04-01)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.9...@furo/data-input@1.11.10) (2021-03-23)
+
+
+### Bug Fixes
+
+* data properties, lint and format ([ff11f26](https://github.com/theNorstroem/FuroBaseComponents/commit/ff11f265cb037f05258c5af1c6368fcdc326f17a))
+* data prperties ([da47ba0](https://github.com/theNorstroem/FuroBaseComponents/commit/da47ba0eccd2bcab11ae640522b0b70b346c27b2))
+
+
+
+
+
+## [1.11.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.8...@furo/data-input@1.11.9) (2021-03-17)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.7...@furo/data-input@1.11.8) (2021-03-16)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.6...@furo/data-input@1.11.7) (2021-03-12)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.5...@furo/data-input@1.11.6) (2021-03-03)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.4...@furo/data-input@1.11.5) (2021-02-25)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.3...@furo/data-input@1.11.4) (2021-02-25)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.2...@furo/data-input@1.11.3) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+* original data in item-selected event should be the original entity. ([e5403c2](https://github.com/theNorstroem/FuroBaseComponents/commit/e5403c2156b9158578ae62fd6cf59cdbd3f84a0c))
+
+
+
+
+
+## [1.11.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.1...@furo/data-input@1.11.2) (2021-02-09)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [1.11.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.0...@furo/data-input@1.11.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* cursor pointer ([6104060](https://github.com/theNorstroem/FuroBaseComponents/commit/610406021672fb3f5b2496630721f271c747d175))
+
+
+
+
+
+# [1.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.11...@furo/data-input@1.11.0) (2021-01-31)
+
+
+### Features
+
+* the value of data object should be always showed in furo-data-collection-dropdown event the value is not in the dropdown list. ([6054642](https://github.com/theNorstroem/FuroBaseComponents/commit/6054642fef799299fc3a8f38c116f68fb36f89cc))
+
+
+
+
+
+## [1.10.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.10...@furo/data-input@1.10.11) (2021-01-22)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [1.10.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.9...@furo/data-input@1.10.10) (2021-01-18)
 
 

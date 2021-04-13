@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.41](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.40...@furo/app@1.3.41) (2021-04-01)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.40](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.39...@furo/app@1.3.40) (2021-03-17)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.39](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.38...@furo/app@1.3.39) (2021-02-25)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.38](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.37...@furo/app@1.3.38) (2021-02-25)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.37](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.36...@furo/app@1.3.37) (2021-02-12)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.36](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.35...@furo/app@1.3.36) (2021-02-09)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.35](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.34...@furo/app@1.3.35) (2021-02-02)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.34](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.33...@furo/app@1.3.34) (2021-01-31)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [1.3.33](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.32...@furo/app@1.3.33) (2021-01-22)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
 ## [1.3.32](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.31...@furo/app@1.3.32) (2021-01-05)
 
 **Note:** Version bump only for package @furo/app

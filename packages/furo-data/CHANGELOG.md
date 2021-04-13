@@ -3,6 +3,136 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.4...@furo/data@1.20.0) (2021-04-01)
+
+
+### Features
+
+* append grpc error response to data objects ([47e1202](https://github.com/theNorstroem/FuroBaseComponents/commit/47e1202d3e30cd741ffe6fe418edc43244abe19a))
+
+
+
+
+
+## [1.19.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.3...@furo/data@1.19.4) (2021-03-23)
+
+
+### Bug Fixes
+
+* data prperties ([3a5b7ef](https://github.com/theNorstroem/FuroBaseComponents/commit/3a5b7ef4c9d15db26bbc7ec9784786ede2f7710c))
+
+
+
+
+
+## [1.19.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.2...@furo/data@1.19.3) (2021-03-17)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.19.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.1...@furo/data@1.19.2) (2021-03-16)
+
+
+### Bug Fixes
+
+* If required, the complete FieldNode structure will be transmitted. ([034017d](https://github.com/theNorstroem/FuroBaseComponents/commit/034017de1335c74b18c4a058a3cc3b9bdc532c7b))
+
+
+
+
+
+## [1.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.0...@furo/data@1.19.1) (2021-03-12)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [1.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.18.3...@furo/data@1.19.0) (2021-03-03)
+
+
+### Features
+
+* load rel on collection-agent ([6d8030f](https://github.com/theNorstroem/FuroBaseComponents/commit/6d8030fc2321f5d2a1181719453f7c60a573d9b3))
+* load rel on collection-agent ([3c917b3](https://github.com/theNorstroem/FuroBaseComponents/commit/3c917b323b360b595a78438d89ab6f3fe58ec432))
+
+
+
+
+
+## [1.18.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.18.2...@furo/data@1.18.3) (2021-02-25)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.18.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.18.1...@furo/data@1.18.2) (2021-02-25)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+## [1.18.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.18.0...@furo/data@1.18.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+
+
+
+
+
+# [1.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.17.1...@furo/data@1.18.0) (2021-02-09)
+
+
+### Features
+
+* furo-ui5-header-panel lint and format ([4c6a217](https://github.com/theNorstroem/FuroBaseComponents/commit/4c6a2176bb217a1093d96a3c085b6974d7d7c453))
+
+
+
+
+
+## [1.17.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.17.0...@furo/data@1.17.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* treatment of blank values for input fields. Updated demo cases ([f46c8ee](https://github.com/theNorstroem/FuroBaseComponents/commit/f46c8ee39500e8d267726ec5560f48a31bbffae1))
+* update segmented-button, bindings and readonly state ([d63ae94](https://github.com/theNorstroem/FuroBaseComponents/commit/d63ae94dd0bdc285d4c5ce8d55bada55a2749d18))
+
+
+
+
+
+# [1.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.5...@furo/data@1.17.0) (2021-01-31)
+
+
+### Features
+
+* add getData method to dataObject. modify demo and test. ([20ec1d8](https://github.com/theNorstroem/FuroBaseComponents/commit/20ec1d8ccd15baf2755c17d220af214d54b382e3))
+
+
+
+
+
+## [1.16.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.4...@furo/data@1.16.5) (2021-01-22)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [1.16.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.3...@furo/data@1.16.4) (2021-01-18)
 
 **Note:** Version bump only for package @furo/data

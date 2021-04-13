@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework';
+import { Theme } from '@furo/framework/src/theme.js';
 import '@furo/fbp/src/flow-repeat';
 import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
@@ -31,7 +31,7 @@ import './ui5-reference-search-item.js';
  * - 'readonly': input is disabled
  * - 'required': input is required
  * - 'disabled': input is disabled
- * - 'pristine': data is not changed. it is pristine
+ * - 'modified': data is changed
  * - 'condensed': input has condensed display
  *
  * ### following attributes of fat types are supported:
@@ -87,26 +87,11 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
           this.binder.addLabel('empty');
         }
         // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine');
+        this.binder.addLabel('modified');
 
         this._FBPTriggerWire('--listDeselectAll');
 
         this._updateField();
-      });
-
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
       });
 
       this._updateField();
@@ -249,6 +234,24 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
        */
       const customEvent = new Event('search', { composed: true, bubbles: true });
       customEvent.detail = this._searchTerm;
+      this.dispatchEvent(customEvent);
+    } else {
+      /**
+       * empty search term will dereference the fieldNode
+       */
+      this.binder.fieldNode.id.reset();
+      if (this.binder.fieldNode[this.displayField]) {
+        this.binder.fieldNode[this.displayField].reset();
+      } else if (this.binder.fieldNode.display_name) {
+        this.binder.fieldNode.display_name.reset();
+      }
+      /**
+       * @event reset
+       * Triggered when the search term is empty and the bound field is set to empty
+       * detail payload: {Object} fieldNode
+       */
+      const customEvent = new Event('reset', { composed: true, bubbles: true });
+      customEvent.detail = this.binder.fieldNode;
       this.dispatchEvent(customEvent);
     }
   }
@@ -560,7 +563,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         .loading {
           position: absolute;
           overflow: auto;
-          box-shadow: rgba(0, 0, 0, 0.42) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.42) 0 0 0 1px;
           z-index: 1;
           display: none;
           background-color: var(
@@ -579,7 +582,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
 
         .maxresulthint {
           display: none;
-          padding-top: 0px;
+          padding-top: 0;
         }
 
         :host([busy]) .loading {
@@ -617,12 +620,12 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         @-click="--focused"
         placeholder="${this.placeholder}"
       >
-        <ui5-icon id="searchIcon" slot="icon" name="search"></ui5-icon>
+        <ui5-icon slot="icon" name="search" @-click="^^trailing-icon-clicked"></ui5-icon>
       </ui5-input>
 
       <ui5-list class="loading" header-text="" busy></ui5-list>
 
-      <ui5-list mode="SingleSelect" id="resultsList" class="list" @-item-selected="--itemSelected">
+      <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected">
         <template
           is="flow-repeat"
           ƒ-inject-items="--listItemsInjected"

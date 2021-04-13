@@ -48,7 +48,6 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           display: block;
           height: 100%;
           padding-right: var(--spacing);
-          --furo-form-layouter-row-gap: var(--spacing-xs);
         }
 
         :host([hidden]) {
@@ -85,24 +84,23 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-data-text-input</h2>
+      <h2>
+        Demo furo-ui5-data-text-input, furo-ui5-data-textarea-input and furo-ui5-password-input
+      </h2>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter two>
+            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
             <furo-ui5-data-text-input
               style="width: 100%"
               ƒ-bind-data="--entity(*.data.display_name)"
-              value-state="Information"
+              value-state="Error"
             >
               <ui5-icon slot="icon" name="signature"></ui5-icon>
             </furo-ui5-data-text-input>
 
-            <!--            SAP Fiori Design System -->
-            <!--            The label-field ratio is 4:8:0 by default:-->
-
-            <!--            4 grid columns of the responsive grid layout are used by the labels.-->
-            <!--            8 grid columns of the responsive grid layout are used by fields.-->
-            <!--            0 grid columns of the responsive grid layout are used by empty columns.-->
             <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 1em;">
               <div style="grid-column: span 4; justify-self: end; align-self: center;">
                 <ui5-label for="Input" show-colon>Description</ui5-label>
@@ -111,6 +109,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
                 <furo-ui5-data-text-input
                   id="Input"
                   style="width: 100%"
+                  placeholder="Please fill in a description"
                   ƒ-bind-data="--entity(*.data.description)"
                 ></furo-ui5-data-text-input>
               </div>
@@ -135,43 +134,49 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.furo_data_text_input)"
             ></furo-ui5-data-text-input>
             <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.data.furo_data_date_input_google.display_name)"
-            ></furo-ui5-data-text-input>
-            <furo-ui5-data-number-input
               ƒ-bind-data="--entity(*.data.furo_data_number_input)"
-            ></furo-ui5-data-number-input>
+            ></furo-ui5-data-text-input>
             <furo-ui5-data-password-input
-              ƒ-bind-data="--entity(*.data.description)"
+              ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
             ></furo-ui5-data-password-input>
-
-            <furo-ui5-data-checkbox-input
-              ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
-            ></furo-ui5-data-checkbox-input>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--entity(*.data.google_timestamp)"
+            ></furo-ui5-data-text-input>
           </furo-form-layouter>
 
           <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+            <produce-qp-data
+              hidden
+              ƒ-produce="--demoDataRequested"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
           </furo-button-bar>
 
           <p>
-            ui5-text-input with type furo.fat.String bindings.
+            furo-ui5-data-text-input with type Google wrapper String bindings.
+          </p>
+          <furo-form-layouter two>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--entityU(*.data.wrapper_string)"
+            ></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--entityU(*.data.wrapper_string)"
+            ></furo-ui5-data-text-input>
+          </furo-form-layouter>
+
+          <p>
+            furo-ui5-data-text-input with type furo.fat.String bindings.
           </p>
           <furo-form-layouter two>
             <furo-ui5-data-text-input
               ƒ-bind-data="--entityU(*.data.fat_string)"
             ></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-ui5-data-text-input>
+
             <furo-ui5-data-text-input
               ƒ-bind-data="--entityU(*.data.fat_string)"
             ></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-ui5-data-text-input>
-            <furo-ui5-data-number-input
-              ƒ-bind-data="--entityU(*.data.fat_int32)"
-            ></furo-ui5-data-number-input>
+
             <furo-ui5-data-password-input
               ƒ-bind-data="--entityU(*.data.fat_string))"
             ></furo-ui5-data-password-input>
@@ -192,7 +197,6 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             @-data-loaded="--mockdata"
           ></fetch-universal-json>
 
-          <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
           <furo-data-object
             type="universaltest.UniversaltestEntity"
             @-object-ready="--entityU"

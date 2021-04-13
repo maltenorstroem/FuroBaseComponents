@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.6.6...@furo/input@1.6.7) (2021-04-01)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.6.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.6.5...@furo/input@1.6.6) (2021-03-17)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.6.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.6.4...@furo/input@1.6.5) (2021-02-25)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.6.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.6.3...@furo/input@1.6.4) (2021-02-25)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.6.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.6.2...@furo/input@1.6.3) (2021-02-12)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.6.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.6.1...@furo/input@1.6.2) (2021-02-09)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.6.0...@furo/input@1.6.1) (2021-02-02)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.10...@furo/input@1.6.0) (2021-01-31)
+
+
+### Features
+
+* the value of data object should be always showed in furo-data-collection-dropdown event the value is not in the dropdown list. ([6054642](https://github.com/theNorstroem/FuroBaseComponents/commit/6054642fef799299fc3a8f38c116f68fb36f89cc))
+
+
+
+
+
+## [1.5.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.9...@furo/input@1.5.10) (2021-01-22)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
 ## [1.5.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.8...@furo/input@1.5.9) (2021-01-05)
 
 **Note:** Version bump only for package @furo/input

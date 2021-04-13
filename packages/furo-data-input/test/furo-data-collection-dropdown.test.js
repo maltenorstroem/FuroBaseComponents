@@ -86,10 +86,7 @@ describe('furo-data-collection-dropdown', () => {
             ƒ-inject-entities="--responsePerson(*.entities)"
           ></furo-data-collection-dropdown>
 
-          <furo-data-object
-            type="person.Person"
-            @-object-ready="--personDO"
-          ></furo-data-object>
+          <furo-data-object type="person.Person" @-object-ready="--personDO"></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -135,18 +132,12 @@ describe('furo-data-collection-dropdown', () => {
   xit('a11y', () => axeReport(collectionDropdown1));
 
   it('should receive value with bind', done => {
-    entityObject.data.data.description.addEventListener(
-      'this-metas-changed',
-      () => {
-        setTimeout(() => {
-          assert.equal(collectionDropdown1.binder.fieldNode._meta.options.list.length, 2);
-          assert.equal(collectionDropdown1.binder.fieldNode._value, 2);
-          assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
-          done();
-        }, 15);
-      },
-      { once: true },
-    );
+    entityObject.data.data.description.addEventListener('this-metas-changed', () => {
+      assert.equal(collectionDropdown1.binder.fieldNode._meta.options.list.length, 2);
+      assert.equal(collectionDropdown1.binder.fieldNode._value, 'Furo Foundation');
+      assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
+      done();
+    });
 
     deeplink.qpIn({ prj: 1 });
   });
@@ -195,13 +186,6 @@ describe('furo-data-collection-dropdown', () => {
       assert.equal(personDO.data.sex._value, 'female');
       done();
     }, 600);
-  });
-
-  it('should set select as multiple by binding repeated field', done => {
-    setTimeout(() => {
-      assert.equal(collectionDropdown3.multiple, true);
-      done();
-    }, 100);
   });
 
   xit('should set value of select input from the value of repeated field via binding', done => {

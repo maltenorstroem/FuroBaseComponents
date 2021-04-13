@@ -3,6 +3,147 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.5...@furo/data-ui@1.6.6) (2021-04-01)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.6.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.4...@furo/data-ui@1.6.5) (2021-03-23)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.6.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.3...@furo/data-ui@1.6.4) (2021-03-17)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.6.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.2...@furo/data-ui@1.6.3) (2021-03-16)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.6.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.1...@furo/data-ui@1.6.2) (2021-03-12)
+
+
+### Bug Fixes
+
+* if you have a mixed form with display and inputs, the alignment of the label is slightly different. ([203dc36](https://github.com/theNorstroem/FuroBaseComponents/commit/203dc36d9fa7c43e5203ee4561769933375d3205))
+* refactoring of furo-ui5-data-display, attribute handling ([efae61a](https://github.com/theNorstroem/FuroBaseComponents/commit/efae61a69e143cbf8a972aa82a5a4e7f034d25f0))
+
+
+
+
+
+## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.0...@furo/data-ui@1.6.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* data labels formatter ([51652c9](https://github.com/theNorstroem/FuroBaseComponents/commit/51652c9455d637d66cb20654bb55b89f502d21ff))
+
+
+
+
+
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.5.0...@furo/data-ui@1.6.0) (2021-03-03)
+
+
+### Features
+
+* datetime on any axis ([c27c6e0](https://github.com/theNorstroem/FuroBaseComponents/commit/c27c6e00c030026e749bbd65a6228dd336bd33f5))
+* datetime on any axis ([c4b54a0](https://github.com/theNorstroem/FuroBaseComponents/commit/c4b54a03c25542b6a3fbff82107ae308f5f1f0ed))
+
+
+
+
+
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.10...@furo/data-ui@1.5.0) (2021-02-25)
+
+
+### Features
+
+* belize qualitative color palette ([3708d49](https://github.com/theNorstroem/FuroBaseComponents/commit/3708d498d5b82f41bfbcb96588cd48af33090fdd))
+* bubbles ([24b7210](https://github.com/theNorstroem/FuroBaseComponents/commit/24b72107aba333ef1798f993dc69b0664a4df44b))
+* charting init ([ce09a1f](https://github.com/theNorstroem/FuroBaseComponents/commit/ce09a1f29fd40b889e03b922eb427b3af9cab10e))
+* charting init ([10178e9](https://github.com/theNorstroem/FuroBaseComponents/commit/10178e985fed6e4d4781be16f24be6c113504524))
+* charting init some demos ([c8f6be1](https://github.com/theNorstroem/FuroBaseComponents/commit/c8f6be11e6cc5528dae5d782ae63ec6dfc358b2e))
+* click events ([d2f7cf4](https://github.com/theNorstroem/FuroBaseComponents/commit/d2f7cf4ba505e932dad702c6805d22f1f03fed83))
+* data labels option ([fc540cf](https://github.com/theNorstroem/FuroBaseComponents/commit/fc540cf3677f27be98eb5de830df2336ed74e958))
+* data rangebar, multidimensional data ([c320def](https://github.com/theNorstroem/FuroBaseComponents/commit/c320def6b3b10166d96ea52e8704728333328186))
+* demos ([a1615ff](https://github.com/theNorstroem/FuroBaseComponents/commit/a1615ff9a3556b108ecc0b8f230cdc6d74c79142))
+* mini charts ([aacbc36](https://github.com/theNorstroem/FuroBaseComponents/commit/aacbc361124c7fed03bd640b0ce9fd719e4e320b))
+* tooltip flag ([c13dcc6](https://github.com/theNorstroem/FuroBaseComponents/commit/c13dcc6c5e2509a643658b3ac0ef9121c234b1c0))
+* x-axis title ([a572ddc](https://github.com/theNorstroem/FuroBaseComponents/commit/a572ddc349a2822ce627fb10730c34a8b31f7f4f))
+
+
+
+
+
+## [1.4.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.9...@furo/data-ui@1.4.10) (2021-02-25)
+
+
+### Bug Fixes
+
+* disabled state ([15eceab](https://github.com/theNorstroem/FuroBaseComponents/commit/15eceab60983c7fd81b26552b02f5f1303ff9936))
+* repeat fallback with furo-data-repeat ([ef92118](https://github.com/theNorstroem/FuroBaseComponents/commit/ef92118b3934a457d02b891b71f01a347b08deae))
+
+
+
+
+
+## [1.4.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.8...@furo/data-ui@1.4.9) (2021-02-12)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.4.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.7...@furo/data-ui@1.4.8) (2021-02-09)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.4.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.6...@furo/data-ui@1.4.7) (2021-02-02)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.4.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.5...@furo/data-ui@1.4.6) (2021-01-31)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [1.4.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.4...@furo/data-ui@1.4.5) (2021-01-22)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
 ## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.3...@furo/data-ui@1.4.4) (2021-01-18)
 
 **Note:** Version bump only for package @furo/data-ui

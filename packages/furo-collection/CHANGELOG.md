@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.60](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.59...@furo/collection@1.3.60) (2021-04-01)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.59](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.58...@furo/collection@1.3.59) (2021-03-23)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.58](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.57...@furo/collection@1.3.58) (2021-03-17)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.57](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.56...@furo/collection@1.3.57) (2021-03-16)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.56](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.55...@furo/collection@1.3.56) (2021-03-12)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.55](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.54...@furo/collection@1.3.55) (2021-03-05)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.54](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.53...@furo/collection@1.3.54) (2021-03-03)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.53](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.52...@furo/collection@1.3.53) (2021-03-01)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.52](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.51...@furo/collection@1.3.52) (2021-02-25)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.51](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.50...@furo/collection@1.3.51) (2021-02-25)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.50](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.49...@furo/collection@1.3.50) (2021-02-12)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.49](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.48...@furo/collection@1.3.49) (2021-02-09)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.48](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.47...@furo/collection@1.3.48) (2021-02-02)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.47](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.46...@furo/collection@1.3.47) (2021-01-31)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
+## [1.3.46](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.45...@furo/collection@1.3.46) (2021-01-22)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [1.3.45](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.44...@furo/collection@1.3.45) (2021-01-18)
 
 **Note:** Version bump only for package @furo/collection

@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.11...@furo/framework@1.6.0) (2021-04-01)
+
+
+### Features
+
+* static translation routine for field placeholder added ([e12ea9f](https://github.com/theNorstroem/FuroBaseComponents/commit/e12ea9f1c61595a0f35f68b66da82f861d4e0b23))
+
+
+
+
+
+## [1.5.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.10...@furo/framework@1.5.11) (2021-02-25)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.9...@furo/framework@1.5.10) (2021-02-25)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.8...@furo/framework@1.5.9) (2021-02-12)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.7...@furo/framework@1.5.8) (2021-02-09)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.6...@furo/framework@1.5.7) (2021-02-02)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+## [1.5.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.5...@furo/framework@1.5.6) (2021-01-22)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
 ## [1.5.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.4...@furo/framework@1.5.5) (2021-01-05)
 
 **Note:** Version bump only for package @furo/framework

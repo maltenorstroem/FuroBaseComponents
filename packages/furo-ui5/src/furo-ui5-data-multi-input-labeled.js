@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
@@ -12,7 +13,7 @@ import './furo-ui5-data-multi-input.js';
  *
  * @summary labeled textarea field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-multi-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
@@ -53,12 +54,19 @@ class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
       disabled: {
         type: Boolean,
       },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
+        type: Boolean,
+      },
     };
   }
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('FuroUi5DataMultiInputLabeled') ||
       css`
         :host {
           display: block;
@@ -66,8 +74,8 @@ class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**
@@ -93,6 +101,7 @@ class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
           content
           id="Input"
           ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ƒ-bind-data="--data"
         ></furo-ui5-data-multi-input>
       </furo-ui5-form-field-container>

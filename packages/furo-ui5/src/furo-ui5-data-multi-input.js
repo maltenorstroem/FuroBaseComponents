@@ -10,7 +10,7 @@ import '@ui5/webcomponents/dist/Token.js';
  *
  * @summary data ui5 data multi input
  * @customElement
- * @demo demo-furo-ui5-data-multi-input bind repeated string
+ * @demo demo-furo-ui5-data-multi-input Basic usage (recommended for repeated strings)
  */
 export class FuroUi5DataMultiInput extends MultiInput.default {
   constructor() {
@@ -49,12 +49,26 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
     });
 
     this.addEventListener('token-delete', event => {
-      this.binder.fieldNode._value = this.binder.fieldNode._value.filter(
-        item => item !== event.detail.token.text,
-      );
-      this._updateItems();
-      this._triggerValueChangedEvent();
+      if (!this.readonly && !this.disabled) {
+        this.binder.fieldNode._value = this.binder.fieldNode._value.filter(
+          item => item !== event.detail.token.text,
+        );
+        this._updateItems();
+        this._triggerValueChangedEvent();
+      }
     });
+  }
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   * @private
+   */
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
   }
 
   /**
@@ -84,10 +98,10 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
     this.binder.labelMappings = {
       'show-value-help-icon': 'showValueHelpIcon',
       'show-suggestions': 'showSuggestions',
-      readonly: 'readonly',
+      readonly: '__readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
     };
 
@@ -128,7 +142,7 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
     });
   }
 
@@ -138,6 +152,12 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
    */
   setValue(val) {
     this.binder.fieldValue = val;
+  }
+
+  set __readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
   }
 
   /**
@@ -157,23 +177,13 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
 
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
         this._updateItems();
         this._triggerValueChangedEvent();
       });
 
-      this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
+      this.binder.fieldNode.addEventListener('this-repeated-field-changed', () => {
         this._updateItems();
       });
 

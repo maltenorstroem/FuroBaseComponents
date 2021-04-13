@@ -168,7 +168,7 @@ export class FieldNode extends EventTreeNode {
       }
     });
 
-    // store __initialValue value for resetting the field
+    // store __initialValue value for setting the field back to the defaults
     this.__initialValue = JSON.stringify(this._value);
   }
 
@@ -215,10 +215,21 @@ export class FieldNode extends EventTreeNode {
   }
 
   /**
-   * resets the field to the initial values from the spec
+   * sets the field to the initial values from the spec
+   * default values are applied
    */
   reinit() {
     this._value = JSON.parse(this.__initialValue);
+  }
+
+  /**
+   * resets the field to empty values
+   * no default values are applied
+   * @param type
+   * @private
+   */
+  reset() {
+    this._value = null;
   }
 
   _createVendorType(type) {
@@ -725,32 +736,20 @@ export class FieldNode extends EventTreeNode {
   }
 
   /**
-   * Returns required fields with all children which are modified or
-   * not readonly
-   * ! readonly || req || modified
+   * Returns required fields with all children
    * @private
    */
   get _requiredValue() {
     if (
-      (this._meta && !this._meta.readonly) ||
-      (this._constraints &&
-        this._constraints.required &&
-        this._constraints.required.is === 'true') ||
-      !this._pristine
+      this._constraints &&
+      this._constraints.required &&
+      this._constraints.required.is === 'true'
     ) {
-      if (this.__childNodes.length > 0) {
-        this.__value = {};
-        // nur reine Daten zurück geben
-        // eslint-disable-next-line guard-for-in,no-restricted-syntax
-        for (const index in this.__childNodes) {
-          const field = this.__childNodes[index];
-          const val = field._requiredValue;
-          if (val !== undefined) {
-            this.__value[field._name] = val;
-          }
-        }
-      }
-      return this.__value;
+      /**
+       * No further checks. The complete FieldNode structure will be
+       * transmitted.
+       */
+      return this._value;
     }
     return undefined;
   }

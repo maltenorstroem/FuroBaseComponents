@@ -3,6 +3,287 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.22.1...@furo/ui5@0.23.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* attribute placeholder, value-state removed. Slot valueStateMessage removed ([4c7a02d](https://github.com/theNorstroem/FuroBaseComponents/commit/4c7a02d773141eae7d9412093b059c63b0a96d63))
+* autoselect-first simulate the possible states ([daab21d](https://github.com/theNorstroem/FuroBaseComponents/commit/daab21dfac0b60a7fd3bce4b59ef28c4979affdd))
+* autoselect-first simulate the possible states ([fdbc1af](https://github.com/theNorstroem/FuroBaseComponents/commit/fdbc1afef9fb7ed91df8e74554a35f0895d5d90c))
+* autoselect-first simulate the possible states ([8ebaaa1](https://github.com/theNorstroem/FuroBaseComponents/commit/8ebaaa13a9c40ccb03594dc34d43f4affdded0d4))
+* clear all should set counter to empty string ([060fa8a](https://github.com/theNorstroem/FuroBaseComponents/commit/060fa8abacdf46b7e14528da153f3dce279c4c07))
+* disable the fieldnode reset ([6f8c8a8](https://github.com/theNorstroem/FuroBaseComponents/commit/6f8c8a8a25ebed89eb42c28fb4f19885287fcafb))
+* disable the fieldnode reset ([b757191](https://github.com/theNorstroem/FuroBaseComponents/commit/b757191fa31cbf6b79fb44788f09a313f03b14c1))
+* disable the fieldnode reset ([2fea72b](https://github.com/theNorstroem/FuroBaseComponents/commit/2fea72ba0f8d777b7e56d13f317319cfd6a2a8bf))
+* initialize field when data object is already given ([0334ddf](https://github.com/theNorstroem/FuroBaseComponents/commit/0334ddf4b6ee9f9ac3195223cbdacd17e7a99c0e))
+* new clear api, shows a google rpc status message (LocalizedMessage) ([313ca05](https://github.com/theNorstroem/FuroBaseComponents/commit/313ca055347de8b1c7ed897ca15ab6fc6c28448e))
+* new structure, more supported types, WIP ([7079e37](https://github.com/theNorstroem/FuroBaseComponents/commit/7079e37c5125fa47e9dcaa30636b2686b503b6cc))
+* new structure, supported types are Bad Request, Help ([5ffba60](https://github.com/theNorstroem/FuroBaseComponents/commit/5ffba6098d26af1c887c768a7112aef5de4c11ec))
+* valueState and valueStateMessage should behavior correctly. ([b4597e4](https://github.com/theNorstroem/FuroBaseComponents/commit/b4597e48e755559ce54dacddae16cbb4f59d03a3))
+
+
+### Features
+
+* new event to update notification counter ([a919bd9](https://github.com/theNorstroem/FuroBaseComponents/commit/a919bd97dde194f7fb3b211b5630c18b628df4c2))
+
+
+
+
+
+## [0.22.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.22.0...@furo/ui5@0.22.1) (2021-03-23)
+
+
+### Bug Fixes
+
+* data properties, lint and format ([ff11f26](https://github.com/theNorstroem/FuroBaseComponents/commit/ff11f265cb037f05258c5af1c6368fcdc326f17a))
+* data prperties ([da47ba0](https://github.com/theNorstroem/FuroBaseComponents/commit/da47ba0eccd2bcab11ae640522b0b70b346c27b2))
+* only the icon color should react ([bfdc55a](https://github.com/theNorstroem/FuroBaseComponents/commit/bfdc55a3da387293e0d55e69c35d7cbe745e93c7))
+
+
+
+
+
+# [0.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.3...@furo/ui5@0.22.0) (2021-03-17)
+
+
+### Features
+
+* make card height controllable by the grid ([daf0354](https://github.com/theNorstroem/FuroBaseComponents/commit/daf0354cc2633326a23f4e95d76ac494bd2e7ff7))
+* make card height controllable by the grid ([0efa2ec](https://github.com/theNorstroem/FuroBaseComponents/commit/0efa2ecac73aea120823c59a46625b8de1981a9d))
+
+
+
+
+
+## [0.21.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.2...@furo/ui5@0.21.3) (2021-03-16)
+
+
+### Bug Fixes
+
+* valueStateMessage in data-ui5-input should not be initiated. ([897750c](https://github.com/theNorstroem/FuroBaseComponents/commit/897750c71fff525a2482343efb38dcc549afd619))
+
+
+
+
+
+## [0.21.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.1...@furo/ui5@0.21.2) (2021-03-12)
+
+
+### Bug Fixes
+
+* alignment label and content ([9cfea04](https://github.com/theNorstroem/FuroBaseComponents/commit/9cfea0439b2c968f1b4e7f8a807fcde2dbb04ed2))
+* content padding size-s, size-m ([e637545](https://github.com/theNorstroem/FuroBaseComponents/commit/e637545d44b3090a4a8d3f4aeb99bea3dc2c084c))
+* display fat int32 empty ([ea520eb](https://github.com/theNorstroem/FuroBaseComponents/commit/ea520ebffe1d81514248ba30b0b67c16e91e8600))
+* if you have a mixed form with display and inputs, the alignment of the label is slightly different. ([203dc36](https://github.com/theNorstroem/FuroBaseComponents/commit/203dc36d9fa7c43e5203ee4561769933375d3205))
+* Problem in col-templ is fixed. add requestUpdate in bindData for display renderers. ([aa9beaa](https://github.com/theNorstroem/FuroBaseComponents/commit/aa9beaabc5f36258a6f5e0e347f578c5f99af390))
+* refactoring of furo-ui5-data-display, attribute handling ([efae61a](https://github.com/theNorstroem/FuroBaseComponents/commit/efae61a69e143cbf8a972aa82a5a4e7f034d25f0))
+* removed invalid field ([c1ddffd](https://github.com/theNorstroem/FuroBaseComponents/commit/c1ddffd17f2a19cbe01f746f9607c9ac42a6722e))
+* show current page on paginator ([4ec81fc](https://github.com/theNorstroem/FuroBaseComponents/commit/4ec81fc3e11db5d826783093e56f01d9b5849754))
+* tabular form of date is right oriented ([1e4746b](https://github.com/theNorstroem/FuroBaseComponents/commit/1e4746b8f8980cce501790b2a2c72c97ef1919eb))
+
+
+
+
+
+## [0.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.0...@furo/ui5@0.21.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* display values on init too ([632b4dd](https://github.com/theNorstroem/FuroBaseComponents/commit/632b4dd7db7de99e1817e332fc17ce01300498c5))
+* path resolving and wire ([d13b1a6](https://github.com/theNorstroem/FuroBaseComponents/commit/d13b1a69f8f2bb78fb58cdff0b44cb9b2862da85))
+* ui5-data-table should warn wrong field path in column. use ui5 avatar in Header panel. ([84777fe](https://github.com/theNorstroem/FuroBaseComponents/commit/84777fe6ad6364719d1b84fc31e977e339f6fe71))
+
+
+
+
+
+# [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.20.0...@furo/ui5@0.21.0) (2021-03-03)
+
+
+### Bug Fixes
+
+* arrow-down should work when man focusout the table by pressing the tab and then focus it again. ([ef74d80](https://github.com/theNorstroem/FuroBaseComponents/commit/ef74d809f52de2ef66130b56bc5ef4080cd18aa3))
+* path depth should be unlimited ([f49ecf0](https://github.com/theNorstroem/FuroBaseComponents/commit/f49ecf03fd3e074039d8617a85add88ffa33ef76))
+
+
+### Features
+
+* add css theme supports. ([33eb477](https://github.com/theNorstroem/FuroBaseComponents/commit/33eb477c851cf6daac6d5f1e9f3679c66acc334f))
+* datetime on any axis ([c4b54a0](https://github.com/theNorstroem/FuroBaseComponents/commit/c4b54a03c25542b6a3fbff82107ae308f5f1f0ed))
+
+
+
+
+
+# [0.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.19.1...@furo/ui5@0.20.0) (2021-03-01)
+
+
+### Bug Fixes
+
+* markup error ([8b4baaf](https://github.com/theNorstroem/FuroBaseComponents/commit/8b4baaf9712399da837449a042a66e5408e0bccc))
+* the head-click event from sap can not cross the shadow root borders. Additional event with better naming and composed=true ([b959f95](https://github.com/theNorstroem/FuroBaseComponents/commit/b959f95a928af6457ab902204aaeb47868ab00f3))
+
+
+### Features
+
+* add key board navigation to ui5-data-table. fix bugs. ([061bcae](https://github.com/theNorstroem/FuroBaseComponents/commit/061bcae8adf08d6b3216d74ab139e1a3b82451a0))
+* show noDataText as default. use hide-no-data-text attribute to hide the noDataText. ([6087a8a](https://github.com/theNorstroem/FuroBaseComponents/commit/6087a8ac24a35c756f2c3589c6bbfdef44154bdb))
+
+
+
+
+
+## [0.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.19.0...@furo/ui5@0.19.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* template should also work in ui5-data-table without define a headers attribute. ([a571b4f](https://github.com/theNorstroem/FuroBaseComponents/commit/a571b4fb9749fc7471f9494188c652f1a6db4d8b))
+* update demo data ([0496d5c](https://github.com/theNorstroem/FuroBaseComponents/commit/0496d5ccddf3bb97e45156b15b78850483f6f9a0))
+
+
+
+
+
+# [0.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.18.1...@furo/ui5@0.19.0) (2021-02-25)
+
+
+### Bug Fixes
+
+* disabled state ([15eceab](https://github.com/theNorstroem/FuroBaseComponents/commit/15eceab60983c7fd81b26552b02f5f1303ff9936))
+* display and value transmission according to google spec ([3779007](https://github.com/theNorstroem/FuroBaseComponents/commit/37790079b9628018db5f915e7635a56126b05810))
+* listener on repeats (add, remove), minor errors in display renderers ([0931748](https://github.com/theNorstroem/FuroBaseComponents/commit/0931748303d313e68f9c5ffe1cdc7ad9119aea6f))
+* negative values in money input ([556b7a6](https://github.com/theNorstroem/FuroBaseComponents/commit/556b7a648fa3d5f2bf69497a930a15fbf9f8f97e))
+* speed up demo with changed listeners ([1a00851](https://github.com/theNorstroem/FuroBaseComponents/commit/1a008513c3d539a5f4af7e56c13a74cf5b6c0e13))
+
+
+### Features
+
+* add templates to the furo-ui5-data-table ([220c05e](https://github.com/theNorstroem/FuroBaseComponents/commit/220c05e062a42409d5bdcd828c61597f9ec6d80d))
+* demo update ([1b7cffe](https://github.com/theNorstroem/FuroBaseComponents/commit/1b7cffe7e3c404f34b53e0440a8e039837c5765f))
+
+
+
+
+
+## [0.18.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.18.0...@furo/ui5@0.18.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* change the type of furo_data_range_input field to float to fix demo. ([10f3f06](https://github.com/theNorstroem/FuroBaseComponents/commit/10f3f0631ddebfda63e2a36987ba74f7bd645347))
+* init invisible components with display:none ([034e490](https://github.com/theNorstroem/FuroBaseComponents/commit/034e490ae04c0ba8e841fb36e616ce9ea845ce71))
+* remove catalog imports ([0fc07b3](https://github.com/theNorstroem/FuroBaseComponents/commit/0fc07b3cfc8586f11a4b360de7e1fe07d6943b89))
+* remove margin on last element ([5645170](https://github.com/theNorstroem/FuroBaseComponents/commit/5645170736cb4b0575a91b4f6823741f82cb84fd))
+* remove unused block element. ([120ecec](https://github.com/theNorstroem/FuroBaseComponents/commit/120ecec1d6a180be07f76337e4200e8246e71dfe))
+* spacings changed ([5b249a3](https://github.com/theNorstroem/FuroBaseComponents/commit/5b249a3f3b67e174a8f5eb6a859f95e27cbf4e6f))
+
+
+
+
+
+# [0.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.17.1...@furo/ui5@0.18.0) (2021-02-09)
+
+
+### Bug Fixes
+
+* demo scrolling ([693d10b](https://github.com/theNorstroem/FuroBaseComponents/commit/693d10b7ebae64f4e6bc20c792a3291eda95dbe2))
+* dereference should fire event. Display component should handle value NULL ([7a28904](https://github.com/theNorstroem/FuroBaseComponents/commit/7a2890400a80ce201383a2279c1d7082fb6d3a73))
+* display field is always readonly. Removed labelMapping ([6144b08](https://github.com/theNorstroem/FuroBaseComponents/commit/6144b080d533e31a7fae15ed1cc5e8f4cafb2fc4))
+* line-height data-size s should be more compact ([0731bd2](https://github.com/theNorstroem/FuroBaseComponents/commit/0731bd24b42bfb1793648e02aa4a5dea9e69ff51))
+* linting ([0dfe871](https://github.com/theNorstroem/FuroBaseComponents/commit/0dfe871c352feb3e1bb4bf09b4a041c05d94050d))
+* minor disable state changes. ([8c4f36f](https://github.com/theNorstroem/FuroBaseComponents/commit/8c4f36f1d0f80e49c14e8697acbbf0610b4f91a3))
+* missing dependencies added ([82bfcf4](https://github.com/theNorstroem/FuroBaseComponents/commit/82bfcf4ccffa0f1a5d2d89ff5f6079ece8f358e3))
+* no padding data-size s ([c191c58](https://github.com/theNorstroem/FuroBaseComponents/commit/c191c58c2f1e0a7a77d53d94cb331ccdf95f087a))
+* scrollable demo ([3c616c4](https://github.com/theNorstroem/FuroBaseComponents/commit/3c616c4ceddb4fa7fd03f505d118a1123576b880))
+* ui5-notification-list should show close button according to the show-close attribute. ([e2a84e2](https://github.com/theNorstroem/FuroBaseComponents/commit/e2a84e2a923047c97c0a6ef9a2ff750e5b79f0db))
+* update ui5-data-textarea-input by data-initiate and value-change. ([46daa7a](https://github.com/theNorstroem/FuroBaseComponents/commit/46daa7a05ec959739ec82d8770ed06962b424da6))
+
+
+### Features
+
+* change label 'pristine' to 'modified' for furo.fat types. ([502ae41](https://github.com/theNorstroem/FuroBaseComponents/commit/502ae419c3a299f625c0d3c254772f1e52793564))
+* furo-ui5-button-bar ([1da2f7c](https://github.com/theNorstroem/FuroBaseComponents/commit/1da2f7cd09e1c449dd2f8b9a9e23a58317950a2f))
+* furo-ui5-button-bar ([619a20c](https://github.com/theNorstroem/FuroBaseComponents/commit/619a20cb36d32ccb39c3c05550ce835b010c6999))
+* furo-ui5-card demos init ([f60671d](https://github.com/theNorstroem/FuroBaseComponents/commit/f60671d34865d185b70b95d8189756762fa34097))
+* furo-ui5-card demos init ([5d8f568](https://github.com/theNorstroem/FuroBaseComponents/commit/5d8f568d910e4f1174aaf90dcd6cf64fceceffb2))
+* furo-ui5-card demos init ([8870efd](https://github.com/theNorstroem/FuroBaseComponents/commit/8870efd1d5501d87ea267b43b4a29d582bfd5dda))
+* furo-ui5-header-panel demo init ([b9231fc](https://github.com/theNorstroem/FuroBaseComponents/commit/b9231fc4982cf837b0b8823d34426c95b0769415))
+* furo-ui5-header-panel demo init ([f875ea0](https://github.com/theNorstroem/FuroBaseComponents/commit/f875ea0cd3fa9803796b08524303806fc4ff2566))
+* furo-ui5-header-panel lint and format ([6c36741](https://github.com/theNorstroem/FuroBaseComponents/commit/6c36741539b13f7e9dcccac99fc5605f6e869f2c))
+* furo-ui5-header-panel lint and format ([4976d98](https://github.com/theNorstroem/FuroBaseComponents/commit/4976d98ac4b2b08fe4b70aaec47b03fee67a46dd))
+* furo-ui5-header-panel tests ([b3329b2](https://github.com/theNorstroem/FuroBaseComponents/commit/b3329b2063d1bb061b6cfe877ed4b7fc5aa0f700))
+
+
+
+
+
+## [0.17.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.17.0...@furo/ui5@0.17.1) (2021-02-02)
+
+
+### Bug Fixes
+
+*  initiate the properties of the ui5-textarea to avoid errors. modify the import sequence in furo-catalog ([bbe9da6](https://github.com/theNorstroem/FuroBaseComponents/commit/bbe9da6fee12a10bd5f3b1d0e1a94511566182a2))
+*  ui5-data-textarea-input should support value state and value state messages. ([7688f32](https://github.com/theNorstroem/FuroBaseComponents/commit/7688f320fe6435d61ee0d75df96ba9fa234e5fb2))
+* boolean components like checkbox, radio, radio group and segmented button ([baec511](https://github.com/theNorstroem/FuroBaseComponents/commit/baec5112933612f2b4d38d537d81388e4085a704))
+* data-display and data-ro now behave the same ([164e52a](https://github.com/theNorstroem/FuroBaseComponents/commit/164e52a579326f1a626ab910902df096670348e9))
+* disabled state demo form-field-container ([f511b1c](https://github.com/theNorstroem/FuroBaseComponents/commit/f511b1c4b17efb86bd9d5c011f93cd1f2d7460f5))
+* display content with ::first-line ([54a5ba7](https://github.com/theNorstroem/FuroBaseComponents/commit/54a5ba74c9b6d7fb7a78280cdf0f3ce9b559c674))
+* display with the same line-height ([8152eab](https://github.com/theNorstroem/FuroBaseComponents/commit/8152eab911531ccd63f2b664b7055aeb02535437))
+* empty search will dereference bound fieldNode ([0906ce2](https://github.com/theNorstroem/FuroBaseComponents/commit/0906ce23a016b82452406578b7f67daaff790594))
+* empty state money input with preservation of the currency code suggestion ([64f41eb](https://github.com/theNorstroem/FuroBaseComponents/commit/64f41eb25b2b9f1d746c1402d79236875dbfbfef))
+* fix fallback value ([f7b07b0](https://github.com/theNorstroem/FuroBaseComponents/commit/f7b07b030c3d5da2cba5ce79e7fcab68c5724b67))
+* keyboard navigation, event changed ([277ac05](https://github.com/theNorstroem/FuroBaseComponents/commit/277ac055afabc62d47c7c1685ddcd3eb06069a9b))
+* label top ([60ab3df](https://github.com/theNorstroem/FuroBaseComponents/commit/60ab3df2a2080e147a8ca89545ea6a7afde9556c))
+* ration changed from 2:10 to 3:9 ([ab86c70](https://github.com/theNorstroem/FuroBaseComponents/commit/ab86c708bd9f7723528aed90cc231136babf7847))
+* toggle button binding for fat, wrapper and scalar ([50aa7e0](https://github.com/theNorstroem/FuroBaseComponents/commit/50aa7e034da3595e22076c2b32e947d1692d8ddf))
+* treatment of blank values for input fields. Updated demo cases ([f46c8ee](https://github.com/theNorstroem/FuroBaseComponents/commit/f46c8ee39500e8d267726ec5560f48a31bbffae1))
+* update segmented-button, bindings and readonly state ([d63ae94](https://github.com/theNorstroem/FuroBaseComponents/commit/d63ae94dd0bdc285d4c5ce8d55bada55a2749d18))
+
+
+
+
+
+# [0.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.16.0...@furo/ui5@0.17.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* css ([9487dc6](https://github.com/theNorstroem/FuroBaseComponents/commit/9487dc6d98101f88f580d7f44031829a583e91a0))
+* DevX log the wrong component not the source of the binder ([2f4310c](https://github.com/theNorstroem/FuroBaseComponents/commit/2f4310c0ec51925d3be580d32572b00a7634d304))
+* minor fixes. ([f3f62b9](https://github.com/theNorstroem/FuroBaseComponents/commit/f3f62b9dc9c953e177c8cd4d8db7a7983e2acda5))
+* reduce imports by importing the concrete elements only ([9bf5dc1](https://github.com/theNorstroem/FuroBaseComponents/commit/9bf5dc1caa086b0710e3e37f55fcce0fec58bb57))
+
+
+### Features
+
+* the value of data object should be always showed in furo-data-collection-dropdown event the value is not in the dropdown list. ([6054642](https://github.com/theNorstroem/FuroBaseComponents/commit/6054642fef799299fc3a8f38c116f68fb36f89cc))
+
+
+
+
+
+# [0.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.15.0...@furo/ui5@0.16.0) (2021-01-22)
+
+
+### Bug Fixes
+
+* delegate of the attribute display-field ([c429bb1](https://github.com/theNorstroem/FuroBaseComponents/commit/c429bb1ee4ec246ca47417b217df7d03499ac01e))
+* the display value should be configurable with the attribute display-field ([534ed36](https://github.com/theNorstroem/FuroBaseComponents/commit/534ed36dfa0da385c4f30914821544ece7eefd94))
+* word-wrap added ([2944988](https://github.com/theNorstroem/FuroBaseComponents/commit/2944988f709444ad6d8e29bd3330af5f4224005e))
+
+
+### Features
+
+* keyboard navigation for ui5 navigation pad ([fe35c29](https://github.com/theNorstroem/FuroBaseComponents/commit/fe35c29ef1aab5aaa0f1b33ce749d1d94ba0a945))
+* the value of bounded data object always counts in ui5-data-collection-dropdown ([65dd676](https://github.com/theNorstroem/FuroBaseComponents/commit/65dd676aa673af50c9ddd0a9604ba5ca5cab90ca))
+
+
+
+
+
 # [0.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.14.0...@furo/ui5@0.15.0) (2021-01-18)
 
 

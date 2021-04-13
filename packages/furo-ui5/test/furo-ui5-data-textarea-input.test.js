@@ -13,6 +13,8 @@ describe('furo-ui5-data-textarea-input', () => {
   let host;
   let input;
   let dao;
+  let inputFat;
+  let daoFat;
 
   const testRecordMeta = {
     data: {
@@ -69,6 +71,15 @@ describe('furo-ui5-data-textarea-input', () => {
         units: 3333,
         nanos: 75100000,
       },
+      fat_string: {
+        value: 'fat string from record',
+        labels: ['cozy'],
+        attributes: {
+          'value-state': 'Error',
+          errortext: 'Your fat string is valid',
+          icon: 'thumb-up',
+        },
+      },
     },
     links: [
       {
@@ -109,15 +120,24 @@ describe('furo-ui5-data-textarea-input', () => {
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
           ></furo-data-object>
+          <furo-ui5-data-textarea-input
+            ƒ-bind-data="--entityU(*.data.fat_string)"
+          ></furo-ui5-data-textarea-input>
+          <furo-data-object
+            type="universaltest.UniversaltestEntity"
+            @-object-ready="--entityU"
+          ></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, input, dao] = testbind.parentNode.children;
+    [, input, dao, inputFat, daoFat] = testbind.parentNode.children;
     await host.updateComplete;
     await input.updateComplete;
     await dao.updateComplete;
+    await inputFat.updateComplete;
+    await daoFat.updateComplete;
   });
 
   it('should be a furo-ui5-data-textarea-input element', done => {
@@ -145,8 +165,8 @@ describe('furo-ui5-data-textarea-input', () => {
 
   it('should update the fieldNode', done => {
     input.setValue('new text set');
-    assert.equal(input._state.value, 'new text set', 'check internal text');
     setTimeout(() => {
+      assert.equal(input._state.value, 'new text set', 'check internal text');
       assert.equal(dao.data.data.furo_data_textarea_input._value, 'new text set', 'check dao');
       done();
     }, 16);
@@ -164,5 +184,25 @@ describe('furo-ui5-data-textarea-input', () => {
         done();
       }, 16);
     }
+  });
+
+  it('should apply valueState to the bound field ', done => {
+    daoFat.addEventListener('data-injected', () => {
+      setTimeout(() => {
+        assert.equal(inputFat._state.disabled, false, 'check disabled');
+        assert.equal(inputFat._state.readonly, false, 'check readonly');
+        assert.equal(inputFat._state.required, false, 'check required');
+        assert.equal(inputFat._state.value, 'fat string from record', 'check value');
+        assert.equal(inputFat._state.valueState, 'Error', 'check valueState');
+        assert.equal(
+          inputFat.__errorMsg,
+          'Your fat string is valid',
+          'check valueStateMessage content',
+        );
+        done();
+      }, 0);
+    });
+
+    daoFat.injectRaw(testRecordMeta);
   });
 });

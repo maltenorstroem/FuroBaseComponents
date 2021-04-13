@@ -2,7 +2,10 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
-import '@furo/layout';
+import '@furo/layout/src/furo-horizontal-flex.js';
+import '@furo/layout/src/furo-empty-spacer.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/util/src/furo-navigation-pad.js';
 import '@ui5/webcomponents/dist/Button.js';
 import '@ui5/webcomponents-icons/dist/sys-first-page.js';
 import '@ui5/webcomponents-icons/dist/sys-last-page.js';
@@ -57,7 +60,8 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
         :host {
           width: 100%;
           display: block;
-          padding: var(--spacing-xs) var(--furo-ui5-pagination-bar-padding-right,var(--spacing, 24px)) var(--spacing-xs) 0;
+          padding: var(--spacing-xs)
+            var(--furo-ui5-pagination-bar-padding-right, var(--spacing, 24px)) var(--spacing-xs) 0;
           box-sizing: border-box;
           background-color: var(
             --furo-ui5-pagination-bar-background-color,
@@ -154,6 +158,8 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
    * @param href
    */
   getCurrentPage(href) {
+    // assume that we are on the first page, if the qp "page" is not set
+    this.currentPage = 1;
     if (href) {
       const regex = /page=[\d]*/;
       const page = href.match(regex);
@@ -161,6 +167,48 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
         this.currentPage = page[0].substring(5);
       }
     }
+  }
+
+  _FBPReady() {
+    super._FBPReady();
+    const btns = this.shadowRoot.querySelectorAll('ui5-button');
+
+    /**
+     * Register hook on wire --navigated to
+     * catch navigation events
+     */
+    this._FBPAddWireHook('--navigated', e => {
+      let start;
+      const enabledButtons = [];
+      btns.forEach(btn => {
+        if (!btn.disabled) {
+          const c = enabledButtons.push(btn);
+          if (btn.focused) {
+            start = c - 1;
+          }
+        }
+      });
+      // eslint-disable-next-line default-case
+      switch (e) {
+        case 'ArrowRight':
+          if (start + 1 >= enabledButtons.length) {
+            enabledButtons[0].focus();
+          } else {
+            enabledButtons[start + 1].focus();
+          }
+
+          break;
+        case 'ArrowLeft':
+          // eslint-disable-next-line eqeqeq
+          if (start == 0) {
+            enabledButtons[enabledButtons.length - 1].focus();
+          } else {
+            enabledButtons[start - 1].focus();
+          }
+
+          break;
+      }
+    });
   }
 
   /**
@@ -205,6 +253,7 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
           ?disabled="${!this.last}"
         ></ui5-button>
       </furo-horizontal-flex>
+      <furo-navigation-pad @-navigated="--navigated"></furo-navigation-pad>
     `;
   }
 }

@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.4.0...@furo/fbp@5.4.1) (2021-04-01)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+# [5.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.10...@furo/fbp@5.4.0) (2021-02-25)
+
+
+### Features
+
+* charting init ([10178e9](https://github.com/theNorstroem/FuroBaseComponents/commit/10178e985fed6e4d4781be16f24be6c113504524))
+
+
+
+
+
+## [5.3.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.9...@furo/fbp@5.3.10) (2021-02-25)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.3.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.8...@furo/fbp@5.3.9) (2021-02-12)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.3.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.7...@furo/fbp@5.3.8) (2021-02-09)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.6...@furo/fbp@5.3.7) (2021-02-02)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
+## [5.3.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.5...@furo/fbp@5.3.6) (2021-01-22)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
 ## [5.3.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.4...@furo/fbp@5.3.5) (2021-01-05)
 
 **Note:** Version bump only for package @furo/fbp

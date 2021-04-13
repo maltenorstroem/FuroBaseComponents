@@ -1,4 +1,6 @@
 import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
+import { css } from 'lit-element';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 
@@ -56,6 +58,30 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
   }
 
   /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|{}}
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
+  }
+
+  /**
    * apply the binding set to the binder
    * binding set can be customised here otherwise the standard set in the ui5-data-input will be used
    * @param fieldNode
@@ -79,10 +105,10 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '_readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
       wrap: 'wrap',
     };
@@ -117,7 +143,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
 
       this._requestUpdate();
     });
@@ -131,22 +157,22 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
         this._requestUpdate();
       });
     }
+  }
+
+  /**
+   * extend styling
+   * @returns {string}
+   */
+  static get styles() {
+    return `${css`` + super.styles}
+        :host([left]) .ui5-checkbox-root{
+          width: auto;
+        }
+      `;
   }
 
   /**

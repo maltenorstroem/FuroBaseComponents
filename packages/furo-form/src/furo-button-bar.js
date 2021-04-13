@@ -10,7 +10,7 @@ import '@furo/layout/src/furo-horizontal-flex';
  * @customElement
  * @demo demo-furo-button-bar Demo button bar
  */
-class FuroButtonBar extends LitElement {
+export class FuroButtonBar extends LitElement {
   constructor() {
     super();
     this._entity = {};
@@ -209,6 +209,9 @@ class FuroButtonBar extends LitElement {
 
         ::slotted(*) {
           margin: var(--spacing-xs, 8px) var(--spacing-xs, 8px) var(--spacing-xs, 8px) 0;
+        }
+        ::slotted(*:last-child) {
+          margin-right: 0;
         }
 
         furo-horizontal-flex {

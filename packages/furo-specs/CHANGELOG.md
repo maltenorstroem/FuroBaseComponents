@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.20.2...@furo/specs@1.20.3) (2021-02-25)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+## [1.20.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.20.1...@furo/specs@1.20.2) (2021-02-25)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+## [1.20.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.20.0...@furo/specs@1.20.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* change the type of furo_data_range_input field to float to fix demo. ([10f3f06](https://github.com/theNorstroem/FuroBaseComponents/commit/10f3f0631ddebfda63e2a36987ba74f7bd645347))
+
+
+
+
+
+# [1.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.19.1...@furo/specs@1.20.0) (2021-02-09)
+
+
+### Features
+
+* furo-ui5-card demos init ([5d8f568](https://github.com/theNorstroem/FuroBaseComponents/commit/5d8f568d910e4f1174aaf90dcd6cf64fceceffb2))
+
+
+
+
+
+## [1.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.19.0...@furo/specs@1.19.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* update segmented-button, bindings and readonly state ([d63ae94](https://github.com/theNorstroem/FuroBaseComponents/commit/d63ae94dd0bdc285d4c5ce8d55bada55a2749d18))
+
+
+
+
+
+# [1.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.18.0...@furo/specs@1.19.0) (2021-01-22)
+
+
+### Features
+
+* the value of bounded data object always counts in ui5-data-collection-dropdown ([65dd676](https://github.com/theNorstroem/FuroBaseComponents/commit/65dd676aa673af50c9ddd0a9604ba5ca5cab90ca))
+
+
+
+
+
 # [1.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.17.0...@furo/specs@1.18.0) (2021-01-05)
 
 

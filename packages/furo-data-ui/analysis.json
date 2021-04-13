@@ -1171,6 +1171,1861 @@
       ]
     },
     {
+      "description": "`furo-chart-display`\n Component to display charts with apex the apex charts lib (https://github.com/apexcharts/apexcharts.js).\n\n Use `furo-data-chart-binder` to connect your data.\n\n ```html\n <furo-chart-display chart-type=\"bar\">\n    <furo-data-chart-binder\n        ƒ-bind-data=\"--projectDAO(*.entities)\"\n        data-field=\"data.cost_limit.units\"\n        category-field=\"data.description\"\n    ></furo-data-chart-binder>\n </furo-chart-display>\n ```",
+      "summary": "Display charts with data objects",
+      "path": "src/furo-chart-display.js",
+      "properties": [
+        {
+          "name": "sparkline",
+          "type": "boolean | null | undefined",
+          "description": "Hides all elements of the chart other than the primary graphic.\nUse this to visualize data in very small areas.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 268,
+              "column": 2
+            },
+            "end": {
+              "line": 270,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "xaxisTitle",
+          "type": "string | null | undefined",
+          "description": "Give the x-axis a title which will be displayed below the axis labels by default.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 272,
+              "column": 2
+            },
+            "end": {
+              "line": 274,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "xaxisDatetime",
+          "type": "boolean | null | undefined",
+          "description": "Set this to true if you have datetime, google.type.date or timestamp data on the x-axis",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 276,
+              "column": 2
+            },
+            "end": {
+              "line": 287,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "zebra",
+          "type": "string | null | undefined",
+          "description": "set zebra color like zebra=\"#f3f4f5, #fff\" to get stripes",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 289,
+              "column": 2
+            },
+            "end": {
+              "line": 295,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "noDataText",
+          "type": "string | null | undefined",
+          "description": "Set the text to display, if no data is given.\n\nIf this option is not set, the default is **No data.**",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 297,
+              "column": 2
+            },
+            "end": {
+              "line": 299,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legend",
+          "type": "boolean | null | undefined",
+          "description": "Enables the legend on bottom left with offset 0:0",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 301,
+              "column": 2
+            },
+            "end": {
+              "line": 303,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "dataLabels",
+          "type": "boolean | null | undefined",
+          "description": "Enable labels with data on every item.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 305,
+              "column": 2
+            },
+            "end": {
+              "line": 307,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "tooltip",
+          "type": "boolean | null | undefined",
+          "description": "show a tooltip on mouseover",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 309,
+              "column": 2
+            },
+            "end": {
+              "line": 311,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legendAlign",
+          "type": "string | null | undefined",
+          "description": "Aligns the legend to `left` `center` `right`\n\ndefault is **left**",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 313,
+              "column": 2
+            },
+            "end": {
+              "line": 315,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legendPosition",
+          "type": "string | null | undefined",
+          "description": "Set the position of the legend to `top`, `right`, `bottom`, `left`\n\nDefault is **bottom**",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 317,
+              "column": 2
+            },
+            "end": {
+              "line": 319,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legendOffsetX",
+          "type": "number | null | undefined",
+          "description": "Moves the legend in the **x** direction for n pixels from `legend-position`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 321,
+              "column": 2
+            },
+            "end": {
+              "line": 323,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legendOffsetY",
+          "type": "number | null | undefined",
+          "description": "Moves the legend in the **y** direction for n pixels from `legend-position`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 325,
+              "column": 2
+            },
+            "end": {
+              "line": 327,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "toolbar",
+          "type": "boolean | null | undefined",
+          "description": "Enables the toolbar",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 329,
+              "column": 2
+            },
+            "end": {
+              "line": 331,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "toolbarDownload",
+          "type": "boolean | null | undefined",
+          "description": "Enables the download option in the toolbar (svg,csv,png)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 333,
+              "column": 2
+            },
+            "end": {
+              "line": 335,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "plotHorizontal",
+          "type": "boolean | null | undefined",
+          "description": "Enable this to draw the bars horizontally",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 337,
+              "column": 2
+            },
+            "end": {
+              "line": 339,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "grid",
+          "type": "boolean | null | undefined",
+          "description": "Draw the horizontal grid lines",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 341,
+              "column": 2
+            },
+            "end": {
+              "line": 343,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "chartType",
+          "type": "string | null | undefined",
+          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 345,
+              "column": 2
+            },
+            "end": {
+              "line": 347,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "stacked",
+          "type": "boolean | null | undefined",
+          "description": "WORK IN PROGRESS\nStacked bar charts are not mixable",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 349,
+              "column": 2
+            },
+            "end": {
+              "line": 351,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleText",
+          "type": "string | null | undefined",
+          "description": "Set the title.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 353,
+              "column": 2
+            },
+            "end": {
+              "line": 355,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleAlign",
+          "type": "string | null | undefined",
+          "description": "Aligns the title. Possible values are 'left', 'center', 'right'\n\nDefault is **left**",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 357,
+              "column": 2
+            },
+            "end": {
+              "line": 359,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleOffsetX",
+          "type": "number | null | undefined",
+          "description": "Moves the title for n pixels on the x-axis from the alignment direction",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 361,
+              "column": 2
+            },
+            "end": {
+              "line": 363,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleOffsetY",
+          "type": "number | null | undefined",
+          "description": "Moves the title for n pixels on the y-axis from the alignment direction",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 365,
+              "column": 2
+            },
+            "end": {
+              "line": 367,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "fixedHeight",
+          "type": "number | null | undefined",
+          "description": "Set a fixed height for the plot. Default is auto, this can be useful if you need to control the heights",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 369,
+              "column": 2
+            },
+            "end": {
+              "line": 371,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_initChart",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 373,
+              "column": 2
+            },
+            "end": {
+              "line": 382,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "apexOptions"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 387,
+              "column": 2
+            },
+            "end": {
+              "line": 407,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_registerDataSourceComponents",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 409,
+              "column": 2
+            },
+            "end": {
+              "line": 463,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dataSources"
+            }
+          ]
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 1154,
+              "column": 2
+            },
+            "end": {
+              "line": 1161,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        },
+        {
+          "name": "_fillInitialData",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 1163,
+              "column": 2
+            },
+            "end": {
+              "line": 1179,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-data-chart-mini",
+          "description": "Small Charts"
+        },
+        {
+          "url": "demo-furo-data-chart",
+          "description": "Basic Usage"
+        },
+        {
+          "url": "demo-furo-data-chart-mixed",
+          "description": "Mixed Charts"
+        },
+        {
+          "url": "demo-furo-data-chart-stacked",
+          "description": "Stacked Charts"
+        },
+        {
+          "url": "demo-furo-data-chart-timeline",
+          "description": "Timeline Chart"
+        },
+        {
+          "url": "demo-furo-data-chart-treemap",
+          "description": "Treemap"
+        },
+        {
+          "url": "demo-furo-data-chart-bubble",
+          "description": "Bubble"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 1180,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroChartDisplay",
+      "attributes": [
+        {
+          "name": "sparkline",
+          "description": "Hides all elements of the chart other than the primary graphic.\nUse this to visualize data in very small areas.",
+          "sourceRange": {
+            "start": {
+              "line": 268,
+              "column": 2
+            },
+            "end": {
+              "line": 270,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "xaxis-title",
+          "description": "Give the x-axis a title which will be displayed below the axis labels by default.",
+          "sourceRange": {
+            "start": {
+              "line": 272,
+              "column": 2
+            },
+            "end": {
+              "line": 274,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "xaxis-datetime",
+          "description": "Set this to true if you have datetime, google.type.date or timestamp data on the x-axis",
+          "sourceRange": {
+            "start": {
+              "line": 276,
+              "column": 2
+            },
+            "end": {
+              "line": 287,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "zebra",
+          "description": "set zebra color like zebra=\"#f3f4f5, #fff\" to get stripes",
+          "sourceRange": {
+            "start": {
+              "line": 289,
+              "column": 2
+            },
+            "end": {
+              "line": 295,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "no-data-text",
+          "description": "Set the text to display, if no data is given.\n\nIf this option is not set, the default is **No data.**",
+          "sourceRange": {
+            "start": {
+              "line": 297,
+              "column": 2
+            },
+            "end": {
+              "line": 299,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "legend",
+          "description": "Enables the legend on bottom left with offset 0:0",
+          "sourceRange": {
+            "start": {
+              "line": 301,
+              "column": 2
+            },
+            "end": {
+              "line": 303,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "data-labels",
+          "description": "Enable labels with data on every item.",
+          "sourceRange": {
+            "start": {
+              "line": 305,
+              "column": 2
+            },
+            "end": {
+              "line": 307,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "tooltip",
+          "description": "show a tooltip on mouseover",
+          "sourceRange": {
+            "start": {
+              "line": 309,
+              "column": 2
+            },
+            "end": {
+              "line": 311,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "legend-align",
+          "description": "Aligns the legend to `left` `center` `right`\n\ndefault is **left**",
+          "sourceRange": {
+            "start": {
+              "line": 313,
+              "column": 2
+            },
+            "end": {
+              "line": 315,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "legend-position",
+          "description": "Set the position of the legend to `top`, `right`, `bottom`, `left`\n\nDefault is **bottom**",
+          "sourceRange": {
+            "start": {
+              "line": 317,
+              "column": 2
+            },
+            "end": {
+              "line": 319,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "legend-offset-x",
+          "description": "Moves the legend in the **x** direction for n pixels from `legend-position`",
+          "sourceRange": {
+            "start": {
+              "line": 321,
+              "column": 2
+            },
+            "end": {
+              "line": 323,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "legend-offset-y",
+          "description": "Moves the legend in the **y** direction for n pixels from `legend-position`",
+          "sourceRange": {
+            "start": {
+              "line": 325,
+              "column": 2
+            },
+            "end": {
+              "line": 327,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "toolbar",
+          "description": "Enables the toolbar",
+          "sourceRange": {
+            "start": {
+              "line": 329,
+              "column": 2
+            },
+            "end": {
+              "line": 331,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "toolbar-download",
+          "description": "Enables the download option in the toolbar (svg,csv,png)",
+          "sourceRange": {
+            "start": {
+              "line": 333,
+              "column": 2
+            },
+            "end": {
+              "line": 335,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "plot-horizontal",
+          "description": "Enable this to draw the bars horizontally",
+          "sourceRange": {
+            "start": {
+              "line": 337,
+              "column": 2
+            },
+            "end": {
+              "line": 339,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "grid",
+          "description": "Draw the horizontal grid lines",
+          "sourceRange": {
+            "start": {
+              "line": 341,
+              "column": 2
+            },
+            "end": {
+              "line": 343,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "chart-type",
+          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
+          "sourceRange": {
+            "start": {
+              "line": 345,
+              "column": 2
+            },
+            "end": {
+              "line": 347,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "stacked",
+          "description": "WORK IN PROGRESS\nStacked bar charts are not mixable",
+          "sourceRange": {
+            "start": {
+              "line": 349,
+              "column": 2
+            },
+            "end": {
+              "line": 351,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "title-text",
+          "description": "Set the title.",
+          "sourceRange": {
+            "start": {
+              "line": 353,
+              "column": 2
+            },
+            "end": {
+              "line": 355,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "title-align",
+          "description": "Aligns the title. Possible values are 'left', 'center', 'right'\n\nDefault is **left**",
+          "sourceRange": {
+            "start": {
+              "line": 357,
+              "column": 2
+            },
+            "end": {
+              "line": 359,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "title-offset-x",
+          "description": "Moves the title for n pixels on the x-axis from the alignment direction",
+          "sourceRange": {
+            "start": {
+              "line": 361,
+              "column": 2
+            },
+            "end": {
+              "line": 363,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "title-offset-y",
+          "description": "Moves the title for n pixels on the y-axis from the alignment direction",
+          "sourceRange": {
+            "start": {
+              "line": 365,
+              "column": 2
+            },
+            "end": {
+              "line": 367,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "fixed-height",
+          "description": "Set a fixed height for the plot. Default is auto, this can be useful if you need to control the heights",
+          "sourceRange": {
+            "start": {
+              "line": 369,
+              "column": 2
+            },
+            "end": {
+              "line": 371,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "data-point-clicked",
+          "description": "data-point-clicked\nFired when a marker for this data source was clicked\ndetail payload: Fieldnode\n\nNote: the event is fired from the furo-data-chart-binder",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-chart-display",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-data-chart-binder`\n Connects data objects (repeaterNodes) with the charting lib.\n\n Use multiple binders if you need more then one series per chart.\n\n ```html\n <furo-chart-display chart-type=\"bar\">\n    <furo-data-chart-binder\n        ƒ-bind-data=\"--projectDAO(*.entities)\"\n        data-field=\"data.cost_limit.units\"\n        category-field=\"data.description\"\n    ></furo-data-chart-binder>\n </furo-chart-display>\n ```",
+      "summary": "connect data to a chart",
+      "path": "src/furo-data-chart-binder.js",
+      "properties": [
+        {
+          "name": "axisLabelOpposite",
+          "type": "boolean | null | undefined",
+          "description": "Put the axis label on the opposite site (usually right)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 158,
+              "column": 2
+            },
+            "end": {
+              "line": 160,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisLabel",
+          "type": "string | null | undefined",
+          "description": "Text for the y axis",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 162,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisLabelColor",
+          "type": "string | null | undefined",
+          "description": "Custom color for the y axis description text",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 2
+            },
+            "end": {
+              "line": 170,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisBorder",
+          "type": "boolean | null | undefined",
+          "description": "Show a border on the right side of the y axis descriptions and labels.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 2
+            },
+            "end": {
+              "line": 174,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisBorderColor",
+          "type": "string | null | undefined",
+          "description": "Custom color for the border.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 176,
+              "column": 2
+            },
+            "end": {
+              "line": 178,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisTicks",
+          "type": "boolean | null | undefined",
+          "description": "Show tick marks on the y axis.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 2
+            },
+            "end": {
+              "line": 182,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisTooltip",
+          "type": "boolean | null | undefined",
+          "description": "Show a tooltip with the current value while hovering.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 184,
+              "column": 2
+            },
+            "end": {
+              "line": 186,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisTicksColor",
+          "type": "string | null | undefined",
+          "description": "Custom color for the ticks",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 188,
+              "column": 2
+            },
+            "end": {
+              "line": 190,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "seriesName",
+          "type": "string | null | undefined",
+          "description": "Series with same name will get the same y-axis",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 192,
+              "column": 2
+            },
+            "end": {
+              "line": 194,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legendLabel",
+          "type": "string | null | undefined",
+          "description": "Label the Series for the legend. This text is also shown on the tooltips. This is useful when you have more then one data series.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 196,
+              "column": 2
+            },
+            "end": {
+              "line": 198,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "dataField",
+          "type": "string | null | undefined",
+          "description": "Define the data field or fields here. For most charts this is **the y axis**.\n\nSome charts requires more then one data field (i.e. bubbles want at least 3 fields `data-field=\"data.start.day, data.end.day, data.start.day\"` ).",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 6
+            },
+            "end": {
+              "line": 84,
+              "column": 58
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "categoryField",
+          "type": "string | null | undefined",
+          "description": "Define the category field here (only 1 field). You can think of this as it is the x axis for your chart.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 6
+            },
+            "end": {
+              "line": 88,
+              "column": 66
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "chartType",
+          "type": "string | null | undefined",
+          "description": "**Use this for mixed charts scenarios only**, prefer to define the chart-type on the chart-display.\nSpecify the default type on the display and set the custom type on this binder.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 6
+            },
+            "end": {
+              "line": 102,
+              "column": 58
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "chartColor",
+          "type": "string | null | undefined",
+          "description": "If you need to give an explicit color for the series you can use this attribute.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 6
+            },
+            "end": {
+              "line": 106,
+              "column": 60
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "strokeCurve",
+          "type": "string | null | undefined",
+          "description": "Define the curve style for line and area charts.\n\n Possible values: 'smooth', 'straight',  'stepline'",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 144,
+              "column": 6
+            },
+            "end": {
+              "line": 144,
+              "column": 61
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number | null | undefined",
+          "description": "Define the thickness of the lines in px.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 148,
+              "column": 6
+            },
+            "end": {
+              "line": 148,
+              "column": 68
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "markerSize",
+          "type": "number | null | undefined",
+          "description": "Set the size of the markers (hover state) in px.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 152,
+              "column": 6
+            },
+            "end": {
+              "line": 152,
+              "column": 66
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "xaxis",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 154,
+              "column": 6
+            },
+            "end": {
+              "line": 154,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "bindData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 200,
+              "column": 2
+            },
+            "end": {
+              "line": 210,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "data"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_dataPointSelection",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 212,
+              "column": 2
+            },
+            "end": {
+              "line": 223,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            },
+            {
+              "name": "context"
+            },
+            {
+              "name": "config"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_convertData",
+          "description": "Prepares the data for the according chart display\n\nsome charts want 1 dimensional data (pie, donut) and others expect more dimensions (boxplot,...)",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 232,
+              "column": 2
+            },
+            "end": {
+              "line": 377,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_initEmptySeries",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 379,
+              "column": 2
+            },
+            "end": {
+              "line": 392,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_pathGet",
+          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 403,
+              "column": 2
+            },
+            "end": {
+              "line": 416,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to read"
+            }
+          ],
+          "return": {
+            "type": "*",
+            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
+          }
+        },
+        {
+          "name": "_split",
+          "description": "eslint-disable-next-line class-methods-use-this",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 419,
+              "column": 2
+            },
+            "end": {
+              "line": 421,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path"
+            }
+          ]
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-data-chart-mini",
+          "description": "Small Charts"
+        },
+        {
+          "url": "demo-furo-data-chart",
+          "description": "Basic Usage"
+        },
+        {
+          "url": "demo-furo-data-chart-mixed",
+          "description": "Mixed Charts"
+        },
+        {
+          "url": "demo-furo-data-chart-stacked",
+          "description": "Stacked Charts"
+        },
+        {
+          "url": "demo-furo-data-chart-timeline",
+          "description": "Timeline Chart"
+        },
+        {
+          "url": "demo-furo-data-chart-treemap",
+          "description": "Treemap"
+        },
+        {
+          "url": "demo-furo-data-chart-bubble",
+          "description": "Bubble"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 29,
+          "column": 0
+        },
+        "end": {
+          "line": 436,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "FuroDataChartBinder",
+      "attributes": [
+        {
+          "name": "axis-label-opposite",
+          "description": "Put the axis label on the opposite site (usually right)",
+          "sourceRange": {
+            "start": {
+              "line": 158,
+              "column": 2
+            },
+            "end": {
+              "line": 160,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-label",
+          "description": "Text for the y axis",
+          "sourceRange": {
+            "start": {
+              "line": 162,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "axis-label-color",
+          "description": "Custom color for the y axis description text",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 2
+            },
+            "end": {
+              "line": 170,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "axis-border",
+          "description": "Show a border on the right side of the y axis descriptions and labels.",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 2
+            },
+            "end": {
+              "line": 174,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-border-color",
+          "description": "Custom color for the border.",
+          "sourceRange": {
+            "start": {
+              "line": 176,
+              "column": 2
+            },
+            "end": {
+              "line": 178,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "axis-ticks",
+          "description": "Show tick marks on the y axis.",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 2
+            },
+            "end": {
+              "line": 182,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-tooltip",
+          "description": "Show a tooltip with the current value while hovering.",
+          "sourceRange": {
+            "start": {
+              "line": 184,
+              "column": 2
+            },
+            "end": {
+              "line": 186,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-ticks-color",
+          "description": "Custom color for the ticks",
+          "sourceRange": {
+            "start": {
+              "line": 188,
+              "column": 2
+            },
+            "end": {
+              "line": 190,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "series-name",
+          "description": "Series with same name will get the same y-axis",
+          "sourceRange": {
+            "start": {
+              "line": 192,
+              "column": 2
+            },
+            "end": {
+              "line": 194,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "legend-label",
+          "description": "Label the Series for the legend. This text is also shown on the tooltips. This is useful when you have more then one data series.",
+          "sourceRange": {
+            "start": {
+              "line": 196,
+              "column": 2
+            },
+            "end": {
+              "line": 198,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "data-field",
+          "description": "Define the data field or fields here. For most charts this is **the y axis**.\n\nSome charts requires more then one data field (i.e. bubbles want at least 3 fields `data-field=\"data.start.day, data.end.day, data.start.day\"` ).",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 6
+            },
+            "end": {
+              "line": 84,
+              "column": 58
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "category-field",
+          "description": "Define the category field here (only 1 field). You can think of this as it is the x axis for your chart.",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 6
+            },
+            "end": {
+              "line": 88,
+              "column": 66
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "chart-type",
+          "description": "**Use this for mixed charts scenarios only**, prefer to define the chart-type on the chart-display.\nSpecify the default type on the display and set the custom type on this binder.",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 6
+            },
+            "end": {
+              "line": 102,
+              "column": 58
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "chart-color",
+          "description": "If you need to give an explicit color for the series you can use this attribute.",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 6
+            },
+            "end": {
+              "line": 106,
+              "column": 60
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "stroke-curve",
+          "description": "Define the curve style for line and area charts.\n\n Possible values: 'smooth', 'straight',  'stepline'",
+          "sourceRange": {
+            "start": {
+              "line": 144,
+              "column": 6
+            },
+            "end": {
+              "line": 144,
+              "column": 61
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "stroke-width",
+          "description": "Define the thickness of the lines in px.",
+          "sourceRange": {
+            "start": {
+              "line": 148,
+              "column": 6
+            },
+            "end": {
+              "line": 148,
+              "column": 68
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "marker-size",
+          "description": "Set the size of the markers (hover state) in px.",
+          "sourceRange": {
+            "start": {
+              "line": 152,
+              "column": 6
+            },
+            "end": {
+              "line": 152,
+              "column": 66
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "xaxis",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 154,
+              "column": 6
+            },
+            "end": {
+              "line": 154,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "data-point-clicked",
+          "description": "data-point-clicked\nFired when a marker for this data source was clicked\ndetail payload: Fieldnode",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "data-updated",
+          "description": "data-updated\nFired when datasource has updated data\ndetail payload: data-series",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-data-chart-binder",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-data-context-menu`\n A  [material design](https://material.io/components/menus/) context menu or menu element.\n\n You have to put a `furo-data-context-menu-display` element in one of the parent elements of the element where you use the `furo-data-context-menu`.\n The app-shell is a good place for that.\n\n```html\n <furo-data-context-menu condensed position=\"below\" ƒ-trigger=\"--menuClkd\" ƒ-bind-data=\"--menuObject\" @-menu-item-selected=\"--menuItem\">\n     <furo-icon-button icon=\"menu\" @-click=\"--menuClkd\"></furo-icon-button>\n </furo-data-context-menu>\n```",
       "summary": "a context menu",
       "path": "src/furo-data-context-menu.js",
@@ -2129,11 +3984,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -2150,11 +4005,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -2171,11 +4026,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -2192,11 +4047,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -2213,11 +4068,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -2234,11 +4089,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -2256,11 +4111,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 72,
               "column": 3
             }
           },
@@ -2276,11 +4131,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 75,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 96,
               "column": 3
             }
           },
@@ -2304,7 +4159,7 @@
           "column": 7
         },
         "end": {
-          "line": 142,
+          "line": 140,
           "column": 1
         }
       },
@@ -2317,11 +4172,11 @@
           "description": "Semicolon separated list of acceptable comparators.\n\nlike: gt, lt",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -2333,11 +4188,11 @@
           "description": "set this to init with this comparator or set the comparator to this value on clear",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -2349,11 +4204,11 @@
           "description": "The label for the input",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -2365,11 +4220,11 @@
           "description": "hide the comparator dropdown",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -2381,11 +4236,11 @@
           "description": "hide the clear",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -2397,11 +4252,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -2433,11 +4288,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -2456,11 +4311,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -2479,11 +4334,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -2502,11 +4357,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -2525,11 +4380,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -2548,11 +4403,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -2572,11 +4427,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 54,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 72,
               "column": 3
             }
           },
@@ -2594,11 +4449,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 75,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 96,
               "column": 3
             }
           },
@@ -2657,11 +4512,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -2675,11 +4530,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -2693,11 +4548,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -2711,11 +4566,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -2729,11 +4584,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -2747,11 +4602,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -2784,11 +4639,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -2807,11 +4662,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -2830,11 +4685,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -2853,11 +4708,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -2876,11 +4731,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -2899,11 +4754,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -2923,11 +4778,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 54,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 72,
               "column": 3
             }
           },
@@ -2945,11 +4800,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 75,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 96,
               "column": 3
             }
           },
@@ -2970,11 +4825,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 19,
+              "line": 18,
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 42,
               "column": 3
             }
           },
@@ -2994,7 +4849,7 @@
           "column": 0
         },
         "end": {
-          "line": 44,
+          "line": 43,
           "column": 1
         }
       },
@@ -3008,11 +4863,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -3026,11 +4881,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -3044,11 +4899,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -3062,11 +4917,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -3080,11 +4935,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -3098,11 +4953,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -3135,11 +4990,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -3158,11 +5013,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -3181,11 +5036,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -3204,11 +5059,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -3227,11 +5082,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -3250,11 +5105,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -3274,11 +5129,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 54,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 72,
               "column": 3
             }
           },
@@ -3296,11 +5151,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 75,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 96,
               "column": 3
             }
           },
@@ -3359,11 +5214,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 6
             },
             "end": {
-              "line": 30,
+              "line": 29,
               "column": 35
             }
           },
@@ -3377,11 +5232,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 34,
+              "line": 33,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 33,
               "column": 74
             }
           },
@@ -3395,11 +5250,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 29
             }
           },
@@ -3413,11 +5268,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 41,
               "column": 84
             }
           },
@@ -3431,11 +5286,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 46,
+              "line": 45,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 45,
               "column": 59
             }
           },
@@ -3449,11 +5304,11 @@
           "sourceRange": {
             "file": "basefilter.js",
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 46,
               "column": 34
             }
           },
@@ -3469,6 +5324,357 @@
       },
       "slots": [],
       "tagname": "furo-data-filter-slot",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "INITIAL VERSION\n`furo-data-filter-text`\nText element bindable with type filter.Condition",
+      "summary": "text filter",
+      "path": "src/furo-data-filter-checkbox.js",
+      "properties": [
+        {
+          "name": "comparators",
+          "type": "string | null | undefined",
+          "description": "Semicolon separated list of acceptable comparators.\n\nlike: gt, lt",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 29,
+              "column": 6
+            },
+            "end": {
+              "line": 29,
+              "column": 35
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          },
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "defaultComparator",
+          "type": "string | null | undefined",
+          "description": "set this to init with this comparator or set the comparator to this value on clear",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 33,
+              "column": 6
+            },
+            "end": {
+              "line": 33,
+              "column": 74
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          },
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "The label for the input",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 37,
+              "column": 6
+            },
+            "end": {
+              "line": 37,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          },
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "hideComparator",
+          "type": "boolean | null | undefined",
+          "description": "hide the comparator dropdown",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 41,
+              "column": 6
+            },
+            "end": {
+              "line": 41,
+              "column": 84
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "hideClear",
+          "type": "boolean | null | undefined",
+          "description": "hide the clear",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 45,
+              "column": 6
+            },
+            "end": {
+              "line": 45,
+              "column": 59
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "condensed",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 46,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 34
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "BaseFilter"
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 53,
+              "column": 2
+            },
+            "end": {
+              "line": 72,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "bindFilterCondition",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 74,
+              "column": 2
+            },
+            "end": {
+              "line": 96,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fc"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 18,
+              "column": 2
+            },
+            "end": {
+              "line": 42,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 43,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "BaseFilter",
+      "name": "FuroDataFilterCheckbox",
+      "attributes": [
+        {
+          "name": "comparators",
+          "description": "Semicolon separated list of acceptable comparators.\n\nlike: gt, lt",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 29,
+              "column": 6
+            },
+            "end": {
+              "line": 29,
+              "column": 35
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined",
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "default-comparator",
+          "description": "set this to init with this comparator or set the comparator to this value on clear",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 33,
+              "column": 6
+            },
+            "end": {
+              "line": 33,
+              "column": 74
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined",
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "label",
+          "description": "The label for the input",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 37,
+              "column": 6
+            },
+            "end": {
+              "line": 37,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined",
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "hide-comparator",
+          "description": "hide the comparator dropdown",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 41,
+              "column": 6
+            },
+            "end": {
+              "line": 41,
+              "column": 84
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "hide-clear",
+          "description": "hide the clear",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 45,
+              "column": 6
+            },
+            "end": {
+              "line": 45,
+              "column": 59
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "BaseFilter"
+        },
+        {
+          "name": "condensed",
+          "description": "",
+          "sourceRange": {
+            "file": "basefilter.js",
+            "start": {
+              "line": 46,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 34
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "BaseFilter"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-data-filter-checkbox",
       "mixins": [
         "FBP"
       ]

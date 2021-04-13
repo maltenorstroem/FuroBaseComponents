@@ -40,14 +40,24 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    // initiate valueStateMessage to avoid error in InputTemplate.lit.js
-    if (this.valueStateMessage === undefined) {
-      this.valueStateMessage = '';
-    }
+    this.attributeReadonly = this.readonly;
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-    this.placeholder = 'dd.MM.yyyy';
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|{}}
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
   }
 
   /**
@@ -88,10 +98,10 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '_readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
     };
 
@@ -115,28 +125,35 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
 
     // update the value on input changes
     this.addEventListener('change', val => {
-      let dateValue = this.value;
-      const dateIOS8601 = FuroUi5DataDatePicker._convertDateToString(new Date(this.dateValue));
-      if (this.binder.fieldNode) {
-        if (
-          this.binder.fieldNode._spec.type === 'google.type.Date' ||
-          this.binder.fieldNode._spec.type === 'furo.type.Date' ||
-          (this.binder.fieldNode['@type'] &&
-            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
-          (this.binder.fieldNode['@type'] &&
-            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
-        ) {
-          dateValue = FuroUi5DataDatePicker._convertDateToGoogleDateObj(
-            new Date(this.dateValue),
-            this.binder.fieldNode._value,
-          );
-        } else if (this.binder.fieldNode._spec.type === 'string') {
-          dateValue = dateIOS8601;
-        }
+      let { dateValue } = val.target;
+      let dateIOS8601 = '';
 
-        if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
-          // update the value
-          this.binder.fieldValue = dateValue;
+      if (val.detail.value === '') {
+        // @maltenorstroem this is to hard and would kill nodes which are of type "any"
+        // this.binder.fieldNode.reset();
+      } else {
+        dateIOS8601 = FuroUi5DataDatePicker._convertDateToString(new Date(dateValue));
+        if (this.binder.fieldNode) {
+          if (
+            this.binder.fieldNode._spec.type === 'google.type.Date' ||
+            this.binder.fieldNode._spec.type === 'furo.type.Date' ||
+            (this.binder.fieldNode['@type'] &&
+              this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
+            (this.binder.fieldNode['@type'] &&
+              this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
+          ) {
+            dateValue = FuroUi5DataDatePicker._convertDateToGoogleDateObj(
+              new Date(dateValue),
+              this.binder.fieldNode._value,
+            );
+          } else if (this.binder.fieldNode._spec.type === 'string') {
+            dateValue = dateIOS8601;
+          }
+
+          if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
+            // update the value
+            this.binder.fieldValue = dateValue;
+          }
         }
       }
 
@@ -150,13 +167,13 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
+      if (val.target.value.length) {
         this.binder.deleteLabel('empty');
       } else {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
     });
   }
 
@@ -206,19 +223,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
+        this._updateInputDateValue();
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {

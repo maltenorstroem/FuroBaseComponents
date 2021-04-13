@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
@@ -12,7 +13,7 @@ import './furo-ui5-data-text-input.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-text-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
@@ -56,9 +57,16 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
         type: Boolean,
       },
       /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       * A Boolean attribute which, if present, means this field cannot be edited by the user and
+       * appears in disabled state.
        */
       disabled: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
         type: Boolean,
       },
     };
@@ -66,7 +74,8 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('FuroUi5DataTextInputLabeled') ||
       css`
         :host {
           display: block;
@@ -74,8 +83,8 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**
@@ -101,9 +110,12 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
           content
           id="Input"
           ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
-        ></furo-ui5-data-text-input>
+        >
+          <div slot="icon"><slot name="icon"></slot></div>
+        </furo-ui5-data-text-input>
       </furo-ui5-form-field-container>
     `;
   }

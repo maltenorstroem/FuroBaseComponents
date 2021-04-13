@@ -69,33 +69,45 @@ class DemoFuroUi5DataMoneyInput extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-form-layouter two>
+              <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+                >Load Demo Data</furo-ui5-button
+              >
+
               <furo-ui5-data-money-input
+                placeholder="Fill in a money amount"
+                step="0.01"
                 options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa"}]}'
                 autofocus
-                ƒ-bind-data="--entity(*.furo_data_money_input)"
+                ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                @-value-changed="--dataChanged"
               ></furo-ui5-data-money-input>
+
               <furo-ui5-data-money-input
                 options='{"list": [ "CHF","EUR","USD" ]}'
-                autofocus
-                ƒ-bind-data="--entity(*.furo_data_money_input)"
+                ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                @-value-changed="--dataChanged"
               ></furo-ui5-data-money-input>
 
               <furo-ui5-data-money-input
                 currencies="CHF,EUR,USD"
-                autofocus
-                ƒ-bind-data="--entity(*.furo_data_money_input)"
+                ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                @-value-changed="--dataChanged"
               ></furo-ui5-data-money-input>
-              <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+
+              <produce-qp-data
+                hidden
+                ƒ-produce="--demoDataRequested"
+                @-data="--qp"
+                qpescaped="%7B%22exp%22%3A1%7D"
+              ></produce-qp-data>
             </furo-form-layouter>
-            <furo-pretty-json
-              ƒ-inject-data="--dataChanged(*.furo_data_money_input._value)"
-            ></furo-pretty-json>
+
+            <furo-pretty-json ƒ-inject-data="--dataChanged"></furo-pretty-json>
 
             <furo-data-object
-              type="experiment.Experiment"
+              type="experiment.ExperimentEntity"
               @-object-ready="--entity"
-              @-data-changed="--dataChanged"
-              ƒ-inject-raw="--response(*.data)"
+              ƒ-inject-raw="--response"
             ></furo-data-object>
             <furo-deep-link
               service="ExperimentService"

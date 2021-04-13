@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.23...@furo/notification@1.4.24) (2021-04-01)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.22...@furo/notification@1.4.23) (2021-03-17)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.21...@furo/notification@1.4.22) (2021-02-25)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.20...@furo/notification@1.4.21) (2021-02-25)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.19...@furo/notification@1.4.20) (2021-02-12)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.18...@furo/notification@1.4.19) (2021-02-09)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.17...@furo/notification@1.4.18) (2021-02-02)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.16...@furo/notification@1.4.17) (2021-01-31)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
+## [1.4.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.15...@furo/notification@1.4.16) (2021-01-22)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
 ## [1.4.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.14...@furo/notification@1.4.15) (2021-01-05)
 
 **Note:** Version bump only for package @furo/notification

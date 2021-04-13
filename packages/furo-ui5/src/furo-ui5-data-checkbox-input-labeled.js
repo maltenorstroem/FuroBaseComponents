@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import { Theme } from '@furo/framework/src/theme';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import './furo-ui5-form-field-container.js';
@@ -12,7 +13,7 @@ import './furo-ui5-data-checkbox-input.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-checkbox-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
@@ -43,6 +44,11 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
       label: { type: String },
 
       /**
+       * html placeholder attribute
+       */
+      placeholder: { type: String },
+
+      /**
        * A Boolean attribute which, if present, means this field is required and marked with *.
        */
       required: {
@@ -55,12 +61,20 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
       disabled: {
         type: Boolean,
       },
+
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
+        type: Boolean,
+      },
     };
   }
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('FuroUi5DataCheckboxInputLabeled') ||
       css`
         :host {
           display: block;
@@ -68,11 +82,8 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-        furo-ui5-data-checkbox-input {
-          width: 44px;
-        }
-      `,
-    ];
+      `
+    );
   }
 
   /**
@@ -81,7 +92,12 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);
-    this._FBPTriggerWire('--label', '');
+
+    fieldNode.addEventListener('this-metas-changed', () => {
+      this._FBPTriggerWire('--placeholder', fieldNode._meta.placeholder || '');
+    });
+
+    this._FBPTriggerWire('--placeholder', this.placeholder || '');
   }
 
   /**
@@ -97,9 +113,11 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
         >
         <furo-ui5-data-checkbox-input
           content
+          left
           id="Input"
           ?disabled=${this.disabled}
-          ƒ-.text="--label"
+          ?readonly=${this.readonly}
+          ƒ-.text="--placeholder"
           ƒ-bind-data="--data"
         ></furo-ui5-data-checkbox-input>
       </furo-ui5-form-field-container>

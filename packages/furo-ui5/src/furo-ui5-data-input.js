@@ -10,7 +10,6 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  *
  * @summary data text input base
  * @customElement
- * @demo demo-furo-fat-type furo fat type
  */
 export class FuroUi5DataInput extends Input.default {
   /**
@@ -30,6 +29,18 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   * @private
+   */
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  /**
    * rewrite get accInfo function
    * initiate _inputAccInfo in order to avoid error
    * @private
@@ -43,23 +54,27 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
-   * connectedCallback() method is called when an element is added to the DOM.
-   * webcomponent lifecycle event
-   * @private
+   * overwrite to fix error
+   * @returns {*|{}}
    */
-  connectedCallback() {
-    // initiate icon slot when it is undefined to avoid error in InputTemplate.lit.js
-    if (this.icon === undefined) {
-      this.icon = [];
-    }
-    if (this.valueStateMessage === undefined) {
-      this.valueStateMessage = '';
-    }
-    if (this.suggestionItems === undefined) {
-      this.suggestionItems = [];
-    }
-    // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|[]}
+   */
+  get suggestionItems() {
+    return super.suggestionItems || [];
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|[]}
+   */
+  get icon() {
+    return super.icon || [];
   }
 
   /**
@@ -82,7 +97,7 @@ export class FuroUi5DataInput extends Input.default {
    * - 'readonly': ui5 component is disabled
    * - 'required': input is required
    * - 'disabled': ui5 component is disabled
-   * - 'pristine': data is not changed. it is pristine
+   * - 'modified': data is changed
    * - 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.
    *
    * ### following attributes of fat types are supported by binding:
@@ -127,17 +142,17 @@ export class FuroUi5DataInput extends Input.default {
       'information-msg': '_informationMsg',
       pattern: 'pattern',
       name: 'name',
-      suggestions: 'suggestions', // suggestion items
+      options: 'suggestions', // suggestion items
       maxlength: 'maxlength', // for the input element itself
     };
 
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '__readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
     };
 
@@ -147,6 +162,7 @@ export class FuroUi5DataInput extends Input.default {
       minlength: 'value._constraints.min.is', // for the fieldnode constraint
       pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
       required: 'value._constraints.required.is', // for the fieldnode constraint
+      'required-msg': 'value._constraints.required.message', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
@@ -161,7 +177,11 @@ export class FuroUi5DataInput extends Input.default {
 
     // update the value on input changes
     this.addEventListener('input', val => {
-      this.binder.fieldValue = val.target.value;
+      if (val.inputType === 'deleteContentBackward') {
+        this.binder.fieldValue = null;
+      } else {
+        this.binder.fieldValue = val.target.value;
+      }
 
       /**
        * Fired when value changed
@@ -178,7 +198,7 @@ export class FuroUi5DataInput extends Input.default {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
     });
   }
 
@@ -198,16 +218,6 @@ export class FuroUi5DataInput extends Input.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
         this._requestUpdate();
@@ -276,6 +286,12 @@ export class FuroUi5DataInput extends Input.default {
     this._updateVS();
   }
 
+  set __readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
+  }
+
   /**
    * store the warning message and update the value state message
    * @param msg
@@ -302,8 +318,10 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _valueState(state) {
-    this.valueState = state || 'None';
-    this._updateVS();
+    if (state) {
+      this.valueState = state;
+      this._updateVS();
+    }
   }
 
   /**
@@ -312,15 +330,11 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _hint(h) {
-    this.__hint = h;
-    // do not set an empty attribute
     if (h) {
-      this.setAttribute('title', h);
-    } else {
-      this.removeAttribute('title');
+      this.valueState = 'Information';
+      this.__hint = h;
+      this._updateVS();
     }
-
-    this.__hint = h;
   }
 
   _updateVS() {
@@ -328,24 +342,19 @@ export class FuroUi5DataInput extends Input.default {
     switch (this.valueState) {
       case 'Error':
         this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
-        this.removeAttribute('title');
         break;
       case 'Information':
         this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
-        this.removeAttribute('title');
         break;
       case 'Success':
         this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
-        this.removeAttribute('title');
         break;
       case 'Warning':
         this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
-        this.removeAttribute('title');
         break;
 
       default:
         this._vsm = this._valueStateMessage || this.__hint;
-        this.setAttribute('title', this._vsm);
     }
     this._setValueStateMessage(this._vsm);
   }
@@ -367,6 +376,8 @@ export class FuroUi5DataInput extends Input.default {
     } else {
       this._valueStateElement.remove();
     }
+
+    this._requestUpdate();
   }
 
   /**
@@ -376,52 +387,60 @@ export class FuroUi5DataInput extends Input.default {
    * @param arr
    */
   set suggestions(arr) {
-    // remove previous suggestion items.
-    this.querySelectorAll('ui5-suggestion-item').forEach(e => {
-      e.remove();
-    });
-
-    if (Array.isArray(arr) && arr.length > 0) {
-      this.showSuggestions = true;
-      this.highlight = true;
-
-      // add current suggestion items
-      arr.forEach(e => {
-        const suggestion = document.createElement('ui5-suggestion-item');
-
-        // suggestions from furo.optionItem
-        if (e.display_name !== undefined) {
-          suggestion.text = e.display_name;
-        }
-        // suggestions from fat attribute
-        if (e.text !== undefined) {
-          suggestion.text = e.text;
-        }
-
-        // appends only when suggestion text exists
-        if (suggestion.text !== undefined) {
-          if (e.icon !== undefined) {
-            suggestion.icon = e.icon;
-          }
-          if (e.image !== undefined) {
-            suggestion.image = e.image;
-          }
-          if (e.type !== undefined) {
-            suggestion.type = e.type;
-          }
-          if (e.infoState !== undefined) {
-            suggestion.infoState = e.infoState;
-          }
-          if (e.group !== undefined) {
-            suggestion.group = e.group;
-          }
-          if (e.key !== undefined) {
-            suggestion.key = e.key;
-          }
-
-          this.appendChild(suggestion);
-        }
+    if (!this.readonly && !this.disabled) {
+      // remove previous suggestion items.
+      this.querySelectorAll('ui5-suggestion-item').forEach(e => {
+        e.remove();
       });
+
+      if (Array.isArray(arr) && arr.length > 0) {
+        this.showSuggestions = true;
+        this.highlight = true;
+
+        // add current suggestion items
+        arr.forEach(e => {
+          const suggestion = document.createElement('ui5-suggestion-item');
+
+          // suggestions from furo.optionItem
+          if (e.id !== undefined) {
+            suggestion.text = e.id;
+          }
+
+          // suggestions from furo.optionItem
+          if (e.display_name !== undefined && e.display_name !== e.id) {
+            suggestion.description = e.display_name;
+          }
+
+          // suggestions from fat attribute
+          if (e.text !== undefined) {
+            suggestion.text = e.text;
+          }
+
+          // appends only when suggestion text exists
+          if (suggestion.text !== undefined) {
+            if (e.icon !== undefined) {
+              suggestion.icon = e.icon;
+            }
+            if (e.image !== undefined) {
+              suggestion.image = e.image;
+            }
+            if (e.type !== undefined) {
+              suggestion.type = e.type;
+            }
+            if (e.infoState !== undefined) {
+              suggestion.infoState = e.infoState;
+            }
+            if (e.group !== undefined) {
+              suggestion.group = e.group;
+            }
+            if (e.key !== undefined) {
+              suggestion.key = e.key;
+            }
+
+            this.appendChild(suggestion);
+          }
+        });
+      }
     }
   }
 }

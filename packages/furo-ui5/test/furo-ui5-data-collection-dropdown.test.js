@@ -7,7 +7,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
 
-import '../src/furo-catalog.js';
+import '../src/furo-ui5-data-collection-dropdown.js';
 
 describe('furo-ui5-data-collection-dropdown', () => {
   let host;
@@ -174,55 +174,42 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item from the bound field', done => {
-    dropdown.addEventListener(
-      'options-injected',
-      () => {
-        if (dropdown._dropdownList.length === 4) {
-          input.setValue('2');
-          setTimeout(() => {
-            assert.equal(dropdown._dropdownList[1].selected, true);
-            assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
-            done();
-          }, 240);
-        }
-      },
-      { once: true },
-    );
+    dao.injectRaw({ owner: { id: '2', display_name: 'test' } });
     dropdown.injectEntities(testData.entities);
+    setTimeout(() => {
+      assert.equal(dropdown._dropdownList[1].selected, true);
+      assert.equal(dropdown._dropdownList[1].id, '2');
+      done();
+    }, 400);
   });
 
   it('should auto select the first element', done => {
     dropdown.autoSelectFirst = true;
-    dropdown.addEventListener(
-      'item-selected',
-      () => {
-        if (dropdown._dropdownList.length === 4) {
-          setTimeout(() => {
-            assert.equal(dropdown._dropdownList[0].selected, true);
-            assert.equal(dropdown._state._text, 'John Doe, +41783332244');
-            done();
-          }, 16);
-        }
-      },
-      { once: true },
-    );
     dropdown.injectEntities(testData.entities);
+    dropdown.click();
+    setTimeout(() => {
+      assert.equal(dropdown._dropdownList[0].selected, true);
+      assert.equal(dropdown._state._text, 'John Doe, +41783332244');
+      done();
+    }, 16);
   });
 
   it('should have options from a collection response', done => {
     dropdown.injectEntities(testData.entities);
+    dropdown.click();
     assert.equal(dropdown._dropdownList.length, 4);
     done();
   });
 
   it('should have options from a array of objects', done => {
-    dropdown.injectList(testDataArray);
+    dropdown.injectEntities(testDataArray);
+    dropdown.click();
     assert.equal(dropdown._dropdownList.length, 3);
     done();
   });
 
   xit('should write the selected item to the dao', done => {
-    dropdown.injectList(testDataArray);
+    dropdown.injectEntities(testDataArray);
     const innerElement = dropdown.shadowRoot.querySelector('ui5-label');
     innerElement.shadowRoot.querySelector('label');
     keydown(innerElement, 'ArrowDown');
@@ -233,5 +220,32 @@ describe('furo-ui5-data-collection-dropdown', () => {
       assert.equal(dao.data.owner.id, 'male');
       done();
     }, 16);
+  });
+
+  it('should show bounded data even when the value of data object is not in the list of dropdown, inject first', done => {
+    dropdown.injectEntities(testDataArray);
+    dao.injectRaw({ owner: { id: 'notFound', display_name: 'not_found' } });
+    assert.equal(dropdown._dropdownList.length, 1);
+    done();
+  });
+
+  it('should show bounded data even when the value of data object is not in the list of dropdown, inject later', done => {
+    dao.injectRaw({ owner: { id: 'notFound', display_name: 'not_found' } });
+    dropdown.injectEntities(testDataArray);
+    assert.equal(dropdown._dropdownList.length, 1);
+    done();
+  });
+
+  it('should send item-selected event with original entity', done => {
+    dropdown.autoSelectFirst = true;
+    dropdown.addEventListener(
+      'item-selected',
+      e => {
+        assert.equal(e.detail.id, 1);
+        done();
+      },
+      { once: true },
+    );
+    dropdown.injectEntities(testDataArray);
   });
 });

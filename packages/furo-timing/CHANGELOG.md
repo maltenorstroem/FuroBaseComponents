@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.56](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.55...@furo/timing@1.3.56) (2021-04-01)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.55](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.54...@furo/timing@1.3.55) (2021-03-23)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.54](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.53...@furo/timing@1.3.54) (2021-03-17)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.53](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.52...@furo/timing@1.3.53) (2021-03-16)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.52](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.51...@furo/timing@1.3.52) (2021-03-03)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.51](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.50...@furo/timing@1.3.51) (2021-02-25)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.50](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.49...@furo/timing@1.3.50) (2021-02-25)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.49](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.48...@furo/timing@1.3.49) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+
+
+
+
+
+## [1.3.48](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.47...@furo/timing@1.3.48) (2021-02-09)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.47](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.46...@furo/timing@1.3.47) (2021-02-02)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.46](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.45...@furo/timing@1.3.46) (2021-01-31)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
+## [1.3.45](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.44...@furo/timing@1.3.45) (2021-01-22)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
 ## [1.3.44](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.43...@furo/timing@1.3.44) (2021-01-18)
 
 **Note:** Version bump only for package @furo/timing

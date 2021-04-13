@@ -3,6 +3,125 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.5.3...@furo/form@1.5.4) (2021-04-01)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.5.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.5.2...@furo/form@1.5.3) (2021-03-23)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.5.1...@furo/form@1.5.2) (2021-03-17)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.5.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.5.0...@furo/form@1.5.1) (2021-03-16)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.4.4...@furo/form@1.5.0) (2021-03-12)
+
+
+### Bug Fixes
+
+* narrower css fix ([5285e83](https://github.com/theNorstroem/FuroBaseComponents/commit/5285e837fc6f1702be96caeca88122de5a44fb13))
+
+
+### Features
+
+* new column variants, some css fixes ([2c6b951](https://github.com/theNorstroem/FuroBaseComponents/commit/2c6b95190879268d3cc75feec1314e3c78d94d81))
+
+
+
+
+
+## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.4.3...@furo/form@1.4.4) (2021-03-03)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.4.2...@furo/form@1.4.3) (2021-02-25)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.4.1...@furo/form@1.4.2) (2021-02-25)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.4.0...@furo/form@1.4.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* remove margin on last element ([5645170](https://github.com/theNorstroem/FuroBaseComponents/commit/5645170736cb4b0575a91b4f6823741f82cb84fd))
+
+
+
+
+
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.46...@furo/form@1.4.0) (2021-02-09)
+
+
+### Features
+
+* furo-ui5-header-panel lint and format ([4c6a217](https://github.com/theNorstroem/FuroBaseComponents/commit/4c6a2176bb217a1093d96a3c085b6974d7d7c453))
+* make furo-button-bar exportable ([6aa5456](https://github.com/theNorstroem/FuroBaseComponents/commit/6aa545686d32e9af24ce293acb9bcdcfddd8c899))
+
+
+
+
+
+## [1.3.46](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.45...@furo/form@1.3.46) (2021-02-02)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.45](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.44...@furo/form@1.3.45) (2021-01-31)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [1.3.44](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.43...@furo/form@1.3.44) (2021-01-22)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [1.3.43](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.42...@furo/form@1.3.43) (2021-01-18)
 
 **Note:** Version bump only for package @furo/form

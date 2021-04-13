@@ -36,10 +36,41 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(() => {
-      super.connectedCallback();
-    }, 0);
+    // initiate icon slot when it is undefined to avoid error in _tokenizeText
+    if (this.value === undefined) {
+      this.value = '';
+    }
+    this.attributeReadonly = this.readonly;
 
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|{}}
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
+  }
+
+  /**
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
+  /**
+   * constructor
+   */
+  constructor() {
+    super();
     this._initBinder();
   }
 
@@ -77,10 +108,10 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '_readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
     };
 
@@ -127,7 +158,7 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
     });
   }
 
@@ -137,6 +168,116 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    */
   setValue(val) {
     this.binder.fieldValue = val;
+  }
+
+  /**
+   * store the error message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _errorMsg(msg) {
+    this.__errorMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the information message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _informationMsg(msg) {
+    this.__informationMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the warning message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _warningMsg(msg) {
+    this.__warningMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the success message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _successMsg(msg) {
+    this.__successMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * Update the value state on change
+   * @param state
+   * @private
+   */
+  set _valueState(state) {
+    this.valueState = state || 'None';
+    this._updateVS();
+  }
+
+  /**
+   * sets and remove the error state
+   * @param err
+   * @private
+   */
+  set _error(err) {
+    if (err) {
+      this._lastValueState = this.valueState;
+      this.valueState = 'Error';
+    } else if (this.valueState === 'Error') {
+      this.valueState = this._lastValueState;
+    }
+  }
+
+  _updateVS() {
+    // set the correct valueStateMessage
+    switch (this.valueState) {
+      case 'Error':
+        this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
+        this.removeAttribute('title');
+        break;
+      case 'Information':
+        this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
+        this.removeAttribute('title');
+        break;
+      case 'Success':
+        this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
+        this.removeAttribute('title');
+        break;
+      case 'Warning':
+        this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
+        this.removeAttribute('title');
+        break;
+
+      default:
+        this._vsm = this._valueStateMessage || this.__hint;
+        this.setAttribute('title', this._vsm);
+    }
+    this._setValueStateMessage(this._vsm);
+  }
+
+  /**
+   * Updates the vs and creates the element in the slot on demand
+   * @param msg
+   * @private
+   */
+  _setValueStateMessage(msg) {
+    // create element
+    if (!this._valueStateElement) {
+      this._valueStateElement = document.createElement('div');
+      this._valueStateElement.slot = 'valueStateMessage';
+    }
+    this._valueStateElement.innerText = msg;
+    if (msg) {
+      this.appendChild(this._valueStateElement);
+    } else {
+      this._valueStateElement.remove();
+    }
   }
 
   /**
@@ -156,20 +297,21 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
 
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
+        this._requestUpdate();
+      });
+
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
+        this._requestUpdate();
       });
     }
+  }
+
+  /**
+   * @private
+   */
+  _requestUpdate() {
+    this._updateSlots();
   }
 }
 window.customElements.define('furo-ui5-data-textarea-input', FuroUi5DataTextareaInput);

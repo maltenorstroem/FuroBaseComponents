@@ -207,25 +207,25 @@ describe('UniversalFieldNodeBinder.test', () => {
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
         assert.equal(pseudocomponent.val, pseudocomponent.binder._fieldValue);
-        assert.equal(pseudocomponent.valueState, 'Error');
         assert.equal(pseudocomponent.maxLength, '6');
+        assert.equal(pseudocomponent.valueState, 'Error');
         assert.equal(pseudocomponent.before, true);
 
         dataobj.addEventListener('data-injected', () => {
           // remove labels which are not in the dataset and restore spec values
-          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 6);
+          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 'otherattribute');
           assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
-          assert.equal(pseudocomponent.before, true);
+          assert.equal(pseudocomponent.before, false);
           assert.equal(pseudocomponent.after, undefined);
-          assert.equal(pseudocomponent.valueState, '');
-          assert.equal(pseudocomponent.maxLength, '');
+          assert.equal(pseudocomponent.valueState, 'Error');
+          assert.equal(pseudocomponent.maxLength, null);
 
           done();
         });
 
         fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json');
 
-        done();
+        // done();
       },
       { once: true },
     );
@@ -339,6 +339,7 @@ describe('UniversalFieldNodeBinder.test', () => {
             max: '16',
             maxlength: '6',
             label: 'override',
+            errortext: 'Error',
             placeholder: 'overridePH',
             minlength: 'small',
           }),
@@ -354,6 +355,7 @@ describe('UniversalFieldNodeBinder.test', () => {
             min: '6',
             max: '16',
             maxlength: '6',
+            errortext: 'Error',
             placeholder: 'overridePH',
             minlength: 'small',
           }),
